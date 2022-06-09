@@ -1209,9 +1209,9 @@ An overview of these properties can be found in the section :ref:<code>Injected 
   
       <p>The <code>StartupPlugin</code> allows hooking into the startup of OctoPrint. It can be used to start up additional services
 on or just after the startup of the server.</p>
-<p><code>StartupPlugin</code> is a [SortablePlugin][octoprint.plugin.core.SortablePlugin] and provides
-sorting contexts for <a class="autorefs autorefs-internal" href="#octoprint.plugin.types.StartupPlugin.on_startup">on_startup</a> as well as
-<a class="autorefs autorefs-internal" href="#octoprint.plugin.types.StartupPlugin.on_after_startup">on_after_startup</a>.</p>
+<p><code>StartupPlugin</code> is a [<code>SortablePlugin</code>][octoprint.plugin.core.SortablePlugin] and provides
+sorting contexts for <a class="autorefs autorefs-internal" href="#octoprint.plugin.types.StartupPlugin.on_startup"><code>on_startup</code></a> as well as
+<a class="autorefs autorefs-internal" href="#octoprint.plugin.types.StartupPlugin.on_after_startup"><code>on_after_startup</code></a>.</p>
 
 
 
@@ -1240,8 +1240,10 @@ sorting contexts for <a class="autorefs autorefs-internal" href="#octoprint.plug
   <div class="doc doc-contents ">
   
       <p>Called just after launch of the server, so when the listen loop is actually running already.</p>
-<p>.. warning::</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
 <p>Do not perform long-running or even blocking operations in your implementation or you <strong>will</strong> block and break the server.</p>
+</div>
 <p>The relevant sorting context is <code>StartupPlugin.on_after_startup</code>.</p>
 
   </div>
@@ -1264,12 +1266,46 @@ sorting contexts for <a class="autorefs autorefs-internal" href="#octoprint.plug
 will listen on. Note that the <code>host</code> may be <code>0.0.0.0</code> if it will listen on all interfaces, so you can't just
 blindly use this for constructing publicly reachable URLs. Also note that when this method is called, the server
 is not actually up yet and none of your plugin's APIs or blueprints will be reachable yet. If you need to be
-externally reachable, use :func:<code>on_after_startup</code> instead or additionally.</p>
-<p>.. warning::</p>
+externally reachable, use <code>on_after_startup</code> instead or additionally.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
 <p>Do not perform long-running or even blocking operations in your implementation or you <strong>will</strong> block and break the server.</p>
+</div>
 <p>The relevant sorting context is <code>StartupPlugin.on_startup</code>.</p>
-<p>:param string host: the host the server will listen on, may be <code>0.0.0.0</code>
-:param int port:    the port the server will listen on</p>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>host</code></td>
+          <td>
+                <code>string</code>
+          </td>
+          <td><p>the host the server will listen on, may be <code>0.0.0.0</code></p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>port</code></td>
+          <td>
+                <code>int</code>
+          </td>
+          <td><p>the port the server will listen on</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
 
   </div>
 
@@ -1293,11 +1329,12 @@ externally reachable, use :func:<code>on_after_startup</code> instead or additio
         Bases: <code><span title="octoprint.plugin.types.OctoPrintPlugin">OctoPrintPlugin</span></code>, <code><span title="octoprint.plugin.core.SortablePlugin">SortablePlugin</span></code></p>
 
   
-      <p>The <code>ShutdownPlugin</code> allows hooking into the shutdown of OctoPrint. It's usually used in conjunction with the
-:class:<code>StartupPlugin</code> mixin, to cleanly shut down additional services again that where started by the :class:<code>StartupPlugin</code>
-part of the plugin.</p>
-<p><code>ShutdownPlugin</code> is a :class:<code>~octoprint.plugin.core.SortablePlugin</code> and provides a sorting context for
-:meth:<code>~octoprint.plugin.ShutdownPlugin.on_shutdown</code>.</p>
+      <p>The <code>ShutdownPlugin</code> allows hooking into the shutdown of OctoPrint. It's usually
+used in conjunction with the <a class="autorefs autorefs-internal" href="#octoprint.plugin.StartupPlugin"><code>StartupPlugin</code></a>
+mixin, to cleanly shut down additional services again that where started by the
+<a class="autorefs autorefs-internal" href="#octoprint.plugin.StartupPlugin"><code>StartupPlugin</code></a> part of the plugin.</p>
+<p><code>ShutdownPlugin</code> is a <a href="octoprint.plugin.core.SortablePlugin"><code>SortablePlugin</code></a> and
+provides a sorting context for <code>ShutdownPlugin.on_shutdown</code>.</p>
 
 
 
@@ -1326,8 +1363,11 @@ part of the plugin.</p>
   <div class="doc doc-contents ">
   
       <p>Called upon the imminent shutdown of OctoPrint.</p>
-<p>.. warning::</p>
-<p>Do not perform long-running or even blocking operations in your implementation or you <strong>will</strong> block and break the server.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not perform long-running or even blocking operations in your
+implementation or you <strong>will</strong> block and break the server.</p>
+</div>
 <p>The relevant sorting context is <code>ShutdownPlugin.on_shutdown</code>.</p>
 
   </div>
@@ -1352,52 +1392,63 @@ part of the plugin.</p>
         Bases: <code><span title="octoprint.plugin.types.OctoPrintPlugin">OctoPrintPlugin</span></code></p>
 
   
-      <p>Including the <code>SettingsPlugin</code> mixin allows plugins to store and retrieve their own settings within OctoPrint's
-configuration.</p>
-<p>Plugins including the mixing will get injected an additional property <code>self._settings</code> which is an instance of
-[<code>PluginSettingsManager</code>][octoprint.plugin.PluginSettings] already properly initialized for use by the plugin. In order for the manager to
-know about the available settings structure and default values upon initialization, implementing plugins will need
-to provide a dictionary with the plugin's default settings through overriding the method :func:<code>get_settings_defaults</code>.
-The defined structure will then be available to access through the settings manager available as <code>self._settings</code>.</p>
-<p>If your plugin needs to react to the change of specific configuration values on the fly, e.g. to adjust the log level
-of a logger when the user changes a corresponding flag via the settings dialog, you can override the
-:func:<code>on_settings_save</code> method and wrap the call to the implementation from the parent class with retrieval of the
-old and the new value and react accordingly.</p>
-<p>Example:</p>
-<p>.. code-block:: python</p>
-<p>import octoprint.plugin</p>
-<p>class MySettingsPlugin(octoprint.plugin.SettingsPlugin, octoprint.plugin.StartupPlugin):
-       def get_settings_defaults(self):
-           return dict(
-               some_setting="foo",
-               some_value=23,
-               sub=dict(
-                   some_flag=True
-               )
-           )</p>
-<div class="highlight"><pre><span></span><code>   def on_settings_save(self, data):
-       old_flag = self._settings.get_boolean([&quot;sub&quot;, &quot;some_flag&quot;])
-
-       octoprint.plugin.SettingsPlugin.on_settings_save(self, data)
-
-       new_flag = self._settings.get_boolean([&quot;sub&quot;, &quot;some_flag&quot;])
-       if old_flag != new_flag:
-           self._logger.info(&quot;sub.some_flag changed from {old_flag} to {new_flag}&quot;.format(**locals()))
-
-   def on_after_startup(self):
-       some_setting = self._settings.get([&quot;some_setting&quot;])
-       some_value = self._settings.get_int([&quot;some_value&quot;])
-       some_flag = self._settings.get_boolean([&quot;sub&quot;, &quot;some_flag&quot;])
-       self._logger.info(&quot;some_setting = {some_setting}, some_value = {some_value}, sub.some_flag = {some_flag}&quot;.format(**locals())
+      <p>Including the <code>SettingsPlugin</code> mixin allows plugins to store and retrieve their own
+settings within OctoPrint's configuration.</p>
+<p>Plugins including the mixing will get injected an additional property <code>self._settings</code>
+which is an instance of [<code>PluginSettingsManager</code>][octoprint.plugin.PluginSettings]
+already properly initialized for use by the plugin. In order for the manager to know
+about the available settings structure and default values upon initialization,
+implementing plugins will need to provide a dictionary with the plugin's default
+settings through overriding the method <code>get_settings_defaults</code>. The defined structure
+will then be available to access through the settings manager available as
+<code>self._settings</code>.</p>
+<p>If your plugin needs to react to the change of specific configuration values on the
+fly, e.g. to adjust the log level of a logger when the user changes a corresponding
+flag via the settings dialog, you can override the <code>on_settings_save</code> method and wrap
+the call to the implementation from the parent class with retrieval of the old and
+the new value and react accordingly.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span> <span class="nn">octoprint.plugin</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">class</span> <span class="nc">MySettingsPlugin</span><span class="p">(</span><span class="n">octoprint</span><span class="o">.</span><span class="n">plugin</span><span class="o">.</span><span class="n">SettingsPlugin</span><span class="p">,</span> <span class="n">octoprint</span><span class="o">.</span><span class="n">plugin</span><span class="o">.</span><span class="n">StartupPlugin</span><span class="p">):</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="k">def</span> <span class="nf">get_settings_defaults</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>        <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>            <span class="n">some_setting</span><span class="o">=</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>            <span class="n">some_value</span><span class="o">=</span><span class="mi">23</span><span class="p">,</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>            <span class="n">sub</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>                <span class="n">some_flag</span><span class="o">=</span><span class="kc">True</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>            <span class="p">)</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>        <span class="p">)</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    <span class="k">def</span> <span class="nf">on_settings_save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>        <span class="n">old_flag</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_settings</span><span class="o">.</span><span class="n">get_boolean</span><span class="p">([</span><span class="s2">&quot;sub&quot;</span><span class="p">,</span> <span class="s2">&quot;some_flag&quot;</span><span class="p">])</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>        <span class="n">octoprint</span><span class="o">.</span><span class="n">plugin</span><span class="o">.</span><span class="n">SettingsPlugin</span><span class="o">.</span><span class="n">on_settings_save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>        <span class="n">new_flag</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_settings</span><span class="o">.</span><span class="n">get_boolean</span><span class="p">([</span><span class="s2">&quot;sub&quot;</span><span class="p">,</span> <span class="s2">&quot;some_flag&quot;</span><span class="p">])</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>        <span class="k">if</span> <span class="n">old_flag</span> <span class="o">!=</span> <span class="n">new_flag</span><span class="p">:</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;sub.some_flag changed from </span><span class="si">{old_flag}</span><span class="s2"> to </span><span class="si">{new_flag}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="nb">locals</span><span class="p">()))</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>    <span class="k">def</span> <span class="nf">on_after_startup</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>        <span class="n">some_setting</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_settings</span><span class="o">.</span><span class="n">get</span><span class="p">([</span><span class="s2">&quot;some_setting&quot;</span><span class="p">])</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>        <span class="n">some_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_settings</span><span class="o">.</span><span class="n">get_int</span><span class="p">([</span><span class="s2">&quot;some_value&quot;</span><span class="p">])</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>        <span class="n">some_flag</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_settings</span><span class="o">.</span><span class="n">get_boolean</span><span class="p">([</span><span class="s2">&quot;sub&quot;</span><span class="p">,</span> <span class="s2">&quot;some_flag&quot;</span><span class="p">])</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;some_setting = </span><span class="si">{some_setting}</span><span class="s2">, some_value = </span><span class="si">{some_value}</span><span class="s2">, sub.some_flag = </span><span class="si">{some_flag}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="nb">locals</span><span class="p">())</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="n">__plugin_implementation__</span> <span class="o">=</span> <span class="n">MySettingsPlugin</span><span class="p">()</span>
 </code></pre></div>
-<p><strong>plugin_implementation</strong> = MySettingsPlugin()</p>
-<p>Of course, you are always free to completely override both :func:<code>on_settings_load</code> and :func:<code>on_settings_save</code> if the
-default implementations do not fit your requirements.</p>
-<p>.. warning::</p>
-<p>Make sure to protect sensitive information stored by your plugin that only logged in administrators (or users)
-   should have access to via :meth:<code>~octoprint.plugin.SettingsPlugin.get_settings_restricted_paths</code>. OctoPrint will
-   return its settings on the REST API even to anonymous clients, but will filter out fields it knows are restricted,
-   therefore you <strong>must</strong> make sure that you specify sensitive information accordingly to limit access as required!</p>
+</div>
+<p>Of course, you are always free to completely override both <code>on_settings_load</code> and
+<code>on_settings_save</code> if the default implementations do not fit your requirements.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Make sure to protect sensitive information stored by your plugin that only logged
+in administrators (or users) should have access to via <code>get_settings_restricted_paths</code>.
+OctoPrint will return its settings on the REST API even to anonymous clients, but
+will filter out fields it knows are restricted, therefore you <strong>must</strong> make sure
+that you specify sensitive information accordingly to limit access as required!</p>
+</div>
 
 
 
@@ -1471,23 +1522,27 @@ them.</p>
 <p>The preprocessors should be provided as a dictionary mapping the path of the values to preprocess
 (hierarchically) to a transform function which will get the value to transform as only input and should return
 the transformed value.</p>
-<p>Example:</p>
-<p>.. code-block:: python</p>
-<p>def get_settings_defaults(self):
-       return dict(some_key="Some_Value", some_other_key="Some_Value")</p>
-<p>def get_settings_preprocessors(self):
-       return dict(some_key=lambda x: x.upper()),        # getter preprocessors
-              dict(some_other_key=lambda x: x.lower())   # setter preprocessors</p>
-<p>def some_method(self):
-       # getting the value for "some_key" should turn it to upper case
-       assert self._settings.get(["some_key"]) == "SOME_VALUE"</p>
-<div class="highlight"><pre><span></span><code>   # the value for &quot;some_other_key&quot; should be left alone
-   assert self._settings.get([&quot;some_other_key&quot;] = &quot;Some_Value&quot;
-
-   # setting a value for &quot;some_other_key&quot; should cause the value to first be turned to lower case
-   self._settings.set([&quot;some_other_key&quot;], &quot;SOME_OTHER_VALUE&quot;)
-   assert self._settings.get([&quot;some_other_key&quot;]) == &quot;some_other_value&quot;
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">def</span> <span class="nf">get_settings_defaults</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">some_key</span><span class="o">=</span><span class="s2">&quot;Some_Value&quot;</span><span class="p">,</span> <span class="n">some_other_key</span><span class="o">=</span><span class="s2">&quot;Some_Value&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="k">def</span> <span class="nf">get_settings_preprocessors</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">some_key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">upper</span><span class="p">()),</span>        <span class="c1"># getter preprocessors</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>           <span class="nb">dict</span><span class="p">(</span><span class="n">some_other_key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>   <span class="c1"># setter preprocessors</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="k">def</span> <span class="nf">some_method</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    <span class="c1"># getting the value for &quot;some_key&quot; should turn it to upper case</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">_settings</span><span class="o">.</span><span class="n">get</span><span class="p">([</span><span class="s2">&quot;some_key&quot;</span><span class="p">])</span> <span class="o">==</span> <span class="s2">&quot;SOME_VALUE&quot;</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    <span class="c1"># the value for &quot;some_other_key&quot; should be left alone</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">_settings</span><span class="o">.</span><span class="n">get</span><span class="p">([</span><span class="s2">&quot;some_other_key&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Some_Value&quot;</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    <span class="c1"># setting a value for &quot;some_other_key&quot; should cause the value to first be turned to lower case</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">_settings</span><span class="o">.</span><span class="n">set</span><span class="p">([</span><span class="s2">&quot;some_other_key&quot;</span><span class="p">],</span> <span class="s2">&quot;SOME_OTHER_VALUE&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>    <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">_settings</span><span class="o">.</span><span class="n">get</span><span class="p">([</span><span class="s2">&quot;some_other_key&quot;</span><span class="p">])</span> <span class="o">==</span> <span class="s2">&quot;some_other_value&quot;</span>
 </code></pre></div>
+</div>
 
   <p><strong>Returns:</strong></p>
   <table>
@@ -1500,14 +1555,10 @@ the transformed value.</p>
     <tbody>
         <tr>
           <td>
-                <code>dict, dict</code>
+                <code>Tuple[dict, dict]</code>
           </td>
-          <td><p>A tuple consisting of two dictionaries, the first being the plugin's preprocessors for</p></td>
-        </tr>
-        <tr>
-          <td>
-          </td>
-          <td><p>getters, the second the preprocessors for setters</p></td>
+          <td><p>A tuple consisting of two dictionaries, the first being the plugin's preprocessors for
+getters, the second the preprocessors for setters</p></td>
         </tr>
     </tbody>
   </table>
@@ -1534,62 +1585,70 @@ certain permissions, or never on the REST API.</p>
 <p>Return a <code>dict</code> with one of the following keys, mapping to a list of paths (as tuples or lists of
 the path elements) for which to restrict access via the REST API accordingly.</p>
 <ul>
-<li>An <img alt="🇵🇾" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f1f5-1f1fe.svg" title=":py:" />class:<code>~octoprint.access.permissions.OctoPrintPermission</code> instance: Paths will only be available on the REST API for users with the permission</li>
-<li><code>admin</code>: Paths will only be available on the REST API for users with admin rights (any user with the SETTINGS permission)</li>
-<li><code>user</code>: Paths will only be available on the REST API when accessed as a logged in user</li>
+<li>An [<code>OctoPrintPermission</code>][octoprint.access.permissions.OctoPrintPermission]
+     instance: Paths will only be available on the REST API for users with the
+     permission</li>
+<li><code>admin</code>: Paths will only be available on the REST API for users with admin
+     rights (any user with the SETTINGS permission)</li>
+<li><code>user</code>: Paths will only be available on the REST API when accessed as a
+     logged in user</li>
 <li><code>never</code>: Paths will never be returned on the API</li>
 </ul>
-<p>Example:</p>
-<p>.. code-block:: python</p>
-<p>def get_settings_defaults(self):
-       return dict(some=dict(admin_only=dict(path="path", foo="foo"),
-                             user_only=dict(path="path", bar="bar")),
-                   another=dict(admin_only=dict(path="path"),
-                                field="field"),
-                   path=dict(to=dict(never=dict(return="return"))),
-                   the=dict(webcam=dict(data="webcam")))</p>
-<p>def get_settings_restricted_paths(self):
-       from octoprint.access.permissions import Permissions
-       return {'admin':[["some", "admin_only", "path"], ["another", "admin_only", "path"],],
-               'user':[["some", "user_only", "path"],],
-               'never':[["path", "to", "never", "return"],],
-               Permissions.WEBCAM:[["the", "webcam", "data"],]}</p>
-<p># this will make the plugin return settings on the REST API like this for an anonymous user
-   #
-   #     dict(some=dict(admin_only=dict(path=None, foo="foo"),
-   #                    user_only=dict(path=None, bar="bar")),
-   #          another=dict(admin_only=dict(path=None),
-   #                       field="field"),
-   #          path=dict(to=dict(never=dict(return=None))),
-   #          the=dict(webcam=dict(data=None)))
-   #
-   # like this for a logged in user without the webcam permission
-   #
-   #     dict(some=dict(admin_only=dict(path=None, foo="foo"),
-   #                    user_only=dict(path="path", bar="bar")),
-   #          another=dict(admin_only=dict(path=None),
-   #                       field="field"),
-   #          path=dict(to=dict(never=dict(return=None))),
-   #          the=dict(webcam=dict(data=None)))
-   #
-   # like this for a logged in user with the webcam permission
-   #
-   #     dict(some=dict(admin_only=dict(path=None, foo="foo"),
-   #                    user_only=dict(path="path", bar="bar")),
-   #          another=dict(admin_only=dict(path=None),
-   #                       field="field"),
-   #          path=dict(to=dict(never=dict(return=None))),
-   #          the=dict(webcam=dict(data="webcam")))
-   #
-   # and like this for an admin user
-   #
-   #     dict(some=dict(admin_only=dict(path="path", foo="foo"),
-   #                    user_only=dict(path="path", bar="bar")),
-   #          another=dict(admin_only=dict(path="path"),
-   #                       field="field"),
-   #          path=dict(to=dict(never=dict(return=None))),
-   #          the=dict(webcam=dict(data="webcam")))</p>
-<p>.. versionadded:: 1.2.17</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">def</span> <span class="nf">get_settings_defaults</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">some</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">admin_only</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s2">&quot;path&quot;</span><span class="p">,</span> <span class="n">foo</span><span class="o">=</span><span class="s2">&quot;foo&quot;</span><span class="p">),</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>                          <span class="n">user_only</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s2">&quot;path&quot;</span><span class="p">,</span> <span class="n">bar</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">)),</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>                <span class="n">another</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">admin_only</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s2">&quot;path&quot;</span><span class="p">),</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>                             <span class="n">field</span><span class="o">=</span><span class="s2">&quot;field&quot;</span><span class="p">),</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>                <span class="n">path</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">to</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">never</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="k">return</span><span class="o">=</span><span class="s2">&quot;return&quot;</span><span class="p">))),</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>                <span class="n">the</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">webcam</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">&quot;webcam&quot;</span><span class="p">)))</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="k">def</span> <span class="nf">get_settings_restricted_paths</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="kn">from</span> <span class="nn">octoprint.access.permissions</span> <span class="kn">import</span> <span class="n">Permissions</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;admin&#39;</span><span class="p">:[[</span><span class="s2">&quot;some&quot;</span><span class="p">,</span> <span class="s2">&quot;admin_only&quot;</span><span class="p">,</span> <span class="s2">&quot;path&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;another&quot;</span><span class="p">,</span> <span class="s2">&quot;admin_only&quot;</span><span class="p">,</span> <span class="s2">&quot;path&quot;</span><span class="p">],],</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>            <span class="s1">&#39;user&#39;</span><span class="p">:[[</span><span class="s2">&quot;some&quot;</span><span class="p">,</span> <span class="s2">&quot;user_only&quot;</span><span class="p">,</span> <span class="s2">&quot;path&quot;</span><span class="p">],],</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>            <span class="s1">&#39;never&#39;</span><span class="p">:[[</span><span class="s2">&quot;path&quot;</span><span class="p">,</span> <span class="s2">&quot;to&quot;</span><span class="p">,</span> <span class="s2">&quot;never&quot;</span><span class="p">,</span> <span class="s2">&quot;return&quot;</span><span class="p">],],</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>            <span class="n">Permissions</span><span class="o">.</span><span class="n">WEBCAM</span><span class="p">:[[</span><span class="s2">&quot;the&quot;</span><span class="p">,</span> <span class="s2">&quot;webcam&quot;</span><span class="p">,</span> <span class="s2">&quot;data&quot;</span><span class="p">],]}</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="c1"># this will make the plugin return settings on the REST API like this for an anonymous user</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="c1">#</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="c1">#     dict(some=dict(admin_only=dict(path=None, foo=&quot;foo&quot;),</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="c1">#                    user_only=dict(path=None, bar=&quot;bar&quot;)),</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="c1">#          another=dict(admin_only=dict(path=None),</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="c1">#                       field=&quot;field&quot;),</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="c1">#          path=dict(to=dict(never=dict(return=None))),</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="c1">#          the=dict(webcam=dict(data=None)))</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="c1">#</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="c1"># like this for a logged in user without the webcam permission</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="c1">#</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="c1">#     dict(some=dict(admin_only=dict(path=None, foo=&quot;foo&quot;),</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="c1">#                    user_only=dict(path=&quot;path&quot;, bar=&quot;bar&quot;)),</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="c1">#          another=dict(admin_only=dict(path=None),</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="c1">#                       field=&quot;field&quot;),</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="c1">#          path=dict(to=dict(never=dict(return=None))),</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="c1">#          the=dict(webcam=dict(data=None)))</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="c1">#</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="c1"># like this for a logged in user with the webcam permission</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="c1">#</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a><span class="c1">#     dict(some=dict(admin_only=dict(path=None, foo=&quot;foo&quot;),</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a><span class="c1">#                    user_only=dict(path=&quot;path&quot;, bar=&quot;bar&quot;)),</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a><span class="c1">#          another=dict(admin_only=dict(path=None),</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a><span class="c1">#                       field=&quot;field&quot;),</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a><span class="c1">#          path=dict(to=dict(never=dict(return=None))),</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a><span class="c1">#          the=dict(webcam=dict(data=&quot;webcam&quot;)))</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a><span class="c1">#</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a><span class="c1"># and like this for an admin user</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a><span class="c1">#</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a><span class="c1">#     dict(some=dict(admin_only=dict(path=&quot;path&quot;, foo=&quot;foo&quot;),</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a><span class="c1">#                    user_only=dict(path=&quot;path&quot;, bar=&quot;bar&quot;)),</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a><span class="c1">#          another=dict(admin_only=dict(path=&quot;path&quot;),</span>
+<a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a><span class="c1">#                       field=&quot;field&quot;),</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a><span class="c1">#          path=dict(to=dict(never=dict(return=None))),</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a><span class="c1">#          the=dict(webcam=dict(data=&quot;webcam&quot;)))</span>
+</code></pre></div>
+</div>
+<p>{{ version_added("1.2.17") }}</p>
 
   </div>
 
@@ -1622,18 +1681,12 @@ config.yaml.</p>
     <tbody>
         <tr>
           <td>
+                <code>Optional[int]</code>
           </td>
-          <td><p>int or None: an int signifying the current settings format, should be incremented by plugins whenever there</p></td>
-        </tr>
-        <tr>
-          <td>
-          </td>
-          <td><p>are backwards incompatible changes. Returning None here disables the version tracking for the</p></td>
-        </tr>
-        <tr>
-          <td>
-          </td>
-          <td><p>plugin's configuration.</p></td>
+          <td><p>an <code>int</code> signifying the current settings format, should be
+incremented by plugins whenever there are backwards incompatible changes.
+Returning None here disables the version tracking for the plugin's
+configuration.</p></td>
         </tr>
     </tbody>
   </table>
@@ -1654,12 +1707,12 @@ config.yaml.</p>
 
   <div class="doc doc-contents ">
   
-      <p>Called after migration and initialization but before call to :func:<code>on_settings_initialized</code>.</p>
+      <p>Called after migration and initialization but before call to <code>on_settings_initialized</code>.</p>
 <p>Plugins may overwrite this method to perform additional clean up tasks.</p>
 <p>The default implementation just minimizes the data persisted on disk to only contain
 the differences to the defaults (in case the current data was persisted with an older
 version of OctoPrint that still duplicated default data).</p>
-<p>.. versionadded:: 1.3.0</p>
+<p>{{ version_added("1.3.0") }}</p>
 
   </div>
 
@@ -1677,8 +1730,8 @@ version of OctoPrint that still duplicated default data).</p>
 
   <div class="doc doc-contents ">
   
-      <p>Called after the settings have been initialized and - if necessary - also been migrated through a call to
-func:<code>on_settings_migrate</code>.</p>
+      <p>Called after the settings have been initialized and -- if necessary -- also been
+migrated through a call to <code>on_settings_migrate</code>.</p>
 <p>This method will always be called after the <code>initialize</code> method.</p>
 
   </div>
@@ -1700,18 +1753,37 @@ func:<code>on_settings_migrate</code>.</p>
       <p>Loads the settings for the plugin, called by the Settings API view in order to retrieve all settings from
 all plugins. Override this if you want to inject additional settings properties that are not stored within
 OctoPrint's configuration.</p>
-<p>.. note::</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>The default implementation will return your plugin's settings as is, so just in the structure and in the types
-   that are currently stored in OctoPrint's configuration.</p>
+that are currently stored in OctoPrint's configuration.</p>
 <p>If you need more granular control here, e.g. over the used data types, you'll need to override this method
-   and iterate yourself over all your settings, using the proper retriever methods on the settings manager
-   to retrieve the data in the correct format.</p>
+and iterate yourself over all your settings, using the proper retriever methods on the settings manager
+to retrieve the data in the correct format.</p>
 <p>The default implementation will also replace any paths that have been restricted by your plugin through
-   :func:<code>~octoprint.plugin.SettingsPlugin.get_settings_restricted_paths</code> with either the provided
-   default value (if one was provided), an empty dictionary (as fallback for restricted dictionaries), an
-   empty list (as fallback for restricted lists) or <code>None</code> values where necessary.
-   Make sure to do your own restriction if you decide to fully overload this method.</p>
-<p>:return: the current settings of the plugin, as a dictionary</p>
+<a class="autorefs autorefs-internal" href="#octoprint.plugin.types.SettingsPlugin.get_settings_restricted_paths"><code>get_settings_restricted_paths</code></a> with either the provided
+default value (if one was provided), an empty dictionary (as fallback for restricted dictionaries), an
+empty list (as fallback for restricted lists) or <code>None</code> values where necessary.
+Make sure to do your own restriction if you decide to fully overload this method.</p>
+</div>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code>dict</code>
+          </td>
+          <td><p>The current settings of the plugin, as a dictionary.</p></td>
+        </tr>
+    </tbody>
+  </table>
 
   </div>
 
@@ -1734,9 +1806,9 @@ than the one currently stored in _config.yaml. Will also be called if the settin
 doesn't have version information, in which case the <code>current</code> parameter will be None.</p>
 <p>Your plugin's implementation should take care of migrating any data by utilizing self._settings. OctoPrint
 will take care of saving any changes to disk by calling <code>self._settings.save()</code> after returning from this method.</p>
-<p>This method will be called before your plugin's :func:<code>on_settings_initialized</code> method, with all injections already
+<p>This method will be called before your plugin's <code>on_settings_initialized</code> method, with all injections already
 having taken place. You can therefore depend on the configuration having been migrated by the time
-:func:<code>on_settings_initialized</code> is called.</p>
+<code>on_settings_initialized</code> is called.</p>
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -1754,8 +1826,8 @@ having taken place. You can therefore depend on the configuration having been mi
           <td>
                 <code>int</code>
           </td>
-          <td><p>The settings format version the plugin requires, this should always be the same value as
-          returned by :func:<code>get_settings_version</code>.</p></td>
+          <td><p>The settings format version the plugin requires, this should
+always be the same value as returned by <code>get_settings_version</code>.</p></td>
           <td>
               <em>required</em>
           </td>
@@ -1763,10 +1835,10 @@ having taken place. You can therefore depend on the configuration having been mi
         <tr>
           <td><code>current</code></td>
           <td>
-                <code>int or None</code>
+                <code>Optional[int]</code>
           </td>
-          <td><p>The settings format version as currently stored in config.yaml. May be None if
-          no version information can be found.</p></td>
+          <td><p>The settings format version as currently stored in
+<code>config.yaml</code>. May be <code>None</code> if no version information can be found.</p></td>
           <td>
               <em>required</em>
           </td>
@@ -1793,13 +1865,15 @@ having taken place. You can therefore depend on the configuration having been mi
       <p>Saves the settings for the plugin, called by the Settings API view in order to persist all settings
 from all plugins. Override this if you need to directly react to settings changes or want to extract
 additional settings properties that are not stored within OctoPrint's configuration.</p>
-<p>.. note::</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>The default implementation will persist your plugin's settings as is, so just in the structure and in the
-   types that were received by the Settings API view. Values identical to the default settings values
-   will <em>not</em> be persisted.</p>
+types that were received by the Settings API view. Values identical to the default settings values
+will <em>not</em> be persisted.</p>
 <p>If you need more granular control here, e.g. over the used data types, you'll need to override this method
-   and iterate yourself over all your settings, retrieving them (if set) from the supplied received <code>data</code>
-   and using the proper setter methods on the settings manager to persist the data in the correct format.</p>
+and iterate yourself over all your settings, retrieving them (if set) from the supplied received <code>data</code>
+and using the proper setter methods on the settings manager to persist the data in the correct format.</p>
+</div>
 
   <p><strong>Parameters:</strong></p>
   <table>
@@ -1829,13 +1903,14 @@ additional settings properties that are not stored within OctoPrint's configurat
   <table>
     <thead>
       <tr>
-<th>Name</th>        <th>Type</th>
+        <th>Type</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
         <tr>
-<td><code>dict</code></td>          <td>
+          <td>
+                <code>dict</code>
           </td>
           <td><p>The settings that differed from the defaults and were actually saved.</p></td>
         </tr>
@@ -1864,11 +1939,11 @@ additional settings properties that are not stored within OctoPrint's configurat
         Bases: <code><span title="octoprint.plugin.types.OctoPrintPlugin">OctoPrintPlugin</span></code>, <code><span title="octoprint.plugin.core.RestartNeedingPlugin">RestartNeedingPlugin</span></code></p>
 
   
-      <p>The <code>AssetPlugin</code> mixin allows plugins to define additional static assets such as JavaScript or CSS files to
-be automatically embedded into the pages delivered by the server to be used within the client sided part of
-the plugin.</p>
-<p>A typical usage of the <code>AssetPlugin</code> functionality is to embed a custom view model to be used by templates injected
-through a [<code>TemplatePlugin</code>][octoprint.plugins.TemplatePlugin].</p>
+      <p>The <code>AssetPlugin</code> mixin allows plugins to define additional static assets such as
+JavaScript or CSS files to be automatically embedded into the pages delivered by the
+server to be used within the client sided part of the plugin.</p>
+<p>A typical usage of the <code>AssetPlugin</code> functionality is to embed a custom view model to
+be used by templates injected through a [<code>TemplatePlugin</code>][octoprint.plugin.TemplatePlugin].</p>
 
 
 
@@ -1897,7 +1972,7 @@ through a [<code>TemplatePlugin</code>][octoprint.plugins.TemplatePlugin].</p>
   <div class="doc doc-contents ">
   
       <p>Defines the folder where the plugin stores its static assets as defined in
-<a class="autorefs autorefs-internal" href="#octoprint.plugin.types.AssetPlugin.get_assets">get_assets</a>. Override this if
+<a class="autorefs autorefs-internal" href="#octoprint.plugin.types.AssetPlugin.get_assets"><code>get_assets</code></a>. Override this if
 your plugin stores its assets at some other place than the <code>static</code> sub folder in
 the plugin base directory.</p>
 
@@ -1935,20 +2010,25 @@ the plugin base directory.</p>
 
   <div class="doc doc-contents ">
   
-      <p>Defines the static assets the plugin offers. The following asset types are recognized and automatically
-imported at the appropriate places to be available:</p>
+      <p>Defines the static assets the plugin offers. The following asset types are
+recognized and automatically imported at the appropriate places to be available:</p>
 <dl>
 <dt><code>js</code></dt>
 <dd>JavaScript files, such as additional view models</dd>
 <dt><code>jsclient</code></dt>
-<dd>JavaScript files containing additional parts for the JS Client Library (since 1.3.10)</dd>
+<dd>JavaScript files containing additional parts for the JS Client Library
+(since 1.3.10)</dd>
 <dt><code>css</code></dt>
-<dd>CSS files with additional styles, will be embedded into delivered pages when not running in LESS mode.</dd>
+<dd>CSS files with additional styles, will be embedded into delivered pages when
+not running in LESS mode.</dd>
 <dt><code>less</code></dt>
-<dd>LESS files with additional styles, will be embedded into delivered pages when running in LESS mode.</dd>
+<dd>LESS files with additional styles, will be embedded into delivered pages when
+running in LESS mode.</dd>
 </dl>
-<p>The expected format to be returned is a dictionary mapping one or more of these keys to a list of files of that
-type, the files being represented as relative paths from the asset folder as defined via <a class="autorefs autorefs-internal" href="#octoprint.plugin.types.AssetPlugin.get_asset_folder"><code>get_asset_folder</code></a>.</p>
+<p>The expected format to be returned is a dictionary mapping one or more of these
+keys to a list of files of that type, the files being represented as relative
+paths from the asset folder as defined via
+<a class="autorefs autorefs-internal" href="#octoprint.plugin.types.AssetPlugin.get_asset_folder"><code>get_asset_folder</code></a>.</p>
 
 <details class="example">
   <summary>Example</summary>
@@ -1960,10 +2040,11 @@ type, the files being represented as relative paths from the asset folder as def
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>        <span class="n">less</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;less/my_styles.less&#39;</span><span class="p">]</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>     <span class="p">)</span>
 </code></pre></div>
-</details>      <p>The assets will be made available by OctoPrint under the URL <code>/plugin/&lt;plugin identifier&gt;/static/&lt;path&gt;</code>, with
-<code>plugin identifier</code> being the plugin's identifier and <code>path</code> being the path as defined in the asset dictionary.</p>
-<p>Assets of the types <code>js</code>, <code>css</code> and <code>less</code> will be automatically bundled by OctoPrint using
-<a href="http://flask-assets.readthedocs.org/en/latest/">Flask-Assets</a>.</p>
+</details>      <p>The assets will be made available by OctoPrint under the URL
+<code>/plugin/&lt;plugin identifier&gt;/static/&lt;path&gt;</code>, with <code>plugin identifier</code> being the
+plugin's identifier and <code>path</code> being the path as defined in the asset dictionary.</p>
+<p>Assets of the types <code>js</code>, <code>css</code> and <code>less</code> will be automatically bundled by
+OctoPrint using <a href="http://flask-assets.readthedocs.org/en/latest/">Flask-Assets</a>.</p>
 
   <p><strong>Returns:</strong></p>
   <table>
