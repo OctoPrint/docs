@@ -1,0 +1,55 @@
+name: Build & publish docs
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build docs
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⬇ Checkout docs
+        uses: actions/checkout@v2
+        with:
+          path: docs
+
+      - name: 🐍 Set up Python 3.9
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.9"
+
+      - name: 🐍 Preinstall some build dependencies
+        run: |
+          pip install --upgrade pip
+          pip install poetry
+      
+      - name: 🐍 Install docs dependencies
+        run: |
+          cd ${{ github.workspace }}/docs
+          poetry install
+
+      - name: ⬇ Checkout OctoPrint
+        uses: actions/checkout@v2
+        with:
+          repository: "OctoPrint/OctoPrint"
+          ref: improve/mkdocs
+          path: OctoPrint
+
+      - name: 🏗 Build docs
+        run: |
+          cd ${{ github.workspace }}/docs
+          export OCTOPRINT_SRC=${{ github.workspace }}/OctoPrint
+          poetry run mkdocs build
+
+      - name: 🚀 Deploy page
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ${{ github.workspace }}/docs/site
+          enable_jekyll: false
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'

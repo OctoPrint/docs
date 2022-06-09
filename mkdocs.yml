@@ -1,0 +1,112 @@
+site_name: OctoPrint
+repo_name: OctoPrint/OctoPrint
+repo_url: https://github.com/OctoPrint/OctoPrint
+#edit_uri: ../docs.octoprint.org/blob/master/docs/
+
+extra:
+  macros_src_paths:
+    - !ENV [OCTOPRINT_SRC, "../OctoPrint/src/"]
+  social:
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/OctoPrint3D
+  version:
+    default: latest
+    provider: mike
+
+extra_css:
+  - stylesheets/extra.css
+  - stylesheets/fonts.css
+
+theme:
+  name: material
+  custom_dir: overrides
+  logo: images/tentacle.svg
+  favicon: images/tentacle.svg
+  icon:
+    repo: fontawesome/brands/github
+  features:
+    - content.code.annotate
+    - navigation.indexes
+    - navigation.instant
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+    - navigation.tracking
+    - toc.integrate
+  font:
+    code: JetBrains Mono
+  palette:
+    - scheme: default
+      media: "(prefers-color-scheme: light)"
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - scheme: slate
+      media: "(prefers-color-scheme: dark)"
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - meta
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+      options:
+        custom_icons:
+          - overrides/.icons
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true 
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - tables
+  - toc:
+      permalink: "#"
+
+nav:
+  - Home: index.md
+  - User Guide: user-guide/
+  - Plugin Development Guide: plugin-guide/
+  - Core Development Guide: dev-guide/
+  - Code Reference: reference/
+
+plugins:
+  #- gen-files:
+  #    scripts:
+  #      - gen_ref_pages.py
+  - literate-nav:
+      nav_file: SUMMARY.md
+  - macros:
+      module_name: macros
+      on_error_fail: !ENV [CI, false]
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            show_source: false
+          paths:
+            - !ENV [OCTOPRINT_SRC, "../OctoPrint/src/"]
+  - search
+
+watch:
+  - docs
+  - mkdocs.yml
+  - macros.py
+  - !ENV [OCTOPRINT_SRC, "../OctoPrint/src/"]
