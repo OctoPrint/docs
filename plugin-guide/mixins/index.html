@@ -1,0 +1,2163 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../images/tentacle.svg">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.2">
+    
+    
+      
+        <title>Mixins - OctoPrint</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.5d38496d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/fonts.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#mixins" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-component="outdated" hidden>
+        <aside class="md-banner md-banner--warning">
+          
+            <div class="md-banner__inner md-grid md-typeset">
+              
+  You're not viewing the latest version.
+  <a href="../../.."> 
+
+
+    <strong>Click here to go to latest.</strong>
+  </a>
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
+          
+        </aside>
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="OctoPrint" class="md-header__button md-logo" aria-label="OctoPrint" data-md-component="logo">
+      
+  <img src="../../images/tentacle.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OctoPrint
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Mixins
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/OctoPrint/OctoPrint" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    OctoPrint/OctoPrint
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../user-guide/" class="md-tabs__link">
+        User Guide
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
+        Plugin Development Guide
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../dev-guide/" class="md-tabs__link">
+        Core Development Guide
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../reference" class="md-tabs__link">
+      Code Reference
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="OctoPrint" class="md-nav__button md-logo" aria-label="OctoPrint" data-md-component="logo">
+      
+  <img src="../../images/tentacle.svg" alt="logo">
+
+    </a>
+    OctoPrint
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/OctoPrint/OctoPrint" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    OctoPrint/OctoPrint
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../user-guide/">User Guide</a>
+          
+            <label for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="User Guide" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          User Guide
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          Configuration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Configuration" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Configuration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/configuration/cli/" class="md-nav__link">
+        Command-line configuration interface
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/configuration/config.yaml/" class="md-nav__link">
+        config.yaml
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/configuration/logging.yaml/" class="md-nav__link">
+        logging.yaml
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/configuration/yaml_primer/" class="md-nav__link">
+        A YAML Primer
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_3">
+          Features
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Features" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Features
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/features/access_control/" class="md-nav__link">
+        Access control
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/features/action_commands/" class="md-nav__link">
+        Action commands
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/features/at_commands/" class="md-nav__link">
+        At commands
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/features/custom_controls/" class="md-nav__link">
+        Custom controls
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/features/gcode_scripts/" class="md-nav__link">
+        Gcode scripts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/features/plugins/" class="md-nav__link">
+        Plugins
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/features/safe_mode/" class="md-nav__link">
+        Safe mode
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">Plugin Development Guide</a>
+          
+            <label for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Plugin Development Guide" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Plugin Development Guide
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Mixins
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Mixins
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#general-concepts" class="md-nav__link">
+    General Concepts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#execution-order" class="md-nav__link">
+    Execution Order
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#injected-properties" class="md-nav__link">
+    Injected Properties
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#available-plugin-mixins" class="md-nav__link">
+    Available plugin mixins
+  </a>
+  
+    <nav class="md-nav" aria-label="Available plugin mixins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#startupplugin" class="md-nav__link">
+    StartupPlugin
+  </a>
+  
+    <nav class="md-nav" aria-label="StartupPlugin">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#octoprint.plugin.StartupPlugin" class="md-nav__link">
+    octoprint.plugin.StartupPlugin
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#octoprint.plugin.types.StartupPlugin.on_after_startup" class="md-nav__link">
+    on_after_startup()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#octoprint.plugin.types.StartupPlugin.on_startup" class="md-nav__link">
+    on_startup()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shutdownplugin" class="md-nav__link">
+    ShutdownPlugin
+  </a>
+  
+    <nav class="md-nav" aria-label="ShutdownPlugin">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#octoprint.plugin.ShutdownPlugin" class="md-nav__link">
+    octoprint.plugin.ShutdownPlugin
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#octoprint.plugin.types.ShutdownPlugin.on_shutdown" class="md-nav__link">
+    on_shutdown()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#settingsplugin" class="md-nav__link">
+    SettingsPlugin
+  </a>
+  
+    <nav class="md-nav" aria-label="SettingsPlugin">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#octoprint.plugin.SettingsPlugin" class="md-nav__link">
+    octoprint.plugin.SettingsPlugin
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#octoprint.plugin.types.SettingsPlugin.config_version_key" class="md-nav__link">
+    config_version_key
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#octoprint.plugin.types.SettingsPlugin.get_settings_defaults" class="md-nav__link">
+    get_settings_defaults()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#octoprint.plugin.types.SettingsPlugin.get_settings_preprocessors" class="md-nav__link">
+    get_settings_preprocessors()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#octoprint.plugin.types.SettingsPlugin.get_settings_restricted_paths" class="md-nav__link">
+    get_settings_restricted_paths()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#octoprint.plugin.types.SettingsPlugin.get_settings_version" class="md-nav__link">
+    get_settings_version()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#octoprint.plugin.types.SettingsPlugin.on_settings_cleanup" class="md-nav__link">
+    on_settings_cleanup()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#octoprint.plugin.types.SettingsPlugin.on_settings_initialized" class="md-nav__link">
+    on_settings_initialized()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#octoprint.plugin.types.SettingsPlugin.on_settings_load" class="md-nav__link">
+    on_settings_load()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#octoprint.plugin.types.SettingsPlugin.on_settings_migrate" class="md-nav__link">
+    on_settings_migrate()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#octoprint.plugin.types.SettingsPlugin.on_settings_save" class="md-nav__link">
+    on_settings_save()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assetplugin" class="md-nav__link">
+    AssetPlugin
+  </a>
+  
+    <nav class="md-nav" aria-label="AssetPlugin">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#octoprint.plugin.AssetPlugin" class="md-nav__link">
+    octoprint.plugin.AssetPlugin
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#octoprint.plugin.types.AssetPlugin.get_asset_folder" class="md-nav__link">
+    get_asset_folder()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#octoprint.plugin.types.AssetPlugin.get_assets" class="md-nav__link">
+    get_assets()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../dev-guide/">Core Development Guide</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Core Development Guide" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Core Development Guide
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference" class="md-nav__link">
+        Code Reference
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+  <a href="https://github.com/OctoPrint/OctoPrint/edit/master/docs/plugin-guide/mixins.md" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+<h1 id="mixins">Mixins<a class="headerlink" href="#mixins" title="Permanent link">#</a></h1>
+<h2 id="general-concepts">General Concepts<a class="headerlink" href="#general-concepts" title="Permanent link">#</a></h2>
+<p>Plugin mixins are the heart of OctoPrint's plugin system. They are :ref:<code>special base classes &lt;sec-plugins-mixins&gt;</code>
+which are to be subclassed and extended to add functionality to OctoPrint. Plugins declare their instances that
+implement one or multiple mixins using the <code>__plugin_implementation__</code> control property. OctoPrint's plugin core
+collects those from the plugins and offers methods to access them based on the mixin type, which get used at multiple
+locations within OctoPrint.</p>
+<p>Using mixins always follows the pattern of retrieving the matching implementations from the plugin subsystem, then
+calling the specific mixin's methods as defined and necessary.</p>
+<p>The following snippet taken from OctoPrint's code for example shows how all <a class="autorefs autorefs-internal" href="#octoprint.plugin.AssetPlugin">octoprint.plugin.AssetPlugin</a>
+implementations are collected and then all assets they return via their <code>get_assets</code> methods are retrieved and
+merged into one big asset map (differing between javascripts and stylesheets of various types) for use during
+rendition of the UI.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">asset_plugins</span> <span class="o">=</span> <span class="n">pluginManager</span><span class="o">.</span><span class="n">get_implementations</span><span class="p">(</span><span class="n">octoprint</span><span class="o">.</span><span class="n">plugin</span><span class="o">.</span><span class="n">AssetPlugin</span><span class="p">)</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">implementation</span> <span class="ow">in</span> <span class="n">asset_plugins</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="n">all_assets</span> <span class="o">=</span> <span class="n">implementation</span><span class="o">.</span><span class="n">get_assets</span><span class="p">()</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="k">if</span> <span class="s2">&quot;js&quot;</span> <span class="ow">in</span> <span class="n">all_assets</span><span class="p">:</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>        <span class="k">for</span> <span class="n">asset</span> <span class="ow">in</span> <span class="n">all_assets</span><span class="p">[</span><span class="s2">&quot;js&quot;</span><span class="p">]:</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>            <span class="n">assets</span><span class="p">[</span><span class="s2">&quot;js&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s1">&#39;plugin_assets&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="n">asset</span><span class="p">))</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    <span class="k">if</span> <span class="n">preferred_stylesheet</span> <span class="ow">in</span> <span class="n">all_assets</span><span class="p">:</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>        <span class="k">for</span> <span class="n">asset</span> <span class="ow">in</span> <span class="n">all_assets</span><span class="p">[</span><span class="n">preferred_stylesheet</span><span class="p">]:</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>            <span class="n">assets</span><span class="p">[</span><span class="s2">&quot;stylesheets&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">preferred_stylesheet</span><span class="p">,</span> <span class="n">url_for</span><span class="p">(</span><span class="s1">&#39;plugin_assets&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="n">asset</span><span class="p">)))</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>        <span class="k">for</span> <span class="n">stylesheet</span> <span class="ow">in</span> <span class="n">supported_stylesheets</span><span class="p">:</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>            <span class="k">if</span> <span class="ow">not</span> <span class="n">stylesheet</span> <span class="ow">in</span> <span class="n">all_assets</span><span class="p">:</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>                <span class="k">continue</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>            <span class="k">for</span> <span class="n">asset</span> <span class="ow">in</span> <span class="n">all_assets</span><span class="p">[</span><span class="n">stylesheet</span><span class="p">]:</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>                <span class="n">assets</span><span class="p">[</span><span class="s2">&quot;stylesheets&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">stylesheet</span><span class="p">,</span> <span class="n">url_for</span><span class="p">(</span><span class="s1">&#39;plugin_assets&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="n">asset</span><span class="p">)))</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>            <span class="k">break</span>
+</code></pre></div>
+<div class="admonition see-also">
+<p class="admonition-title">See-also</p>
+<dl>
+<dt><a href="tutorial">The Plugin Tutorial</a></dt>
+<dd>Tutorial on how to write a simple OctoPrint module utilizing mixins for various types of extension.</dd>
+</dl>
+</div>
+<h2 id="execution-order">Execution Order<a class="headerlink" href="#execution-order" title="Permanent link">#</a></h2>
+<p>Some mixin types, such as :class:<code>~octoprint.plugin.StartupPlugin</code>, :class:<code>~octoprint.plugin.ShutdownPlugin</code> and
+:class:<code>~octoprint.plugin.UiPlugin</code>, support influencing the execution order for various execution contexts by also
+implementing the :class:<code>~octoprint.plugin.core.SortablePlugin</code> mixin.</p>
+<p>If a method is to be called on a plugin implementation for which a sorting context is defined (see the mixin
+documentation for information on this), OctoPrint's plugin subsystem will ensure that the order in which the implementation
+calls are done is as follows:</p>
+<ul>
+<li>Plugins with a return value that is not <code>None</code> for :meth:<code>~octoprint.plugin.core.SortablePlugin.get_sorting_key</code>
+    for the provided sorting context will be ordered among each other first. If the returned order number is equal for
+    two or more implementations, they will be sorted first by whether they come bundled with OctoPrint or not, then by
+    their identifier.</li>
+<li>After that follow plugins which returned <code>None</code> (the default). They are first sorted by whether they come bundled
+    with OctoPrint or not, then by their identifier.</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Consider four plugin implementations implementing the :class:<code>~octoprint.plugin.StartupPlugin</code> mixin, called
+<code>plugin_a</code>, <code>plugin_b</code>, <code>plugin_c</code> and <code>plugin_d</code>, the latter coming bundled with OctoPrint. <code>plugin_a</code>
+and <code>plugin_d</code> don't override :meth:<code>~octoprint.plugin.core.SortablePlugin.get_sorting_key</code>.
+<code>plugin_b</code> and <code>plugin_c</code> both return <code>1</code> for the sorting context <code>StartupPlugin.on_startup</code>, <code>None</code> otherwise:</p>
+<div class="highlight"><span class="filename">plugin_a.py</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span> <span class="nn">octoprint.plugin</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">class</span> <span class="nc">PluginA</span><span class="p">(</span><span class="n">octoprint</span><span class="o">.</span><span class="n">plugin</span><span class="o">.</span><span class="n">StartupPlugin</span><span class="p">):</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="k">def</span> <span class="nf">on_startup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;PluginA starting up&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    <span class="k">def</span> <span class="nf">on_after_startup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;PluginA started up&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="n">__plugin_implementation__</span> <span class="o">=</span> <span class="n">PluginA</span><span class="p">()</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">plugin_b.py</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">import</span> <span class="nn">octoprint.plugin</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">class</span> <span class="nc">PluginB</span><span class="p">(</span><span class="n">octoprint</span><span class="o">.</span><span class="n">plugin</span><span class="o">.</span><span class="n">StartupPlugin</span><span class="p">):</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="k">def</span> <span class="nf">get_sorting_key</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>        <span class="k">if</span> <span class="n">context</span> <span class="o">==</span> <span class="s2">&quot;StartupPlugin.on_startup&quot;</span><span class="p">:</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>            <span class="k">return</span> <span class="mi">1</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>        <span class="k">return</span> <span class="kc">None</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>    <span class="k">def</span> <span class="nf">on_startup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;PluginB starting up&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>    <span class="k">def</span> <span class="nf">on_after_startup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;PluginB started up&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="n">__plugin_implementation__</span> <span class="o">=</span> <span class="n">PluginB</span><span class="p">()</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">plugin_c.py</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">import</span> <span class="nn">octoprint.plugin</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">class</span> <span class="nc">PluginC</span><span class="p">(</span><span class="n">octoprint</span><span class="o">.</span><span class="n">plugin</span><span class="o">.</span><span class="n">StartupPlugin</span><span class="p">):</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    <span class="k">def</span> <span class="nf">get_sorting_key</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>        <span class="k">if</span> <span class="n">context</span> <span class="o">==</span> <span class="s2">&quot;StartupPlugin.on_startup&quot;</span><span class="p">:</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>            <span class="k">return</span> <span class="mi">1</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>        <span class="k">return</span> <span class="kc">None</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    <span class="k">def</span> <span class="nf">on_startup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;PluginC starting up&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>    <span class="k">def</span> <span class="nf">on_after_startup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;PluginC started up&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="n">__plugin_implementation__</span> <span class="o">=</span> <span class="n">PluginC</span><span class="p">()</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">plugin_d.py</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># in this example this is bundled with OctoPrint</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kn">import</span> <span class="nn">octoprint.plugin</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="k">class</span> <span class="nc">PluginD</span><span class="p">(</span><span class="n">octoprint</span><span class="o">.</span><span class="n">plugin</span><span class="o">.</span><span class="n">StartupPlugin</span><span class="p">):</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>    <span class="k">def</span> <span class="nf">on_startup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;PluginD starting up&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>    <span class="k">def</span> <span class="nf">on_after_startup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;PluginD started up&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="n">__plugin_implementation__</span> <span class="o">=</span> <span class="n">PluginD</span><span class="p">()</span>
+</code></pre></div>
+<p>OctoPrint will detect that <code>plugin_b</code> and <code>plugin_c</code> define a order number, and since it's identical for both,
+namely <code>1</code>, will order both plugins based first on their bundling status and then on their plugin identifier.</p>
+<p><code>plugin_a</code> and <code>plugin_d</code> don't define a sort key and hence will be
+put after the other two, with <code>plugin_d</code> coming <em>before</em> <code>plugin_a</code> since it comes bundled with OctoPrint.
+The execution order of the <code>on_startup</code> method will hence be <code>plugin_b</code>, <code>plugin_c</code>, <code>plugin_d</code>, <code>plugin_a</code>.</p>
+<p>Now, the execution order of the <code>on_after_startup</code> method will be determined based on another sorting context,
+<code>StartupPlugin.on_after_startup</code> for which all of the plugins return <code>None</code>. Hence, the execution order of the
+<code>on_after_startup</code> method will be ordered first by bundle status, then by plugin identifier: <code>plugin_d</code>, <code>plugin_a</code>, <code>plugin_b</code>, <code>plugin_c</code>.</p>
+<p>This will result in the following messages to be generated:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Plugin B starting up
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Plugin C starting up
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>Plugin D starting up
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>Plugin A starting up
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>Plugin D started up
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>Plugin A started up
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>Plugin B started up
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>Plugin C started up
+</code></pre></div>
+</div>
+<h2 id="injected-properties">Injected Properties<a class="headerlink" href="#injected-properties" title="Permanent link">#</a></h2>
+<p>OctoPrint's plugin subsystem will inject a bunch of properties into each :ref:<code>mixin implementation &lt;sec-plugins-mixins&gt;</code>.
+An overview of these properties can be found in the section :ref:<code>Injected Properties &lt;sec-plugins-injectedproperties&gt;</code>.</p>
+<div class="admonition see-also">
+<p class="admonition-title">See-also</p>
+<dl>
+<dt>[octoprint.plugin.core.Plugin][] and [octoprint.plugin.OctoPrintPlugin][]</dt>
+<dd>Class documentation also containing the properties shared among all mixin implementations.</dd>
+</dl>
+</div>
+<h2 id="available-plugin-mixins">Available plugin mixins<a class="headerlink" href="#available-plugin-mixins" title="Permanent link">#</a></h2>
+<p>The following plugin mixins are currently available:</p>
+<p>Please note that all plugin mixins inherit from [octoprint.plugin.core.Plugin][] and
+[octoprint.plugin.types.OctoPrintPlugin][],  which also provide attributes of interest to plugin developers.</p>
+<h3 id="startupplugin">StartupPlugin<a class="headerlink" href="#startupplugin" title="Permanent link">#</a></h3>
+
+
+<div class="doc doc-object doc-class">
+
+
+<a id="octoprint.plugin.StartupPlugin"></a>
+  <div class="doc doc-contents first">
+      <p class="doc doc-class-bases">
+        Bases: <code><span title="octoprint.plugin.types.OctoPrintPlugin">OctoPrintPlugin</span></code>, <code><span title="octoprint.plugin.core.SortablePlugin">SortablePlugin</span></code></p>
+
+  
+      <p>The <code>StartupPlugin</code> allows hooking into the startup of OctoPrint. It can be used to start up additional services
+on or just after the startup of the server.</p>
+<p><code>StartupPlugin</code> is a [SortablePlugin][octoprint.plugin.core.SortablePlugin] and provides
+sorting contexts for <a class="autorefs autorefs-internal" href="#octoprint.plugin.types.StartupPlugin.on_startup">on_startup</a> as well as
+<a class="autorefs autorefs-internal" href="#octoprint.plugin.types.StartupPlugin.on_after_startup">on_after_startup</a>.</p>
+
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h4 id="octoprint.plugin.types.StartupPlugin.on_after_startup" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">on_after_startup</span><span class="p">()</span></code>
+
+<a href="#octoprint.plugin.types.StartupPlugin.on_after_startup" class="headerlink" title="Permanent link">#</a></h4>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Called just after launch of the server, so when the listen loop is actually running already.</p>
+<p>.. warning::</p>
+<p>Do not perform long-running or even blocking operations in your implementation or you <strong>will</strong> block and break the server.</p>
+<p>The relevant sorting context is <code>StartupPlugin.on_after_startup</code>.</p>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h4 id="octoprint.plugin.types.StartupPlugin.on_startup" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">on_startup</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">)</span></code>
+
+<a href="#octoprint.plugin.types.StartupPlugin.on_startup" class="headerlink" title="Permanent link">#</a></h4>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Called just before the server is actually launched. Plugins get supplied with the <code>host</code> and <code>port</code> the server
+will listen on. Note that the <code>host</code> may be <code>0.0.0.0</code> if it will listen on all interfaces, so you can't just
+blindly use this for constructing publicly reachable URLs. Also note that when this method is called, the server
+is not actually up yet and none of your plugin's APIs or blueprints will be reachable yet. If you need to be
+externally reachable, use :func:<code>on_after_startup</code> instead or additionally.</p>
+<p>.. warning::</p>
+<p>Do not perform long-running or even blocking operations in your implementation or you <strong>will</strong> block and break the server.</p>
+<p>The relevant sorting context is <code>StartupPlugin.on_startup</code>.</p>
+<p>:param string host: the host the server will listen on, may be <code>0.0.0.0</code>
+:param int port:    the port the server will listen on</p>
+
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+</div><h3 id="shutdownplugin">ShutdownPlugin<a class="headerlink" href="#shutdownplugin" title="Permanent link">#</a></h3>
+
+
+<div class="doc doc-object doc-class">
+
+
+<a id="octoprint.plugin.ShutdownPlugin"></a>
+  <div class="doc doc-contents first">
+      <p class="doc doc-class-bases">
+        Bases: <code><span title="octoprint.plugin.types.OctoPrintPlugin">OctoPrintPlugin</span></code>, <code><span title="octoprint.plugin.core.SortablePlugin">SortablePlugin</span></code></p>
+
+  
+      <p>The <code>ShutdownPlugin</code> allows hooking into the shutdown of OctoPrint. It's usually used in conjunction with the
+:class:<code>StartupPlugin</code> mixin, to cleanly shut down additional services again that where started by the :class:<code>StartupPlugin</code>
+part of the plugin.</p>
+<p><code>ShutdownPlugin</code> is a :class:<code>~octoprint.plugin.core.SortablePlugin</code> and provides a sorting context for
+:meth:<code>~octoprint.plugin.ShutdownPlugin.on_shutdown</code>.</p>
+
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h4 id="octoprint.plugin.types.ShutdownPlugin.on_shutdown" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">on_shutdown</span><span class="p">()</span></code>
+
+<a href="#octoprint.plugin.types.ShutdownPlugin.on_shutdown" class="headerlink" title="Permanent link">#</a></h4>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Called upon the imminent shutdown of OctoPrint.</p>
+<p>.. warning::</p>
+<p>Do not perform long-running or even blocking operations in your implementation or you <strong>will</strong> block and break the server.</p>
+<p>The relevant sorting context is <code>ShutdownPlugin.on_shutdown</code>.</p>
+
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+</div><h3 id="settingsplugin">SettingsPlugin<a class="headerlink" href="#settingsplugin" title="Permanent link">#</a></h3>
+
+
+<div class="doc doc-object doc-class">
+
+
+<a id="octoprint.plugin.SettingsPlugin"></a>
+  <div class="doc doc-contents first">
+      <p class="doc doc-class-bases">
+        Bases: <code><span title="octoprint.plugin.types.OctoPrintPlugin">OctoPrintPlugin</span></code></p>
+
+  
+      <p>Including the <code>SettingsPlugin</code> mixin allows plugins to store and retrieve their own settings within OctoPrint's
+configuration.</p>
+<p>Plugins including the mixing will get injected an additional property <code>self._settings</code> which is an instance of
+[<code>PluginSettingsManager</code>][octoprint.plugin.PluginSettings] already properly initialized for use by the plugin. In order for the manager to
+know about the available settings structure and default values upon initialization, implementing plugins will need
+to provide a dictionary with the plugin's default settings through overriding the method :func:<code>get_settings_defaults</code>.
+The defined structure will then be available to access through the settings manager available as <code>self._settings</code>.</p>
+<p>If your plugin needs to react to the change of specific configuration values on the fly, e.g. to adjust the log level
+of a logger when the user changes a corresponding flag via the settings dialog, you can override the
+:func:<code>on_settings_save</code> method and wrap the call to the implementation from the parent class with retrieval of the
+old and the new value and react accordingly.</p>
+<p>Example:</p>
+<p>.. code-block:: python</p>
+<p>import octoprint.plugin</p>
+<p>class MySettingsPlugin(octoprint.plugin.SettingsPlugin, octoprint.plugin.StartupPlugin):
+       def get_settings_defaults(self):
+           return dict(
+               some_setting="foo",
+               some_value=23,
+               sub=dict(
+                   some_flag=True
+               )
+           )</p>
+<div class="highlight"><pre><span></span><code>   def on_settings_save(self, data):
+       old_flag = self._settings.get_boolean([&quot;sub&quot;, &quot;some_flag&quot;])
+
+       octoprint.plugin.SettingsPlugin.on_settings_save(self, data)
+
+       new_flag = self._settings.get_boolean([&quot;sub&quot;, &quot;some_flag&quot;])
+       if old_flag != new_flag:
+           self._logger.info(&quot;sub.some_flag changed from {old_flag} to {new_flag}&quot;.format(**locals()))
+
+   def on_after_startup(self):
+       some_setting = self._settings.get([&quot;some_setting&quot;])
+       some_value = self._settings.get_int([&quot;some_value&quot;])
+       some_flag = self._settings.get_boolean([&quot;sub&quot;, &quot;some_flag&quot;])
+       self._logger.info(&quot;some_setting = {some_setting}, some_value = {some_value}, sub.some_flag = {some_flag}&quot;.format(**locals())
+</code></pre></div>
+<p><strong>plugin_implementation</strong> = MySettingsPlugin()</p>
+<p>Of course, you are always free to completely override both :func:<code>on_settings_load</code> and :func:<code>on_settings_save</code> if the
+default implementations do not fit your requirements.</p>
+<p>.. warning::</p>
+<p>Make sure to protect sensitive information stored by your plugin that only logged in administrators (or users)
+   should have access to via :meth:<code>~octoprint.plugin.SettingsPlugin.get_settings_restricted_paths</code>. OctoPrint will
+   return its settings on the REST API even to anonymous clients, but will filter out fields it knows are restricted,
+   therefore you <strong>must</strong> make sure that you specify sensitive information accordingly to limit access as required!</p>
+
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="octoprint.plugin.types.SettingsPlugin.config_version_key" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">config_version_key</span> <span class="o">=</span> <span class="s1">&#39;_config_version&#39;</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
+  </span>
+
+<a href="#octoprint.plugin.types.SettingsPlugin.config_version_key" class="headerlink" title="Permanent link">#</a></h4>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Key of the field in the settings that holds the configuration format version.</p>
+  </div>
+
+</div>
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h4 id="octoprint.plugin.types.SettingsPlugin.get_settings_defaults" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">get_settings_defaults</span><span class="p">()</span></code>
+
+<a href="#octoprint.plugin.types.SettingsPlugin.get_settings_defaults" class="headerlink" title="Permanent link">#</a></h4>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Retrieves the plugin's default settings with which the plugin's settings manager will be initialized.</p>
+<p>Override this in your plugin's implementation and return a dictionary defining your settings data structure
+with included default values.</p>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h4 id="octoprint.plugin.types.SettingsPlugin.get_settings_preprocessors" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">get_settings_preprocessors</span><span class="p">()</span></code>
+
+<a href="#octoprint.plugin.types.SettingsPlugin.get_settings_preprocessors" class="headerlink" title="Permanent link">#</a></h4>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Retrieves the plugin's preprocessors to use for preprocessing returned or set values prior to returning/setting
+them.</p>
+<p>The preprocessors should be provided as a dictionary mapping the path of the values to preprocess
+(hierarchically) to a transform function which will get the value to transform as only input and should return
+the transformed value.</p>
+<p>Example:</p>
+<p>.. code-block:: python</p>
+<p>def get_settings_defaults(self):
+       return dict(some_key="Some_Value", some_other_key="Some_Value")</p>
+<p>def get_settings_preprocessors(self):
+       return dict(some_key=lambda x: x.upper()),        # getter preprocessors
+              dict(some_other_key=lambda x: x.lower())   # setter preprocessors</p>
+<p>def some_method(self):
+       # getting the value for "some_key" should turn it to upper case
+       assert self._settings.get(["some_key"]) == "SOME_VALUE"</p>
+<div class="highlight"><pre><span></span><code>   # the value for &quot;some_other_key&quot; should be left alone
+   assert self._settings.get([&quot;some_other_key&quot;] = &quot;Some_Value&quot;
+
+   # setting a value for &quot;some_other_key&quot; should cause the value to first be turned to lower case
+   self._settings.set([&quot;some_other_key&quot;], &quot;SOME_OTHER_VALUE&quot;)
+   assert self._settings.get([&quot;some_other_key&quot;]) == &quot;some_other_value&quot;
+</code></pre></div>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code>dict, dict</code>
+          </td>
+          <td><p>A tuple consisting of two dictionaries, the first being the plugin's preprocessors for</p></td>
+        </tr>
+        <tr>
+          <td>
+          </td>
+          <td><p>getters, the second the preprocessors for setters</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h4 id="octoprint.plugin.types.SettingsPlugin.get_settings_restricted_paths" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">get_settings_restricted_paths</span><span class="p">()</span></code>
+
+<a href="#octoprint.plugin.types.SettingsPlugin.get_settings_restricted_paths" class="headerlink" title="Permanent link">#</a></h4>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Retrieves the list of paths in the plugin's settings which be restricted on the REST API.</p>
+<p>Override this in your plugin's implementation to restrict whether a path should only be returned to users with
+certain permissions, or never on the REST API.</p>
+<p>Return a <code>dict</code> with one of the following keys, mapping to a list of paths (as tuples or lists of
+the path elements) for which to restrict access via the REST API accordingly.</p>
+<ul>
+<li>An <img alt="🇵🇾" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f1f5-1f1fe.svg" title=":py:" />class:<code>~octoprint.access.permissions.OctoPrintPermission</code> instance: Paths will only be available on the REST API for users with the permission</li>
+<li><code>admin</code>: Paths will only be available on the REST API for users with admin rights (any user with the SETTINGS permission)</li>
+<li><code>user</code>: Paths will only be available on the REST API when accessed as a logged in user</li>
+<li><code>never</code>: Paths will never be returned on the API</li>
+</ul>
+<p>Example:</p>
+<p>.. code-block:: python</p>
+<p>def get_settings_defaults(self):
+       return dict(some=dict(admin_only=dict(path="path", foo="foo"),
+                             user_only=dict(path="path", bar="bar")),
+                   another=dict(admin_only=dict(path="path"),
+                                field="field"),
+                   path=dict(to=dict(never=dict(return="return"))),
+                   the=dict(webcam=dict(data="webcam")))</p>
+<p>def get_settings_restricted_paths(self):
+       from octoprint.access.permissions import Permissions
+       return {'admin':[["some", "admin_only", "path"], ["another", "admin_only", "path"],],
+               'user':[["some", "user_only", "path"],],
+               'never':[["path", "to", "never", "return"],],
+               Permissions.WEBCAM:[["the", "webcam", "data"],]}</p>
+<p># this will make the plugin return settings on the REST API like this for an anonymous user
+   #
+   #     dict(some=dict(admin_only=dict(path=None, foo="foo"),
+   #                    user_only=dict(path=None, bar="bar")),
+   #          another=dict(admin_only=dict(path=None),
+   #                       field="field"),
+   #          path=dict(to=dict(never=dict(return=None))),
+   #          the=dict(webcam=dict(data=None)))
+   #
+   # like this for a logged in user without the webcam permission
+   #
+   #     dict(some=dict(admin_only=dict(path=None, foo="foo"),
+   #                    user_only=dict(path="path", bar="bar")),
+   #          another=dict(admin_only=dict(path=None),
+   #                       field="field"),
+   #          path=dict(to=dict(never=dict(return=None))),
+   #          the=dict(webcam=dict(data=None)))
+   #
+   # like this for a logged in user with the webcam permission
+   #
+   #     dict(some=dict(admin_only=dict(path=None, foo="foo"),
+   #                    user_only=dict(path="path", bar="bar")),
+   #          another=dict(admin_only=dict(path=None),
+   #                       field="field"),
+   #          path=dict(to=dict(never=dict(return=None))),
+   #          the=dict(webcam=dict(data="webcam")))
+   #
+   # and like this for an admin user
+   #
+   #     dict(some=dict(admin_only=dict(path="path", foo="foo"),
+   #                    user_only=dict(path="path", bar="bar")),
+   #          another=dict(admin_only=dict(path="path"),
+   #                       field="field"),
+   #          path=dict(to=dict(never=dict(return=None))),
+   #          the=dict(webcam=dict(data="webcam")))</p>
+<p>.. versionadded:: 1.2.17</p>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h4 id="octoprint.plugin.types.SettingsPlugin.get_settings_version" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">get_settings_version</span><span class="p">()</span></code>
+
+<a href="#octoprint.plugin.types.SettingsPlugin.get_settings_version" class="headerlink" title="Permanent link">#</a></h4>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Retrieves the settings format version of the plugin.</p>
+<p>Use this to have OctoPrint trigger your migration function if it detects an outdated settings version in
+config.yaml.</p>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+          </td>
+          <td><p>int or None: an int signifying the current settings format, should be incremented by plugins whenever there</p></td>
+        </tr>
+        <tr>
+          <td>
+          </td>
+          <td><p>are backwards incompatible changes. Returning None here disables the version tracking for the</p></td>
+        </tr>
+        <tr>
+          <td>
+          </td>
+          <td><p>plugin's configuration.</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h4 id="octoprint.plugin.types.SettingsPlugin.on_settings_cleanup" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">on_settings_cleanup</span><span class="p">()</span></code>
+
+<a href="#octoprint.plugin.types.SettingsPlugin.on_settings_cleanup" class="headerlink" title="Permanent link">#</a></h4>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Called after migration and initialization but before call to :func:<code>on_settings_initialized</code>.</p>
+<p>Plugins may overwrite this method to perform additional clean up tasks.</p>
+<p>The default implementation just minimizes the data persisted on disk to only contain
+the differences to the defaults (in case the current data was persisted with an older
+version of OctoPrint that still duplicated default data).</p>
+<p>.. versionadded:: 1.3.0</p>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h4 id="octoprint.plugin.types.SettingsPlugin.on_settings_initialized" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">on_settings_initialized</span><span class="p">()</span></code>
+
+<a href="#octoprint.plugin.types.SettingsPlugin.on_settings_initialized" class="headerlink" title="Permanent link">#</a></h4>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Called after the settings have been initialized and - if necessary - also been migrated through a call to
+func:<code>on_settings_migrate</code>.</p>
+<p>This method will always be called after the <code>initialize</code> method.</p>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h4 id="octoprint.plugin.types.SettingsPlugin.on_settings_load" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">on_settings_load</span><span class="p">()</span></code>
+
+<a href="#octoprint.plugin.types.SettingsPlugin.on_settings_load" class="headerlink" title="Permanent link">#</a></h4>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Loads the settings for the plugin, called by the Settings API view in order to retrieve all settings from
+all plugins. Override this if you want to inject additional settings properties that are not stored within
+OctoPrint's configuration.</p>
+<p>.. note::</p>
+<p>The default implementation will return your plugin's settings as is, so just in the structure and in the types
+   that are currently stored in OctoPrint's configuration.</p>
+<p>If you need more granular control here, e.g. over the used data types, you'll need to override this method
+   and iterate yourself over all your settings, using the proper retriever methods on the settings manager
+   to retrieve the data in the correct format.</p>
+<p>The default implementation will also replace any paths that have been restricted by your plugin through
+   :func:<code>~octoprint.plugin.SettingsPlugin.get_settings_restricted_paths</code> with either the provided
+   default value (if one was provided), an empty dictionary (as fallback for restricted dictionaries), an
+   empty list (as fallback for restricted lists) or <code>None</code> values where necessary.
+   Make sure to do your own restriction if you decide to fully overload this method.</p>
+<p>:return: the current settings of the plugin, as a dictionary</p>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h4 id="octoprint.plugin.types.SettingsPlugin.on_settings_migrate" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">on_settings_migrate</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">current</span><span class="p">)</span></code>
+
+<a href="#octoprint.plugin.types.SettingsPlugin.on_settings_migrate" class="headerlink" title="Permanent link">#</a></h4>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Called by OctoPrint if it detects that the installed version of the plugin necessitates a higher settings version
+than the one currently stored in _config.yaml. Will also be called if the settings data stored in config.yaml
+doesn't have version information, in which case the <code>current</code> parameter will be None.</p>
+<p>Your plugin's implementation should take care of migrating any data by utilizing self._settings. OctoPrint
+will take care of saving any changes to disk by calling <code>self._settings.save()</code> after returning from this method.</p>
+<p>This method will be called before your plugin's :func:<code>on_settings_initialized</code> method, with all injections already
+having taken place. You can therefore depend on the configuration having been migrated by the time
+:func:<code>on_settings_initialized</code> is called.</p>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>target</code></td>
+          <td>
+                <code>int</code>
+          </td>
+          <td><p>The settings format version the plugin requires, this should always be the same value as
+          returned by :func:<code>get_settings_version</code>.</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>current</code></td>
+          <td>
+                <code>int or None</code>
+          </td>
+          <td><p>The settings format version as currently stored in config.yaml. May be None if
+          no version information can be found.</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h4 id="octoprint.plugin.types.SettingsPlugin.on_settings_save" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">on_settings_save</span><span class="p">(</span><span class="n">data</span><span class="p">)</span></code>
+
+<a href="#octoprint.plugin.types.SettingsPlugin.on_settings_save" class="headerlink" title="Permanent link">#</a></h4>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Saves the settings for the plugin, called by the Settings API view in order to persist all settings
+from all plugins. Override this if you need to directly react to settings changes or want to extract
+additional settings properties that are not stored within OctoPrint's configuration.</p>
+<p>.. note::</p>
+<p>The default implementation will persist your plugin's settings as is, so just in the structure and in the
+   types that were received by the Settings API view. Values identical to the default settings values
+   will <em>not</em> be persisted.</p>
+<p>If you need more granular control here, e.g. over the used data types, you'll need to override this method
+   and iterate yourself over all your settings, retrieving them (if set) from the supplied received <code>data</code>
+   and using the proper setter methods on the settings manager to persist the data in the correct format.</p>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>data</code></td>
+          <td>
+                <code>dict</code>
+          </td>
+          <td><p>The settings dictionary to be saved for the plugin</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+<th>Name</th>        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+<td><code>dict</code></td>          <td>
+          </td>
+          <td><p>The settings that differed from the defaults and were actually saved.</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+</div><h3 id="assetplugin">AssetPlugin<a class="headerlink" href="#assetplugin" title="Permanent link">#</a></h3>
+
+
+<div class="doc doc-object doc-class">
+
+
+<a id="octoprint.plugin.AssetPlugin"></a>
+  <div class="doc doc-contents first">
+      <p class="doc doc-class-bases">
+        Bases: <code><span title="octoprint.plugin.types.OctoPrintPlugin">OctoPrintPlugin</span></code>, <code><span title="octoprint.plugin.core.RestartNeedingPlugin">RestartNeedingPlugin</span></code></p>
+
+  
+      <p>The <code>AssetPlugin</code> mixin allows plugins to define additional static assets such as JavaScript or CSS files to
+be automatically embedded into the pages delivered by the server to be used within the client sided part of
+the plugin.</p>
+<p>A typical usage of the <code>AssetPlugin</code> functionality is to embed a custom view model to be used by templates injected
+through a [<code>TemplatePlugin</code>][octoprint.plugins.TemplatePlugin].</p>
+
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h4 id="octoprint.plugin.types.AssetPlugin.get_asset_folder" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">get_asset_folder</span><span class="p">()</span></code>
+
+<a href="#octoprint.plugin.types.AssetPlugin.get_asset_folder" class="headerlink" title="Permanent link">#</a></h4>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Defines the folder where the plugin stores its static assets as defined in
+<a class="autorefs autorefs-internal" href="#octoprint.plugin.types.AssetPlugin.get_assets">get_assets</a>. Override this if
+your plugin stores its assets at some other place than the <code>static</code> sub folder in
+the plugin base directory.</p>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code>str</code>
+          </td>
+          <td><p>The absolute path to the folder where the plugin stores its static assets</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h4 id="octoprint.plugin.types.AssetPlugin.get_assets" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">get_assets</span><span class="p">()</span></code>
+
+<a href="#octoprint.plugin.types.AssetPlugin.get_assets" class="headerlink" title="Permanent link">#</a></h4>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Defines the static assets the plugin offers. The following asset types are recognized and automatically
+imported at the appropriate places to be available:</p>
+<dl>
+<dt><code>js</code></dt>
+<dd>JavaScript files, such as additional view models</dd>
+<dt><code>jsclient</code></dt>
+<dd>JavaScript files containing additional parts for the JS Client Library (since 1.3.10)</dd>
+<dt><code>css</code></dt>
+<dd>CSS files with additional styles, will be embedded into delivered pages when not running in LESS mode.</dd>
+<dt><code>less</code></dt>
+<dd>LESS files with additional styles, will be embedded into delivered pages when running in LESS mode.</dd>
+</dl>
+<p>The expected format to be returned is a dictionary mapping one or more of these keys to a list of files of that
+type, the files being represented as relative paths from the asset folder as defined via <a class="autorefs autorefs-internal" href="#octoprint.plugin.types.AssetPlugin.get_asset_folder"><code>get_asset_folder</code></a>.</p>
+
+<details class="example">
+  <summary>Example</summary>
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">def</span> <span class="nf">get_assets</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>        <span class="n">js</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;js/my_file.js&#39;</span><span class="p">,</span> <span class="s1">&#39;js/my_other_file.js&#39;</span><span class="p">],</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>        <span class="n">clientjs</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;clientjs/my_file.js&#39;</span><span class="p">],</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>        <span class="n">css</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;css/my_styles.css&#39;</span><span class="p">],</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>        <span class="n">less</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;less/my_styles.less&#39;</span><span class="p">]</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>     <span class="p">)</span>
+</code></pre></div>
+</details>      <p>The assets will be made available by OctoPrint under the URL <code>/plugin/&lt;plugin identifier&gt;/static/&lt;path&gt;</code>, with
+<code>plugin identifier</code> being the plugin's identifier and <code>path</code> being the path as defined in the asset dictionary.</p>
+<p>Assets of the types <code>js</code>, <code>css</code> and <code>less</code> will be automatically bundled by OctoPrint using
+<a href="http://flask-assets.readthedocs.org/en/latest/">Flask-Assets</a>.</p>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code>dict</code>
+          </td>
+          <td><p>A dictionary describing the static assets to publish for the plugin.</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+</div><p>TemplatePlugin
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>.. autoclass:: octoprint.plugin.TemplatePlugin
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>   :members:
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>   :show-inheritance:
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>.. _sec-plugins-mixins-wizardplugin:
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>WizardPlugin
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>~~~~~~~~~~~~
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>.. autoclass:: octoprint.plugin.WizardPlugin
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>   :members:
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>   :show-inheritance:
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>.. _sec-plugins-mixins-uiplugin:
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>UiPlugin
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>~~~~~~~~
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>.. autoclass:: octoprint.plugin.UiPlugin
+<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>   :members:
+<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>   :show-inheritance:
+<a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a>
+<a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a>.. _sec-plugins-mixins-simpleapiplugin:
+<a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a>
+<a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a>SimpleApiPlugin
+<a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a>~~~~~~~~~~~~~~~
+<a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a>
+<a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a>.. autoclass:: octoprint.plugin.SimpleApiPlugin
+<a id="__codelineno-6-29" name="__codelineno-6-29" href="#__codelineno-6-29"></a>   :members:
+<a id="__codelineno-6-30" name="__codelineno-6-30" href="#__codelineno-6-30"></a>   :show-inheritance:
+<a id="__codelineno-6-31" name="__codelineno-6-31" href="#__codelineno-6-31"></a>
+<a id="__codelineno-6-32" name="__codelineno-6-32" href="#__codelineno-6-32"></a>.. _sec-plugins-mixins-blueprintplugin:
+<a id="__codelineno-6-33" name="__codelineno-6-33" href="#__codelineno-6-33"></a>
+<a id="__codelineno-6-34" name="__codelineno-6-34" href="#__codelineno-6-34"></a>BlueprintPlugin
+<a id="__codelineno-6-35" name="__codelineno-6-35" href="#__codelineno-6-35"></a>~~~~~~~~~~~~~~~
+<a id="__codelineno-6-36" name="__codelineno-6-36" href="#__codelineno-6-36"></a>
+<a id="__codelineno-6-37" name="__codelineno-6-37" href="#__codelineno-6-37"></a>.. autoclass:: octoprint.plugin.BlueprintPlugin
+<a id="__codelineno-6-38" name="__codelineno-6-38" href="#__codelineno-6-38"></a>   :members:
+<a id="__codelineno-6-39" name="__codelineno-6-39" href="#__codelineno-6-39"></a>   :show-inheritance:
+<a id="__codelineno-6-40" name="__codelineno-6-40" href="#__codelineno-6-40"></a>
+<a id="__codelineno-6-41" name="__codelineno-6-41" href="#__codelineno-6-41"></a>.. _sec-plugins-mixins-eventhandlerplugin:
+<a id="__codelineno-6-42" name="__codelineno-6-42" href="#__codelineno-6-42"></a>
+<a id="__codelineno-6-43" name="__codelineno-6-43" href="#__codelineno-6-43"></a>EventHandlerPlugin
+<a id="__codelineno-6-44" name="__codelineno-6-44" href="#__codelineno-6-44"></a>~~~~~~~~~~~~~~~~~~
+<a id="__codelineno-6-45" name="__codelineno-6-45" href="#__codelineno-6-45"></a>
+<a id="__codelineno-6-46" name="__codelineno-6-46" href="#__codelineno-6-46"></a>.. autoclass:: octoprint.plugin.EventHandlerPlugin
+<a id="__codelineno-6-47" name="__codelineno-6-47" href="#__codelineno-6-47"></a>   :members:
+<a id="__codelineno-6-48" name="__codelineno-6-48" href="#__codelineno-6-48"></a>   :show-inheritance:
+<a id="__codelineno-6-49" name="__codelineno-6-49" href="#__codelineno-6-49"></a>
+<a id="__codelineno-6-50" name="__codelineno-6-50" href="#__codelineno-6-50"></a>.. _sec-plugins-mixins-progressplugin:
+<a id="__codelineno-6-51" name="__codelineno-6-51" href="#__codelineno-6-51"></a>
+<a id="__codelineno-6-52" name="__codelineno-6-52" href="#__codelineno-6-52"></a>ProgressPlugin
+</code></pre></div></p>
+<p>.. autoclass:: octoprint.plugin.ProgressPlugin
+   :members:
+   :show-inheritance:</p>
+<p>.. _sec-plugins-mixins-slicerplugin:</p>
+<p>SlicerPlugin
+~~~~~~~~~~~~</p>
+<p>.. autoclass:: octoprint.plugin.SlicerPlugin
+   :members:
+   :show-inheritance:</p>
+<p>.. _sec-plugins-mixins-restartneeding:</p>
+<p>RestartNeedingPlugin
+~~~~~~~~~~~~~~~~~~~~</p>
+<p>.. autoclass:: octoprint.plugin.RestartNeedingPlugin
+   :members:
+   :show-inheritance:</p>
+<p>.. _sec-plugins-mixins-reloadneeding:</p>
+<p>ReloadNeedingPlugin
+~~~~~~~~~~~~~~~~~~~</p>
+<p>.. autoclass:: octoprint.plugin.ReloadNeedingPlugin
+   :members:
+   :show-inheritance:</p>
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-top--hidden md-icon" data-md-component="top">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Plugin Development Guide" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Plugin Development Guide
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../dev-guide/" class="md-footer__link md-footer__link--next" aria-label="Next: Core Development Guide" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Core Development Guide
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/OctoPrint3D" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "toc.integrate"], "search": "../../assets/javascripts/workers/search.b028fd86.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.7f366e99.min.js"></script>
+      
+    
+  </body>
+</html>
