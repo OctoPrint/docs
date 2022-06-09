@@ -1,14 +1,21 @@
 """Generate the code reference pages and navigation."""
 
 from pathlib import Path
+import os
 
 import mkdocs_gen_files
 
-SOURCE = "../OctoPrint/src"
-IGNORE = [
-    "octoprint.plugins.",
-    "octoprint.util.piptestballoon."
-]
+SOURCE = os.environ.get("OCTOPRINT_SRC", "../OctoPrint/src")
+
+ignore_str = os.environ.get("OCTOPRINT_SRC_IGNORE", "")
+if ignore_str:
+    IGNORE = ignore_str.split(",")
+else:
+    IGNORE = [
+        "octoprint.plugins.",
+        "octoprint.util.piptestballoon.",
+        "octoprint._version",
+    ]
 
 nav = mkdocs_gen_files.Nav()
 

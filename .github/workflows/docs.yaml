@@ -41,7 +41,7 @@ jobs:
       - name: 🏗 Build docs
         run: |
           cd ${{ github.workspace }}/docs
-          export OCTOPRINT_SRC=${{ github.workspace }}/OctoPrint/src
+          export OCTOPRINT_SRC="${{ github.workspace }}/OctoPrint/src"
           poetry run mkdocs build
 
       - name: 🚀 Deploy page

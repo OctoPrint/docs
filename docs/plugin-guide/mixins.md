@@ -11,7 +11,7 @@ locations within OctoPrint.
 Using mixins always follows the pattern of retrieving the matching implementations from the plugin subsystem, then
 calling the specific mixin's methods as defined and necessary.
 
-The following snippet taken from OctoPrint's code for example shows how all [octoprint.plugin.AssetPlugin][]
+The following snippet taken from OctoPrint's code for example shows how all [AssetPlugin][octoprint.plugin.types.AssetPlugin]
 implementations are collected and then all assets they return via their `get_assets` methods are retrieved and
 merged into one big asset map (differing between javascripts and stylesheets of various types) for use during
 rendition of the UI.
@@ -45,15 +45,16 @@ for name, implementation in asset_plugins.items():
 
 ## Execution Order
 
-Some mixin types, such as :class:`~octoprint.plugin.StartupPlugin`, :class:`~octoprint.plugin.ShutdownPlugin` and
-:class:`~octoprint.plugin.UiPlugin`, support influencing the execution order for various execution contexts by also
-implementing the :class:`~octoprint.plugin.core.SortablePlugin` mixin.
+Some mixin types, such as [StartupPlugin][octoprint.plugin.types.StartupPlugin], 
+[ShutdownPlugin][octoprint.plugin.types.ShutdownPlugin] and [UiPlugin][octoprint.plugin.types.UiPlugin], 
+support influencing the execution order for various execution contexts by also 
+implementing the [SortablePlugin][octoprint.plugin.core.SortablePlugin] mixin.
 
 If a method is to be called on a plugin implementation for which a sorting context is defined (see the mixin
 documentation for information on this), OctoPrint's plugin subsystem will ensure that the order in which the implementation
 calls are done is as follows:
 
-  * Plugins with a return value that is not `None` for :meth:`~octoprint.plugin.core.SortablePlugin.get_sorting_key`
+  * Plugins with a return value that is not `None` for `get_sorting_key`
     for the provided sorting context will be ordered among each other first. If the returned order number is equal for
     two or more implementations, they will be sorted first by whether they come bundled with OctoPrint or not, then by
     their identifier.
@@ -62,10 +63,10 @@ calls are done is as follows:
 
 !!! example
 
-    Consider four plugin implementations implementing the :class:`~octoprint.plugin.StartupPlugin` mixin, called
+    Consider four plugin implementations implementing the `StartupPlugin` mixin, called
     `plugin_a`, `plugin_b`, `plugin_c` and `plugin_d`, the latter coming bundled with OctoPrint. `plugin_a`
-    and `plugin_d` don't override :meth:`~octoprint.plugin.core.SortablePlugin.get_sorting_key`.
-    `plugin_b` and `plugin_c` both return `1` for the sorting context `StartupPlugin.on_startup`, `None` otherwise:
+    and `plugin_d` don't override `get_sorting_key`. `plugin_b` and `plugin_c` both 
+    return `1` for the sorting context `StartupPlugin.on_startup`, `None` otherwise:
     
     ``` python title="plugin_a.py"
     import octoprint.plugin
@@ -161,129 +162,74 @@ calls are done is as follows:
 
 ## Injected Properties
 
-OctoPrint's plugin subsystem will inject a bunch of properties into each :ref:`mixin implementation <sec-plugins-mixins>`.
-An overview of these properties can be found in the section :ref:`Injected Properties <sec-plugins-injectedproperties>`.
+OctoPrint's plugin subsystem will inject a bunch of properties into each mixin implementation.
+An overview of these properties can be found in the section [Injected Properties]().
 
 !!! see-also
 
-    [octoprint.plugin.core.Plugin][] and [octoprint.plugin.OctoPrintPlugin][]
+    [Plugin][octoprint.plugin.core.Plugin] and [OctoPrintPlugin][octoprint.plugin.types.OctoPrintPlugin]
     :   Class documentation also containing the properties shared among all mixin implementations.
 
 ## Available plugin mixins
 
 The following plugin mixins are currently available:
 
-Please note that all plugin mixins inherit from [octoprint.plugin.core.Plugin][] and
-[octoprint.plugin.types.OctoPrintPlugin][],  which also provide attributes of interest to plugin developers.
+Please note that all plugin mixins inherit from 
+[Plugin][octoprint.plugin.core.Plugin] and [OctoPrintPlugin][octoprint.plugin.types.OctoPrintPlugin], 
+which also provide attributes of interest to plugin developers.
 
-### StartupPlugin
-
-::: octoprint.plugin.StartupPlugin
+### ::: octoprint.plugin.AssetPlugin
     options:
-      heading_level: 4
+      show_root_heading: true
 
-### ShutdownPlugin
-
-::: octoprint.plugin.ShutdownPlugin
+### ::: octoprint.plugin.BlueprintPlugin
     options:
-      heading_level: 4
+      show_root_heading: true
 
-### SettingsPlugin
-
-::: octoprint.plugin.SettingsPlugin
+### ::: octoprint.plugin.EventHandlerPlugin
     options:
-      heading_level: 4
+      show_root_heading: true
 
-### AssetPlugin
-
-::: octoprint.plugin.AssetPlugin
+### ::: octoprint.plugin.ProgressPlugin
     options:
-      heading_level: 4
+      show_root_heading: true
 
-TemplatePlugin
-~~~~~~~~~~~~~~
+### ::: octoprint.plugin.ReloadNeedingPlugin
+    options:
+      show_root_heading: true
 
-.. autoclass:: octoprint.plugin.TemplatePlugin
-   :members:
-   :show-inheritance:
+### ::: octoprint.plugin.RestartNeedingPlugin
+    options:
+      show_root_heading: true
 
-.. _sec-plugins-mixins-wizardplugin:
+### ::: octoprint.plugin.SettingsPlugin
+    options:
+      show_root_heading: true
 
-WizardPlugin
-~~~~~~~~~~~~
+### ::: octoprint.plugin.ShutdownPlugin
+    options:
+      show_root_heading: true
 
-.. autoclass:: octoprint.plugin.WizardPlugin
-   :members:
-   :show-inheritance:
+### ::: octoprint.plugin.SimpleApiPlugin
+    options:
+      show_root_heading: true
 
-.. _sec-plugins-mixins-uiplugin:
+### ::: octoprint.plugin.SlicerPlugin
+    options:
+      show_root_heading: true
 
-UiPlugin
-~~~~~~~~
+### ::: octoprint.plugin.StartupPlugin
+    options:
+      show_root_heading: true
 
-.. autoclass:: octoprint.plugin.UiPlugin
-   :members:
-   :show-inheritance:
+### ::: octoprint.plugin.TemplatePlugin
+    options:
+      show_root_heading: true
 
-.. _sec-plugins-mixins-simpleapiplugin:
+### ::: octoprint.plugin.UiPlugin
+    options:
+      show_root_heading: true
 
-SimpleApiPlugin
-~~~~~~~~~~~~~~~
-
-.. autoclass:: octoprint.plugin.SimpleApiPlugin
-   :members:
-   :show-inheritance:
-
-.. _sec-plugins-mixins-blueprintplugin:
-
-BlueprintPlugin
-~~~~~~~~~~~~~~~
-
-.. autoclass:: octoprint.plugin.BlueprintPlugin
-   :members:
-   :show-inheritance:
-
-.. _sec-plugins-mixins-eventhandlerplugin:
-
-EventHandlerPlugin
-~~~~~~~~~~~~~~~~~~
-
-.. autoclass:: octoprint.plugin.EventHandlerPlugin
-   :members:
-   :show-inheritance:
-
-.. _sec-plugins-mixins-progressplugin:
-
-ProgressPlugin
-~~~~~~~~~~~~~~
-
-.. autoclass:: octoprint.plugin.ProgressPlugin
-   :members:
-   :show-inheritance:
-
-.. _sec-plugins-mixins-slicerplugin:
-
-SlicerPlugin
-~~~~~~~~~~~~
-
-.. autoclass:: octoprint.plugin.SlicerPlugin
-   :members:
-   :show-inheritance:
-
-.. _sec-plugins-mixins-restartneeding:
-
-RestartNeedingPlugin
-~~~~~~~~~~~~~~~~~~~~
-
-.. autoclass:: octoprint.plugin.RestartNeedingPlugin
-   :members:
-   :show-inheritance:
-
-.. _sec-plugins-mixins-reloadneeding:
-
-ReloadNeedingPlugin
-~~~~~~~~~~~~~~~~~~~
-
-.. autoclass:: octoprint.plugin.ReloadNeedingPlugin
-   :members:
-   :show-inheritance:
+### ::: octoprint.plugin.WizardPlugin
+    options:
+      show_root_heading: true
