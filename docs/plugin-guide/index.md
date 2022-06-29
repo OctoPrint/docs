@@ -1,3 +1,7 @@
+---
+title: Plugin Development Guide
+---
+
 # Plugin Development Guide {: #plugin-guide }
 
 OctoPrint's plugins are [Python Packages](https://docs.python.org/3/tutorial/modules.html#packages) which in their
