@@ -13,7 +13,7 @@
     
     
       
-        <title>logging.yaml - OctoPrint</title>
+        <title>Safe mode - OctoPrint</title>
       
     
     
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#loggingyaml" class="md-skip">
+        <a href="#user-guide.features.safe-mode" class="md-skip">
           Skip to content
         </a>
       
@@ -122,7 +122,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              logging.yaml
+              Safe mode
             
           </span>
         </div>
@@ -430,17 +430,23 @@
         
           
         
+          
+        
+          
+        
+          
+        
       
       
         <label class="md-nav__link" for="__nav_2_2">
-          Configuration
+          Features
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Configuration" data-md-level="2">
+      <nav class="md-nav" aria-label="Features" data-md-level="2">
         <label class="md-nav__title" for="__nav_2_2">
           <span class="md-nav__icon md-icon"></span>
-          Configuration
+          Features
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -450,8 +456,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../cli/" class="md-nav__link">
-        Command-line configuration interface
+      <a href="../access-control/" class="md-nav__link">
+        Access control
       </a>
     </li>
   
@@ -464,8 +470,64 @@
   
   
     <li class="md-nav__item">
-      <a href="../config.yaml/" class="md-nav__link">
-        config.yaml
+      <a href="../action-commands/" class="md-nav__link">
+        Action commands
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../at-commands/" class="md-nav__link">
+        At commands
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../custom-controls/" class="md-nav__link">
+        Custom controls
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gcode-scripts/" class="md-nav__link">
+        GCode scripts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plugins/" class="md-nav__link">
+        Plugins
       </a>
     </li>
   
@@ -488,12 +550,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          logging.yaml
+          Safe mode
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        logging.yaml
+        Safe mode
       </a>
       
         
@@ -512,22 +574,42 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#changing-log-levels" class="md-nav__link">
-    Changing log levels
+  <a href="#user-guide.features.safe-mode.start" class="md-nav__link">
+    How to start OctoPrint in safe mode
   </a>
+  
+    <nav class="md-nav" aria-label="How to start OctoPrint in safe mode">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#via-the-restart-octoprint-in-safe-mode-system-menu-entry" class="md-nav__link">
+    Via the "Restart OctoPrint in safe mode" system menu entry
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#via-the-serverstartonceinsafemode-config-flag" class="md-nav__link">
+    Via the server.startOnceInSafeMode config flag
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#via-the-safe-command-line-flag" class="md-nav__link">
+    Via the --safe command line flag
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#changing-logging-handlers" class="md-nav__link">
-    Changing logging handlers
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#changing-logging-formatters" class="md-nav__link">
-    Changing logging formatters
+  <a href="#user-guide.features.safe-mode.differences" class="md-nav__link">
+    Differences of safe mode vs normal operation mode
   </a>
   
 </li>
@@ -536,20 +618,6 @@
   
 </nav>
       
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../yaml_primer/" class="md-nav__link">
-        A YAML Primer
-      </a>
     </li>
   
 
@@ -584,23 +652,17 @@
         
           
         
-          
-        
-          
-        
-          
-        
       
       
         <label class="md-nav__link" for="__nav_2_3">
-          Features
+          Configuration
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Features" data-md-level="2">
+      <nav class="md-nav" aria-label="Configuration" data-md-level="2">
         <label class="md-nav__title" for="__nav_2_3">
           <span class="md-nav__icon md-icon"></span>
-          Features
+          Configuration
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -610,8 +672,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/access_control/" class="md-nav__link">
-        Access control
+      <a href="../../configuration/yaml-primer/" class="md-nav__link">
+        A YAML primer
       </a>
     </li>
   
@@ -624,8 +686,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/action_commands/" class="md-nav__link">
-        Action commands
+      <a href="../../configuration/config-yaml/" class="md-nav__link">
+        Main configuration: config.yaml
       </a>
     </li>
   
@@ -638,8 +700,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/at_commands/" class="md-nav__link">
-        At commands
+      <a href="../../configuration/logging-yaml/" class="md-nav__link">
+        Logging configuration: logging.yaml
       </a>
     </li>
   
@@ -652,50 +714,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/custom_controls/" class="md-nav__link">
-        Custom controls
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../features/gcode_scripts/" class="md-nav__link">
-        Gcode scripts
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../features/plugins/" class="md-nav__link">
-        Plugins
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../features/safe_mode/" class="md-nav__link">
-        Safe mode
+      <a href="../../configuration/cli/" class="md-nav__link">
+        CLI
       </a>
     </li>
   
@@ -737,6 +757,10 @@
         
           
         
+          
+        
+          
+        
       
       
         
@@ -757,6 +781,34 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../plugin-guide/general-concepts/" class="md-nav__link">
+        General concepts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../plugin-guide/injected-properties/" class="md-nav__link">
+        Injected properties
+      </a>
+    </li>
+  
+
             
           
             
@@ -4742,103 +4794,100 @@
             <article class="md-content__inner md-typeset">
               
                 
-  <a href="https://github.com/OctoPrint/OctoPrint/edit/master/docs/user-guide/configuration/logging.yaml.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/OctoPrint/OctoPrint/edit/master/docs/user-guide/features/safe-mode.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
 
-<h1 id="loggingyaml">logging.yaml<a class="headerlink" href="#loggingyaml" title="Permanent link">#</a></h1>
-<p>The logging configuration file <code>logging.yaml</code> for OctoPrint is expected in its settings 
-folder, which unless defined differently on the command line is located at <code>~/.octoprint</code> 
-on Linux, at <code>%APPDATA%/OctoPrint</code> on Windows and at <code>~/Library/Application Support/OctoPrint</code> 
-on macOS.</p>
-<p>You can use it to change the log levels of the individual components within OctoPrint, 
-which might be necessary to help in debugging issues you are experiencing, or to change 
-the configuration of the logging handlers themselves, e.g. in order to change size after 
-which to rollover the <code>serial.log</code>.</p>
-<div class="admonition hint">
-<p class="admonition-title">Hint</p>
-<p>You can also configure individual logging levels for all components via UI by using 
-the Logging options in the Settings.</p>
-</div>
-<h2 id="changing-log-levels">Changing log levels<a class="headerlink" href="#changing-log-levels" title="Permanent link">#</a></h2>
-<p>If you need to change the default logging level within OctoPrint, create the file with a text editor of your choice (it's usually not there). The general format is this:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">loggers</span><span class="p">:</span><span class="w"></span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">&lt;component&gt;</span><span class="p">:</span><span class="w"></span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;loglevel&gt;</span><span class="w"></span>
-</code></pre></div>
-<p>with <code>&lt;component&gt;</code> being the internal OctoPrint component for which to change the 
-loglevel, and <code>&lt;loglevel&gt;</code> being the new log level to set. An example for increasing the 
-log level of the events and the file management components to <code>DEBUG</code> (the highest amount 
-of logging) would be this <code>logging.yaml</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">loggers</span><span class="p">:</span><span class="w"></span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">octoprint.events</span><span class="p">:</span><span class="w"></span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nt">level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DEBUG</span><span class="w"></span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="nt">octoprint.filemanager</span><span class="p">:</span><span class="w"></span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="nt">level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DEBUG</span><span class="w"></span>
-</code></pre></div>
-<p>A list of important components for which an increase in logging might be interesting follows:</p>
+<h1 id="user-guide.features.safe-mode">Safe mode<a class="headerlink" href="#user-guide.features.safe-mode" title="Permanent link">#</a></h1>
+<p><em>New in version 1.3.0.</em></p>
+<p><em>Changed in version 1.3.13.</em></p>
+<p>With the advent of support for plugins in OctoPrint, it quickly became apparent that some of the bugs
+reported on OctoPrint's bug tracker were actually bugs with installed third party plugins or language
+packs instead of OctoPrint itself.</p>
+<p>To allow an easier identification of these cases, OctoPrint 1.3.0 introduced safe mode. Starting
+OctoPrint in safe mode disables all plugins (and starting with 1.3.13 also all language packs) that are
+not bundled with OctoPrint, allowing to easier identify most cases where a third party plugin or language
+pack is the culprit of an observed issue.</p>
+<p>Additionally, OctoPrint allows uninstalling plugins and language packs in this mode, allowing recovery
+from cases where a third party addition causes the server to not start up or the web interface to not
+render or function correctly anymore.</p>
+<p>Whenever reporting an issue with OctoPrint, please always attempt to reproduce it in safe mode as well to
+ensure it really is an issue in OctoPrint itself and now caused by one of your installed third party additions.</p>
+<h2 id="user-guide.features.safe-mode.start">How to start OctoPrint in safe mode<a class="headerlink" href="#user-guide.features.safe-mode.start" title="Permanent link">#</a></h2>
+<p>There exist three ways to start OctoPrint in safe mode.</p>
+<h3 id="via-the-restart-octoprint-in-safe-mode-system-menu-entry">Via the "Restart OctoPrint in safe mode" system menu entry<a class="headerlink" href="#via-the-restart-octoprint-in-safe-mode-system-menu-entry" title="Permanent link">#</a></h3>
+<p><em>New in version 1.3.2.</em></p>
+<p>You can select "Restart OctoPrint in safe mode" from the "System" menu, if the "Restart 
+OctoPrint" server command has been correctly configured.</p>
+<figure>
+<p><img alt="&quot;Restart OctoPrint in safe mode&quot; in the &quot;System&quot; menu" src="../../../images/user-guide/features/safe_mode/systemmenu.png" />
+  </p>
+<figcaption>"Restart OctoPrint in safe mode" in the "System" menu</figcaption>
+</figure>
+<h3 id="via-the-serverstartonceinsafemode-config-flag">Via the <code>server.startOnceInSafeMode</code> config flag<a class="headerlink" href="#via-the-serverstartonceinsafemode-config-flag" title="Permanent link">#</a></h3>
+<p>You can set the flag <code>server.startOnceInSafeMode</code> in <a href="../configuration/config_yaml"><code>config.yaml</code></a>
+to <code>true</code> and restart. This will make OctoPrint start up in safe mode. The flag will clear
+automatically.</p>
+<p>To set this flag you have the following options:</p>
 <ul>
-<li><code>octoprint.events</code>: the event sub system</li>
-<li><code>octoprint.filemanager</code>: the file management layer</li>
-<li><code>octoprint.plugin</code>: the plugin sub system</li>
-<li><code>octoprint.plugins.&lt;plugin&gt;</code>: the plugin <code>&lt;plugin&gt;</code> to change the log level of, 
-    e.g. <code>octoprint.plugins.discovery</code> to change the log level of the 
-    <a href="">Discovery Plugin</a> or <code>octoprint.plugins.backup</code> to change the log level of the 
-    <a href="">Backup plugin</a>.</li>
-<li><code>octoprint.slicing</code>: the slicing sub system</li>
+<li>
+<p>from command line run <code>octoprint safemode</code><sup id="fnref3:octopi"><a class="footnote-ref" href="#fn:octopi">1</a></sup> (since OctoPrint 1.3.6)</p>
+</li>
+<li>
+<p>from command line run <code>octoprint config set --bool server.startOnceInSafeMode true</code><sup id="fnref2:octopi"><a class="footnote-ref" href="#fn:octopi">1</a></sup></p>
+</li>
+<li>
+<p>edit <code>config.yaml</code> manually with a text editor, locate the <code>server</code> block if it already exists or create it
+    if it doesn't and add <code>startOnceInSafeMode: true</code> to it:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">server</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">startOnceInSafeMode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
+</code></pre></div>
+<p>Please also refer to the <a href="../configuration/yaml">YAML primer</a>.</p>
+</li>
 </ul>
-<p>This list will be expanded as deemed necessary.</p>
-<h2 id="changing-logging-handlers">Changing logging handlers<a class="headerlink" href="#changing-logging-handlers" title="Permanent link">#</a></h2>
-<p>You can also change the configuration of the logging handlers themselves, e.g. in order 
-to make the <code>serial.log</code> larger for debugging long running communications or to change 
-the behaviour of the <code>octoprint.log</code>.</p>
-<p>You can find the default configurations of the <code>file</code> handler used for the 
-<code>octoprint.log</code>, the <code>serialFile</code> handler used for the <code>serial.log</code> and the <code>console</code> 
-handler used for the output to stdout in YAML format below:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">handlers</span><span class="p">:</span><span class="w"></span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="c1"># stdout</span><span class="w"></span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">console</span><span class="p">:</span><span class="w"></span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="nt">class</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">logging.StreamHandler</span><span class="w"></span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="nt">level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DEBUG</span><span class="w"></span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="nt">formatter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">simple</span><span class="w"></span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="nt">stream</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ext://sys.stdout</span><span class="w"></span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">  </span><span class="c1"># octoprint.log</span><span class="w"></span>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">  </span><span class="nt">file</span><span class="p">:</span><span class="w"></span>
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="nt">class</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">logging.handlers.TimedRotatingFileHandler</span><span class="w"></span>
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="nt">level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DEBUG</span><span class="w"></span>
-<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="nt">formatter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">simple</span><span class="w"></span>
-<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">    </span><span class="nt">when</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">D</span><span class="w"></span>
-<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">    </span><span class="nt">backupCount</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w"></span>
-<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">    </span><span class="nt">filename</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/path/to/octoprints/logs/octoprint.log</span><span class="w"></span>
-<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">  </span><span class="c1"># serial.log</span><span class="w"></span>
-<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">  </span><span class="nt">serialFile</span><span class="p">:</span><span class="w"></span>
-<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">    </span><span class="nt">class</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">logging.handlers.RotatingFileHandler</span><span class="w"></span>
-<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">    </span><span class="nt">level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DEBUG</span><span class="w"></span>
-<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">    </span><span class="nt">formatter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">simple</span><span class="w"></span>
-<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">    </span><span class="nt">maxBytes</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2097152</span><span class="w"> </span><span class="c1"># 2 * 1024 * 1024 = 2 MB in bytes</span><span class="w"></span>
-<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">    </span><span class="nt">filename</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/path/to/octoprints/logs/serial.log</span><span class="w"></span>
-</code></pre></div>
-<div class="admonition todo">
-<p class="admonition-title">Todo</p>
-<p>This is currently not being synced up with the code and needs rework.</p>
+<h3 id="via-the-safe-command-line-flag">Via the <code>--safe</code> command line flag<a class="headerlink" href="#via-the-safe-command-line-flag" title="Permanent link">#</a></h3>
+<p>You can start OctoPrint in safe mode with the command line parameter <code>--safe</code>, e.g. <code>octoprint serve --safe</code><sup id="fnref:octopi"><a class="footnote-ref" href="#fn:octopi">1</a></sup>. 
+Don't forget to shutdown OctoPrint first before doing this.</p>
+<h2 id="user-guide.features.safe-mode.differences">Differences of safe mode vs normal operation mode<a class="headerlink" href="#user-guide.features.safe-mode.differences" title="Permanent link">#</a></h2>
+<p>When OctoPrint is running in safe mode the following changes to its normal operation mode apply:</p>
+<ul>
+<li>OctoPrint will not enable any of the installed third party plugins. OctoPrint considers all plugins third
+    party plugins that do not ship with OctoPrint's sources, so any plugins installed either via <code>pip</code> or
+    into OctoPrint's plugin folder<sup id="fnref:plugins"><a class="footnote-ref" href="#fn:plugins">2</a></sup>.</li>
+<li>OctoPrint will not enable any of the installed third party language packs. OctoPrint considers all language packs
+    third party language packs that do not ship with OctoPrint's sources, so any language plugins installed
+    through the language pack manager within settings and/or stored in the language pack folder<sup id="fnref:lpack"><a class="footnote-ref" href="#fn:lpack">3</a></sup>.</li>
+<li>OctoPrint will still allow to uninstall third party plugins through the built-in Plugin Manager.</li>
+<li>OctoPrint will still allow to disable (bundled) plugins that are still enabled.</li>
+<li>OctoPrint will not allow to enable third party plugins.</li>
+<li>OctoPrint will still allow to manage language packs.</li>
+<li>
+<p>OctoPrint's web interface will display a notification to remind you that it is running in
+    safe mode.</p>
+<p><figure markdown>
+  <img alt="Safe mode notification" src="../../../images/user-guide/features/safe_mode/notification.png" />
+  <figcaption>Safe mode notification</figcaption>
+</figure></p>
+</li>
+</ul>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:octopi">
+<p><strong>OctoPi users</strong>: For you that's <code>~/oprint/bin/octoprint</code> wherever it says just <code>octoprint</code>.&#160;<a class="footnote-backref" href="#fnref:octopi" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:octopi" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:octopi" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:plugins">
+<p><code>~/.octoprint/plugins</code> (Linux), <code>%APPDATA%/OctoPrint/plugins</code> (Windows) or
+<code>~/Library/Application Support/OctoPrint/plugins</code> (macOS)&#160;<a class="footnote-backref" href="#fnref:plugins" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:lpack">
+<p><code>~/.octoprint/translations</code> (Linux), <code>%APPDATA%/OctoPrint/translations</code> (Windows) or
+<code>~/Library/Application Support/OctoPrint/translations</code> (macOS)&#160;<a class="footnote-backref" href="#fnref:lpack" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+</ol>
 </div>
-<p>You can find more information on the used logging handlers in the Python documentation on
-<a href="https://docs.python.org/3/library/logging.handlers.html">logging.handlers</a>.</p>
-<h2 id="changing-logging-formatters">Changing logging formatters<a class="headerlink" href="#changing-logging-formatters" title="Permanent link">#</a></h2>
-<p>The logging formatters can be defined via <code>logging.yaml</code> as well. The <code>simple</code> formatter 
-as referenced above is expressed in YAML as follows:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nt">formatters</span><span class="p">:</span><span class="w"></span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">simple</span><span class="p">:</span><span class="w"></span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="nt">format</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;%(asctime)s</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">%(name)s</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">%(levelname)s</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">%(message)s&quot;</span><span class="w"></span>
-</code></pre></div>
-<div class="admonition todo">
-<p class="admonition-title">Todo</p>
-<p>This is currently not being synced up with the code and needs rework.</p>
-</div>
-<p>The possible keys for the logging format can be found in the 
-<a href="https://docs.python.org/3/library/logging.html#logrecord-objects">Python documentation on LogRecord attributes</a>.</p>
 
               
             </article>
@@ -4859,7 +4908,7 @@ as referenced above is expressed in YAML as follows:</p>
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../config.yaml/" class="md-footer__link md-footer__link--prev" aria-label="Previous: config.yaml" rel="prev">
+        <a href="../plugins/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Plugins" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -4868,20 +4917,20 @@ as referenced above is expressed in YAML as follows:</p>
               <span class="md-footer__direction">
                 Previous
               </span>
-              config.yaml
+              Plugins
             </div>
           </div>
         </a>
       
       
         
-        <a href="../yaml_primer/" class="md-footer__link md-footer__link--next" aria-label="Next: A YAML Primer" rel="next">
+        <a href="../../configuration/yaml-primer/" class="md-footer__link md-footer__link--next" aria-label="Next: A YAML primer" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              A YAML Primer
+              A YAML primer
             </div>
           </div>
           <div class="md-footer__button md-icon">

@@ -13,7 +13,7 @@
     
     
       
-        <title>Plugin Development Guide - OctoPrint</title>
+        <title>Plugin Development Guide {: #plugin-guide } - OctoPrint</title>
       
     
     
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#plugin-development-guide" class="md-skip">
+        <a href="#plugin-guide" class="md-skip">
           Skip to content
         </a>
       
@@ -122,7 +122,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Plugin Development Guide
+              Plugin Development Guide {: #plugin-guide }
             
           </span>
         </div>
@@ -426,17 +426,23 @@
         
           
         
+          
+        
+          
+        
+          
+        
       
       
         <label class="md-nav__link" for="__nav_2_2">
-          Configuration
+          Features
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Configuration" data-md-level="2">
+      <nav class="md-nav" aria-label="Features" data-md-level="2">
         <label class="md-nav__title" for="__nav_2_2">
           <span class="md-nav__icon md-icon"></span>
-          Configuration
+          Features
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -446,8 +452,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/configuration/cli/" class="md-nav__link">
-        Command-line configuration interface
+      <a href="../user-guide/features/access-control/" class="md-nav__link">
+        Access control
       </a>
     </li>
   
@@ -460,8 +466,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/configuration/config.yaml/" class="md-nav__link">
-        config.yaml
+      <a href="../user-guide/features/action-commands/" class="md-nav__link">
+        Action commands
       </a>
     </li>
   
@@ -474,8 +480,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/configuration/logging.yaml/" class="md-nav__link">
-        logging.yaml
+      <a href="../user-guide/features/at-commands/" class="md-nav__link">
+        At commands
       </a>
     </li>
   
@@ -488,8 +494,50 @@
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/configuration/yaml_primer/" class="md-nav__link">
-        A YAML Primer
+      <a href="../user-guide/features/custom-controls/" class="md-nav__link">
+        Custom controls
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/features/gcode-scripts/" class="md-nav__link">
+        GCode scripts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/features/plugins/" class="md-nav__link">
+        Plugins
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/features/safe-mode/" class="md-nav__link">
+        Safe mode
       </a>
     </li>
   
@@ -525,23 +573,17 @@
         
           
         
-          
-        
-          
-        
-          
-        
       
       
         <label class="md-nav__link" for="__nav_2_3">
-          Features
+          Configuration
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Features" data-md-level="2">
+      <nav class="md-nav" aria-label="Configuration" data-md-level="2">
         <label class="md-nav__title" for="__nav_2_3">
           <span class="md-nav__icon md-icon"></span>
-          Features
+          Configuration
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -551,8 +593,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/features/access_control/" class="md-nav__link">
-        Access control
+      <a href="../user-guide/configuration/yaml-primer/" class="md-nav__link">
+        A YAML primer
       </a>
     </li>
   
@@ -565,8 +607,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/features/action_commands/" class="md-nav__link">
-        Action commands
+      <a href="../user-guide/configuration/config-yaml/" class="md-nav__link">
+        Main configuration: config.yaml
       </a>
     </li>
   
@@ -579,8 +621,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/features/at_commands/" class="md-nav__link">
-        At commands
+      <a href="../user-guide/configuration/logging-yaml/" class="md-nav__link">
+        Logging configuration: logging.yaml
       </a>
     </li>
   
@@ -593,50 +635,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../user-guide/features/custom_controls/" class="md-nav__link">
-        Custom controls
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../user-guide/features/gcode_scripts/" class="md-nav__link">
-        Gcode scripts
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../user-guide/features/plugins/" class="md-nav__link">
-        Plugins
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../user-guide/features/safe_mode/" class="md-nav__link">
-        Safe mode
+      <a href="../user-guide/configuration/cli/" class="md-nav__link">
+        CLI
       </a>
     </li>
   
@@ -680,6 +680,10 @@
         
           
         
+          
+        
+          
+        
       
       
         
@@ -700,6 +704,34 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="general-concepts/" class="md-nav__link">
+        General concepts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="injected-properties/" class="md-nav__link">
+        Injected properties
+      </a>
+    </li>
+  
+
             
           
             
@@ -4691,7 +4723,7 @@
 
 
 
-<h1 id="plugin-development-guide">Plugin Development Guide<a class="headerlink" href="#plugin-development-guide" title="Permanent link">#</a></h1>
+<h1 id="plugin-guide">Plugin Development Guide<a class="headerlink" href="#plugin-guide" title="Permanent link">#</a></h1>
 
               
             </article>
@@ -4712,7 +4744,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../user-guide/features/safe_mode/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Safe mode" rel="prev">
+        <a href="../user-guide/configuration/cli/" class="md-footer__link md-footer__link--prev" aria-label="Previous: CLI" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -4721,20 +4753,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Safe mode
+              CLI
             </div>
           </div>
         </a>
       
       
         
-        <a href="mixins/" class="md-footer__link md-footer__link--next" aria-label="Next: Mixins" rel="next">
+        <a href="general-concepts/" class="md-footer__link md-footer__link--next" aria-label="Next: General concepts" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Mixins
+              General concepts
             </div>
           </div>
           <div class="md-footer__button md-icon">

@@ -13,7 +13,7 @@
     
     
       
-        <title>Safe mode - OctoPrint</title>
+        <title>At commands - OctoPrint</title>
       
     
     
@@ -69,11 +69,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#safe-mode" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -122,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Safe mode
+              At commands
             
           </span>
         </div>
@@ -410,15 +405,23 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" checked>
       
       
       
+        
+          
+        
+          
+        
+          
         
           
         
@@ -431,119 +434,12 @@
       
       
         <label class="md-nav__link" for="__nav_2_2">
-          Configuration
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Configuration" data-md-level="2">
-        <label class="md-nav__title" for="__nav_2_2">
-          <span class="md-nav__icon md-icon"></span>
-          Configuration
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../configuration/cli/" class="md-nav__link">
-        Command-line configuration interface
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../configuration/config.yaml/" class="md-nav__link">
-        config.yaml
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../configuration/logging.yaml/" class="md-nav__link">
-        logging.yaml
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../configuration/yaml_primer/" class="md-nav__link">
-        A YAML Primer
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-    
-  
-  
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" checked>
-      
-      
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_2_3">
           Features
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Features" data-md-level="2">
-        <label class="md-nav__title" for="__nav_2_3">
+        <label class="md-nav__title" for="__nav_2_2">
           <span class="md-nav__icon md-icon"></span>
           Features
         </label>
@@ -555,7 +451,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../access_control/" class="md-nav__link">
+      <a href="../access-control/" class="md-nav__link">
         Access control
       </a>
     </li>
@@ -569,7 +465,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../action_commands/" class="md-nav__link">
+      <a href="../action-commands/" class="md-nav__link">
         Action commands
       </a>
     </li>
@@ -581,11 +477,19 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../at_commands/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         At commands
       </a>
+      
     </li>
   
 
@@ -597,7 +501,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../custom_controls/" class="md-nav__link">
+      <a href="../custom-controls/" class="md-nav__link">
         Custom controls
       </a>
     </li>
@@ -611,8 +515,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../gcode_scripts/" class="md-nav__link">
-        Gcode scripts
+      <a href="../gcode-scripts/" class="md-nav__link">
+        GCode scripts
       </a>
     </li>
   
@@ -637,86 +541,110 @@
               
   
   
+  
+    <li class="md-nav__item">
+      <a href="../safe-mode/" class="md-nav__link">
+        Safe mode
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     
-  
-  
-    <li class="md-nav__item md-nav__item--active">
+    <li class="md-nav__item md-nav__item--nested">
       
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
       
       
         
+          
+        
+          
+        
+          
+        
+          
+        
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Safe mode
+        <label class="md-nav__link" for="__nav_2_3">
+          Configuration
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="./" class="md-nav__link md-nav__link--active">
-        Safe mode
+      <nav class="md-nav" aria-label="Configuration" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Configuration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/yaml-primer/" class="md-nav__link">
+        A YAML primer
       </a>
-      
-        
+    </li>
+  
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+            
+          
+            
+              
   
   
   
-    
+    <li class="md-nav__item">
+      <a href="../../configuration/config-yaml/" class="md-nav__link">
+        Main configuration: config.yaml
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#how-to-start-octoprint-in-safe-mode" class="md-nav__link">
-    How to start OctoPrint in safe mode
-  </a>
   
-    <nav class="md-nav" aria-label="How to start OctoPrint in safe mode">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#via-the-restart-octoprint-in-safe-mode-system-menu-entry" class="md-nav__link">
-    Via the "Restart OctoPrint in safe mode" system menu entry
-  </a>
+    <li class="md-nav__item">
+      <a href="../../configuration/logging-yaml/" class="md-nav__link">
+        Logging configuration: logging.yaml
+      </a>
+    </li>
   
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#via-the-serverstartonceinsafemode-config-flag" class="md-nav__link">
-    Via the server.startOnceInSafeMode config flag
-  </a>
+
+            
+          
+            
+              
   
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#via-the-safe-command-line-flag" class="md-nav__link">
-    Via the --safe command line flag
-  </a>
   
-</li>
-        
-      </ul>
-    </nav>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#differences-of-safe-mode-vs-normal-operation-mode" class="md-nav__link">
-    Differences of safe mode vs normal operation mode
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
+    <li class="md-nav__item">
+      <a href="../../configuration/cli/" class="md-nav__link">
+        CLI
+      </a>
     </li>
   
 
@@ -757,6 +685,10 @@
         
           
         
+          
+        
+          
+        
       
       
         
@@ -777,6 +709,34 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../plugin-guide/general-concepts/" class="md-nav__link">
+        General concepts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../plugin-guide/injected-properties/" class="md-nav__link">
+        Injected properties
+      </a>
+    </li>
+  
+
             
           
             
@@ -4762,100 +4722,15 @@
             <article class="md-content__inner md-typeset">
               
                 
-  <a href="https://github.com/OctoPrint/OctoPrint/edit/master/docs/user-guide/features/safe_mode.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/OctoPrint/OctoPrint/edit/master/docs/user-guide/features/at-commands.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
 
-<h1 id="safe-mode">Safe mode<a class="headerlink" href="#safe-mode" title="Permanent link">#</a></h1>
-<p><em>New in version 1.3.0.</em></p>
-<p><em>Changed in version 1.3.13.</em></p>
-<p>With the advent of support for plugins in OctoPrint, it quickly became apparent that some of the bugs
-reported on OctoPrint's bug tracker were actually bugs with installed third party plugins or language
-packs instead of OctoPrint itself.</p>
-<p>To allow an easier identification of these cases, OctoPrint 1.3.0 introduced safe mode. Starting
-OctoPrint in safe mode disables all plugins (and starting with 1.3.13 also all language packs) that are
-not bundled with OctoPrint, allowing to easier identify most cases where a third party plugin or language
-pack is the culprit of an observed issue.</p>
-<p>Additionally, OctoPrint allows uninstalling plugins and language packs in this mode, allowing recovery
-from cases where a third party addition causes the server to not start up or the web interface to not
-render or function correctly anymore.</p>
-<p>Whenever reporting an issue with OctoPrint, please always attempt to reproduce it in safe mode as well to
-ensure it really is an issue in OctoPrint itself and now caused by one of your installed third party additions.</p>
-<h2 id="how-to-start-octoprint-in-safe-mode">How to start OctoPrint in safe mode<a class="headerlink" href="#how-to-start-octoprint-in-safe-mode" title="Permanent link">#</a></h2>
-<p>There exist three ways to start OctoPrint in safe mode.</p>
-<h3 id="via-the-restart-octoprint-in-safe-mode-system-menu-entry">Via the "Restart OctoPrint in safe mode" system menu entry<a class="headerlink" href="#via-the-restart-octoprint-in-safe-mode-system-menu-entry" title="Permanent link">#</a></h3>
-<p><em>New in version 1.3.2.</em></p>
-<p>You can select "Restart OctoPrint in safe mode" from the "System" menu, if the "Restart 
-OctoPrint" server command has been correctly configured.</p>
-<figure>
-<p><img alt="&quot;Restart OctoPrint in safe mode&quot; in the &quot;System&quot; menu" src="../../../images/user-guide/features/safe_mode/systemmenu.png" />
-  </p>
-<figcaption>"Restart OctoPrint in safe mode" in the "System" menu</figcaption>
-</figure>
-<h3 id="via-the-serverstartonceinsafemode-config-flag">Via the <code>server.startOnceInSafeMode</code> config flag<a class="headerlink" href="#via-the-serverstartonceinsafemode-config-flag" title="Permanent link">#</a></h3>
-<p>You can set the flag <code>server.startOnceInSafeMode</code> in <a href="../configuration/config_yaml"><code>config.yaml</code></a>
-to <code>true</code> and restart. This will make OctoPrint start up in safe mode. The flag will clear
-automatically.</p>
-<p>To set this flag you have the following options:</p>
-<ul>
-<li>
-<p>from command line run <code>octoprint safemode</code><sup id="fnref3:octopi"><a class="footnote-ref" href="#fn:octopi">1</a></sup> (since OctoPrint 1.3.6)</p>
-</li>
-<li>
-<p>from command line run <code>octoprint config set --bool server.startOnceInSafeMode true</code><sup id="fnref2:octopi"><a class="footnote-ref" href="#fn:octopi">1</a></sup></p>
-</li>
-<li>
-<p>edit <code>config.yaml</code> manually with a text editor, locate the <code>server</code> block if it already exists or create it
-    if it doesn't and add <code>startOnceInSafeMode: true</code> to it:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">server</span><span class="p">:</span><span class="w"></span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">startOnceInSafeMode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
-</code></pre></div>
-<p>Please also refer to the <a href="../configuration/yaml">YAML primer</a>.</p>
-</li>
-</ul>
-<h3 id="via-the-safe-command-line-flag">Via the <code>--safe</code> command line flag<a class="headerlink" href="#via-the-safe-command-line-flag" title="Permanent link">#</a></h3>
-<p>You can start OctoPrint in safe mode with the command line parameter <code>--safe</code>, e.g. <code>octoprint serve --safe</code><sup id="fnref:octopi"><a class="footnote-ref" href="#fn:octopi">1</a></sup>. 
-Don't forget to shutdown OctoPrint first before doing this.</p>
-<h2 id="differences-of-safe-mode-vs-normal-operation-mode">Differences of safe mode vs normal operation mode<a class="headerlink" href="#differences-of-safe-mode-vs-normal-operation-mode" title="Permanent link">#</a></h2>
-<p>When OctoPrint is running in safe mode the following changes to its normal operation mode apply:</p>
-<ul>
-<li>OctoPrint will not enable any of the installed third party plugins. OctoPrint considers all plugins third
-    party plugins that do not ship with OctoPrint's sources, so any plugins installed either via <code>pip</code> or
-    into OctoPrint's plugin folder<sup id="fnref:plugins"><a class="footnote-ref" href="#fn:plugins">2</a></sup>.</li>
-<li>OctoPrint will not enable any of the installed third party language packs. OctoPrint considers all language packs
-    third party language packs that do not ship with OctoPrint's sources, so any language plugins installed
-    through the language pack manager within settings and/or stored in the language pack folder<sup id="fnref:lpack"><a class="footnote-ref" href="#fn:lpack">3</a></sup>.</li>
-<li>OctoPrint will still allow to uninstall third party plugins through the built-in Plugin Manager.</li>
-<li>OctoPrint will still allow to disable (bundled) plugins that are still enabled.</li>
-<li>OctoPrint will not allow to enable third party plugins.</li>
-<li>OctoPrint will still allow to manage language packs.</li>
-<li>
-<p>OctoPrint's web interface will display a notification to remind you that it is running in
-    safe mode.</p>
-<p><figure markdown>
-  <img alt="Safe mode notification" src="../../../images/user-guide/features/safe_mode/notification.png" />
-  <figcaption>Safe mode notification</figcaption>
-</figure></p>
-</li>
-</ul>
-<div class="footnote">
-<hr />
-<ol>
-<li id="fn:octopi">
-<p><strong>OctoPi users</strong>: For you that's <code>~/oprint/bin/octoprint</code> wherever it says just <code>octoprint</code>.&#160;<a class="footnote-backref" href="#fnref:octopi" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:octopi" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:octopi" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-<li id="fn:plugins">
-<p><code>~/.octoprint/plugins</code> (Linux), <code>%APPDATA%/OctoPrint/plugins</code> (Windows) or
-<code>~/Library/Application Support/OctoPrint/plugins</code> (macOS)&#160;<a class="footnote-backref" href="#fnref:plugins" title="Jump back to footnote 2 in the text">&#8617;</a></p>
-</li>
-<li id="fn:lpack">
-<p><code>~/.octoprint/translations</code> (Linux), <code>%APPDATA%/OctoPrint/translations</code> (Windows) or
-<code>~/Library/Application Support/OctoPrint/translations</code> (macOS)&#160;<a class="footnote-backref" href="#fnref:lpack" title="Jump back to footnote 3 in the text">&#8617;</a></p>
-</li>
-</ol>
-</div>
+  <h1>At commands</h1>
+
+
 
               
             </article>
@@ -4876,7 +4751,7 @@ Don't forget to shutdown OctoPrint first before doing this.</p>
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../plugins/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Plugins" rel="prev">
+        <a href="../action-commands/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Action commands" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -4885,20 +4760,20 @@ Don't forget to shutdown OctoPrint first before doing this.</p>
               <span class="md-footer__direction">
                 Previous
               </span>
-              Plugins
+              Action commands
             </div>
           </div>
         </a>
       
       
         
-        <a href="../../../plugin-guide/" class="md-footer__link md-footer__link--next" aria-label="Next: Plugin Development Guide" rel="next">
+        <a href="../custom-controls/" class="md-footer__link md-footer__link--next" aria-label="Next: Custom controls" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Plugin Development Guide
+              Custom controls
             </div>
           </div>
           <div class="md-footer__button md-icon">
