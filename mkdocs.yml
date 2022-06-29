@@ -100,9 +100,12 @@ nav:
       - CLI: user-guide/configuration/cli.md
   - Plugin Development Guide: 
     - plugin-guide/index.md
-    - General concepts: plugin-guide/general-concepts.md
-    - Injected properties: plugin-guide/injected-properties.md
+    - Lifecycle: plugin-guide/lifecycle.md
+    - Control properties: plugin-guide/control-properties.md
     - Mixins: plugin-guide/mixins.md
+    - Hooks: plugin-guide/hooks.md
+    - Helpers: plugin-guide/helpers.md
+    - Injected properties: plugin-guide/injected-properties.md
   - Core Development Guide: 
     - dev-guide/index.md
   - Code Reference: reference/
