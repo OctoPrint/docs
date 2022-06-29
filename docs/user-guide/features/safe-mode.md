@@ -1,4 +1,4 @@
-# Safe mode
+# Safe mode {: #user-guide.features.safe-mode }
 
 {{ version_added("1.3.0") }}
 
@@ -20,7 +20,7 @@ render or function correctly anymore.
 Whenever reporting an issue with OctoPrint, please always attempt to reproduce it in safe mode as well to
 ensure it really is an issue in OctoPrint itself and now caused by one of your installed third party additions.
 
-## How to start OctoPrint in safe mode
+## How to start OctoPrint in safe mode {: #user-guide.features.safe-mode.start }
 
 There exist three ways to start OctoPrint in safe mode.
 
@@ -63,7 +63,7 @@ To set this flag you have the following options:
 You can start OctoPrint in safe mode with the command line parameter `--safe`, e.g. `octoprint serve --safe`[^octopi]. 
 Don't forget to shutdown OctoPrint first before doing this.
 
-## Differences of safe mode vs normal operation mode
+## Differences of safe mode vs normal operation mode {: #user-guide.features.safe-mode.differences }
 
 When OctoPrint is running in safe mode the following changes to its normal operation mode apply:
 

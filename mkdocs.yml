@@ -53,6 +53,7 @@ markdown_extensions:
   - attr_list
   - def_list
   - footnotes
+  - markdown_grid_tables
   - md_in_html
   - meta
   - pymdownx.emoji:
@@ -82,12 +83,32 @@ markdown_extensions:
 
 nav:
   - Home: index.md
-  - User Guide: user-guide/
-  - Plugin Development Guide: plugin-guide/
-  - Core Development Guide: dev-guide/
+  - User Guide: 
+    - user-guide/index.md
+    - Features: 
+      - Access control: user-guide/features/access-control.md
+      - Action commands: user-guide/features/action-commands.md
+      - At commands: user-guide/features/at-commands.md
+      - Custom controls: user-guide/features/custom-controls.md
+      - GCode scripts: user-guide/features/gcode-scripts.md
+      - Plugins: user-guide/features/plugins.md
+      - Safe mode: user-guide/features/safe-mode.md
+    - Configuration: 
+      - A YAML primer: user-guide/configuration/yaml-primer.md
+      - "Main configuration: config.yaml": user-guide/configuration/config-yaml.md
+      - "Logging configuration: logging.yaml": user-guide/configuration/logging-yaml.md
+      - CLI: user-guide/configuration/cli.md
+  - Plugin Development Guide: 
+    - plugin-guide/index.md
+    - General concepts: plugin-guide/general-concepts.md
+    - Injected properties: plugin-guide/injected-properties.md
+    - Mixins: plugin-guide/mixins.md
+  - Core Development Guide: 
+    - dev-guide/index.md
   - Code Reference: reference/
 
 plugins:
+  - autorefs
   - gen-files:
       scripts:
         - gen_ref_pages.py

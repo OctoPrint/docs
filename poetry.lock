@@ -153,6 +153,17 @@ importlib-metadata = {version = ">=4.4", markers = "python_version < \"3.10\""}
 testing = ["coverage", "pyyaml"]
 
 [[package]]
+name = "markdown-grid-tables"
+version = "0.0.1"
+description = "Python-Markdown extension to support grid tables."
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+markdown = ">=3.0.0"
+
+[[package]]
 name = "markupsafe"
 version = "2.1.1"
 description = "Safely add untrusted strings to HTML/XML markup."
@@ -554,7 +565,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "7190968b864daba036606777868d404f7af29aa709abc0d610720082dcc1b81e"
+content-hash = "323a729fb15bc6a99b7206e43f696b82dd10d51dd39fbc8a1e78c54ec8f40f2d"
 
 [metadata.files]
 attrs = [
@@ -608,6 +619,9 @@ jinja2 = [
 markdown = [
     {file = "Markdown-3.3.7-py3-none-any.whl", hash = "sha256:f5da449a6e1c989a4cea2631aa8ee67caa5a2ef855d551c88f9e309f4634c621"},
     {file = "Markdown-3.3.7.tar.gz", hash = "sha256:cbb516f16218e643d8e0a95b309f77eb118cb138d39a4f27851e6a63581db874"},
+]
+markdown-grid-tables = [
+    {file = "markdown_grid_tables-0.0.1-py3-none-any.whl", hash = "sha256:58ce8404b3259f23fc2f729555b5353cd38e1e55ac8e6ebdc827ebeac0040f1c"},
 ]
 markupsafe = [
     {file = "MarkupSafe-2.1.1-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:86b1f75c4e7c2ac2ccdaec2b9022845dbb81880ca318bb7a0a01fbf7813e3812"},

@@ -1,6 +1,6 @@
-# Mixins
+# Mixins {: #plugin-guide.mixins }
 
-## General Concepts
+## General Concepts  {: #plugin-guide.mixins.general-concepts }
 
 Plugin mixins are the heart of OctoPrint's plugin system. They are :ref:`special base classes <sec-plugins-mixins>`
 which are to be subclassed and extended to add functionality to OctoPrint. Plugins declare their instances that
@@ -11,8 +11,8 @@ locations within OctoPrint.
 Using mixins always follows the pattern of retrieving the matching implementations from the plugin subsystem, then
 calling the specific mixin's methods as defined and necessary.
 
-The following snippet taken from OctoPrint's code for example shows how all [AssetPlugin][octoprint.plugin.types.AssetPlugin]
-implementations are collected and then all assets they return via their `get_assets` methods are retrieved and
+The following snippet taken from OctoPrint's code for example shows how all [`AssetPlugin`][octoprint.plugin.AssetPlugin]
+implementations are collected and then all assets they return via their [`get_assets`][octoprint.plugin.AssetPlugin.get_assets] methods are retrieved and
 merged into one big asset map (differing between javascripts and stylesheets of various types) for use during
 rendition of the UI.
 
@@ -43,12 +43,12 @@ for name, implementation in asset_plugins.items():
     [The Plugin Tutorial](tutorial)
     :  Tutorial on how to write a simple OctoPrint module utilizing mixins for various types of extension.
 
-## Execution Order
+## Execution Order  {: #plugin-guide.mixins.execution-order }
 
 Some mixin types, such as [StartupPlugin][octoprint.plugin.types.StartupPlugin], 
 [ShutdownPlugin][octoprint.plugin.types.ShutdownPlugin] and [UiPlugin][octoprint.plugin.types.UiPlugin], 
 support influencing the execution order for various execution contexts by also 
-implementing the [SortablePlugin][octoprint.plugin.core.SortablePlugin] mixin.
+implementing the [SortablePlugin][octoprint.plugin.SortablePlugin] mixin.
 
 If a method is to be called on a plugin implementation for which a sorting context is defined (see the mixin
 documentation for information on this), OctoPrint's plugin subsystem will ensure that the order in which the implementation
@@ -160,76 +160,70 @@ calls are done is as follows:
     Plugin C started up
     ```
 
-## Injected Properties
+## Injected Properties  {: #plugin-guide.mixins.injected-properties }
 
 OctoPrint's plugin subsystem will inject a bunch of properties into each mixin implementation.
-An overview of these properties can be found in the section [Injected Properties]().
+An overview of these properties can be found in the section [Injected Properties][plugin_guide.injected-properties].
 
 !!! see-also
 
-    [Plugin][octoprint.plugin.core.Plugin] and [OctoPrintPlugin][octoprint.plugin.types.OctoPrintPlugin]
+    [`Plugin`][octoprint.plugin.core.Plugin] and [`OctoPrintPlugin`][octoprint.plugin.types.OctoPrintPlugin]
     :   Class documentation also containing the properties shared among all mixin implementations.
 
-## Available plugin mixins
-
-The following plugin mixins are currently available:
+## Available plugin mixins {: #plugin-guide.mixins.available-plugin-mixins }
 
 Please note that all plugin mixins inherit from 
-[Plugin][octoprint.plugin.core.Plugin] and [OctoPrintPlugin][octoprint.plugin.types.OctoPrintPlugin], 
+[`Plugin`][octoprint.plugin.core.Plugin] and 
+[`OctoPrintPlugin`][octoprint.plugin.types.OctoPrintPlugin], 
 which also provide attributes of interest to plugin developers.
 
-### ::: octoprint.plugin.AssetPlugin
-    options:
-      show_root_heading: true
+[`AssetPlugin`][octoprint.plugin.types.AssetPlugin]
+:   The AssetPlugin mixin allows plugins to define additional static assets such as 
+    JavaScript or CSS files to be automatically embedded into the pages delivered by the 
+    server to be used within the client sided part of the plugin.
+[`BlueprintPlugin`][octoprint.plugin.types.BlueprintPlugin]
+:   The `BlueprintPlugin` mixin allows plugins to define their own full fledged endpoints 
+    for whatever purpose, be it a more sophisticated API than what is possible via the 
+    [`SimpleApiPlugin`][octoprint.plugin.SimpleApiPlugin] or a custom web frontend.
+[`EnvironmentDetectionPlugin`][octoprint.plugin.types.EnvironmentDetectionPlugin]
+:   The `EnvironmentDetectionPlugin` mixin allows enrichting OctoPrint's environmental
+    information collections with additional data, and to react to successfully collected
+    environmental information.
+[`EventHandlerPlugin`][octoprint.plugin.types.EventHandlerPlugin]
+:   The `EventHandlerPlugin` mixin allows OctoPrint plugins to react to any of [OctoPrint's events][dev-guide.events].
+    OctoPrint will call the `on_event` method for any event fired on its internal event bus, supplying the
+    event type and the associated payload.
+[`ProgressPlugin`][octoprint.plugin.types.ProgressPlugin]
+:   Via the `ProgressPlugin` mixin plugins can let themselves be called upon progress in
+    print jobs or slicing jobs, limited to minimally 1% steps.
+[`SettingsPlugin`][octoprint.plugin.types.SettingsPlugin]
+:   Including the `SettingsPlugin` mixin allows plugins to store and retrieve their own
+    settings within OctoPrint's configuration.
+[`ShutdownPlugin`][octoprint.plugin.types.ShutdownPlugin]
+:   The `ShutdownPlugin` allows hooking into the shutdown of OctoPrint. It's usually
+    used in conjunction with the [`StartupPlugin`][octoprint.plugin.types.StartupPlugin]
+    mixin, to cleanly shut down additional services again that where started by the
+    [`StartupPlugin`][octoprint.plugin.types.StartupPlugin] part of the plugin.
+[`SimpleApiPlugin`][octoprint.plugin.types.SimpleApiPlugin]
+:   Utilizing the `SimpleApiPlugin` mixin plugins may implement a simple API based around 
+    one GET resource and one resource accepting JSON commands POSTed to it.
+[`SlicerPlugin`][octoprint.plugin.types.SlicerPlugin]
+:   Via the `SlicerPlugin` mixin plugins can add support for slicing engines to be used by 
+    OctoPrint.
+[`StartupPlugin`][octoprint.plugin.types.StartupPlugin]
+:   The `StartupPlugin` allows hooking into the startup of OctoPrint. It can be used to 
+    start up additional services on or just after the startup of the server.
+[`TemplatePlugin`][octoprint.plugin.types.TemplatePlugin]
+:   Using the `TemplatePlugin` mixin plugins may inject their own components into the
+    OctoPrint web interface.
+[`UiPlugin`][octoprint.plugin.types.UiPlugin]
+:   The `UiPlugin` mixin allows plugins to completely replace the UI served by OctoPrint.
+[`WizardPlugin`][octoprint.plugin.types.WizardPlugin]
+:   The `WizardPlugin` mixin allows plugins to report to OctoPrint whether
+    the `wizard` templates they define via the 
+    [`TemplatePlugin`][octoprint.plugin.types.TemplatePlugin] should be displayed to the 
+    user, what details to provide to their respective wizard frontend components and 
+    what to do when the wizard is finished by the user.
 
-### ::: octoprint.plugin.BlueprintPlugin
-    options:
-      show_root_heading: true
-
-### ::: octoprint.plugin.EventHandlerPlugin
-    options:
-      show_root_heading: true
-
-### ::: octoprint.plugin.ProgressPlugin
-    options:
-      show_root_heading: true
-
-### ::: octoprint.plugin.ReloadNeedingPlugin
-    options:
-      show_root_heading: true
-
-### ::: octoprint.plugin.RestartNeedingPlugin
-    options:
-      show_root_heading: true
-
-### ::: octoprint.plugin.SettingsPlugin
-    options:
-      show_root_heading: true
-
-### ::: octoprint.plugin.ShutdownPlugin
-    options:
-      show_root_heading: true
-
-### ::: octoprint.plugin.SimpleApiPlugin
-    options:
-      show_root_heading: true
-
-### ::: octoprint.plugin.SlicerPlugin
-    options:
-      show_root_heading: true
-
-### ::: octoprint.plugin.StartupPlugin
-    options:
-      show_root_heading: true
-
-### ::: octoprint.plugin.TemplatePlugin
-    options:
-      show_root_heading: true
-
-### ::: octoprint.plugin.UiPlugin
-    options:
-      show_root_heading: true
-
-### ::: octoprint.plugin.WizardPlugin
-    options:
-      show_root_heading: true
+For more detailed information on each of the available plugin mixins, please click on
+their respective links.

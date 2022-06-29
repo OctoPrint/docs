@@ -1,4 +1,4 @@
-# A YAML Primer
+# A YAML Primer {: #user-guide.configuration.yaml-primer }
 
 Most of OctoPrint's configuration is done under the hood through [YAML](https://en.wikipedia.org/wiki/YAML) files,
 which is why it makes sense to shed some light on the basics of this data serialization format.
@@ -7,7 +7,7 @@ YAML is a text based format which excels at representing the most common of data
 readable way, which is why it was chosen for OctoPrint's configuration files. A text editor is all you need in order
 to write YAML configuration files.
 
-## Basic Rules
+## Basic Rules {: #user-guide.configuration.yaml-primer.basic }
 
 First of all some basic things to know about working with YAML files:
 
@@ -17,12 +17,12 @@ First of all some basic things to know about working with YAML files:
     to stay consistent here.
   * YAML's comments start with a ``#`` and go until the end of the line.
 
-## Interesting data types
+## Interesting data types {: #user-guide.configuration.yaml-primer.types }
 
 You will probably only come across the three most basic types of data within OctoPrint's YAML files: scalars
 (such as strings, integers, ...), lists and associated arrays (aka key-value-pairs, aka maps, aka dictionaries).
 
-### Scalars
+### Scalars {: #user-guide.configuration.yaml-primer.types.scalar }
 
 Scalars are the most basic of all data types and are simple string, integer, float or boolean values.
 
@@ -41,7 +41,7 @@ Quoted strings can also span across multiple lines, just indent the following li
 completely empty line in order for force a line break, the data will not be actually wrapped across multiple lines
 just because you spread its representation across multiple lines.
 
-#### int
+#### int {: #user-guide.configuration.yaml-primer.types.scalar.int }
 
 ``` yaml
 23
@@ -49,7 +49,7 @@ just because you spread its representation across multiple lines.
 42
 ```
 
-#### float
+#### float {: #user-guide.configuration.yaml-primer.types.scalar.float }
 
 ``` yaml
 23.5
@@ -57,7 +57,7 @@ just because you spread its representation across multiple lines.
 100.0
 ```
 
-#### boolean
+#### boolean {: #user-guide.configuration.yaml-primer.types.scalar.boolean }
 
 ``` yaml
 true
@@ -73,7 +73,7 @@ yes
 no
 ```
 
-#### string
+#### string {: #user-guide.configuration.yaml-primer.types.scalar.string }
 
 ``` yaml
 a string
@@ -104,7 +104,7 @@ yes and no
 true or false
 ```
 
-### Lists
+### Lists {: #user-guide.configuration.yaml-primer.types.list }
 
 Lists allow to "collect" a number of similar things into one data structure. They are created by prefixing one or more
 consecutive lines with a ``-``:
@@ -117,7 +117,7 @@ consecutive lines with a ``-``:
 ```
 Take special care to have all of your list items at the same indentation level!
 
-### Dictionaries
+### Dictionaries {: #user-guide.configuration.yaml-primer.types.dict }
 
 Dictionaries (aka associative arrays aka maps) allow organizing the data in key value pairs, with the key and the value
 being separated through a colon `:`:
@@ -127,7 +127,7 @@ key: value
 anotherkey: another value
 ```
 
-## Examples
+## Examples {: #user-guide.configuration.yaml-primer.examples }
 
 Based on the three types explained above, quite complex data structures are possible:
 

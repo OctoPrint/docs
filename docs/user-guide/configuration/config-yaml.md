@@ -1,4 +1,4 @@
-# config.yaml
+# Main configuration: config.yaml {: #user-guide.configuration.config-yaml }
 
 If not specified via the command line, the main configuration file `config.yaml` for 
 OctoPrint is expected in its settings folder, which unless defined differently via the 
@@ -17,15 +17,15 @@ are as follows:
 
 Their content is described in the following sections.
 
-## accessControl
+## accessControl {: #user-guide.configuration.config-yaml.accessControl }
 
 {{ pydantic("octoprint.schema.config.AccessControlConfig", key="accessControl") }}
 
-## api
+## api {: #user-guide.configuration.config-yaml.api }
 
 {{ pydantic("octoprint.schema.config.ApiConfig", key="api") }}
 
-## appearance
+## appearance {: #user-guide.configuration.config-yaml.appearance }
 
 Using the `appearance` settings you can tweak OctoPrint's appearance a bit to better 
 distinguish multiple instances/printers appearance or to modify the order and presence 
@@ -64,7 +64,7 @@ of the various UI components
     OctoPrint will then display the Hello World tab first, followed by the default tabs
     and then any other not explicitely ordered tabs.
 
-## controls
+## controls {: #user-guide.configuration.config-yaml.controls }
 
 Use the `controls` section to add [custom controls]() to the "Controls" tab within 
 OctoPrint.
@@ -145,17 +145,17 @@ controls:
                 step: 1
 ```
 
-## devel
+## devel {: #user-guide.configuration.config-yaml.devel }
 
 The following settings are only relevant to you if you want to do OctoPrint development.
 
 {{ pydantic("octoprint.schema.config.DevelConfig", key="devel") }}
 
-## estimation
+## estimation {: #user-guide.configuration.config-yaml.estimation }
 
 {{ pydantic("octoprint.schema.config.EstimationConfig", key="estimation") }}
 
-## events
+## events {: #user-guide.configuration.config-yaml.events }
 
 Use the following settings to add shell/gcode commands to be executed on certain [events]():
 
@@ -202,19 +202,19 @@ events:
     Executing System Command: logger 'OctoPrint started up'
     ```
 
-## feature
+## feature {: #user-guide.configuration.config-yaml.feature }
 
 {{ pydantic("octoprint.schema.config.FeatureConfig", key="feature") }}
 
-## folder
+## folder {: #user-guide.configuration.config-yaml.folder }
 
 {{ pydantic("octoprint.schema.config.FolderConfig", key="folder") }}
 
-## gcodeAnalysis
+## gcodeAnalysis {: #user-guide.configuration.config-yaml.gcodeAnalysis }
 
 {{ pydantic("octoprint.schema.config.GcodeAnalysisConfig", key="gcodeAnalysis") }}
 
-## plugins
+## plugins {: #user-guide.configuration.config-yaml.plugins }
 
 The `plugins` section is where plugins can store their specific settings. It is also 
 where the installed but disabled plugins are tracked.
@@ -241,15 +241,15 @@ plugins:
     enabled: true
 ```
 
-## printerParameters
+## printerParameters {: #user-guide.configuration.config-yaml.printerParameters }
 
 {{ pydantic("octoprint.schema.config.PrinterParametersConfig", key="printerParameters") }}
 
-## printerProfiles
+## printerProfiles {: #user-guide.configuration.config-yaml.printerProfiles }
 
 {{ pydantic("octoprint.schema.config.PrinterProfilesConfig", key="printerProfiles") }}
 
-## scripts
+## scripts {: #user-guide.configuration.config-yaml.scripts }
 
 Default scripts and snippets. You'd usually not edit the `config.yaml` file to adjust 
 those but instead create the corresponding files in `~/.octoprint/scripts/`. 
@@ -257,27 +257,27 @@ See [GCODE Scripts]().
 
 {{ pydantic("octoprint.schema.config.ScriptsConfig", key="scripts") }}
 
-## serial
+## serial {: #user-guide.configuration.config-yaml.serial }
 
 {{ pydantic("octoprint.schema.config.SerialConfig", key="serial") }}
 
-## server
+## server {: #user-guide.configuration.config-yaml.server }
 
 {{ pydantic("octoprint.schema.config.ServerConfig", key="server") }}
 
-## slicing
+## slicing {: #user-guide.configuration.config-yaml.slicing }
 
 {{ pydantic("octoprint.schema.config.SlicingConfig", key="slicing") }}
 
-## system
+## system {: #user-guide.configuration.config-yaml.system }
 
 {{ pydantic("octoprint.schema.config.SystemConfig", key="system") }}
 
-## temperature
+## temperature {: #user-guide.configuration.config-yaml.temperature }
 
 {{ pydantic("octoprint.schema.config.TemperatureConfig", key="temperature") }}
 
-## terminalFilters
+## terminalFilters {: #user-guide.configuration.config-yaml.terminalFilters }
 
 Use the following settings to define a list of terminal filters to display in the terminal tab for filtering certain lines from the display terminal log.
 
@@ -291,6 +291,6 @@ Each filter entry in the list is a dictionary with the following keys:
 
 {{ pydantic_table("octoprint.schema.config.TerminalFilterEntry") }}
 
-## webcam
+## webcam {: #user-guide.configuration.config-yaml.webcam }
 
 {{ pydantic("octoprint.schema.config.WebcamConfig", key="webcam") }}

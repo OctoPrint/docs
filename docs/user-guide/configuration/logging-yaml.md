@@ -1,4 +1,4 @@
-# logging.yaml
+# Logging configuration: logging.yaml {: #user-guide.configuration.logging-yaml }
 
 The logging configuration file `logging.yaml` for OctoPrint is expected in its settings 
 folder, which unless defined differently on the command line is located at `~/.octoprint` 
@@ -15,7 +15,7 @@ which to rollover the `serial.log`.
     You can also configure individual logging levels for all components via UI by using 
     the Logging options in the Settings.
 
-## Changing log levels
+## Changing log levels {: #user-guide.configuration.logging-yaml.levels }
 
 If you need to change the default logging level within OctoPrint, create the file with a text editor of your choice (it's usually not there). The general format is this:
 
@@ -52,7 +52,7 @@ A list of important components for which an increase in logging might be interes
 
 This list will be expanded as deemed necessary.
 
-## Changing logging handlers
+## Changing logging handlers {: #user-guide.configuration.logging-yaml.handlers }
 
 You can also change the configuration of the logging handlers themselves, e.g. in order 
 to make the `serial.log` larger for debugging long running communications or to change 
@@ -94,7 +94,7 @@ handlers:
 You can find more information on the used logging handlers in the Python documentation on
 [logging.handlers](https://docs.python.org/3/library/logging.handlers.html).
 
-## Changing logging formatters
+## Changing logging formatters {: #user-guide.configuration.logging-yaml.formatters }
 
 The logging formatters can be defined via `logging.yaml` as well. The `simple` formatter 
 as referenced above is expressed in YAML as follows:
