@@ -2,13 +2,13 @@
 title: Helpers
 ---
 
-# Helpers {: #plugin-guide.helpers }
+# Helpers {: #plugin-guide.concepts.helpers }
 
 Helpers are methods that plugins can expose to other plugins in order to make common functionality available on the
-system. They are registered with the OctoPrint plugin system through the use of the control property `__plugin_helpers__`.
+system. They are registered with the OctoPrint plugin system through the use of the control property [`__plugin_helpers__`][plugin-guide.concepts.control-properties.plugin-helpers].
 
 An example for providing some helper functions to the system can be found in the
-[Discovery Plugin][user-guide.bundled-plugins.discovery] which provides its SSDP browsing 
+bundled [Discovery Plugin][user-guide.bundled-plugins.discovery] which provides its SSDP browsing 
 and Zeroconf browsing and publishing functions as helper methods.
 
 ``` python hl_lines="7 8 9 10 11 12 13" title="src/octoprint/plugins/discovery/__init__.py"
@@ -27,7 +27,7 @@ def __plugin_load__():
     }
 ```
 
-An example of how to use helpers can be found in the (unmaintained) [Growl Plugin][https://github.com/OctoPrint/OctoPrint-Growl].
+An example of how to use helpers can be found in the (unmaintained) [Growl Plugin](https://github.com/OctoPrint/OctoPrint-Growl).
 Using [`octoprint.plugin.core.PluginManager.get_helpers`][octoprint.plugin.core.PluginManager.get_helpers] plugins can retrieve exported helper methods and call
 them as (hopefully) documented.
 

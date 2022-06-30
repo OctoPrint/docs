@@ -2,7 +2,7 @@
 title: Lifecycle
 ---
 
-# Lifecycle {: #plugin-guide.lifecycle }
+# Lifecycle {: #plugin-guide.concepts.lifecycle }
 
 There are three sources of installed plugins that OctoPrint will check during start up:
 
@@ -11,10 +11,10 @@ There are three sources of installed plugins that OctoPrint will check during st
 - any Python packages registered for the entry point `octoprint.plugin`.
 
 Each plugin that OctoPrint finds it will first load, then enable. On enabling a plugin, OctoPrint will
-register its declared [hook handlers][plugin-guide.hooks] and [helpers][plugin-guide.helpers], apply
-any [settings overlays][plugin-guide.control-properties.settings-overlays],
-[inject the required properties][plugin-guide.injected-properties] into its declared
-[mixin implementation][plugin-guide.mixins] and register those as well.
+register its declared [hook handlers][plugin-guide.concepts.hooks] and [helpers][plugin-guide.concepts.helpers], apply
+any [settings overlays][plugin-guide.concepts.control-properties.settings-overlays],
+[inject the required properties][plugin-guide.concepts.mixins.injected-properties] into its declared
+[mixin implementation][plugin-guide.concepts.mixins] and register those as well.
 
 On disabling a plugin, its hook handlers, helpers, mixin implementations and settings 
 overlays will be de-registered again.

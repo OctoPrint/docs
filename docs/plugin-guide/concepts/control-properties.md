@@ -2,7 +2,7 @@
 title: Control properties
 ---
 
-# Control properties {: #plugin-guide.control-properties }
+# Control properties {: #plugin-guide.concepts.control-properties }
 
 As already mentioned in the introduction, plugins are Python packages which provide certain pieces of metadata to tell OctoPrint's
 plugin subsystem about themselves. These are simple package attributes defined in the top most package file, e.g.:
@@ -22,34 +22,34 @@ def __plugin_load__():
 
 The following properties are recognized:
 
-## `__plugin_name__` {: #plugin-guide.control-properties.plugin-name }
+## `__plugin_name__` {: #plugin-guide.concepts.control-properties.plugin-name }
 
 Name of your plugin, optional, overrides the name specified in `setup.py` if provided. If neither this property nor
 a name from `setup.py` is available to the plugin subsystem, the plugin's identifier (= package name) will be
 used instead.
 
-## `__plugin_version__` {: #plugin-guide.control-properties.plugin-version }
+## `__plugin_version__` {: #plugin-guide.concepts.control-properties.plugin-version }
 
 Version of your plugin, optional, overrides the version specified in `setup.py` if provided.
 
-## `__plugin_description__` {: #plugin-guide.control-properties.plugin-description }
+## `__plugin_description__` {: #plugin-guide.concepts.control-properties.plugin-description }
 
 Description of your plugin, optional, overrides the description specified in `setup.py` if provided.
 
-## `__plugin_author__` {: #plugin-guide.control-properties.plugin-author }
+## `__plugin_author__` {: #plugin-guide.concepts.control-properties.plugin-author }
 
 Author of your plugin, optional, overrides the author specified in `setup.py` if provided.
 
-## `__plugin_url__` {: #plugin-guide.control-properties.plugin-url }
+## `__plugin_url__` {: #plugin-guide.concepts.control-properties.plugin-url }
 
 URL of the webpage of your plugin, e.g. the Github repository, optional, overrides the URL specified in `setup.py` if
 provided.
 
-## `__plugin_license__` {: #plugin-guide.control-properties.plugin-license }
+## `__plugin_license__` {: #plugin-guide.concepts.control-properties.plugin-license }
 
 License of your plugin, optional, overrides the license specified in `setup.py` if provided.
 
-## `__plugin_pythoncompat__` {: #plugin-guide.control-properties.plugin-pythoncompat }
+## `__plugin_pythoncompat__` {: #plugin-guide.concepts.control-properties.plugin-pythoncompat }
 Python compatibility string of your plugin, optional, defaults to `>=2.7,<3` if not set and thus Python 2 but no
 Python 3 compatibility. This is used as a precaution against issues with some of the Python 2 only plugins
 that are still out there, as OctoPrint will not even attempt to load plugins whose Python compatibility
@@ -63,17 +63,17 @@ If your plugin is compatible to Python 2 and Python 3, you should set this to `>
     __plugin_pythoncompat__ = ">=3.7,<4"
 ```
 
-## `__plugin_implementation__` {: #plugin-guide.control-properties.plugin-implementation }
+## `__plugin_implementation__` {: #plugin-guide.concepts.control-properties.plugin-implementation }
 
-Instance of an implementation of one or more :ref:`plugin mixins <sec-plugins-mixins>`. E.g.
+Instance of an implementation of one or more [plugin mixins][plugin-guide.concepts.mixins]. E.g.
 
 ``` python
     __plugin_implementation__ = MyPlugin()
 ```
 
-## `__plugin_hooks__` {: #plugin-guide.control-properties.plugin-hooks }
+## `__plugin_hooks__` {: #plugin-guide.concepts.control-properties.plugin-hooks }
 
-Handlers for one or more of the various :ref:`plugin hooks <sec-plugins-hooks>`. E.g.
+Handlers for one or more of the various [plugin hooks][plugin-guide.concepts.hooks]. E.g.
 
 ``` python
 def handle_gcode_sent(comm_instance, phase, cmd, cmd_type, gcode, *args, **kwargs):
@@ -86,7 +86,21 @@ __plugin_hooks__ = {
 }
 ```
 
-## `__plugin_check__` {: #plugin-guide.control-properties.plugin-check }
+## `__plugin_helpers` {: #plugin-guide.concepts.control-properties.plugin-helpers }
+
+[Helpers][plugin-guide.concepts.helpers] registered by this plugin and made available to other plugins. E.g.
+
+``` python
+def my_helper(*args, **kwargs):
+    print("Hello world!")
+    return 42
+
+__plugin_helpers__ = {
+    "my_helper": my_helper
+}
+```
+
+## `__plugin_check__` {: #plugin-guide.concepts.control-properties.plugin-check }
 
 Method called upon discovery of the plugin by the plugin subsystem, should return `True` if the
 plugin can be instantiated later on, `False` if there are reasons why not, e.g. if dependencies
@@ -103,7 +117,7 @@ def __plugin_check__():
     return True
 ```
 
-## `__plugin_load__` {: #plugin-guide.control-properties.plugin-load }
+## `__plugin_load__` {: #plugin-guide.concepts.control-properties.plugin-load }
 
 Method called upon loading of the plugin by the plugin subsystem, can be used to instantiate
 plugin implementations, connecting them to hooks etc. An example:
@@ -119,19 +133,19 @@ def __plugin_load__():
     }
 ```
 
-## `__plugin_unload__` {: #plugin-guide.control-properties.plugin-unload }
+## `__plugin_unload__` {: #plugin-guide.concepts.control-properties.plugin-unload }
 
 Method called upon unloading of the plugin by the plugin subsystem, can be used to do any final clean ups.
 
-## `__plugin_enable__` {: #plugin-guide.control-properties.plugin-enable }
+## `__plugin_enable__` {: #plugin-guide.concepts.control-properties.plugin-enable }
 
 Method called upon enabling of the plugin by the plugin subsystem. Also see [`octoprint.plugin.core.Plugin.on_plugin_enabled`][octoprint.plugin.core.Plugin.on_plugin_enabled].
 
-## `__plugin_disable__` {: #plugin-guide.control-properties.plugin-disable }
+## `__plugin_disable__` {: #plugin-guide.concepts.control-properties.plugin-disable }
 
 Method called upon disabling of the plugin by the plugin subsystem. Also see [`octoprint.plugin.core.Plugin.on_plugin_disabled`][octoprint.plugin.core.Plugin.on_plugin_disabled].
 
-## `__plugin_settings_overlay__` {: #plugin-guide.control-properties.plugin-settings-overlay }
+## `__plugin_settings_overlay__` {: #plugin-guide.concepts.control-properties.plugin-settings-overlay }
 
 An optional `dict` providing an overlay over the application's default settings. Plugins can use that to modify the
 **default** settings of OctoPrint and its plugins that apply when there's no different configuration present in [`config.yaml`][user-guide.configuration.config-yaml]. Note that `config.yaml`

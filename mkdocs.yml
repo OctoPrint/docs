@@ -101,12 +101,13 @@ nav:
   - Plugin Development Guide: 
     - plugin-guide/index.md
     - plugin-guide/tutorial.md
-    - plugin-guide/lifecycle.md
-    - plugin-guide/control-properties.md
-    - plugin-guide/mixins.md
-    - plugin-guide/hooks.md
-    - plugin-guide/helpers.md
-    - plugin-guide/injected-properties.md
+    - Plugin concepts:
+      - plugin-guide/concepts/index.md
+      - plugin-guide/concepts/lifecycle.md
+      - plugin-guide/concepts/control-properties.md
+      - plugin-guide/concepts/mixins.md
+      - plugin-guide/concepts/hooks.md
+      - plugin-guide/concepts/helpers.md
   - Core Development Guide: 
     - dev-guide/index.md
   - Code Reference: reference/

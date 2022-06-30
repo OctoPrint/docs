@@ -2,7 +2,7 @@
 title: Hooks
 ---
 
-# Hooks {: #plugin-guide.hooks }
+# Hooks {: #plugin-guide.concepts.hooks }
 
 !!! todo
 
