@@ -682,16 +682,6 @@
         
           
         
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
       
       
         
@@ -733,8 +723,58 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="concepts/">Plugin concepts</a>
+          
+            <label for="__nav_3_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Plugin concepts" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Plugin concepts
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href="lifecycle/" class="md-nav__link">
+      <a href="concepts/lifecycle/" class="md-nav__link">
         Lifecycle
       </a>
     </li>
@@ -748,7 +788,7 @@
   
   
     <li class="md-nav__item">
-      <a href="control-properties/" class="md-nav__link">
+      <a href="concepts/control-properties/" class="md-nav__link">
         Control properties
       </a>
     </li>
@@ -762,7 +802,7 @@
   
   
     <li class="md-nav__item">
-      <a href="mixins/" class="md-nav__link">
+      <a href="concepts/mixins/" class="md-nav__link">
         Mixins
       </a>
     </li>
@@ -776,7 +816,7 @@
   
   
     <li class="md-nav__item">
-      <a href="hooks/" class="md-nav__link">
+      <a href="concepts/hooks/" class="md-nav__link">
         Hooks
       </a>
     </li>
@@ -790,7 +830,7 @@
   
   
     <li class="md-nav__item">
-      <a href="helpers/" class="md-nav__link">
+      <a href="concepts/helpers/" class="md-nav__link">
         Helpers
       </a>
     </li>
@@ -798,15 +838,8 @@
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="injected-properties/" class="md-nav__link">
-        Injected properties
-      </a>
+        </ul>
+      </nav>
     </li>
   
 
@@ -4788,16 +4821,10 @@
 
 
 <h1 id="plugin-guide">Plugin Development Guide<a class="headerlink" href="#plugin-guide" title="Permanent link">#</a></h1>
-<p>OctoPrint's plugins are <a href="https://docs.python.org/3/tutorial/modules.html#packages">Python Packages</a> which in their
-top-level module define a bunch of <a class="autorefs autorefs-internal" href="control-properties/#plugin-guide.control-properties">control properties</a> defining
-metadata (like name, version etc of the plugin) as well as information on how to initialize the plugin and into what
-parts of the system the plugin will actually plug in to perform its job.</p>
-<p>There are three types of ways a plugin might attach itself to the system, through so called
-<a class="autorefs autorefs-internal" href="mixins/#plugin-guide.mixins">mixin</a> implementations, by attaching itself to specified
-<a class="autorefs autorefs-internal" href="hooks/#plugin-guide.hooks">hooks</a>, by offering <a class="autorefs autorefs-internal" href="helpers/#plugin-guide.helpers">helper</a> functionality to be
-used by other plugins or by providing <a class="autorefs autorefs-internal" href="control-properties/#plugin-guide.control-properties.plugin-settings-overlay">settings overlays</a>.</p>
-<p>Plugin mixin implementations will get a bunch of [properties injected][plugin-guide.injected-properties]
-by OctoPrint plugin system to help them work.</p>
+<div class="admonition todo">
+<p class="admonition-title">Todo</p>
+<p>Write an introduction to the plugin development guide</p>
+</div>
 
               
             </article>

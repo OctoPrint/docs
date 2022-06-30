@@ -13,7 +13,7 @@
     
     
       
-        <title>Hooks - OctoPrint</title>
+        <title>Plugin concepts - OctoPrint</title>
       
     
     
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#plugin-guide.hooks" class="md-skip">
+        <a href="#plugin-guide.concepts" class="md-skip">
           Skip to content
         </a>
       
@@ -122,7 +122,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Hooks
+              Plugin concepts
             
           </span>
         </div>
@@ -682,16 +682,6 @@
         
           
         
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
       
       
         
@@ -732,9 +722,61 @@
               
   
   
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index md-nav__link--active">
+          <a href="./">Plugin concepts</a>
+          
+            <label for="__nav_3_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Plugin concepts" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Plugin concepts
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
   
     <li class="md-nav__item">
-      <a href="../lifecycle/" class="md-nav__link">
+      <a href="lifecycle/" class="md-nav__link">
         Lifecycle
       </a>
     </li>
@@ -748,7 +790,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../control-properties/" class="md-nav__link">
+      <a href="control-properties/" class="md-nav__link">
         Control properties
       </a>
     </li>
@@ -762,7 +804,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../mixins/" class="md-nav__link">
+      <a href="mixins/" class="md-nav__link">
         Mixins
       </a>
     </li>
@@ -774,21 +816,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="hooks/" class="md-nav__link">
         Hooks
       </a>
-      
     </li>
   
 
@@ -800,7 +832,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../helpers/" class="md-nav__link">
+      <a href="helpers/" class="md-nav__link">
         Helpers
       </a>
     </li>
@@ -808,15 +840,8 @@
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../injected-properties/" class="md-nav__link">
-        Injected properties
-      </a>
+        </ul>
+      </nav>
     </li>
   
 
@@ -4791,17 +4816,25 @@
             <article class="md-content__inner md-typeset">
               
                 
-  <a href="https://github.com/OctoPrint/OctoPrint/edit/master/docs/plugin-guide/hooks.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/OctoPrint/OctoPrint/edit/master/docs/plugin-guide/concepts/index.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
 
-<h1 id="plugin-guide.hooks">Hooks<a class="headerlink" href="#plugin-guide.hooks" title="Permanent link">#</a></h1>
-<div class="admonition todo">
-<p class="admonition-title">Todo</p>
-<p>Migrate me</p>
-</div>
+<h1 id="plugin-guide.concepts">Plugin concepts<a class="headerlink" href="#plugin-guide.concepts" title="Permanent link">#</a></h1>
+<p>OctoPrint's plugins are <a href="https://docs.python.org/3/tutorial/modules.html#packages">Python Packages</a> which in their
+top-level module define a bunch of <a class="autorefs autorefs-internal" href="control-properties/#plugin-guide.concepts.control-properties">control properties</a> defining
+metadata (like name, version etc of the plugin) as well as information on how to initialize the plugin and into what
+parts of the system the plugin will actually plug in to perform its job.</p>
+<p>There are three types of ways a plugin might attach itself to the system, through so called
+<a class="autorefs autorefs-internal" href="mixins/#plugin-guide.concepts.mixins">mixin</a> implementations, by attaching itself to specified
+<a class="autorefs autorefs-internal" href="hooks/#plugin-guide.concepts.hooks">hooks</a>, by offering <a class="autorefs autorefs-internal" href="helpers/#plugin-guide.concepts.helpers">helper</a> functionality to be
+used by other plugins or by providing <a class="autorefs autorefs-internal" href="control-properties/#plugin-guide.concepts.control-properties.plugin-settings-overlay">settings overlays</a>.</p>
+<p>Plugin mixin implementations will get a bunch of <a class="autorefs autorefs-internal" href="mixins/#plugin-guide.concepts.mixins.injected-properties">properties injected</a>
+by OctoPrint's plugin subsystem to help them work.</p>
+<p>The plugin subsystem will also manage plugin's general <a class="autorefs autorefs-internal" href="lifecycle/#plugin-guide.concepts.lifecycle">lifecycle</a> and
+register declared <a class="autorefs autorefs-internal" href="hooks/#plugin-guide.concepts.hooks">hook handlers</a> and <a class="autorefs autorefs-internal" href="helpers/#plugin-guide.concepts.helpers">helpers</a>.</p>
 
               
             </article>
@@ -4822,7 +4855,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../mixins/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Mixins" rel="prev">
+        <a href="../tutorial/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Tutorial" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -4831,20 +4864,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Mixins
+              Tutorial
             </div>
           </div>
         </a>
       
       
         
-        <a href="../helpers/" class="md-footer__link md-footer__link--next" aria-label="Next: Helpers" rel="next">
+        <a href="lifecycle/" class="md-footer__link md-footer__link--next" aria-label="Next: Lifecycle" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Helpers
+              Lifecycle
             </div>
           </div>
           <div class="md-footer__button md-icon">
