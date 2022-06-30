@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#plugin_guide.control-properties" class="md-skip">
+        <a href="#plugin-guide.control-properties" class="md-skip">
           Skip to content
         </a>
       
@@ -690,6 +690,8 @@
         
           
         
+          
+        
       
       
         
@@ -710,6 +712,20 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorial/" class="md-nav__link">
+        Tutorial
+      </a>
+    </li>
+  
+
             
           
             
@@ -741,9 +757,138 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Control properties
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Control properties
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#plugin-guide.control-properties.plugin-name" class="md-nav__link">
+    __plugin_name__
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plugin-guide.control-properties.plugin-version" class="md-nav__link">
+    __plugin_version__
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plugin-guide.control-properties.plugin-description" class="md-nav__link">
+    __plugin_description__
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plugin-guide.control-properties.plugin-author" class="md-nav__link">
+    __plugin_author__
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plugin-guide.control-properties.plugin-url" class="md-nav__link">
+    __plugin_url__
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plugin-guide.control-properties.plugin-license" class="md-nav__link">
+    __plugin_license__
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plugin-guide.control-properties.plugin-pythoncompat" class="md-nav__link">
+    __plugin_pythoncompat__
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plugin-guide.control-properties.plugin-implementation" class="md-nav__link">
+    __plugin_implementation__
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plugin-guide.control-properties.plugin-hooks" class="md-nav__link">
+    __plugin_hooks__
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plugin-guide.control-properties.plugin-check" class="md-nav__link">
+    __plugin_check__
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plugin-guide.control-properties.plugin-load" class="md-nav__link">
+    __plugin_load__
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plugin-guide.control-properties.plugin-unload" class="md-nav__link">
+    __plugin_unload__
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plugin-guide.control-properties.plugin-enable" class="md-nav__link">
+    __plugin_enable__
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plugin-guide.control-properties.plugin-disable" class="md-nav__link">
+    __plugin_disable__
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plugin-guide.control-properties.plugin-settings-overlay" class="md-nav__link">
+    __plugin_settings_overlay__
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -4781,11 +4926,107 @@
 
 
 
-<h1 id="plugin_guide.control-properties">Control properties<a class="headerlink" href="#plugin_guide.control-properties" title="Permanent link">#</a></h1>
-<div class="admonition todo">
-<p class="admonition-title">Todo</p>
-<p>Migrate me</p>
-</div>
+<h1 id="plugin-guide.control-properties">Control properties<a class="headerlink" href="#plugin-guide.control-properties" title="Permanent link">#</a></h1>
+<p>As already mentioned in the introduction, plugins are Python packages which provide certain pieces of metadata to tell OctoPrint's
+plugin subsystem about themselves. These are simple package attributes defined in the top most package file, e.g.:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span> <span class="nn">octoprint.plugin</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># ...</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">__plugin_name__</span> <span class="o">=</span> <span class="s2">&quot;My Plugin&quot;</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">__plugin_pythoncompat__</span> <span class="o">=</span> <span class="s2">&quot;&gt;=3.7,&lt;4&quot;</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="k">def</span> <span class="nf">__plugin_load__</span><span class="p">():</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    <span class="c1"># whatever you need to do to load your plugin, if anything at all</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="k">pass</span>
+</code></pre></div>
+<p>The following properties are recognized:</p>
+<h2 id="plugin-guide.control-properties.plugin-name"><code>__plugin_name__</code><a class="headerlink" href="#plugin-guide.control-properties.plugin-name" title="Permanent link">#</a></h2>
+<p>Name of your plugin, optional, overrides the name specified in <code>setup.py</code> if provided. If neither this property nor
+a name from <code>setup.py</code> is available to the plugin subsystem, the plugin's identifier (= package name) will be
+used instead.</p>
+<h2 id="plugin-guide.control-properties.plugin-version"><code>__plugin_version__</code><a class="headerlink" href="#plugin-guide.control-properties.plugin-version" title="Permanent link">#</a></h2>
+<p>Version of your plugin, optional, overrides the version specified in <code>setup.py</code> if provided.</p>
+<h2 id="plugin-guide.control-properties.plugin-description"><code>__plugin_description__</code><a class="headerlink" href="#plugin-guide.control-properties.plugin-description" title="Permanent link">#</a></h2>
+<p>Description of your plugin, optional, overrides the description specified in <code>setup.py</code> if provided.</p>
+<h2 id="plugin-guide.control-properties.plugin-author"><code>__plugin_author__</code><a class="headerlink" href="#plugin-guide.control-properties.plugin-author" title="Permanent link">#</a></h2>
+<p>Author of your plugin, optional, overrides the author specified in <code>setup.py</code> if provided.</p>
+<h2 id="plugin-guide.control-properties.plugin-url"><code>__plugin_url__</code><a class="headerlink" href="#plugin-guide.control-properties.plugin-url" title="Permanent link">#</a></h2>
+<p>URL of the webpage of your plugin, e.g. the Github repository, optional, overrides the URL specified in <code>setup.py</code> if
+provided.</p>
+<h2 id="plugin-guide.control-properties.plugin-license"><code>__plugin_license__</code><a class="headerlink" href="#plugin-guide.control-properties.plugin-license" title="Permanent link">#</a></h2>
+<p>License of your plugin, optional, overrides the license specified in <code>setup.py</code> if provided.</p>
+<h2 id="plugin-guide.control-properties.plugin-pythoncompat"><code>__plugin_pythoncompat__</code><a class="headerlink" href="#plugin-guide.control-properties.plugin-pythoncompat" title="Permanent link">#</a></h2>
+<p>Python compatibility string of your plugin, optional, defaults to <code>&gt;=2.7,&lt;3</code> if not set and thus Python 2 but no
+Python 3 compatibility. This is used as a precaution against issues with some of the Python 2 only plugins
+that are still out there, as OctoPrint will not even attempt to load plugins whose Python compatibility
+information doesn't match its current environment.</p>
+<p>If your plugin is compatible to Python 3 only, you should set this to <code>&gt;=3.7,&lt;4</code>.</p>
+<p>If your plugin is compatible to Python 2 and Python 3, you should set this to <code>&gt;=2.7,&lt;4</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>    <span class="n">__plugin_pythoncompat__</span> <span class="o">=</span> <span class="s2">&quot;&gt;=3.7,&lt;4&quot;</span>
+</code></pre></div>
+<h2 id="plugin-guide.control-properties.plugin-implementation"><code>__plugin_implementation__</code><a class="headerlink" href="#plugin-guide.control-properties.plugin-implementation" title="Permanent link">#</a></h2>
+<p>Instance of an implementation of one or more :ref:<code>plugin mixins &lt;sec-plugins-mixins&gt;</code>. E.g.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>    <span class="n">__plugin_implementation__</span> <span class="o">=</span> <span class="n">MyPlugin</span><span class="p">()</span>
+</code></pre></div>
+<h2 id="plugin-guide.control-properties.plugin-hooks"><code>__plugin_hooks__</code><a class="headerlink" href="#plugin-guide.control-properties.plugin-hooks" title="Permanent link">#</a></h2>
+<p>Handlers for one or more of the various :ref:<code>plugin hooks &lt;sec-plugins-hooks&gt;</code>. E.g.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">def</span> <span class="nf">handle_gcode_sent</span><span class="p">(</span><span class="n">comm_instance</span><span class="p">,</span> <span class="n">phase</span><span class="p">,</span> <span class="n">cmd</span><span class="p">,</span> <span class="n">cmd_type</span><span class="p">,</span> <span class="n">gcode</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="k">if</span> <span class="n">gcode</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;M106&quot;</span><span class="p">,</span> <span class="s2">&quot;M107&quot;</span><span class="p">):</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>        <span class="kn">import</span> <span class="nn">logging</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>        <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;We just sent a fan command to the printer!&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="n">__plugin_hooks__</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    <span class="s2">&quot;octoprint.comm.protocol.gcode.sent&quot;</span><span class="p">:</span> <span class="n">handle_gcode_sent</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="p">}</span>
+</code></pre></div>
+<h2 id="plugin-guide.control-properties.plugin-check"><code>__plugin_check__</code><a class="headerlink" href="#plugin-guide.control-properties.plugin-check" title="Permanent link">#</a></h2>
+<p>Method called upon discovery of the plugin by the plugin subsystem, should return <code>True</code> if the
+plugin can be instantiated later on, <code>False</code> if there are reasons why not, e.g. if dependencies
+are missing. An example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">def</span> <span class="nf">__plugin_check__</span><span class="p">():</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="c1"># Make sure we only run our plugin if some_dependency is available</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>        <span class="kn">import</span> <span class="nn">some_dependency</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>        <span class="k">return</span> <span class="kc">False</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    <span class="k">return</span> <span class="kc">True</span>
+</code></pre></div>
+<h2 id="plugin-guide.control-properties.plugin-load"><code>__plugin_load__</code><a class="headerlink" href="#plugin-guide.control-properties.plugin-load" title="Permanent link">#</a></h2>
+<p>Method called upon loading of the plugin by the plugin subsystem, can be used to instantiate
+plugin implementations, connecting them to hooks etc. An example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">def</span> <span class="nf">__plugin_load__</span><span class="p">():</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    <span class="k">global</span> <span class="n">__plugin_implementation__</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    <span class="n">__plugin_implementation__</span> <span class="o">=</span> <span class="n">MyPlugin</span><span class="p">()</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    <span class="k">global</span> <span class="n">__plugin_hooks__</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    <span class="n">__plugin_hooks__</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>        <span class="s2">&quot;octoprint.plugin.softwareupdate.check_config&quot;</span><span class="p">:</span> <span class="n">__plugin_implementation__</span><span class="o">.</span><span class="n">get_update_information</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>    <span class="p">}</span>
+</code></pre></div>
+<h2 id="plugin-guide.control-properties.plugin-unload"><code>__plugin_unload__</code><a class="headerlink" href="#plugin-guide.control-properties.plugin-unload" title="Permanent link">#</a></h2>
+<p>Method called upon unloading of the plugin by the plugin subsystem, can be used to do any final clean ups.</p>
+<h2 id="plugin-guide.control-properties.plugin-enable"><code>__plugin_enable__</code><a class="headerlink" href="#plugin-guide.control-properties.plugin-enable" title="Permanent link">#</a></h2>
+<p>Method called upon enabling of the plugin by the plugin subsystem. Also see <a class="autorefs autorefs-internal" href="../../reference/octoprint/plugin/core/#octoprint.plugin.core.Plugin.on_plugin_enabled"><code>octoprint.plugin.core.Plugin.on_plugin_enabled</code></a>.</p>
+<h2 id="plugin-guide.control-properties.plugin-disable"><code>__plugin_disable__</code><a class="headerlink" href="#plugin-guide.control-properties.plugin-disable" title="Permanent link">#</a></h2>
+<p>Method called upon disabling of the plugin by the plugin subsystem. Also see <a class="autorefs autorefs-internal" href="../../reference/octoprint/plugin/core/#octoprint.plugin.core.Plugin.on_plugin_disabled"><code>octoprint.plugin.core.Plugin.on_plugin_disabled</code></a>.</p>
+<h2 id="plugin-guide.control-properties.plugin-settings-overlay"><code>__plugin_settings_overlay__</code><a class="headerlink" href="#plugin-guide.control-properties.plugin-settings-overlay" title="Permanent link">#</a></h2>
+<p>An optional <code>dict</code> providing an overlay over the application's default settings. Plugins can use that to modify the
+<strong>default</strong> settings of OctoPrint and its plugins that apply when there's no different configuration present in <a class="autorefs autorefs-internal" href="../../user-guide/configuration/config-yaml/#user-guide.configuration.config-yaml"><code>config.yaml</code></a>. Note that <code>config.yaml</code>
+has the final say - it is not possible to override what is in there through an overlay. Plugin authors should use this
+sparingly - it's supposed to be utilized when creating specific customization of the core application that necessitate
+changes in things like e.g. standard naming, UI ordering or API endpoints. Example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">__plugin_settings_overlay__</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="n">api</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>        <span class="n">enabled</span><span class="o">=</span><span class="kc">False</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    <span class="p">),</span> 
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    <span class="n">server</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>        <span class="n">host</span><span class="o">=</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>        <span class="n">port</span><span class="o">=</span><span class="mi">5001</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>    <span class="p">)</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="p">)</span>
+</code></pre></div>
 
               
             </article>

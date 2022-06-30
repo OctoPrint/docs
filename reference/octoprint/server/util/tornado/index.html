@@ -688,6 +688,8 @@
         
           
         
+          
+        
       
       
         
@@ -708,6 +710,20 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../plugin-guide/tutorial/" class="md-nav__link">
+        Tutorial
+      </a>
+    </li>
+  
+
             
           
             
@@ -5272,7 +5288,7 @@ to another <code>url</code> and logs a deprecation warning.</p>
         <tr>
           <td><code>url</code></td>
           <td>
-                <code>str</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
           </td>
           <td><p>URL to which to redirect</p></td>
           <td>
@@ -5338,7 +5354,7 @@ optional callbacks. Note that access validation takes place before path validati
         <tr>
           <td><code>path</code></td>
           <td>
-                <code>str</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
           </td>
           <td><p>The system path from which to serve files (this will be forwarded to the <code>initialize</code> method of
  :class:<code>~tornado.web.StaticFileHandler</code>)</p></td>
@@ -5349,7 +5365,7 @@ optional callbacks. Note that access validation takes place before path validati
         <tr>
           <td><code>default_filename</code></td>
           <td>
-                <code>str</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
           </td>
           <td><p>The default filename to serve if none is explicitly specified and the request references
  a subdirectory of the served path (this will be forwarded to the <code>initialize</code> method of
@@ -5361,7 +5377,7 @@ optional callbacks. Note that access validation takes place before path validati
         <tr>
           <td><code>as_attachment</code></td>
           <td>
-                <code>bool</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>
           </td>
           <td><p>Whether to serve requested files with <code>Content-Disposition: attachment</code> header (<code>True</code>)
  or not. Defaults to <code>False</code>.</p></td>
@@ -5372,7 +5388,7 @@ optional callbacks. Note that access validation takes place before path validati
         <tr>
           <td><code>allow_client_caching</code></td>
           <td>
-                <code>bool</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>
           </td>
           <td><p>Whether to allow the client to cache (by not setting any <code>Cache-Control</code> or
  <code>Expires</code> headers on the response) or not.</p></td>
@@ -5444,7 +5460,7 @@ optional callbacks. Note that access validation takes place before path validati
         <tr>
           <td><code>is_pre_compressed</code></td>
           <td>
-                <code>bool</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>
           </td>
           <td><p>if the file is expected to be pre-compressed, i.e, if there is a file in the same
  directory with the same name, but with '.gz' appended and gzip-encoded</p></td>
@@ -5551,7 +5567,7 @@ static <code>data</code> of a configured <code>content_type</code>.</p>
         <tr>
           <td><code>data</code></td>
           <td>
-                <code>str</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
           </td>
           <td><p>The data with which to respond</p></td>
           <td>
@@ -5561,7 +5577,7 @@ static <code>data</code> of a configured <code>content_type</code>.</p>
         <tr>
           <td><code>content_type</code></td>
           <td>
-                <code>str</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
           </td>
           <td><p>The content type with which to respond. Defaults to <code>text/plain</code></p></td>
           <td>
@@ -5813,7 +5829,7 @@ for making the request to the configured endpoint and return the body of the cli
         <tr>
           <td><code>url</code></td>
           <td>
-                <code>str</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
           </td>
           <td><p>URL to forward any requests to. A 404 response will be returned if this is not set. Defaults to <code>None</code>.</p></td>
           <td>
@@ -5823,7 +5839,7 @@ for making the request to the configured endpoint and return the body of the cli
         <tr>
           <td><code>as_attachment</code></td>
           <td>
-                <code>bool</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>
           </td>
           <td><p>Whether to serve files with <code>Content-Disposition: attachment</code> header (<code>True</code>)
  or not. Defaults to <code>False</code>.</p></td>
@@ -5834,7 +5850,7 @@ for making the request to the configured endpoint and return the body of the cli
         <tr>
           <td><code>basename</code></td>
           <td>
-                <code>str</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
           </td>
           <td><p>base name of file names to return as part of the attachment header, see above. Defaults to <code>None</code>.</p></td>
           <td>

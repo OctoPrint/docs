@@ -688,6 +688,8 @@
         
           
         
+          
+        
       
       
         
@@ -708,6 +710,20 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../plugin-guide/tutorial/" class="md-nav__link">
+        Tutorial
+      </a>
+    </li>
+  
+
             
           
             
@@ -4861,7 +4877,7 @@ abstracted version of the actual printer communication.</p>
         <tr>
           <td><code>data</code></td>
           <td>
-                <code>str</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
           </td>
           <td><p>The received log line.</p></td>
           <td>
@@ -4903,7 +4919,7 @@ abstracted version of the actual printer communication.</p>
         <tr>
           <td><code>data</code></td>
           <td>
-                <code>str</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
           </td>
           <td><p>The received message.</p></td>
           <td>
@@ -4957,7 +4973,7 @@ chamber:
         <tr>
           <td><code>data</code></td>
           <td>
-                <code>dict</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
           </td>
           <td><p>A dict of all current temperatures in the format as specified above</p></td>
           <td>
@@ -4999,7 +5015,7 @@ chamber:
         <tr>
           <td><code>name</code></td>
           <td>
-                <code>str</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
           </td>
           <td><p>Name of the registered message (e.g. the feedback command)</p></td>
           <td>
@@ -5009,7 +5025,7 @@ chamber:
         <tr>
           <td><code>output</code></td>
           <td>
-                <code>str</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
           </td>
           <td><p>Output for the registered message</p></td>
           <td>
@@ -5083,7 +5099,7 @@ offsets: &lt;current configured temperature offsets, keys are &quot;bed&quot; or
         <tr>
           <td><code>data</code></td>
           <td>
-                <code>dict</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
           </td>
           <td><p>The current data in the format as specified above.</p></td>
           <td>
@@ -5140,7 +5156,7 @@ messages: &lt;list of current messages from the firmware&gt;
         <tr>
           <td><code>data</code></td>
           <td>
-                <code>dict</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
           </td>
           <td><p>The initial data in the format as specified above.</p></td>
           <td>
@@ -5293,7 +5309,7 @@ when it is not being printed is fine though.</p>
         <tr>
           <td><code>path</code></td>
           <td>
-                <code>str</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
           </td>
           <td><p>path in storage of the file to check</p></td>
           <td>
@@ -5303,7 +5319,7 @@ when it is not being printed is fine though.</p>
         <tr>
           <td><code>sd</code></td>
           <td>
-                <code>bool</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>
           </td>
           <td><p>True if to check against SD storage, False otherwise</p></td>
           <td>
@@ -5404,7 +5420,7 @@ when it is not being printed is fine though.</p>
         <tr>
           <td><code>tool</code></td>
           <td>
-                <code>str</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
           </td>
           <td><p>The tool to switch to, matching the regex "tool[0-9]+" (e.g. "tool0", "tool1", ...)</p></td>
           <td>
@@ -5456,7 +5472,7 @@ when it is not being printed is fine though.</p>
         <tr>
           <td><code>commands</code></td>
           <td>
-                <code>str, list</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></code>
           </td>
           <td><p>The commands to send. Might be a single command provided just as a string or a list
 of multiple commands to send in order.</p></td>
@@ -5477,7 +5493,7 @@ of multiple commands to send in order.</p></td>
         <tr>
           <td><code>force</code></td>
           <td>
-                <code>bool</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>
           </td>
           <td><p>Whether to force sending of the command right away or allow queuing while printing</p></td>
           <td>
@@ -5521,7 +5537,7 @@ parameters.</p>
         <tr>
           <td><code>port</code></td>
           <td>
-                <code>str</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
           </td>
           <td><p>Name of the serial port to connect to. If not provided, an auto detection will be attempted.</p></td>
           <td>
@@ -5531,7 +5547,7 @@ parameters.</p>
         <tr>
           <td><code>baudrate</code></td>
           <td>
-                <code>int</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></code>
           </td>
           <td><p>Baudrate to connect with. If not provided, an auto detection will be attempted.</p></td>
           <td>
@@ -5541,7 +5557,7 @@ parameters.</p>
         <tr>
           <td><code>profile</code></td>
           <td>
-                <code>str</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
           </td>
           <td><p>Name of the printer profile to use for this connection. If not provided, the default
 will be retrieved from the :class:<code>PrinterProfileManager</code>.</p></td>
@@ -5602,7 +5618,7 @@ will be retrieved from the :class:<code>PrinterProfileManager</code>.</p></td>
         <tr>
           <td><code>amount</code></td>
           <td>
-                <code>int, float</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a></code>
           </td>
           <td><p>The amount of material to extrude in mm</p></td>
           <td>
@@ -5612,7 +5628,7 @@ will be retrieved from the :class:<code>PrinterProfileManager</code>.</p></td>
         <tr>
           <td><code>speed</code></td>
           <td>
-                <code>int, None</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a>, None</code>
           </td>
           <td><p>Speed at which to extrude (F parameter). If set to <code>None</code> (or left out)</p></td>
           <td>
@@ -5684,7 +5700,7 @@ things going again.</p>
         <tr>
           <td><code>factor</code></td>
           <td>
-                <code>int, float</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a></code>
           </td>
           <td><p>The factor for the feed rate to send to the firmware. Percentage expressed as either an
 int between 0 and 100 or a float between 0 and 1.</p></td>
@@ -5737,7 +5753,7 @@ int between 0 and 100 or a float between 0 and 1.</p></td>
         <tr>
           <td><code>factor</code></td>
           <td>
-                <code>int, float</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a></code>
           </td>
           <td><p>The factor for the flow rate to send to the firmware. Percentage expressed as either an
 int between 0 and 100 or a float between 0 and 1.</p></td>
@@ -5798,7 +5814,7 @@ autoconnect: &lt;whether autoconnect upon server startup is enabled or not&gt;
     <tbody>
         <tr>
           <td>
-                <code>dict</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
           </td>
           <td><p>A dictionary holding the connection options in the structure specified above</p></td>
         </tr>
@@ -6133,7 +6149,7 @@ different, so take care to do instance checks before attempting to access any pr
         <tr>
           <td><code>axes</code></td>
           <td>
-                <code>str, list</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></code>
           </td>
           <td><p>The axis or axes to home, each of which must converted to lower case must match one of
 "x", "y", "z" and "e"</p></td>
@@ -6261,7 +6277,7 @@ file for printing.</p>
         <tr>
           <td><code>path</code></td>
           <td>
-                <code>str</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
           </td>
           <td><p>path in storage of the file to check</p></td>
           <td>
@@ -6271,7 +6287,7 @@ file for printing.</p>
         <tr>
           <td><code>sd</code></td>
           <td>
-                <code>bool</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>
           </td>
           <td><p>True if to check against SD storage, False otherwise</p></td>
           <td>
@@ -6547,7 +6563,7 @@ if the lock can't be acquired.</p>
         <tr>
           <td><code>blocking</code></td>
           <td>
-                <code>bool</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>
           </td>
           <td><p>Whether to block while attempting to acquire the lock (default) or not</p></td>
           <td>
@@ -6589,7 +6605,7 @@ if the lock can't be acquired.</p>
         <tr>
           <td><code>axes</code></td>
           <td>
-                <code>dict</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
           </td>
           <td><p>Axes and distances to jog, keys are axes ("x", "y", "z"), values are distances in mm</p></td>
           <td>
@@ -6599,7 +6615,7 @@ if the lock can't be acquired.</p>
         <tr>
           <td><code>relative</code></td>
           <td>
-                <code>bool</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>
           </td>
           <td><p>Whether to interpret the distance values as relative (true, default) or absolute (false)
 coordinates</p></td>
@@ -6834,7 +6850,7 @@ profile will be used.</p></td>
         <tr>
           <td><code>name</code></td>
           <td>
-                <code>str</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
           </td>
           <td><p>The name of the GCODE script to render.</p></td>
           <td>
@@ -6844,7 +6860,7 @@ profile will be used.</p></td>
         <tr>
           <td><code>context</code></td>
           <td>
-                <code>dict</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
           </td>
           <td><p>An optional context of additional template variables to provide to the renderer.</p></td>
           <td>
@@ -6915,7 +6931,7 @@ Optionally can also directly start the print after selecting the file.</p>
         <tr>
           <td><code>path</code></td>
           <td>
-                <code>str</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
           </td>
           <td><p>The path to select for printing. Either an absolute path or relative path to a  local file in
 the uploads folder or a filename on the printer's SD card.</p></td>
@@ -7071,7 +7087,7 @@ very specific situations. If you abuse this, you WILL cause print quality issues
         <tr>
           <td><code>value</code></td>
           <td>
-                <code>bool</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>
           </td>
           <td><p>The value to set</p></td>
           <td>
@@ -7081,7 +7097,7 @@ very specific situations. If you abuse this, you WILL cause print quality issues
         <tr>
           <td><code>blocking</code></td>
           <td>
-                <code>bool</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>
           </td>
           <td><p>Whether to block while attempting to set the value (default) or not</p></td>
           <td>
@@ -7140,7 +7156,7 @@ very specific situations. If you abuse this, you WILL cause print quality issues
         <tr>
           <td><code>heater</code></td>
           <td>
-                <code>str</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
           </td>
           <td><p>The heater for which to set the target temperature. Either "bed" for setting the bed
 temperature or something matching the regular expression "tool[0-9]+" (e.g. "tool0", "tool1", ...) for
@@ -7152,7 +7168,7 @@ the hotends of the printer</p></td>
         <tr>
           <td><code>value</code></td>
           <td>
-                <code>int, float</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a></code>
           </td>
           <td><p>The temperature in celsius to set the target temperature to.</p></td>
           <td>
@@ -7204,7 +7220,7 @@ the hotends of the printer</p></td>
         <tr>
           <td><code>offsets</code></td>
           <td>
-                <code>dict</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
           </td>
           <td><p>A dictionary specifying the offsets to apply. Keys must match the format for the <code>heater</code>
 parameter to :func:<code>set_temperature</code>, so "bed" for the offset for the bed target temperature and

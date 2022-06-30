@@ -688,6 +688,8 @@
         
           
         
+          
+        
       
       
         
@@ -708,6 +710,20 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../plugin-guide/tutorial/" class="md-nav__link">
+        Tutorial
+      </a>
+    </li>
+  
+
             
           
             
@@ -4913,7 +4929,7 @@ through names of the format <code>some_f~1.gco</code>, <code>some_f~2.gco</code>
         <tr>
           <td><code>filename</code></td>
           <td>
-                <code>string</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/string.html#module-string">string</a></code>
           </td>
           <td><p>The filename without the extension to convert to 8.3.</p></td>
           <td>
@@ -4923,7 +4939,7 @@ through names of the format <code>some_f~1.gco</code>, <code>some_f~2.gco</code>
         <tr>
           <td><code>extension</code></td>
           <td>
-                <code>string</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/string.html#module-string">string</a></code>
           </td>
           <td><p>The extension to convert to 8.3 -- will be truncated to 3 characters if it's longer than
 that.</p></td>
@@ -4934,7 +4950,7 @@ that.</p></td>
         <tr>
           <td><code>existing_filenames</code></td>
           <td>
-                <code>list</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></code>
           </td>
           <td><p>A list of existing filenames to prevent name collisions with.</p></td>
           <td>
@@ -4944,7 +4960,7 @@ that.</p></td>
         <tr>
           <td><code>max_power</code></td>
           <td>
-                <code>int</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></code>
           </td>
           <td><p>Limits the possible attempts of generating a collision free name to 10 ^ <code>max_power</code>
 variations. Defaults to 2, so the name generation will maximally reach <code>&lt;name&gt;~99.&lt;ext&gt;</code> before
@@ -4985,7 +5001,7 @@ aborting and raising an exception.</p></td>
     <tbody>
         <tr>
           <td>
-                <code>ValueError</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/exceptions.html#ValueError">ValueError</a></code>
           </td>
           <td><p>No collision free name could be found.</p></td>
         </tr>
@@ -5054,7 +5070,7 @@ conversion result will be guaranteed not to collide with any of the filenames pr
         <tr>
           <td><code>input</code></td>
           <td>
-                <code>string</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/string.html#module-string">string</a></code>
           </td>
           <td><p>The original filename incl. extension to convert to the 8.3 format.</p></td>
           <td>
@@ -5064,7 +5080,7 @@ conversion result will be guaranteed not to collide with any of the filenames pr
         <tr>
           <td><code>existing_filenames</code></td>
           <td>
-                <code>list</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></code>
           </td>
           <td><p>A list of existing filenames with which the generated 8.3 name must not collide.
 Optional.</p></td>
@@ -5075,7 +5091,7 @@ Optional.</p></td>
         <tr>
           <td><code>extension</code></td>
           <td>
-                <code>string</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/string.html#module-string">string</a></code>
           </td>
           <td><p>The .3 file extension to use for the generated filename. If not provided, the extension of
 the provided <code>filename</code> will simply be truncated to 3 characters.</p></td>
@@ -5086,7 +5102,7 @@ the provided <code>filename</code> will simply be truncated to 3 characters.</p>
         <tr>
           <td><code>whitelisted_extensions</code></td>
           <td>
-                <code>list</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></code>
           </td>
           <td><p>A list of extensions on <code>input</code> that will be left as-is instead of
 exchanging for <code>extension</code>.</p></td>
@@ -5097,7 +5113,7 @@ exchanging for <code>extension</code>.</p></td>
         <tr>
           <td><code>kwargs</code></td>
           <td>
-                <code>dict</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
           </td>
           <td><p>Additional keyword arguments to provide to :func:<code>find_collision_free_name</code>.</p></td>
           <td>
@@ -5137,7 +5153,7 @@ a maximum of 3 characters.</p></td>
     <tbody>
         <tr>
           <td>
-                <code>ValueError</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/exceptions.html#ValueError">ValueError</a></code>
           </td>
           <td><p>No 8.3 compatible name could be found that doesn't collide with the provided <code>existing_filenames</code>.</p></td>
         </tr>
@@ -5274,7 +5290,7 @@ on *nix).</p>
         <tr>
           <td><code>file</code></td>
           <td>
-                <code>string</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/string.html#module-string">string</a></code>
           </td>
           <td><p>The path of the file to be removed</p></td>
           <td>

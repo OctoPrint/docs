@@ -688,6 +688,8 @@
         
           
         
+          
+        
       
       
         
@@ -708,6 +710,20 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../plugin-guide/tutorial/" class="md-nav__link">
+        Tutorial
+      </a>
+    </li>
+  
+
             
           
             
@@ -4923,7 +4939,7 @@ processing.</p>
         <tr>
           <td><code>finished_callback</code></td>
           <td>
-                <code>callable</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#callable">callable</a></code>
           </td>
           <td><p>Callback that will be called upon finishing analysis of an entry in the queue.
 The callback will be called with the analyzed entry as the first argument and the analysis result as
@@ -5250,7 +5266,7 @@ entry will be enqueued with the type specific analysis queue.</p>
 
   <div class="doc doc-contents ">
       <p class="doc doc-class-bases">
-        Bases: <code>collections.<span title="collections.namedtuple">namedtuple</span>(&#39;QueueEntry&#39;, &#39;name, path, type, location, absolute_path, printer_profile, analysis&#39;)</code></p>
+        Bases: <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/collections.html#module-collections">collections</a>.<a class="autorefs autorefs-external" title="collections.namedtuple" href="https://docs.python.org/3/library/collections.html#collections.namedtuple">namedtuple</a>(&#39;QueueEntry&#39;, &#39;name, path, type, location, absolute_path, printer_profile, analysis&#39;)</code></p>
 
   
       <p>A :class:<code>QueueEntry</code> for processing through the :class:<code>AnalysisQueue</code>. Wraps the entry's properties necessary
@@ -5270,7 +5286,7 @@ for processing.</p>
         <tr>
           <td><code>name</code></td>
           <td>
-                <code>str</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
           </td>
           <td><p>Name of the file to analyze.</p></td>
           <td>
@@ -5280,7 +5296,7 @@ for processing.</p>
         <tr>
           <td><code>path</code></td>
           <td>
-                <code>str</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
           </td>
           <td><p>Storage location specific path to the file to analyze.</p></td>
           <td>
@@ -5290,7 +5306,7 @@ for processing.</p>
         <tr>
           <td><code>type</code></td>
           <td>
-                <code>str</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
           </td>
           <td><p>Type of file to analyze, necessary to map to the correct :class:<code>AbstractAnalysisQueue</code> sub class.
 At the moment, only <code>gcode</code> is supported here.</p></td>
@@ -5301,7 +5317,7 @@ At the moment, only <code>gcode</code> is supported here.</p></td>
         <tr>
           <td><code>location</code></td>
           <td>
-                <code>str</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
           </td>
           <td><p>Location the file is located on.</p></td>
           <td>
@@ -5311,7 +5327,7 @@ At the moment, only <code>gcode</code> is supported here.</p></td>
         <tr>
           <td><code>absolute_path</code></td>
           <td>
-                <code>str</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
           </td>
           <td><p>Absolute path on disk through which to access the file.</p></td>
           <td>
@@ -5331,7 +5347,7 @@ At the moment, only <code>gcode</code> is supported here.</p></td>
         <tr>
           <td><code>analysis</code></td>
           <td>
-                <code>dict</code>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
           </td>
           <td><p>:class:<code>GcodeAnalysisQueue</code> results from prior analysis, or <code>None</code> if there is none.</p></td>
           <td>

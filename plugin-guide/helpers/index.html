@@ -690,6 +690,8 @@
         
           
         
+          
+        
       
       
         
@@ -710,6 +712,20 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorial/" class="md-nav__link">
+        Tutorial
+      </a>
+    </li>
+  
+
             
           
             
@@ -4782,10 +4798,55 @@
 
 
 <h1 id="plugin-guide.helpers">Helpers<a class="headerlink" href="#plugin-guide.helpers" title="Permanent link">#</a></h1>
-<div class="admonition todo">
-<p class="admonition-title">Todo</p>
-<p>Migrate me</p>
-</div>
+<p>Helpers are methods that plugins can expose to other plugins in order to make common functionality available on the
+system. They are registered with the OctoPrint plugin system through the use of the control property <code>__plugin_helpers__</code>.</p>
+<p>An example for providing some helper functions to the system can be found in the
+[Discovery Plugin][user-guide.bundled-plugins.discovery] which provides its SSDP browsing 
+and Zeroconf browsing and publishing functions as helper methods.</p>
+<div class="highlight"><span class="filename">src/octoprint/plugins/discovery/__init__.py</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">def</span> <span class="nf">__plugin_load__</span><span class="p">():</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="n">plugin</span> <span class="o">=</span> <span class="n">DiscoveryPlugin</span><span class="p">()</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="k">global</span> <span class="n">__plugin_implementation__</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="n">__plugin_implementation__</span> <span class="o">=</span> <span class="n">plugin</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="hll">    <span class="k">global</span> <span class="n">__plugin_helpers__</span>
+</span><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="hll">    <span class="n">__plugin_helpers__</span> <span class="o">=</span> <span class="p">{</span>
+</span><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="hll">        <span class="s2">&quot;ssdp_browse&quot;</span><span class="p">:</span> <span class="n">plugin</span><span class="o">.</span><span class="n">ssdp_browse</span><span class="p">,</span>
+</span><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="hll">        <span class="s2">&quot;zeroconf_browse&quot;</span><span class="p">:</span> <span class="n">plugin</span><span class="o">.</span><span class="n">zeroconf_browse</span><span class="p">,</span>
+</span><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="hll">        <span class="s2">&quot;zeroconf_register&quot;</span><span class="p">:</span> <span class="n">plugin</span><span class="o">.</span><span class="n">zeroconf_register</span><span class="p">,</span>
+</span><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="hll">        <span class="s2">&quot;zeroconf_unregister&quot;</span><span class="p">:</span> <span class="n">plugin</span><span class="o">.</span><span class="n">zeroconf_unregister</span><span class="p">,</span>
+</span><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="hll">    <span class="p">}</span>
+</span></code></pre></div>
+<p>An example of how to use helpers can be found in the (unmaintained) [Growl Plugin][<a href="https://github.com/OctoPrint/OctoPrint-Growl">https://github.com/OctoPrint/OctoPrint-Growl</a>].
+Using <a class="autorefs autorefs-internal" href="../../reference/octoprint/plugin/core/#octoprint.plugin.core.PluginManager.get_helpers"><code>octoprint.plugin.core.PluginManager.get_helpers</code></a> plugins can retrieve exported helper methods and call
+them as (hopefully) documented.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">def</span> <span class="nf">on_after_startup</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="n">host</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_settings</span><span class="o">.</span><span class="n">get</span><span class="p">([</span><span class="s2">&quot;hostname&quot;</span><span class="p">])</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="n">port</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_settings</span><span class="o">.</span><span class="n">getInt</span><span class="p">([</span><span class="s2">&quot;port&quot;</span><span class="p">])</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="n">password</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_settings</span><span class="o">.</span><span class="n">get</span><span class="p">([</span><span class="s2">&quot;password&quot;</span><span class="p">])</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="hll">    <span class="n">helpers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_plugin_manager</span><span class="o">.</span><span class="n">get_helpers</span><span class="p">(</span><span class="s2">&quot;discovery&quot;</span><span class="p">,</span> <span class="s2">&quot;zeroconf_browse&quot;</span><span class="p">)</span>
+</span><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="hll">    <span class="k">if</span> <span class="n">helpers</span> <span class="ow">and</span> <span class="s2">&quot;zeroconf_browse&quot;</span> <span class="ow">in</span> <span class="n">helpers</span><span class="p">:</span>
+</span><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="hll">        <span class="bp">self</span><span class="o">.</span><span class="n">zeroconf_browse</span> <span class="o">=</span> <span class="n">helpers</span><span class="p">[</span><span class="s2">&quot;zeroconf_browse&quot;</span><span class="p">]</span>
+</span><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">growl</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_register_growl</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">password</span><span class="p">)</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="c1"># [...]</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="k">def</span> <span class="nf">on_api_get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">zeroconf_browse</span><span class="p">:</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>        <span class="k">return</span> <span class="n">flask</span><span class="o">.</span><span class="n">jsonify</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>            <span class="n">browsing_enabled</span><span class="o">=</span><span class="kc">False</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>        <span class="p">))</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="hll">    <span class="n">browse_results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">zeroconf_browse</span><span class="p">(</span><span class="s2">&quot;_gntp._tcp&quot;</span><span class="p">,</span> <span class="n">block</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>    <span class="n">growl_instances</span> <span class="o">=</span> <span class="p">[</span><span class="nb">dict</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">v</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span> <span class="n">host</span><span class="o">=</span><span class="n">v</span><span class="p">[</span><span class="s2">&quot;host&quot;</span><span class="p">],</span> <span class="n">port</span><span class="o">=</span><span class="n">v</span><span class="p">[</span><span class="s2">&quot;port&quot;</span><span class="p">])</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">browse_results</span><span class="p">]</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>    <span class="k">return</span> <span class="n">flask</span><span class="o">.</span><span class="n">jsonify</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>        <span class="n">browsing_enabled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>        <span class="n">growl_instances</span><span class="o">=</span><span class="n">growl_instances</span>
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>    <span class="p">))</span>
+</code></pre></div>
 
               
             </article>

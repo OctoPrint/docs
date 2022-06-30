@@ -690,6 +690,8 @@
         
           
         
+          
+        
       
       
         
@@ -710,6 +712,20 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorial/" class="md-nav__link">
+        Tutorial
+      </a>
+    </li>
+  
+
             
           
             
@@ -797,9 +813,152 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Injected properties
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Injected properties
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#plugin_guide.injected-properties.identifier" class="md-nav__link">
+    self._identifier
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plugin_guide.injected-properties.plugin-name" class="md-nav__link">
+    self._plugin_name
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plugin_guide.injected-properties.plugin-version" class="md-nav__link">
+    self._plugin_version
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plugin_guide.injected-properties.plugin-info" class="md-nav__link">
+    self._plugin_info
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plugin_guide.injected-properties.basefolder" class="md-nav__link">
+    self._basefolder
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plugin_guide.injected-properties.datafolder" class="md-nav__link">
+    self._datafolder
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plugin_guide.injected-properties.logger" class="md-nav__link">
+    self._logger
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plugin_guide.injected-properties.settings" class="md-nav__link">
+    self._settings
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plugin_guide.injected-properties.plugin-manager" class="md-nav__link">
+    self._plugin_manager
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plugin_guide.injected-properties.printer-profile-manager" class="md-nav__link">
+    self._printer_profile_manager
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plugin_guide.injected-properties.event-bus" class="md-nav__link">
+    self._event_bus
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plugin_guide.injected-properties.analysis-queue" class="md-nav__link">
+    self._analysis_queue
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plugin_guide.injected-properties.slicing-manager" class="md-nav__link">
+    self._slicing_manager
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plugin_guide.injected-properties.file-manager" class="md-nav__link">
+    self._file_manager
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plugin_guide.injected-properties.printer" class="md-nav__link">
+    self._printer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plugin_guide.injected-properties.user-manager" class="md-nav__link">
+    self._user_manager
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plugin_guide.injected-properties.connectivity-checker" class="md-nav__link">
+    self._connectivity_checker
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -4782,9 +4941,55 @@
 
 
 <h1 id="plugin_guide.injected-properties">Injected Properties<a class="headerlink" href="#plugin_guide.injected-properties" title="Permanent link">#</a></h1>
-<div class="admonition todo">
-<p class="admonition-title">Todo</p>
-<p>Migrate me</p>
+<p>OctoPrint's plugin subsystem will inject a bunch of properties into each <a class="autorefs autorefs-internal" href="../mixins/#plugin-guide.mixins">mixin implementation</a>.
+An overview of these properties follows.</p>
+<h2 id="plugin_guide.injected-properties.identifier"><code>self._identifier</code><a class="headerlink" href="#plugin_guide.injected-properties.identifier" title="Permanent link">#</a></h2>
+<p>The plugin's identifier.</p>
+<h2 id="plugin_guide.injected-properties.plugin-name"><code>self._plugin_name</code><a class="headerlink" href="#plugin_guide.injected-properties.plugin-name" title="Permanent link">#</a></h2>
+<p>The plugin's name, as taken from either the <code>__plugin_name__</code> control property or the package info.</p>
+<h2 id="plugin_guide.injected-properties.plugin-version"><code>self._plugin_version</code><a class="headerlink" href="#plugin_guide.injected-properties.plugin-version" title="Permanent link">#</a></h2>
+<p>The plugin's version, as taken from either the <code>__plugin_version__</code> control property or the package info.</p>
+<h2 id="plugin_guide.injected-properties.plugin-info"><code>self._plugin_info</code><a class="headerlink" href="#plugin_guide.injected-properties.plugin-info" title="Permanent link">#</a></h2>
+<p>The <a class="autorefs autorefs-internal" href="../../reference/octoprint/plugin/core/#octoprint.plugin.core.PluginInfo"><code>octoprint.plugin.core.PluginInfo</code></a> object associated with the plugin.</p>
+<h2 id="plugin_guide.injected-properties.basefolder"><code>self._basefolder</code><a class="headerlink" href="#plugin_guide.injected-properties.basefolder" title="Permanent link">#</a></h2>
+<p>The plugin's base folder where it's installed. Can be used to refer to files relative to the plugin's installation
+location, e.g. included scripts, templates or assets.</p>
+<h2 id="plugin_guide.injected-properties.datafolder"><code>self._datafolder</code><a class="headerlink" href="#plugin_guide.injected-properties.datafolder" title="Permanent link">#</a></h2>
+<p>The plugin's additional data folder path. Can be used to store additional files needed for the plugin's operation (cache,
+data files etc). Plugins should not access this property directly but instead utilize <a class="autorefs autorefs-internal" href="../../reference/octoprint/plugin/types/#octoprint.plugin.types.OctoPrintPlugin.get_plugin_data_folder"><code>self.get_plugin_data_folder</code></a>
+which will make sure the path actually does exist and if not create it before returning it.</p>
+<h2 id="plugin_guide.injected-properties.logger"><code>self._logger</code><a class="headerlink" href="#plugin_guide.injected-properties.logger" title="Permanent link">#</a></h2>
+<p>A <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/logging.html#logging.Logger"><code>logging.Logger</code></a> instance logging to the log target
+<code>octoprint.plugin.&lt;plugin identifier&gt;</code>.</p>
+<h2 id="plugin_guide.injected-properties.settings"><code>self._settings</code><a class="headerlink" href="#plugin_guide.injected-properties.settings" title="Permanent link">#</a></h2>
+<p>The plugin's personalized settings manager, injected only into plugins that include the <a class="autorefs autorefs-internal" href="../../reference/octoprint/plugin/types/#octoprint.plugin.types.SettingsPlugin"><code>octoprint.plugin.types.SettingsPlugin</code></a> mixin.
+An instance of <a class="autorefs autorefs-internal" href="../../reference/octoprint/plugin/#octoprint.plugin.PluginSettings"><code>octoprint.plugin.PluginSettings</code></a>.</p>
+<h2 id="plugin_guide.injected-properties.plugin-manager"><code>self._plugin_manager</code><a class="headerlink" href="#plugin_guide.injected-properties.plugin-manager" title="Permanent link">#</a></h2>
+<p>OctoPrint's plugin manager object, an instance of <a class="autorefs autorefs-internal" href="../../reference/octoprint/plugin/core/#octoprint.plugin.core.PluginManager"><code>octoprint.plugin.core.PluginManager</code></a>.</p>
+<h2 id="plugin_guide.injected-properties.printer-profile-manager"><code>self._printer_profile_manager</code><a class="headerlink" href="#plugin_guide.injected-properties.printer-profile-manager" title="Permanent link">#</a></h2>
+<p>OctoPrint's printer profile manager, an instance of <a class="autorefs autorefs-internal" href="../../reference/octoprint/printer/profile/#octoprint.printer.profile.PrinterProfileManager"><code>octoprint.printer.profile.PrinterProfileManager</code></a>.</p>
+<h2 id="plugin_guide.injected-properties.event-bus"><code>self._event_bus</code><a class="headerlink" href="#plugin_guide.injected-properties.event-bus" title="Permanent link">#</a></h2>
+<p>OctoPrint's event bus, an instance of <a class="autorefs autorefs-internal" href="../../reference/octoprint/events/#octoprint.events.EventManager"><code>octoprint.events.EventManager</code></a>.</p>
+<h2 id="plugin_guide.injected-properties.analysis-queue"><code>self._analysis_queue</code><a class="headerlink" href="#plugin_guide.injected-properties.analysis-queue" title="Permanent link">#</a></h2>
+<p>OctoPrint's analysis queue for analyzing GCODEs or other files, an instance of <a class="autorefs autorefs-internal" href="../../reference/octoprint/filemanager/analysis/#octoprint.filemanager.analysis.AnalysisQueue"><code>octoprint.filemanager.analysis.AnalysisQueue</code></a>.</p>
+<h2 id="plugin_guide.injected-properties.slicing-manager"><code>self._slicing_manager</code><a class="headerlink" href="#plugin_guide.injected-properties.slicing-manager" title="Permanent link">#</a></h2>
+<p>OctoPrint's slicing manager, an instance of <a class="autorefs autorefs-internal" href="../../reference/octoprint/slicing/#octoprint.slicing.SlicingManager"><code>octoprint.slicing.SlicingManager</code></a>.</p>
+<h2 id="plugin_guide.injected-properties.file-manager"><code>self._file_manager</code><a class="headerlink" href="#plugin_guide.injected-properties.file-manager" title="Permanent link">#</a></h2>
+<p>OctoPrint's file manager, an instance of [<code>octoprint.filemanager.FileManager</code>][octoprint.filemanager.FileManager].</p>
+<h2 id="plugin_guide.injected-properties.printer"><code>self._printer</code><a class="headerlink" href="#plugin_guide.injected-properties.printer" title="Permanent link">#</a></h2>
+<p>OctoPrint's printer management object, an instance of <a class="autorefs autorefs-internal" href="../../reference/octoprint/printer/#octoprint.printer.PrinterInterface"><code>octoprint.printer.PrinterInterface</code></a>.</p>
+<h2 id="plugin_guide.injected-properties.user-manager"><code>self._user_manager</code><a class="headerlink" href="#plugin_guide.injected-properties.user-manager" title="Permanent link">#</a></h2>
+<p>OctoPrint's user manager, an instance of <a class="autorefs autorefs-internal" href="../../reference/octoprint/access/users/#octoprint.access.users.UserManager"><code>octoprint.access.users.UserManager</code></a>.</p>
+<h2 id="plugin_guide.injected-properties.connectivity-checker"><code>self._connectivity_checker</code><a class="headerlink" href="#plugin_guide.injected-properties.connectivity-checker" title="Permanent link">#</a></h2>
+<p>OctoPrint's connectivity checker, an instance of <a class="autorefs autorefs-internal" href="../../reference/octoprint/util/connectivity/#octoprint.util.connectivity.ConnectivityChecker"><code>octoprint.util.ConnectivityChecker</code></a>.</p>
+<div class="admonition see-also">
+<p class="admonition-title">See also</p>
+<dl>
+<dt><a class="autorefs autorefs-internal" href="../../reference/octoprint/plugin/core/#octoprint.plugin.core.Plugin"><code>octoprint.plugin.core.Plugin</code></a> and <a class="autorefs autorefs-internal" href="../../reference/octoprint/plugin/types/#octoprint.plugin.types.OctoPrintPlugin"><code>octoprint.plugin.types.OctoPrintPlugin</code></a></dt>
+<dd>Class documentation also containing the properties shared among all mixin implementations.</dd>
+<dt><a class="autorefs autorefs-internal" href="../mixins/#plugin-guide.mixins">Available Mixins</a></dt>
+<dd>Some mixin types trigger the injection of additional properties.</dd>
+</dl>
 </div>
 
               
