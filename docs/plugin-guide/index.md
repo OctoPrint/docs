@@ -12,7 +12,7 @@ parts of the system the plugin will actually plug in to perform its job.
 There are three types of ways a plugin might attach itself to the system, through so called
 [mixin][plugin-guide.mixins] implementations, by attaching itself to specified
 [hooks][plugin-guide.hooks], by offering [helper][plugin-guide.helpers] functionality to be
-used by other plugins or by providing [settings overlays][plugin-guide.control-properties.plugin_settings_overlay].
+used by other plugins or by providing [settings overlays][plugin-guide.control-properties.plugin-settings-overlay].
 
 Plugin mixin implementations will get a bunch of [properties injected][plugin-guide.injected-properties]
 by OctoPrint plugin system to help them work.

@@ -1,3 +1,7 @@
+---
+title: Mixins
+---
+
 # Mixins {: #plugin-guide.mixins }
 
 ## General Concepts  {: #plugin-guide.mixins.general-concepts }
@@ -38,9 +42,9 @@ for name, implementation in asset_plugins.items():
             break
 ```
 
-!!! see-also
+!!! see-also "See also"
 
-    [The Plugin Tutorial](tutorial)
+    [The Plugin Tutorial][plugin-guide.tutorial]
     :  Tutorial on how to write a simple OctoPrint module utilizing mixins for various types of extension.
 
 ## Execution Order  {: #plugin-guide.mixins.execution-order }
@@ -165,7 +169,7 @@ calls are done is as follows:
 OctoPrint's plugin subsystem will inject a bunch of properties into each mixin implementation.
 An overview of these properties can be found in the section [Injected Properties][plugin_guide.injected-properties].
 
-!!! see-also
+!!! see-also "See also"
 
     [`Plugin`][octoprint.plugin.core.Plugin] and [`OctoPrintPlugin`][octoprint.plugin.types.OctoPrintPlugin]
     :   Class documentation also containing the properties shared among all mixin implementations.

@@ -1,3 +1,7 @@
+---
+title: Lifecycle
+---
+
 # Lifecycle {: #plugin-guide.lifecycle }
 
 There are three sources of installed plugins that OctoPrint will check during start up:
