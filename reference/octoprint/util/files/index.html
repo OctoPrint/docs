@@ -3438,6 +3438,8 @@
         
           
         
+          
+        
       
       
         
@@ -3458,6 +3460,20 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../server/util/csrf/" class="md-nav__link">
+        csrf
+      </a>
+    </li>
+  
+
             
           
             
@@ -3874,6 +3890,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#octoprint.util.files.m20_timestamp_to_unix_timestamp" class="md-nav__link">
+    m20_timestamp_to_unix_timestamp()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#octoprint.util.files.sanitize_filename" class="md-nav__link">
     sanitize_filename()
   </a>
@@ -3883,6 +3906,13 @@
         <li class="md-nav__item">
   <a href="#octoprint.util.files.silent_remove" class="md-nav__link">
     silent_remove()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#octoprint.util.files.unix_timestamp_to_m20_timestamp" class="md-nav__link">
+    unix_timestamp_to_m20_timestamp()
   </a>
   
 </li>
@@ -4203,6 +4233,8 @@
         
           
             
+          
+        
           
         
           
@@ -4839,6 +4871,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vendor/with_attrs_docs/" class="md-nav__link">
+        with_attrs_docs
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -5223,6 +5269,69 @@ a maximum of 3 characters.</p></td>
 
 
 
+<h2 id="octoprint.util.files.m20_timestamp_to_unix_timestamp" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">m20_timestamp_to_unix_timestamp</span><span class="p">(</span><span class="n">timestamp</span><span class="p">)</span></code>
+
+<a href="#octoprint.util.files.m20_timestamp_to_unix_timestamp" class="headerlink" title="Permanent link">#</a></h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Converts "M20 T" timestamp to unix timestamp.
+Upper 16 bit contain date, lower 16 bit contain time.</p>
+<p><a href="https://reprap.org/wiki/G-code#M20:_List_SD_card">https://reprap.org/wiki/G-code#M20:_List_SD_card</a></p>
+<p>Format derived from FAT filesystem timestamps:
+<a href="https://wiki.osdev.org/FAT">https://wiki.osdev.org/FAT</a></p>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>timestamp</code></td>
+          <td>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/string.html#module-string">string</a></code>
+          </td>
+          <td><p>M20 T timestamp as hex string</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+<th>Name</th>        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+<td><code>int</code></td>          <td>
+          </td>
+          <td><p>Unix timestamp in seconds</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
 <h2 id="octoprint.util.files.sanitize_filename" class="doc doc-heading">
 <code class="highlight language-python"><span class="n">sanitize_filename</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">really_universal</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code>
 
@@ -5329,6 +5438,70 @@ on *nix).</p>
           <td>
               <em>required</em>
           </td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="octoprint.util.files.unix_timestamp_to_m20_timestamp" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">unix_timestamp_to_m20_timestamp</span><span class="p">(</span><span class="n">unix_timestamp</span><span class="p">)</span></code>
+
+<a href="#octoprint.util.files.unix_timestamp_to_m20_timestamp" class="headerlink" title="Permanent link">#</a></h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Converts unix timestamp to "M20 T" format
+which embeds date and time into 32bit int.
+Upper 16 bit contain date, lower 16 bit contain time.</p>
+<p><a href="https://reprap.org/wiki/G-code#M20:_List_SD_card">https://reprap.org/wiki/G-code#M20:_List_SD_card</a></p>
+<p>Format derived from FAT filesystem timestamps:
+<a href="https://wiki.osdev.org/FAT">https://wiki.osdev.org/FAT</a></p>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>unix_timestamp</code></td>
+          <td>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></code>
+          </td>
+          <td><p>Unix timestamp in seconds</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+<th>Name</th>        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+<td><code>string</code></td>          <td>
+          </td>
+          <td><p>M20 T timestamp as hex string</p></td>
         </tr>
     </tbody>
   </table>

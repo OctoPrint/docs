@@ -1717,6 +1717,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#octoprint.plugin.types.BlueprintPlugin.csrf_exempt" class="md-nav__link">
+    csrf_exempt()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#octoprint.plugin.types.BlueprintPlugin.errorhandler" class="md-nav__link">
     errorhandler()
   </a>
@@ -1740,6 +1747,13 @@
           <li class="md-nav__item">
   <a href="#octoprint.plugin.types.BlueprintPlugin.get_blueprint_kwargs" class="md-nav__link">
     get_blueprint_kwargs()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#octoprint.plugin.types.BlueprintPlugin.is_blueprint_csrf_protected" class="md-nav__link">
+    is_blueprint_csrf_protected()
   </a>
   
 </li>
@@ -4098,6 +4112,8 @@
         
           
         
+          
+        
       
       
         
@@ -4118,6 +4134,20 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../server/util/csrf/" class="md-nav__link">
+        csrf
+      </a>
+    </li>
+  
+
             
           
             
@@ -4802,6 +4832,8 @@
         
           
         
+          
+        
       
       
         
@@ -5428,6 +5460,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vendor/with_attrs_docs/" class="md-nav__link">
+        with_attrs_docs
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -5704,6 +5750,36 @@ example of a plugin with the identifier <code>myblueprintplugin</code> would be 
 <code>plugin.&lt;plugin identifier&gt;.&lt;method_name&gt;</code>, e.g.:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">flask</span><span class="o">.</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;plugin.myblueprintplugin.myEcho&quot;</span><span class="p">)</span> <span class="c1"># will return &quot;/plugin/myblueprintplugin/echo&quot;</span>
 </code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>As of OctoPrint 1.8.3, endpoints provided through a <code>BlueprintPlugin</code> do <strong>not</strong> automatically fall under
+OctoPrint's <a href="">CSRF protection</a>, for reasons of backwards compatibility. There will be a short grace period before this changes. You
+can and should however already opt into CSRF protection for your endpoints by implementing <code>is_blueprint_csrf_protected</code>
+and returning <code>True</code> from it. You can exempt certain endpoints from CSRF protection by decorating them with
+<code>@octoprint.plugin.BlueprintPlugin.csrf_exempt</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">class</span> <span class="nc">MyPlugin</span><span class="p">(</span><span class="n">octoprint</span><span class="o">.</span><span class="n">plugin</span><span class="o">.</span><span class="n">BlueprintPlugin</span><span class="p">):</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="nd">@octoprint</span><span class="o">.</span><span class="n">plugin</span><span class="o">.</span><span class="n">BlueprintPlugin</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/hello_world&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GET&quot;</span><span class="p">])</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="k">def</span> <span class="nf">hello_world</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>        <span class="c1"># This is a GET request and thus not subject to CSRF protection</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>        <span class="k">return</span> <span class="s2">&quot;Hello world!&quot;</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    <span class="nd">@octoprint</span><span class="o">.</span><span class="n">plugin</span><span class="o">.</span><span class="n">BlueprintPlugin</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/hello_you&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;POST&quot;</span><span class="p">])</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    <span class="k">def</span> <span class="nf">hello_you</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>        <span class="c1"># This is a POST request and thus subject to CSRF protection. It is not exempt.</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>        <span class="k">return</span> <span class="s2">&quot;Hello you!&quot;</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>    <span class="nd">@octoprint</span><span class="o">.</span><span class="n">plugin</span><span class="o">.</span><span class="n">BlueprintPlugin</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/hello_me&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;POST&quot;</span><span class="p">])</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>    <span class="nd">@octoprint</span><span class="o">.</span><span class="n">plugin</span><span class="o">.</span><span class="n">BlueprintPlugin</span><span class="o">.</span><span class="n">csrf_exempt</span><span class="p">()</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>    <span class="k">def</span> <span class="nf">hello_me</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>        <span class="c1"># This is a POST request and thus subject to CSRF protection, but this one is exempt.</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>        <span class="k">return</span> <span class="s2">&quot;Hello me!&quot;</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>    <span class="k">def</span> <span class="nf">is_blueprint_csrf_protected</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>        <span class="k">return</span> <span class="kc">True</span>
+</code></pre></div>
+</div>
+<p><code>BlueprintPlugin</code> implements :class:<code>~octoprint.plugins.core.RestartNeedingPlugin</code>.</p>
+<p>{{ version_changed("1.8.3") }}</p>
 
 
 
@@ -5718,6 +5794,31 @@ example of a plugin with the identifier <code>myblueprintplugin</code> would be 
 
 
 
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="octoprint.plugin.types.BlueprintPlugin.csrf_exempt" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">csrf_exempt</span><span class="p">()</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-staticmethod"><code>staticmethod</code></small>
+  </span>
+
+<a href="#octoprint.plugin.types.BlueprintPlugin.csrf_exempt" class="headerlink" title="Permanent link">#</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>A decorator to mark a view method in your BlueprintPlugin as exempt from :ref:<code>CSRF protection &lt;sec-api-general-csrf&gt;</code>. This makes sense
+if you offer an authenticated API for a certain workflow (see e.g. the bundled appkeys plugin) but in most
+cases should not be needed.</p>
+<p>.. versionadded:: 1.8.3</p>
+
+  </div>
+
+</div>
 
 <div class="doc doc-object doc-function">
 
@@ -5807,6 +5908,30 @@ return <code>["/foo", "/bar"]</code>. A match will be determined via startswith.
 <p>Defaults to the blueprint's <code>static_folder</code> and <code>template_folder</code> to be set to the plugin's basefolder
 plus <code>/static</code> or respectively <code>/templates</code>, or - if the plugin also implements <a class="autorefs autorefs-internal" href="#octoprint.plugin.types.AssetPlugin"><code>AssetPlugin</code></a> and/or
 <a class="autorefs autorefs-internal" href="#octoprint.plugin.types.TemplatePlugin"><code>TemplatePlugin</code></a> - the paths provided by <code>get_asset_folder</code> and <code>get_template_folder</code> respectively.</p>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="octoprint.plugin.types.BlueprintPlugin.is_blueprint_csrf_protected" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">is_blueprint_csrf_protected</span><span class="p">()</span></code>
+
+<a href="#octoprint.plugin.types.BlueprintPlugin.is_blueprint_csrf_protected" class="headerlink" title="Permanent link">#</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Whether a blueprint's endpoints are <a href="">CSRF protected</a>. For now, this defaults to <code>False</code> to leave it up to
+plugins to decide which endpoints <em>should</em> be protected. Long term, this will default to <code>True</code> and hence
+enforce protection unless a plugin opts out by returning <code>False</code> here.</p>
+<p>If you do not override this method in your mixin implementation, a warning will be logged to the console
+to alert you of the requirement to make a decision here and to not rely on the default implementation, due to the
+forthcoming change in implemented default behaviour.</p>
+<p>{{ version_added("1.8.3") }}</p>
 
   </div>
 
@@ -6118,9 +6243,9 @@ initialization of the implementation.</p></td>
         <tr>
           <td><code>_user_manager</code></td>
           <td>
-                <code><a class="autorefs autorefs-internal" href="../../#octoprint">octoprint</a>.<a class="autorefs autorefs-internal" title="octoprint.users" href="../../users/#octoprint.users">users</a>.<a class="autorefs autorefs-internal" title="octoprint.users.UserManager" href="../../access/users/#octoprint.access.users.UserManager">UserManager</a></code>
+                <code><a class="autorefs autorefs-internal" href="../../#octoprint">octoprint</a>.<a class="autorefs autorefs-internal" title="octoprint.users" href="../../users/#octoprint.users">users</a>.<span title="octoprint.users.UserManager">UserManager</span></code>
           </td>
-          <td><p>The <a class="autorefs autorefs-internal" href="../../access/users/#octoprint.access.users.UserManager">UserManager</a> instance. Injected by the plugin core system upon
+          <td><p>The [UserManager][octoprint.users.UserManager] instance. Injected by the plugin core system upon
 initialization of the implementation.</p></td>
         </tr>
         <tr>

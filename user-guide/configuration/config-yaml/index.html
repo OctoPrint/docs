@@ -4080,6 +4080,8 @@
         
           
         
+          
+        
       
       
         
@@ -4100,6 +4102,20 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/octoprint/server/util/csrf/" class="md-nav__link">
+        csrf
+      </a>
+    </li>
+  
+
             
           
             
@@ -4784,6 +4800,8 @@
         
           
         
+          
+        
       
       
         
@@ -5410,6 +5428,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/octoprint/vendor/with_attrs_docs/" class="md-nav__link">
+        with_attrs_docs
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -5656,7 +5688,7 @@ are as follows:</p>
 <tbody>
 <tr>
 <td><code>key</code></td>
-<td><code>str</code></td>
+<td><code>Optional[str]</code></td>
 <td>Global API key, deprecated, use User API keys instead. Unset by default, will be generated on first run.</td>
 <td><em>unset</em></td>
 </tr>
@@ -5787,7 +5819,7 @@ of the various UI components</p>
 <td><code>color</code></td>
 <td><code>str</code></td>
 <td>Use this to color the navigation bar. Valid values: <code>blue</code>, <code>default</code>, <code>green</code>, <code>orange</code>, <code>red</code>, <code>violet</code>, <code>yellow</code>.</td>
-<td><code>'default'</code></td>
+<td><code>&lt;ColorEnum.default: 'default'&gt;</code></td>
 </tr>
 <tr>
 <td><code>colorTransparent</code></td>
@@ -6082,7 +6114,7 @@ control or a container.</p>
 <td><code>layout</code></td>
 <td><code>str</code></td>
 <td>The layout to use for laying out the contained children, either from top to bottom (<code>vertical</code>) or from left to right (<code>horizontal</code>). Valid values: <code>horizontal</code>, <code>vertical</code>.</td>
-<td><code>'vertical'</code></td>
+<td><code>&lt;LayoutEnum.vertical: 'vertical'&gt;</code></td>
 </tr>
 </tbody>
 </table>
@@ -6157,6 +6189,8 @@ control or a container.</p>
 <a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">  </span><span class="nt">showLoadingAnimation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
 <a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">  </span><span class="nt">sockJsConnectTimeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span><span class="w"></span>
 <a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">  </span><span class="nt">pluginTimings</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">  </span><span class="nt">enableRateLimiter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">  </span><span class="nt">enableCsrfProtection</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
 </code></pre></div>
 <h3 id="data-model_4">Data model<a class="headerlink" href="#data-model_4" title="Permanent link">#</a></h3>
 <table>
@@ -6173,7 +6207,7 @@ control or a container.</p>
 <td><code>stylesheet</code></td>
 <td><code>str</code></td>
 <td>Settings for stylesheet preference. OctoPrint will prefer to use the stylesheet type specified here. Usually (on a production install) that will be the compiled css (default). Developers may specify less here too. Valid values: <code>css</code>, <code>less</code>.</td>
-<td><code>'css'</code></td>
+<td><code>&lt;StylesheetEnum.css: 'css'&gt;</code></td>
 </tr>
 <tr>
 <td><code>cache.*</code></td>
@@ -6246,6 +6280,18 @@ control or a container.</p>
 <td><code>bool</code></td>
 <td></td>
 <td><code>False</code></td>
+</tr>
+<tr>
+<td><code>enableRateLimiter</code></td>
+<td><code>bool</code></td>
+<td>Enable or disable the rate limiter. Careful, disabling this reduces security.</td>
+<td><code>True</code></td>
+</tr>
+<tr>
+<td><code>enableCsrfProtection</code></td>
+<td><code>bool</code></td>
+<td>Enable or disable the CSRF protection. Careful, disabling this reduces security.</td>
+<td><code>True</code></td>
 </tr>
 </tbody>
 </table>
@@ -6662,7 +6708,7 @@ subscription's command after performing all placeholder replacements.</p>
 <td><code>runAt</code></td>
 <td><code>str</code></td>
 <td>Whether to run the analysis only when idle (not printing), regardless of printing state or never. Valid values: <code>always</code>, <code>idle</code>, <code>never</code>.</td>
-<td><code>'idle'</code></td>
+<td><code>&lt;RunAtEnum.idle: 'idle'&gt;</code></td>
 </tr>
 <tr>
 <td><code>bedZ</code></td>
@@ -6945,44 +6991,45 @@ See <a href="">GCODE Scripts</a>.</p>
 <a id="__codelineno-21-63" name="__codelineno-21-63" href="#__codelineno-21-63"></a><span class="w">  </span><span class="nt">logPositionOnCancel</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
 <a id="__codelineno-21-64" name="__codelineno-21-64" href="#__codelineno-21-64"></a><span class="w">  </span><span class="nt">abortHeatupOnCancel</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
 <a id="__codelineno-21-65" name="__codelineno-21-65" href="#__codelineno-21-65"></a><span class="w">  </span><span class="nt">waitForStartOnConnect</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
-<a id="__codelineno-21-66" name="__codelineno-21-66" href="#__codelineno-21-66"></a><span class="w">  </span><span class="nt">alwaysSendChecksum</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
-<a id="__codelineno-21-67" name="__codelineno-21-67" href="#__codelineno-21-67"></a><span class="w">  </span><span class="nt">neverSendChecksum</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
-<a id="__codelineno-21-68" name="__codelineno-21-68" href="#__codelineno-21-68"></a><span class="w">  </span><span class="nt">sendChecksumWithUnknownCommands</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
-<a id="__codelineno-21-69" name="__codelineno-21-69" href="#__codelineno-21-69"></a><span class="w">  </span><span class="nt">unknownCommandsNeedAck</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
-<a id="__codelineno-21-70" name="__codelineno-21-70" href="#__codelineno-21-70"></a><span class="w">  </span><span class="nt">sdRelativePath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
-<a id="__codelineno-21-71" name="__codelineno-21-71" href="#__codelineno-21-71"></a><span class="w">  </span><span class="nt">sdAlwaysAvailable</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
-<a id="__codelineno-21-72" name="__codelineno-21-72" href="#__codelineno-21-72"></a><span class="w">  </span><span class="nt">sdLowerCase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
-<a id="__codelineno-21-73" name="__codelineno-21-73" href="#__codelineno-21-73"></a><span class="w">  </span><span class="nt">sdCancelCommand</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">M25</span><span class="w"></span>
-<a id="__codelineno-21-74" name="__codelineno-21-74" href="#__codelineno-21-74"></a><span class="w">  </span><span class="nt">maxNotSdPrinting</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span><span class="w"></span>
-<a id="__codelineno-21-75" name="__codelineno-21-75" href="#__codelineno-21-75"></a><span class="w">  </span><span class="nt">swallowOkAfterResend</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
-<a id="__codelineno-21-76" name="__codelineno-21-76" href="#__codelineno-21-76"></a><span class="w">  </span><span class="nt">repetierTargetTemp</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
-<a id="__codelineno-21-77" name="__codelineno-21-77" href="#__codelineno-21-77"></a><span class="w">  </span><span class="nt">externalHeatupDetection</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
-<a id="__codelineno-21-78" name="__codelineno-21-78" href="#__codelineno-21-78"></a><span class="w">  </span><span class="nt">supportWait</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
-<a id="__codelineno-21-79" name="__codelineno-21-79" href="#__codelineno-21-79"></a><span class="w">  </span><span class="nt">ignoreIdenticalResends</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
-<a id="__codelineno-21-80" name="__codelineno-21-80" href="#__codelineno-21-80"></a><span class="w">  </span><span class="nt">identicalResendsCountdown</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">7</span><span class="w"></span>
-<a id="__codelineno-21-81" name="__codelineno-21-81" href="#__codelineno-21-81"></a><span class="w">  </span><span class="nt">supportFAsCommand</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
-<a id="__codelineno-21-82" name="__codelineno-21-82" href="#__codelineno-21-82"></a><span class="w">  </span><span class="nt">firmwareDetection</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
-<a id="__codelineno-21-83" name="__codelineno-21-83" href="#__codelineno-21-83"></a><span class="w">  </span><span class="nt">blockWhileDwelling</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
-<a id="__codelineno-21-84" name="__codelineno-21-84" href="#__codelineno-21-84"></a><span class="w">  </span><span class="nt">useParityWorkaround</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">detect</span><span class="w"></span>
-<a id="__codelineno-21-85" name="__codelineno-21-85" href="#__codelineno-21-85"></a><span class="w">  </span><span class="nt">maxConsecutiveResends</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span><span class="w"></span>
-<a id="__codelineno-21-86" name="__codelineno-21-86" href="#__codelineno-21-86"></a><span class="w">  </span><span class="nt">sendM112OnError</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
-<a id="__codelineno-21-87" name="__codelineno-21-87" href="#__codelineno-21-87"></a><span class="w">  </span><span class="nt">disableSdPrintingDetection</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
-<a id="__codelineno-21-88" name="__codelineno-21-88" href="#__codelineno-21-88"></a><span class="w">  </span><span class="nt">ackMax</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w"></span>
-<a id="__codelineno-21-89" name="__codelineno-21-89" href="#__codelineno-21-89"></a><span class="w">  </span><span class="nt">sanityCheckTools</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
-<a id="__codelineno-21-90" name="__codelineno-21-90" href="#__codelineno-21-90"></a><span class="w">  </span><span class="nt">notifySuppressedCommands</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">warn</span><span class="w"></span>
-<a id="__codelineno-21-91" name="__codelineno-21-91" href="#__codelineno-21-91"></a><span class="w">  </span><span class="nt">capabilities</span><span class="p">:</span><span class="w"></span>
-<a id="__codelineno-21-92" name="__codelineno-21-92" href="#__codelineno-21-92"></a><span class="w">    </span><span class="nt">autoreport_temp</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
-<a id="__codelineno-21-93" name="__codelineno-21-93" href="#__codelineno-21-93"></a><span class="w">    </span><span class="nt">autoreport_sdstatus</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
-<a id="__codelineno-21-94" name="__codelineno-21-94" href="#__codelineno-21-94"></a><span class="w">    </span><span class="nt">autoreport_pos</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
-<a id="__codelineno-21-95" name="__codelineno-21-95" href="#__codelineno-21-95"></a><span class="w">    </span><span class="nt">busy_protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
-<a id="__codelineno-21-96" name="__codelineno-21-96" href="#__codelineno-21-96"></a><span class="w">    </span><span class="nt">emergency_parser</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
-<a id="__codelineno-21-97" name="__codelineno-21-97" href="#__codelineno-21-97"></a><span class="w">    </span><span class="nt">extended_m20</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
-<a id="__codelineno-21-98" name="__codelineno-21-98" href="#__codelineno-21-98"></a><span class="w">  </span><span class="nt">resendRatioThreshold</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span><span class="w"></span>
-<a id="__codelineno-21-99" name="__codelineno-21-99" href="#__codelineno-21-99"></a><span class="w">  </span><span class="nt">resendRatioStart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span><span class="w"></span>
-<a id="__codelineno-21-100" name="__codelineno-21-100" href="#__codelineno-21-100"></a><span class="w">  </span><span class="nt">ignoreEmptyPorts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
-<a id="__codelineno-21-101" name="__codelineno-21-101" href="#__codelineno-21-101"></a><span class="w">  </span><span class="nt">encoding</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ascii</span><span class="w"></span>
-<a id="__codelineno-21-102" name="__codelineno-21-102" href="#__codelineno-21-102"></a><span class="w">  </span><span class="nt">enableShutdownActionCommand</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
-<a id="__codelineno-21-103" name="__codelineno-21-103" href="#__codelineno-21-103"></a><span class="w">  </span><span class="nt">triggerOkForM29</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
+<a id="__codelineno-21-66" name="__codelineno-21-66" href="#__codelineno-21-66"></a><span class="w">  </span><span class="nt">waitToLoadSdFileList</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
+<a id="__codelineno-21-67" name="__codelineno-21-67" href="#__codelineno-21-67"></a><span class="w">  </span><span class="nt">alwaysSendChecksum</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
+<a id="__codelineno-21-68" name="__codelineno-21-68" href="#__codelineno-21-68"></a><span class="w">  </span><span class="nt">neverSendChecksum</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
+<a id="__codelineno-21-69" name="__codelineno-21-69" href="#__codelineno-21-69"></a><span class="w">  </span><span class="nt">sendChecksumWithUnknownCommands</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
+<a id="__codelineno-21-70" name="__codelineno-21-70" href="#__codelineno-21-70"></a><span class="w">  </span><span class="nt">unknownCommandsNeedAck</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
+<a id="__codelineno-21-71" name="__codelineno-21-71" href="#__codelineno-21-71"></a><span class="w">  </span><span class="nt">sdRelativePath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
+<a id="__codelineno-21-72" name="__codelineno-21-72" href="#__codelineno-21-72"></a><span class="w">  </span><span class="nt">sdAlwaysAvailable</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
+<a id="__codelineno-21-73" name="__codelineno-21-73" href="#__codelineno-21-73"></a><span class="w">  </span><span class="nt">sdLowerCase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
+<a id="__codelineno-21-74" name="__codelineno-21-74" href="#__codelineno-21-74"></a><span class="w">  </span><span class="nt">sdCancelCommand</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">M25</span><span class="w"></span>
+<a id="__codelineno-21-75" name="__codelineno-21-75" href="#__codelineno-21-75"></a><span class="w">  </span><span class="nt">maxNotSdPrinting</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span><span class="w"></span>
+<a id="__codelineno-21-76" name="__codelineno-21-76" href="#__codelineno-21-76"></a><span class="w">  </span><span class="nt">swallowOkAfterResend</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
+<a id="__codelineno-21-77" name="__codelineno-21-77" href="#__codelineno-21-77"></a><span class="w">  </span><span class="nt">repetierTargetTemp</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
+<a id="__codelineno-21-78" name="__codelineno-21-78" href="#__codelineno-21-78"></a><span class="w">  </span><span class="nt">externalHeatupDetection</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
+<a id="__codelineno-21-79" name="__codelineno-21-79" href="#__codelineno-21-79"></a><span class="w">  </span><span class="nt">supportWait</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
+<a id="__codelineno-21-80" name="__codelineno-21-80" href="#__codelineno-21-80"></a><span class="w">  </span><span class="nt">ignoreIdenticalResends</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
+<a id="__codelineno-21-81" name="__codelineno-21-81" href="#__codelineno-21-81"></a><span class="w">  </span><span class="nt">identicalResendsCountdown</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">7</span><span class="w"></span>
+<a id="__codelineno-21-82" name="__codelineno-21-82" href="#__codelineno-21-82"></a><span class="w">  </span><span class="nt">supportFAsCommand</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
+<a id="__codelineno-21-83" name="__codelineno-21-83" href="#__codelineno-21-83"></a><span class="w">  </span><span class="nt">firmwareDetection</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
+<a id="__codelineno-21-84" name="__codelineno-21-84" href="#__codelineno-21-84"></a><span class="w">  </span><span class="nt">blockWhileDwelling</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
+<a id="__codelineno-21-85" name="__codelineno-21-85" href="#__codelineno-21-85"></a><span class="w">  </span><span class="nt">useParityWorkaround</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">detect</span><span class="w"></span>
+<a id="__codelineno-21-86" name="__codelineno-21-86" href="#__codelineno-21-86"></a><span class="w">  </span><span class="nt">maxConsecutiveResends</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span><span class="w"></span>
+<a id="__codelineno-21-87" name="__codelineno-21-87" href="#__codelineno-21-87"></a><span class="w">  </span><span class="nt">sendM112OnError</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
+<a id="__codelineno-21-88" name="__codelineno-21-88" href="#__codelineno-21-88"></a><span class="w">  </span><span class="nt">disableSdPrintingDetection</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
+<a id="__codelineno-21-89" name="__codelineno-21-89" href="#__codelineno-21-89"></a><span class="w">  </span><span class="nt">ackMax</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w"></span>
+<a id="__codelineno-21-90" name="__codelineno-21-90" href="#__codelineno-21-90"></a><span class="w">  </span><span class="nt">sanityCheckTools</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
+<a id="__codelineno-21-91" name="__codelineno-21-91" href="#__codelineno-21-91"></a><span class="w">  </span><span class="nt">notifySuppressedCommands</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">warn</span><span class="w"></span>
+<a id="__codelineno-21-92" name="__codelineno-21-92" href="#__codelineno-21-92"></a><span class="w">  </span><span class="nt">capabilities</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-21-93" name="__codelineno-21-93" href="#__codelineno-21-93"></a><span class="w">    </span><span class="nt">autoreport_temp</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
+<a id="__codelineno-21-94" name="__codelineno-21-94" href="#__codelineno-21-94"></a><span class="w">    </span><span class="nt">autoreport_sdstatus</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
+<a id="__codelineno-21-95" name="__codelineno-21-95" href="#__codelineno-21-95"></a><span class="w">    </span><span class="nt">autoreport_pos</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
+<a id="__codelineno-21-96" name="__codelineno-21-96" href="#__codelineno-21-96"></a><span class="w">    </span><span class="nt">busy_protocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
+<a id="__codelineno-21-97" name="__codelineno-21-97" href="#__codelineno-21-97"></a><span class="w">    </span><span class="nt">emergency_parser</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
+<a id="__codelineno-21-98" name="__codelineno-21-98" href="#__codelineno-21-98"></a><span class="w">    </span><span class="nt">extended_m20</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
+<a id="__codelineno-21-99" name="__codelineno-21-99" href="#__codelineno-21-99"></a><span class="w">  </span><span class="nt">resendRatioThreshold</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span><span class="w"></span>
+<a id="__codelineno-21-100" name="__codelineno-21-100" href="#__codelineno-21-100"></a><span class="w">  </span><span class="nt">resendRatioStart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span><span class="w"></span>
+<a id="__codelineno-21-101" name="__codelineno-21-101" href="#__codelineno-21-101"></a><span class="w">  </span><span class="nt">ignoreEmptyPorts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
+<a id="__codelineno-21-102" name="__codelineno-21-102" href="#__codelineno-21-102"></a><span class="w">  </span><span class="nt">encoding</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ascii</span><span class="w"></span>
+<a id="__codelineno-21-103" name="__codelineno-21-103" href="#__codelineno-21-103"></a><span class="w">  </span><span class="nt">enableShutdownActionCommand</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
+<a id="__codelineno-21-104" name="__codelineno-21-104" href="#__codelineno-21-104"></a><span class="w">  </span><span class="nt">triggerOkForM29</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
 </code></pre></div>
 <h3 id="data-model_14">Data model<a class="headerlink" href="#data-model_14" title="Permanent link">#</a></h3>
 <table>
@@ -7278,6 +7325,12 @@ See <a href="">GCODE Scripts</a>.</p>
 <td><code>False</code></td>
 </tr>
 <tr>
+<td><code>waitToLoadSdFileList</code></td>
+<td><code>bool</code></td>
+<td>Specifies whether OctoPrint should wait to load the SD card file list until the first firmware capability report is processed.</td>
+<td><code>False</code></td>
+</tr>
+<tr>
 <td><code>alwaysSendChecksum</code></td>
 <td><code>bool</code></td>
 <td>Specifies whether OctoPrint should send linenumber + checksum with every printer command. Needed for successful communication with Repetier firmware.</td>
@@ -7563,7 +7616,7 @@ See <a href="">GCODE Scripts</a>.</p>
 <a id="__codelineno-22-52" name="__codelineno-22-52" href="#__codelineno-22-52"></a><span class="w">  </span><span class="nt">allowFraming</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
 <a id="__codelineno-22-53" name="__codelineno-22-53" href="#__codelineno-22-53"></a><span class="w">  </span><span class="nt">cookies</span><span class="p">:</span><span class="w"></span>
 <a id="__codelineno-22-54" name="__codelineno-22-54" href="#__codelineno-22-54"></a><span class="w">    </span><span class="nt">secure</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
-<a id="__codelineno-22-55" name="__codelineno-22-55" href="#__codelineno-22-55"></a><span class="w">    </span><span class="nt">samesite</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-22-55" name="__codelineno-22-55" href="#__codelineno-22-55"></a><span class="w">    </span><span class="nt">samesite</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Lax</span><span class="w"></span>
 </code></pre></div>
 <h3 id="data-model_15">Data model<a class="headerlink" href="#data-model_15" title="Permanent link">#</a></h3>
 <table>
@@ -7897,8 +7950,8 @@ See <a href="">GCODE Scripts</a>.</p>
 <tr>
 <td><code>cookies.samesite</code></td>
 <td><code>Optional[octoprint.schema.config.server.SameSiteEnum]</code></td>
-<td><code>SameSite</code> setting to use on the cookies. Possible values are <code>None</code>, <code>Lax</code> and <code>Strict</code>. Defaults to unset. Be advised that many browsers now default to <code>Lax</code> unless you configure cookies to be set with <code>Secure</code> flag set, explicitly set <code>SameSite</code> setting here and also serve OctoPrint over https. The <code>Lax</code> setting is known to cause with embedding OctoPrint in frames. See also <a href="https://www.chromestatus.com/feature/5088147346030592">"Feature: Cookies default to SameSite=Lax"</a>, <a href="https://www.chromestatus.com/feature/5633521622188032">"Feature: Reject insecure SameSite=None cookies"</a> and <a href="https://github.com/OctoPrint/OctoPrint/issues/3482">issue #3482</a>.</td>
-<td><em>unset</em></td>
+<td><code>SameSite</code> setting to use on the cookies. Possible values are <code>None</code>, <code>Lax</code> and <code>Strict</code>. Defaults to <code>Lax</code>. Be advised that if forced unset, this has security implications as many browsers now default to <code>Lax</code> unless you configure cookies to be set with <code>Secure</code> flag set, explicitly set <code>SameSite</code> setting here and also serve OctoPrint over https. The <code>Lax</code> setting is known to cause with embedding OctoPrint in frames. See also <a href="https://www.chromestatus.com/feature/5088147346030592">"Feature: Cookies default to SameSite=Lax"</a>, <a href="https://www.chromestatus.com/feature/5633521622188032">"Feature: Reject insecure SameSite=None cookies"</a> and <a href="https://github.com/OctoPrint/OctoPrint/issues/3482">issue #3482</a>.</td>
+<td><code>&lt;SameSiteEnum.lax: 'Lax'&gt;</code></td>
 </tr>
 </tbody>
 </table>
@@ -8173,7 +8226,7 @@ See <a href="">GCODE Scripts</a>.</p>
 <td><code>streamRatio</code></td>
 <td><code>str</code></td>
 <td>Valid values: <code>4:3</code>, <code>16:9</code>.</td>
-<td><code>'16:9'</code></td>
+<td><code>&lt;RatioEnum.sixteen_nine: '16:9'&gt;</code></td>
 </tr>
 <tr>
 <td><code>streamTimeout</code></td>
@@ -8275,7 +8328,7 @@ See <a href="">GCODE Scripts</a>.</p>
 <td><code>timelapse.type</code></td>
 <td><code>str</code></td>
 <td>The timelapse type. Valid values: <code>off</code>, <code>timed</code>, <code>zchange</code>.</td>
-<td><code>'off'</code></td>
+<td><code>&lt;TimelapseTypeEnum.off: 'off'&gt;</code></td>
 </tr>
 <tr>
 <td><code>timelapse.fps</code></td>

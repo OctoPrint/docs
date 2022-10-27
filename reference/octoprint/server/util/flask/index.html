@@ -3442,6 +3442,8 @@
         
           
         
+          
+        
       
       
         
@@ -3462,6 +3464,20 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../csrf/" class="md-nav__link">
+        csrf
+      </a>
+    </li>
+  
+
             
           
             
@@ -3526,13 +3542,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#octoprint.server.util.flask.OctoPrintFlaskRequest.cookie_suffix" class="md-nav__link">
-    cookie_suffix()
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#octoprint.server.util.flask.OctoPrintFlaskRequest.server_name" class="md-nav__link">
     server_name()
   </a>
@@ -3561,6 +3570,13 @@
         <li class="md-nav__item">
   <a href="#octoprint.server.util.flask.firstrun_only_access" class="md-nav__link">
     firstrun_only_access()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#octoprint.server.util.flask.get_cookie_suffix" class="md-nav__link">
+    get_cookie_suffix()
   </a>
   
 </li>
@@ -4291,6 +4307,8 @@
         
           
         
+          
+        
       
       
         
@@ -4917,6 +4935,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vendor/with_attrs_docs/" class="md-nav__link">
+        with_attrs_docs
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -5066,27 +5098,6 @@
 
 
 
-<h3 id="octoprint.server.util.flask.OctoPrintFlaskRequest.cookie_suffix" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">cookie_suffix</span><span class="p">()</span></code>
-
-<a href="#octoprint.server.util.flask.OctoPrintFlaskRequest.cookie_suffix" class="headerlink" title="Permanent link">#</a></h3>
-
-
-  <div class="doc doc-contents ">
-  
-      <p>Request specific suffix for set and read cookies</p>
-<p>We need this because cookies are not port-specific and we don't want to overwrite our
-session and other cookies from one OctoPrint instance on our machine with those of another
-one who happens to listen on the same address albeit a different port or script root.</p>
-
-  </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
-
 <h3 id="octoprint.server.util.flask.OctoPrintFlaskRequest.server_name" class="doc doc-heading">
 <code class="highlight language-python"><span class="n">server_name</span><span class="p">()</span></code>
 
@@ -5225,6 +5236,27 @@ result will always be <code>False</code>.</p>
       <p>If you decorate a view with this, it will ensure that first setup has <em>not</em> been
 done for OctoPrint's Access Control. Otherwise it
 will cause a HTTP 403 status code to be returned by the decorated resource.</p>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="octoprint.server.util.flask.get_cookie_suffix" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">get_cookie_suffix</span><span class="p">(</span><span class="n">request</span><span class="p">)</span></code>
+
+<a href="#octoprint.server.util.flask.get_cookie_suffix" class="headerlink" title="Permanent link">#</a></h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Request specific suffix for set and read cookies</p>
+<p>We need this because cookies are not port-specific and we don't want to overwrite our
+session and other cookies from one OctoPrint instance on our machine with those of another
+one who happens to listen on the same address albeit a different port or script root.</p>
 
   </div>
 
@@ -5466,7 +5498,7 @@ session.</p>
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: octoprint.server.util" rel="prev">
+        <a href="../csrf/" class="md-footer__link md-footer__link--prev" aria-label="Previous: csrf" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -5475,7 +5507,7 @@ session.</p>
               <span class="md-footer__direction">
                 Previous
               </span>
-              octoprint.server.util
+              csrf
             </div>
           </div>
         </a>

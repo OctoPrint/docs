@@ -3949,6 +3949,8 @@
         
           
         
+          
+        
       
       
         
@@ -3969,6 +3971,20 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../server/util/csrf/" class="md-nav__link">
+        csrf
+      </a>
+    </li>
+  
+
             
           
             
@@ -4653,6 +4669,8 @@
         
           
         
+          
+        
       
       
         
@@ -5279,6 +5297,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vendor/with_attrs_docs/" class="md-nav__link">
+        with_attrs_docs
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -5366,7 +5398,7 @@
 
   <div class="doc doc-contents ">
       <p class="doc doc-class-bases">
-        Bases: <code><span title="pydantic.BaseModel">BaseModel</span></code></p>
+        Bases: <code><span title="octoprint.schema.BaseModel">BaseModel</span></code></p>
 
 
 
@@ -5488,7 +5520,7 @@
 
   <div class="doc doc-contents ">
       <p class="doc doc-class-bases">
-        Bases: <code><span title="pydantic.BaseModel">BaseModel</span></code></p>
+        Bases: <code><span title="octoprint.schema.BaseModel">BaseModel</span></code></p>
 
 
 
@@ -5508,7 +5540,7 @@
 
 
 <h3 id="octoprint.schema.config.server.CookiesConfig.samesite" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">samesite</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">SameSiteEnum</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span></code>
+<code class="highlight language-python"><span class="n">samesite</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">SameSiteEnum</span><span class="p">]</span> <span class="o">=</span> <span class="n">SameSiteEnum</span><span class="o">.</span><span class="n">lax</span></code>
   
   <span class="doc doc-labels">
       <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
@@ -5519,7 +5551,7 @@
 
   <div class="doc doc-contents ">
   
-      <p><code>SameSite</code> setting to use on the cookies. Possible values are <code>None</code>, <code>Lax</code> and <code>Strict</code>. Defaults to unset. Be advised that many browsers now default to <code>Lax</code> unless you configure cookies to be set with <code>Secure</code> flag set, explicitly set <code>SameSite</code> setting here and also serve OctoPrint over https. The <code>Lax</code> setting is known to cause with embedding OctoPrint in frames. See also <a href="https://www.chromestatus.com/feature/5088147346030592">"Feature: Cookies default to SameSite=Lax"</a>, <a href="https://www.chromestatus.com/feature/5633521622188032">"Feature: Reject insecure SameSite=None cookies"</a> and <a href="https://github.com/OctoPrint/OctoPrint/issues/3482">issue #3482</a>.</p>
+      <p><code>SameSite</code> setting to use on the cookies. Possible values are <code>None</code>, <code>Lax</code> and <code>Strict</code>. Defaults to <code>Lax</code>. Be advised that if forced unset, this has security implications as many browsers now default to <code>Lax</code> unless you configure cookies to be set with <code>Secure</code> flag set, explicitly set <code>SameSite</code> setting here and also serve OctoPrint over https. The <code>Lax</code> setting is known to cause with embedding OctoPrint in frames. See also <a href="https://www.chromestatus.com/feature/5088147346030592">"Feature: Cookies default to SameSite=Lax"</a>, <a href="https://www.chromestatus.com/feature/5633521622188032">"Feature: Reject insecure SameSite=None cookies"</a> and <a href="https://github.com/OctoPrint/OctoPrint/issues/3482">issue #3482</a>.</p>
   </div>
 
 </div>
@@ -5568,7 +5600,7 @@
 
   <div class="doc doc-contents ">
       <p class="doc doc-class-bases">
-        Bases: <code><span title="pydantic.BaseModel">BaseModel</span></code></p>
+        Bases: <code><span title="octoprint.schema.BaseModel">BaseModel</span></code></p>
 
 
 
@@ -5648,7 +5680,7 @@
 
   <div class="doc doc-contents ">
       <p class="doc doc-class-bases">
-        Bases: <code><span title="pydantic.BaseModel">BaseModel</span></code></p>
+        Bases: <code><span title="octoprint.schema.BaseModel">BaseModel</span></code></p>
 
 
 
@@ -5728,7 +5760,7 @@
 
   <div class="doc doc-contents ">
       <p class="doc doc-class-bases">
-        Bases: <code><span title="pydantic.BaseModel">BaseModel</span></code></p>
+        Bases: <code><span title="octoprint.schema.BaseModel">BaseModel</span></code></p>
 
 
 
@@ -5871,7 +5903,7 @@
 
   <div class="doc doc-contents ">
       <p class="doc doc-class-bases">
-        Bases: <code><span title="pydantic.BaseModel">BaseModel</span></code></p>
+        Bases: <code><span title="octoprint.schema.BaseModel">BaseModel</span></code></p>
 
 
 
@@ -5972,7 +6004,7 @@
 
   <div class="doc doc-contents ">
       <p class="doc doc-class-bases">
-        Bases: <code><span title="pydantic.BaseModel">BaseModel</span></code></p>
+        Bases: <code><span title="octoprint.schema.BaseModel">BaseModel</span></code></p>
 
 
 
@@ -6052,7 +6084,7 @@
 
   <div class="doc doc-contents ">
       <p class="doc doc-class-bases">
-        Bases: <code><span title="pydantic.BaseModel">BaseModel</span></code></p>
+        Bases: <code><span title="octoprint.schema.BaseModel">BaseModel</span></code></p>
 
 
 
@@ -6237,7 +6269,7 @@
 
   <div class="doc doc-contents ">
       <p class="doc doc-class-bases">
-        Bases: <code><span title="pydantic.BaseModel">BaseModel</span></code></p>
+        Bases: <code><span title="octoprint.schema.BaseModel">BaseModel</span></code></p>
 
 
 
@@ -6653,7 +6685,7 @@
 
   <div class="doc doc-contents ">
       <p class="doc doc-class-bases">
-        Bases: <code><span title="pydantic.BaseModel">BaseModel</span></code></p>
+        Bases: <code><span title="octoprint.schema.BaseModel">BaseModel</span></code></p>
 
 
 

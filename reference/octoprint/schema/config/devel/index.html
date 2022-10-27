@@ -2966,6 +2966,20 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#octoprint.schema.config.devel.DevelConfig.enableCsrfProtection" class="md-nav__link">
+    enableCsrfProtection
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#octoprint.schema.config.devel.DevelConfig.enableRateLimiter" class="md-nav__link">
+    enableRateLimiter
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#octoprint.schema.config.devel.DevelConfig.showLoadingAnimation" class="md-nav__link">
     showLoadingAnimation
   </a>
@@ -3592,6 +3606,8 @@
         
           
         
+          
+        
       
       
         
@@ -3612,6 +3628,20 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../server/util/csrf/" class="md-nav__link">
+        csrf
+      </a>
+    </li>
+  
+
             
           
             
@@ -4296,6 +4326,8 @@
         
           
         
+          
+        
       
       
         
@@ -4922,6 +4954,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vendor/with_attrs_docs/" class="md-nav__link">
+        with_attrs_docs
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -5009,7 +5055,7 @@
 
   <div class="doc doc-contents ">
       <p class="doc doc-class-bases">
-        Bases: <code><span title="pydantic.BaseModel">BaseModel</span></code></p>
+        Bases: <code><span title="octoprint.schema.BaseModel">BaseModel</span></code></p>
 
 
 
@@ -5040,7 +5086,7 @@
 
   <div class="doc doc-contents ">
   
-      <p>Whether to enable caching. Defaults to true. Setting it to false will cause the UI to alway be fully rerendered on request to <code>/</code> on the server.</p>
+      <p>Whether to enable caching. Defaults to true. Setting it to false will cause the UI to always be fully rerendered on request to <code>/</code> on the server.</p>
   </div>
 
 </div>
@@ -5089,7 +5135,7 @@
 
   <div class="doc doc-contents ">
       <p class="doc doc-class-bases">
-        Bases: <code><span title="pydantic.BaseModel">BaseModel</span></code></p>
+        Bases: <code><span title="octoprint.schema.BaseModel">BaseModel</span></code></p>
 
 
 
@@ -5129,6 +5175,48 @@
 
 
 
+<h3 id="octoprint.schema.config.devel.DevelConfig.enableCsrfProtection" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">enableCsrfProtection</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
+  </span>
+
+<a href="#octoprint.schema.config.devel.DevelConfig.enableCsrfProtection" class="headerlink" title="Permanent link">#</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Enable or disable the CSRF protection. Careful, disabling this reduces security.</p>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="octoprint.schema.config.devel.DevelConfig.enableRateLimiter" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">enableRateLimiter</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
+  </span>
+
+<a href="#octoprint.schema.config.devel.DevelConfig.enableRateLimiter" class="headerlink" title="Permanent link">#</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Enable or disable the rate limiter. Careful, disabling this reduces security.</p>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
 <h3 id="octoprint.schema.config.devel.DevelConfig.showLoadingAnimation" class="doc doc-heading">
 <code class="highlight language-python"><span class="n">showLoadingAnimation</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span></code>
   
@@ -5151,7 +5239,7 @@
 
 
 <h3 id="octoprint.schema.config.devel.DevelConfig.stylesheet" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">stylesheet</span><span class="p">:</span> <span class="n">StylesheetEnum</span> <span class="o">=</span> <span class="s1">&#39;css&#39;</span></code>
+<code class="highlight language-python"><span class="n">stylesheet</span><span class="p">:</span> <span class="n">StylesheetEnum</span> <span class="o">=</span> <span class="n">StylesheetEnum</span><span class="o">.</span><span class="n">css</span></code>
   
   <span class="doc doc-labels">
       <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
@@ -5211,7 +5299,7 @@
 
   <div class="doc doc-contents ">
       <p class="doc doc-class-bases">
-        Bases: <code><span title="pydantic.BaseModel">BaseModel</span></code></p>
+        Bases: <code><span title="octoprint.schema.BaseModel">BaseModel</span></code></p>
 
 
 

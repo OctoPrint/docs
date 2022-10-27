@@ -3442,6 +3442,8 @@
         
           
         
+          
+        
       
       
         
@@ -3462,6 +3464,20 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="csrf/" class="md-nav__link">
+        csrf
+      </a>
+    </li>
+  
+
             
           
             
@@ -4146,6 +4162,8 @@
         
           
         
+          
+        
       
       
         
@@ -4772,6 +4790,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vendor/with_attrs_docs/" class="md-nav__link">
+        with_attrs_docs
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -4879,6 +4911,43 @@
   
       <p><code>after_request</code> handler for blueprints for which CORS is supported.</p>
 <p>Sets <code>Access-Control-Allow-Origin</code> headers for <code>Origin</code> request header on response.</p>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="octoprint.server.util.csrfRequestHandler" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">csrfRequestHandler</span><span class="p">()</span></code>
+
+<a href="#octoprint.server.util.csrfRequestHandler" class="headerlink" title="Permanent link">#</a></h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p><code>before_request</code> handler for blueprints which checks for CRFS double token on
+relevant requests &amp; methods.</p>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="octoprint.server.util.csrfResponseHandler" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">csrfResponseHandler</span><span class="p">(</span><span class="n">resp</span><span class="p">)</span></code>
+
+<a href="#octoprint.server.util.csrfResponseHandler" class="headerlink" title="Permanent link">#</a></h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p><code>after_request</code> handler for updating the CSRF cookie on each response.</p>
 
   </div>
 
@@ -5164,6 +5233,78 @@ not met.</p>
 
 </div>
 
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="octoprint.server.util.validate_local_redirect" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">validate_local_redirect</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">allowed_paths</span><span class="p">)</span></code>
+
+<a href="#octoprint.server.util.validate_local_redirect" class="headerlink" title="Permanent link">#</a></h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Validates the given local redirect URL against the given allowed paths.</p>
+<p>An <code>url</code> is valid for a local redirect if it has neither scheme nor netloc defined,
+and its path is one of the given allowed paths.</p>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>url</code></td>
+          <td>
+                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
+          </td>
+          <td><p>URL to validate</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>allowed_paths</code></td>
+          <td>
+                <code>List[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>]</code>
+          </td>
+          <td><p>List of allowed paths, only paths contained
+will be considered valid.</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+<th>Name</th>        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+<td><code>bool</code></td>          <td>
+          </td>
+          <td><p>Whether the <code>url</code> passed validation or not.</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
 
 
   </div>
@@ -5207,13 +5348,13 @@ not met.</p>
       
       
         
-        <a href="flask/" class="md-footer__link md-footer__link--next" aria-label="Next: flask" rel="next">
+        <a href="csrf/" class="md-footer__link md-footer__link--next" aria-label="Next: csrf" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              flask
+              csrf
             </div>
           </div>
           <div class="md-footer__button md-icon">

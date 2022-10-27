@@ -1767,6 +1767,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#octoprint.plugin.core.ControlProperties.attr_privacypolicy" class="md-nav__link">
+    attr_privacypolicy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#octoprint.plugin.core.ControlProperties.attr_pythoncompat" class="md-nav__link">
     attr_pythoncompat
   </a>
@@ -2054,6 +2061,13 @@
           <li class="md-nav__item">
   <a href="#octoprint.plugin.core.PluginInfo.parsed_metadata" class="md-nav__link">
     parsed_metadata()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#octoprint.plugin.core.PluginInfo.privacypolicy" class="md-nav__link">
+    privacypolicy()
   </a>
   
 </li>
@@ -4134,6 +4148,8 @@
         
           
         
+          
+        
       
       
         
@@ -4154,6 +4170,20 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../server/util/csrf/" class="md-nav__link">
+        csrf
+      </a>
+    </li>
+  
+
             
           
             
@@ -4838,6 +4868,8 @@
         
           
         
+          
+        
       
       
         
@@ -5464,6 +5496,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vendor/with_attrs_docs/" class="md-nav__link">
+        with_attrs_docs
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -5837,6 +5883,27 @@ and similar places.</p>
   <div class="doc doc-contents ">
   
       <p>Module attribute from which to retrieve the plugin's human readable name.</p>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="octoprint.plugin.core.ControlProperties.attr_privacypolicy" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">attr_privacypolicy</span> <span class="o">=</span> <span class="s1">&#39;__plugin_privacypolicy__&#39;</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
+  </span>
+
+<a href="#octoprint.plugin.core.ControlProperties.attr_privacypolicy" class="headerlink" title="Permanent link">#</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Module attribute from which to retrieve the plugin's privacy policy URL, if any.</p>
   </div>
 
 </div>
@@ -7424,6 +7491,46 @@ otherwise from the <code>name</code> supplied during construction with a fallbac
   <div class="doc doc-contents ">
   
       <p>The plugin metadata parsed from the plugin's AST.</p>
+
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="octoprint.plugin.core.PluginInfo.privacypolicy" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">privacypolicy</span><span class="p">()</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+  </span>
+
+<a href="#octoprint.plugin.core.PluginInfo.privacypolicy" class="headerlink" title="Permanent link">#</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Privacy Policy URL of the plugin. Will be taken from the privacy policy attribute of the plugin module
+as defined in :attr:<code>attr_privacypolicy</code> if available. May be None.</p>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+          </td>
+          <td><p>str or None: Privacy Policy URL of the plugin.</p></td>
+        </tr>
+    </tbody>
+  </table>
 
   </div>
 
