@@ -62,22 +62,42 @@ def define_env(env):
         from enum import Enum
         import typing
         import inspect
+        import re
+
+        TYPED_PATTERN = re.compile(r"\[(.*)\]")
 
         if clz is None:
             clz = _load_clz(identifier)
+
+        def type_name(type_):
+            if inspect.isclass(type_) and hasattr(type_, "__name__"):
+                name = type_.__name__
+            else:
+                name = str(type_)
+            
+            if name.startswith("typing."):
+                name = name[len("typing."):]
+            elif name.startswith("typing_extensions."):
+                name = name[len("typing_extensions."):]
+
+            name = TYPED_PATTERN.sub(lambda x: "[" + type_name(x.group(1)) + "]", name)
+
+            return name
         
         def type_doc(type_):
+            print(repr(type_))
             if inspect.isclass(type_) and issubclass(type_, Enum):
                 bases = [base for base in type_.__bases__ if not issubclass(base, Enum)]
                 if bases:
                     type_ = bases[0]
+            elif (str(type_).startswith("typing.Literal") or str(type_).startswith("typing_extensions.Literal")):
+                args = getattr(type_, "__args__")
+                if args:
+                    type_ = type(args[0])
+            
+            name = type_name(type_)
 
-            if hasattr(type_, "__name__"):
-                type_ = type_.__name__
-            type_ = str(type_)
-            if type_.startswith("typing."):
-                type_ = type_[len("typing."):]
-            return f"`{type_}`"
+            return f"`{name}`"
 
         def field_doc(name, field, t):
             type_ = type_doc(t)
@@ -93,14 +113,20 @@ def define_env(env):
             description = getattr(field.field_info, "description", None)
             if not description:
                 description = ""
+
             if inspect.isclass(t) and issubclass(t, Enum):
                 choices = [f"`{getattr(t, e)}`" for e in dir(t) if not e.startswith("_")]
                 description += (" " if description else "") + f"Valid values: {', '.join(choices)}."
+            elif (str(t).startswith("typing.Literal") or str(t).startswith("typing_extensions.Literal")):
+                choices = [f"`{c!r}`" for c in getattr(t, "__args__")]
+                description += (" " if description else "") + f"Valid values: {', '.join(choices)}."
+
             return f"| `{name}` | {type_} | {description} | {default} |\n"
         
         def model_doc(model, prefix=""):
             result = ""
             type_hints = typing.get_type_hints(model)
+            print(repr(type_hints))
 
             for name, field in model.__fields__.items():
                 if isinstance(field, ModelField):
