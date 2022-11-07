@@ -5818,8 +5818,8 @@ of the various UI components</p>
 <tr>
 <td><code>color</code></td>
 <td><code>str</code></td>
-<td>Use this to color the navigation bar. Valid values: <code>blue</code>, <code>default</code>, <code>green</code>, <code>orange</code>, <code>red</code>, <code>violet</code>, <code>yellow</code>.</td>
-<td><code>&lt;ColorEnum.default: 'default'&gt;</code></td>
+<td>Valid values: <code>'red'</code>, <code>'orange'</code>, <code>'green'</code>, <code>'blue'</code>, <code>'yellow'</code>, <code>'violet'</code>, <code>'default'</code>.</td>
+<td><code>'default'</code></td>
 </tr>
 <tr>
 <td><code>colorTransparent</code></td>
@@ -6039,7 +6039,7 @@ control or a container.</p>
 </tr>
 <tr>
 <td><code>commands</code></td>
-<td><code>Optional[typing.List[str]]</code></td>
+<td><code>Optional[List[str]]</code></td>
 <td>A list of GCODE commands to send to the printer. Will be rendered as a button which sends the commands to the printer upon click. The button text will be the value of the <code>name</code> attribute. Mutually exclusive with <code>command</code> and <code>script</code>. The rendered button will be disabled if the printer is currently offline or printing or alternatively if the requirements defined via the <code>enabled</code> attribute are not met.</td>
 <td><em>unset</em></td>
 </tr>
@@ -6100,7 +6100,7 @@ control or a container.</p>
 <tbody>
 <tr>
 <td><code>children</code></td>
-<td><code>List[typing.Union[octoprint.schema.config.controls.ControlConfig, octoprint.schema.config.controls.ContainerConfig]]</code></td>
+<td><code>List[Union[octoprint.schema.config.controls.ControlConfig, octoprint.schema.config.controls.ContainerConfig]]</code></td>
 <td>A list of children controls or containers contained within this container.</td>
 <td><code>[]</code></td>
 </tr>
@@ -6113,8 +6113,8 @@ control or a container.</p>
 <tr>
 <td><code>layout</code></td>
 <td><code>str</code></td>
-<td>The layout to use for laying out the contained children, either from top to bottom (<code>vertical</code>) or from left to right (<code>horizontal</code>). Valid values: <code>horizontal</code>, <code>vertical</code>.</td>
-<td><code>&lt;LayoutEnum.vertical: 'vertical'&gt;</code></td>
+<td>The layout to use for laying out the contained children, either from top to bottom (<code>vertical</code>) or from left to right (<code>horizontal</code>). Valid values: <code>'horizontal'</code>, <code>'vertical'</code>.</td>
+<td><code>'vertical'</code></td>
 </tr>
 </tbody>
 </table>
@@ -6176,7 +6176,7 @@ control or a container.</p>
 <p>The following settings are only relevant to you if you want to do OctoPrint development.</p>
 <h3 id="defaults_4">Defaults<a class="headerlink" href="#defaults_4" title="Permanent link">#</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nt">devel</span><span class="p">:</span><span class="w"></span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="nt">stylesheet</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">css</span><span class="w"></span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="nt">stylesheet</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">less</span><span class="w"></span>
 <a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span><span class="nt">cache</span><span class="p">:</span><span class="w"></span>
 <a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
 <a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="nt">preemptive</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
@@ -6206,8 +6206,8 @@ control or a container.</p>
 <tr>
 <td><code>stylesheet</code></td>
 <td><code>str</code></td>
-<td>Settings for stylesheet preference. OctoPrint will prefer to use the stylesheet type specified here. Usually (on a production install) that will be the compiled css (default). Developers may specify less here too. Valid values: <code>css</code>, <code>less</code>.</td>
-<td><code>&lt;StylesheetEnum.css: 'css'&gt;</code></td>
+<td>Settings for stylesheet preference. OctoPrint will prefer to use the stylesheet type specified here. Usually (on a production install) that will be the compiled css (default). Developers may specify less here too. Valid values: <code>'css'</code>, <code>'less'</code>.</td>
+<td><code>'less'</code></td>
 </tr>
 <tr>
 <td><code>cache.*</code></td>
@@ -6399,7 +6399,7 @@ control or a container.</p>
 <tr>
 <td><code>subscriptions[].type</code></td>
 <td><code>str</code></td>
-<td>The type of the command. Valid values: <code>gcode</code>, <code>system</code>.</td>
+<td>The type of the command. Valid values: <code>'system'</code>, <code>'gcode'</code>.</td>
 <td><em>required</em></td>
 </tr>
 <tr>
@@ -6707,8 +6707,8 @@ subscription's command after performing all placeholder replacements.</p>
 <tr>
 <td><code>runAt</code></td>
 <td><code>str</code></td>
-<td>Whether to run the analysis only when idle (not printing), regardless of printing state or never. Valid values: <code>always</code>, <code>idle</code>, <code>never</code>.</td>
-<td><code>&lt;RunAtEnum.idle: 'idle'&gt;</code></td>
+<td>Whether to run the analysis only when idle (not printing), regardless of printing state or never. Valid values: <code>'never'</code>, <code>'idle'</code>, <code>'always'</code>.</td>
+<td><code>'idle'</code></td>
 </tr>
 <tr>
 <td><code>bedZ</code></td>
@@ -7297,7 +7297,7 @@ See <a href="">GCODE Scripts</a>.</p>
 <tr>
 <td><code>supportResendsWithoutOk</code></td>
 <td><code>str</code></td>
-<td>Whether to support resends without follow-up ok or not. Valid values: <code>always</code>, <code>detect</code>, <code>never</code>.</td>
+<td>Whether to support resends without follow-up ok or not. Valid values: <code>'always'</code>, <code>'detect'</code>, <code>'never'</code>.</td>
 <td><code>'detect'</code></td>
 </tr>
 <tr>
@@ -7441,7 +7441,7 @@ See <a href="">GCODE Scripts</a>.</p>
 <tr>
 <td><code>useParityWorkaround</code></td>
 <td><code>str</code></td>
-<td>Valid values: <code>always</code>, <code>detect</code>, <code>never</code>.</td>
+<td>Valid values: <code>'always'</code>, <code>'detect'</code>, <code>'never'</code>.</td>
 <td><code>'detect'</code></td>
 </tr>
 <tr>
@@ -7477,7 +7477,7 @@ See <a href="">GCODE Scripts</a>.</p>
 <tr>
 <td><code>notifySuppressedCommands</code></td>
 <td><code>str</code></td>
-<td>Valid values: <code>info</code>, <code>never</code>, <code>warn</code>.</td>
+<td>Valid values: <code>'info'</code>, <code>'warn'</code>, <code>'never'</code>.</td>
 <td><code>'warn'</code></td>
 </tr>
 <tr>
@@ -7949,9 +7949,9 @@ See <a href="">GCODE Scripts</a>.</p>
 </tr>
 <tr>
 <td><code>cookies.samesite</code></td>
-<td><code>Optional[octoprint.schema.config.server.SameSiteEnum]</code></td>
+<td><code>Optional[Literal['Strict', 'Lax', 'None']]</code></td>
 <td><code>SameSite</code> setting to use on the cookies. Possible values are <code>None</code>, <code>Lax</code> and <code>Strict</code>. Defaults to <code>Lax</code>. Be advised that if forced unset, this has security implications as many browsers now default to <code>Lax</code> unless you configure cookies to be set with <code>Secure</code> flag set, explicitly set <code>SameSite</code> setting here and also serve OctoPrint over https. The <code>Lax</code> setting is known to cause with embedding OctoPrint in frames. See also <a href="https://www.chromestatus.com/feature/5088147346030592">"Feature: Cookies default to SameSite=Lax"</a>, <a href="https://www.chromestatus.com/feature/5633521622188032">"Feature: Reject insecure SameSite=None cookies"</a> and <a href="https://github.com/OctoPrint/OctoPrint/issues/3482">issue #3482</a>.</td>
-<td><code>&lt;SameSiteEnum.lax: 'Lax'&gt;</code></td>
+<td><code>'Lax'</code></td>
 </tr>
 </tbody>
 </table>
@@ -8225,8 +8225,8 @@ See <a href="">GCODE Scripts</a>.</p>
 <tr>
 <td><code>streamRatio</code></td>
 <td><code>str</code></td>
-<td>Valid values: <code>4:3</code>, <code>16:9</code>.</td>
-<td><code>&lt;RatioEnum.sixteen_nine: '16:9'&gt;</code></td>
+<td>Valid values: <code>'16:9'</code>, <code>'4:3'</code>.</td>
+<td><code>'16:9'</code></td>
 </tr>
 <tr>
 <td><code>streamTimeout</code></td>
@@ -8327,8 +8327,8 @@ See <a href="">GCODE Scripts</a>.</p>
 <tr>
 <td><code>timelapse.type</code></td>
 <td><code>str</code></td>
-<td>The timelapse type. Valid values: <code>off</code>, <code>timed</code>, <code>zchange</code>.</td>
-<td><code>&lt;TimelapseTypeEnum.off: 'off'&gt;</code></td>
+<td>The timelapse type. Valid values: <code>'off'</code>, <code>'z-change'</code>, <code>'timed'</code>.</td>
+<td><code>'off'</code></td>
 </tr>
 <tr>
 <td><code>timelapse.fps</code></td>
