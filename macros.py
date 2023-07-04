@@ -32,7 +32,11 @@ def define_env(env):
             importlib.reload(module)
             clz = getattr(module, class_name)
         except Exception as exc:
-            print(f"Could not import {class_name} from {module_name}:", exc, file=sys.stderr)
+            print(
+                f"Could not import {class_name} from {module_name}:",
+                exc,
+                file=sys.stderr,
+            )
             raise
         return clz
 
@@ -53,10 +57,15 @@ def define_env(env):
         if not issubclass(clz, BaseModel):
             raise ValueError(f"{class_name} is not a subclass of BaseModel")
 
-        return "### Defaults\n\n" + pydantic_example(identifier, key=key, clz=clz) + "\n\n### Data model\n\n" + pydantic_table(identifier, clz=clz)
-    
+        return (
+            "### Defaults\n\n"
+            + pydantic_example(identifier, key=key, clz=clz)
+            + "\n\n### Data model\n\n"
+            + pydantic_table(identifier, clz=clz)
+        )
+
     @env.macro
-    def pydantic_table(identifier, clz=None):
+    def pydantic_table(identifier, clz=None, subs=None):
         from pydantic import BaseModel
         from pydantic.fields import UndefinedType, ModelField
         from enum import Enum
@@ -64,37 +73,75 @@ def define_env(env):
         import inspect
         import re
 
-        TYPED_PATTERN = re.compile(r"\[(.*)\]")
+        def token_identifier(scanner, token):
+            return "IDENTIFIER", token
+
+        def token_lbracket(scanner, token):
+            return "LBRACKET", token
+
+        def token_rbracket(scanner, token):
+            return "RBRACKET", token
+
+        def token_comma(scanner, token):
+            return "COMMA", token
+
+        def token_whitespace(scanner, token):
+            return "WHITESPACE", token
+
+        scanner = re.Scanner(
+            [
+                (r"[a-zA-Z_][a-zA-Z0-9_\.]*", token_identifier),
+                (r"\[", token_lbracket),
+                (r"\]", token_rbracket),
+                (r",", token_comma),
+                (r"\s+", token_whitespace),
+            ]
+        )
 
         if clz is None:
             clz = _load_clz(identifier)
+
+        if subs is None:
+            subs = {}
+
+        def convert_name(name):
+            if name.startswith("typing."):
+                name = name[len("typing.") :]
+            elif name.startswith("typing_extensions."):
+                name = name[len("typing_extensions.") :]
+            elif name in subs:
+                name = subs[name]
+
+            return name
 
         def type_name(type_):
             if inspect.isclass(type_) and hasattr(type_, "__name__"):
                 name = type_.__name__
             else:
                 name = str(type_)
-            
-            if name.startswith("typing."):
-                name = name[len("typing."):]
-            elif name.startswith("typing_extensions."):
-                name = name[len("typing_extensions."):]
 
-            name = TYPED_PATTERN.sub(lambda x: "[" + type_name(x.group(1)) + "]", name)
+            tokens = scanner.scan(name)[0]
+            processed = []
+            for token in tokens:
+                if token[0] == "IDENTIFIER":
+                    processed.append(("IDENTIFIER", convert_name(token[1])))
+                else:
+                    processed.append(token)
 
-            return name
-        
+            return "".join(token[1] for token in processed)
+
         def type_doc(type_):
-            print(repr(type_))
             if inspect.isclass(type_) and issubclass(type_, Enum):
                 bases = [base for base in type_.__bases__ if not issubclass(base, Enum)]
                 if bases:
                     type_ = bases[0]
-            elif (str(type_).startswith("typing.Literal") or str(type_).startswith("typing_extensions.Literal")):
+            elif str(type_).startswith("typing.Literal") or str(type_).startswith(
+                "typing_extensions.Literal"
+            ):
                 args = getattr(type_, "__args__")
                 if args:
                     type_ = type(args[0])
-            
+
             name = type_name(type_)
 
             return f"`{name}`"
@@ -109,24 +156,31 @@ def define_env(env):
                 default = "*unset*"
             else:
                 default = f"`{default!r}`"
-            
+
             description = getattr(field.field_info, "description", None)
             if not description:
                 description = ""
 
             if inspect.isclass(t) and issubclass(t, Enum):
-                choices = [f"`{getattr(t, e)}`" for e in dir(t) if not e.startswith("_")]
-                description += (" " if description else "") + f"Valid values: {', '.join(choices)}."
-            elif (str(t).startswith("typing.Literal") or str(t).startswith("typing_extensions.Literal")):
+                choices = [
+                    f"`{getattr(t, e)}`" for e in dir(t) if not e.startswith("_")
+                ]
+                description += (
+                    " " if description else ""
+                ) + f"Valid values: {', '.join(choices)}."
+            elif str(t).startswith("typing.Literal") or str(t).startswith(
+                "typing_extensions.Literal"
+            ):
                 choices = [f"`{c!r}`" for c in getattr(t, "__args__")]
-                description += (" " if description else "") + f"Valid values: {', '.join(choices)}."
+                description += (
+                    " " if description else ""
+                ) + f"Valid values: {', '.join(choices)}."
 
             return f"| `{name}` | {type_} | {description} | {default} |\n"
-        
+
         def model_doc(model, prefix=""):
             result = ""
             type_hints = typing.get_type_hints(model)
-            print(repr(type_hints))
 
             for name, field in model.__fields__.items():
                 if isinstance(field, ModelField):
@@ -138,7 +192,7 @@ def define_env(env):
                     description = field.field_info.description
                     if not description:
                         description = ""
-                    
+
                     type_hint = type_hints.get(name)
                     if inspect.isclass(type_hint) and issubclass(type_hint, BaseModel):
                         result += f"| `{prefix}{name}.*` | | {description} | |\n"
@@ -150,7 +204,7 @@ def define_env(env):
                     result += field_doc(prefix + name, field, type_hints.get(name))
 
             return result
-        
+
         result = ""
         result += f"| Name | Type | Description | Default |\n"
         result += f"| ---- | ---- | ----------- | ------- |\n"
