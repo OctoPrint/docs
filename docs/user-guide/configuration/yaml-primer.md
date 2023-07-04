@@ -135,44 +135,6 @@ Based on the three types explained above, quite complex data structures are poss
 general:
   some_setting: some_value
   a_list:
-  - item 1
-  - 23.42
-  - 57
-  - true
-  some_flag: true
-  quoted_string: "This string is quoted because {we have this here} and also > this and : that"
-specific:
-  setting1: value1
-  setting2:
-    subsetting21: value21
-    subsetting22:
-    - subsubsetting221
-    - subsubsetting222
-    - subsubsetting223
-the_end: yes
-```
-
-In this example we have a dictionary on the top most "layer" which has three keys, `general`, `specific` and
-`the_end`.
-
-`general` in turn is a dictionary with the keys `some_setting` (a string), `a_list` (a list with four items,
-a string, a float, an int and a boolean), `some_flag` (a boolean) and `quoted_string` (a -- you guessed it -- string).
-
-`specific` is also a dictionary, with keys `setting1` (a string) and `setting2`, a dictionary with two keys, one
-a string and the other again a list.
-
-Finally, `the_end` is just a boolean, since an unquoted `yes` evaluates as a boolean value as we saw in the
-[section about boolean scalars above](#boolean).
-
-Don't get confused by the list "dividing" one part of the dictionary under `general` from the other -- your mind is
-just playing a trick on you due to the list's dashes `-` being on the same levels as the dictionary keys. You could
-also just add two more spaces to your indentation and write that part like this, which makes the structure a bit
-clearer (whitespace again made visible to help track indentation):
-
-``` yaml
-general:
-  some_setting: some_value
-  a_list:
     - item 1
     - 23.42
     - 57
@@ -190,7 +152,22 @@ specific:
 the_end: yes
 ```
 
-Just make sure you follow a consistent way of indenting your files -- YAML is not as strict as Python when it comes to
+In this example we have a dictionary on the top most "layer" which has three keys, `general`, `specific` and
+`the_end`.
+
+`general` in turn is a dictionary with the keys `some_setting` (a string), `a_list` (a list with four items,
+a string, a float, an int and a boolean), `some_flag` (a boolean) and `quoted_string` (a - you guessed it - string).
+
+`specific` is also a dictionary, with keys `setting1` (a string) and `setting2`, a dictionary with two keys, one
+a string and the other again a list.
+
+Finally, `the_end` is just a boolean, since an unquoted `yes` evaluates as a boolean value as we saw in the
+[section about boolean scalars above](#boolean).
+
+Note how we have indented lists and dictionaries with two spaces here. This makes the structure easier to read and
+the hierarchy easier to distinguish. You don't have to indent your YAML like this, but it's strongly recommended.
+
+Whatever you do, make sure you follow a consistent way of indenting your files -- YAML is not as strict as Python when it comes to
 differing indentation variants within the same file (as long as it's still valid), but consistency will help you as
 a lot as a human. Ideally you'll use a text editor which highlights white space characters for you (most editors can
 be configured this way), this will help tremendously when editing whitespace sensitive syntax such as YAML.

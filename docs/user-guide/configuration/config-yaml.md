@@ -86,55 +86,55 @@ control or a container.
 
 #### Container model
 
-{{ pydantic_table("octoprint.schema.config.ContainerConfig") }}
+{{ pydantic_table("octoprint.schema.config.ContainerConfig", subs={"octoprint.schema.config.controls.ControlConfig": "Control", "octoprint.schema.config.controls.ContainerConfig": "Container"}) }}
 
 ### Example
 
 ```yaml
 controls:
-    - name: Fan
+  - name: Fan
     layout: horizontal
     children:
-        - name: Enable Fan
+      - name: Enable Fan
         command: M106 S%(speed)s
         input:
-            - name: Speed (0-255)
+          - name: Speed (0-255)
             parameter: speed
             default: 255
             slider:
                 min: 0
                 max: 255
-        - name: Disable Fan
+      - name: Disable Fan
         command: M107
-    - name: Example for multiple commands
+  - name: Example for multiple commands
     children:
-        - name: Move X (static)
+      - name: Move X (static)
         confirm: You are about to move the X axis right by 10mm with 3000mm/min.
         commands:
             - G91
             - G1 X10 F3000
             - G90
-        - name: Move X (parametric)
+      - name: Move X (parametric)
         commands:
             - G91
             - G1 X%(distance)s F%(speed)s
             - G90
         input:
-            - default: 10
+          - default: 10
             name: Distance
             parameter: distance
-            - default: 3000
+          - default: 3000
             name: Speed
             parameter: speed
-    - name: Reporting
+  - name: Reporting
     children:
-        - name: Get Position
+      - name: Get Position
         command: M114
         regex: "X:([-+]?[0-9.]+) Y:([-+]?[0-9.]+) Z:([-+]?[0-9.]+) E:([-+]?[0-9.]+)"
         template: "Position: X={0}, Y={1}, Z={2}, E={3}"
-    - name: Fun stuff
+  - name: Fun stuff
     children:
-        - name: Dance
+      - name: Dance
         script: custom/dance.gco
         input:
             - name: Go arounds
@@ -165,18 +165,18 @@ Use the following settings to add shell/gcode commands to be executed on certain
 
 ```yaml
 events:
-    subscriptions:
+  subscriptions:
     # example event consumer that prints a message to the system log if the printer is disconnected
     - event: Disconnected
-        command: "logger 'Printer got disconnected'"
-        type: system
+      command: "logger 'Printer got disconnected'"
+      type: system
 
     # example event consumer that queries printer information from the firmware, prints a "Connected"
     # message to the LCD and homes the print head upon established printer connection, disabled though
     - event: Connected
-        command: M115,M117 printer connected!,G28
-        type: gcode
-        enabled: False
+      command: M115,M117 printer connected!,G28
+      type: gcode
+      enabled: False
 ```
 
 !!! hint
