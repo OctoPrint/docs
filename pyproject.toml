@@ -3,6 +3,7 @@ name = "OctoPrint-Docs"
 version = "0.1.0"
 description = ""
 authors = ["Gina Häußge <gina@octoprint.org>"]
+packages = [ { include = "extensions", from = "."  }]
 
 [tool.poetry.dependencies]
 python = "^3.11"
