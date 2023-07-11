@@ -7,8 +7,12 @@ extra:
   macros_src_paths:
     - !ENV [OCTOPRINT_SRC, "../OctoPrint/src/"]
   social:
-    - icon: fontawesome/brands/twitter
-      link: https://twitter.com/OctoPrint3D
+    - icon: fontawesome/brands/discourse
+      link: https://community.octoprint.org
+    - icon: fontawesome/brands/discord
+      link: https://discord.octoprint.org
+    - icon: fontawesome/brands/mastodon
+      link: https://fosstodon.org/@OctoPrint
   version:
     default: latest
     provider: mike
@@ -32,7 +36,7 @@ theme:
     - navigation.tabs.sticky
     - navigation.top
     - navigation.tracking
-    - toc.integrate
+    #- toc.integrate
   font:
     code: JetBrains Mono
   palette:
@@ -80,6 +84,7 @@ markdown_extensions:
   - tables
   - toc:
       permalink: "#"
+  - "extensions.markdown.version"
 
 nav:
   - Home: index.md
@@ -116,26 +121,37 @@ plugins:
   - autorefs
   - gen-files:
       scripts:
-        - gen_ref_pages.py
+        - extensions/gen_ref_pages.py
   - literate-nav:
       nav_file: SUMMARY.md
   - macros:
-      module_name: macros
+      module_name: extensions/macros
       on_error_fail: !ENV [CI, false]
   - mkdocstrings:
       handlers:
         python:
           options:
             show_source: false
+            show_if_no_docstring: true
+            show_signature_annotations: true
+            inherited_members: false
+            docstring_section_style: table
+            filters:
+              - "!^_[^_]"
+              - "!__copyright__"
+              - "!__license__"
+              - "!__author__"
           paths:
             - !ENV [OCTOPRINT_SRC, "../OctoPrint/src/"]
           import:
             - https://docs.python.org/3/objects.inv
             - https://pythonhosted.org/pyserial/objects.inv
+            - https://click.palletsprojects.com/objects.inv
+            - https://flask.palletsprojects.com/objects.inv
   - search
 
 watch:
   - docs
   - mkdocs.yml
-  - macros.py
+  - extensions/
   - !ENV [OCTOPRINT_SRC, "../OctoPrint/src/"]

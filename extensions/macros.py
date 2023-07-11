@@ -41,14 +41,6 @@ def define_env(env):
         return clz
 
     @env.macro
-    def version_added(version):
-        return f"*New in version {version}.*"
-
-    @env.macro
-    def version_changed(version):
-        return f"*Changed in version {version}.*"
-
-    @env.macro
     def pydantic(identifier, key=None):
         from pydantic import BaseModel
 

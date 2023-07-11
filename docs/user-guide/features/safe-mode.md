@@ -1,8 +1,8 @@
 # Safe mode {: #user-guide.features.safe-mode }
 
-{{ version_added("1.3.0") }}
+[[ version_added 1.3.0 ]]
 
-{{ version_changed("1.3.13") }}
+[[ version_changed 1.3.13 ]]
 
 With the advent of support for plugins in OctoPrint, it quickly became apparent that some of the bugs
 reported on OctoPrint's bug tracker were actually bugs with installed third party plugins or language
@@ -26,7 +26,7 @@ There exist three ways to start OctoPrint in safe mode.
 
 ### Via the "Restart OctoPrint in safe mode" system menu entry
 
-{{ version_added("1.3.2") }}
+[[ version_added 1.3.2 ]]
 
 You can select "Restart OctoPrint in safe mode" from the "System" menu, if the "Restart 
 OctoPrint" server command has been correctly configured.

@@ -1,6 +1,6 @@
 # Command-line configuration interface
 
-{{ version_added("1.3.0") }}
+[[ version_added 1.3.0 ]]
 
 OctoPrint provides a basic command line interface for manipulation of [`config.yaml`](config.yaml):
 
