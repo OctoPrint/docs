@@ -13,9 +13,6 @@ extra:
       link: https://discord.octoprint.org
     - icon: fontawesome/brands/mastodon
       link: https://fosstodon.org/@OctoPrint
-  version:
-    default: latest
-    provider: mike
 
 extra_css:
   - stylesheets/extra.css
@@ -127,6 +124,9 @@ plugins:
   - macros:
       module_name: extensions/macros
       on_error_fail: !ENV [CI, false]
+  - mike:
+      canonical_version: latest
+      version_selector: true
   - mkdocstrings:
       handlers:
         python:
@@ -135,12 +135,7 @@ plugins:
             show_if_no_docstring: true
             show_signature_annotations: true
             inherited_members: false
-            docstring_section_style: table
-            filters:
-              - "!^_[^_]"
-              - "!__copyright__"
-              - "!__license__"
-              - "!__author__"
+            docstring_section_style: list
           paths:
             - !ENV [OCTOPRINT_SRC, "../OctoPrint/src/"]
           import:
