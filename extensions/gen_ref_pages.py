@@ -5,6 +5,7 @@ import os
 import yaml
 
 import mkdocs_gen_files
+from mergedeep import merge
 
 SOURCE = os.environ.get("OCTOPRINT_SRC", "../OctoPrint/src")
 
@@ -20,6 +21,9 @@ else:
 
 FILTERS = ["!^_[^_]", "!__copyright__", "!__license__", "!__author__"]
 OPTIONS = {
+    "filters": FILTERS,
+}
+ADDITIONAL_OPTIONS = {
     "octoprint.filemanager.analysis": {
         "filters": FILTERS + ["_do_analysis", "_do_abort"]
     }
@@ -49,16 +53,19 @@ for path in sorted(Path(SOURCE).rglob("*.py")):
             continue
         fd.write(f"# {ident}\n")
         fd.write(f"::: {ident}\n")
-        options = OPTIONS.get(ident, {})
-        if options:
-            fd.write(
-                "\n".join(
-                    map(
-                        lambda x: "    " + x,
-                        yaml.dump({"options": options}).split("\n"),
-                    )
+
+        options = merge({}, OPTIONS)
+        if ident in ADDITIONAL_OPTIONS:
+            merge(options, ADDITIONAL_OPTIONS[ident])
+
+        fd.write(
+            "\n".join(
+                map(
+                    lambda x: "    " + x,
+                    yaml.dump({"options": options}).split("\n"),
                 )
             )
+        )
 
     mkdocs_gen_files.set_edit_path(full_doc_path, path)
 
