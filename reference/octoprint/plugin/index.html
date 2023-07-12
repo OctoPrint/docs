@@ -86,24 +86,6 @@
       
     </div>
     
-      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
-        
-          <aside class="md-banner md-banner--warning">
-            <div class="md-banner__inner md-grid md-typeset">
-              
-  You're not viewing the latest version.
-  <a href="../../../.."> 
-
-
-    <strong>Click here to go to latest.</strong>
-  </a>
-
-            </div>
-            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
-          </aside>
-        
-      </div>
-    
     
       
 
@@ -5191,62 +5173,34 @@ registered plugin types.</p>
 <p>All getter and setter methods will ensure that plugin settings are stored in their correct location within the
 settings structure by modifying the supplied paths accordingly.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>settings</code></td>
-          <td>
-                <code>Settings</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The :class:<code>~octoprint.settings.Settings</code> instance on which to operate.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>plugin_key</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The plugin identifier of the plugin for which to create this instance.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>defaults</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The plugin's defaults settings, will be used to determine valid paths within the plugin's
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>settings</b>
+            (<code>Settings</code>)
+        –
+        <div class="doc-md-description">
+          <p>The :class:<code>~octoprint.settings.Settings</code> instance on which to operate.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>plugin_key</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The plugin identifier of the plugin for which to create this instance.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>defaults</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The plugin's defaults settings, will be used to determine valid paths within the plugin's
 settings structure</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+        </div>
+      </li>
+  </ul>
       <p>.. method:: get(path, merged=False, asdict=False)</p>
 <p>Retrieves a raw value from the settings for <code>path</code>, optionally merging the raw value with the default settings
    if <code>merged</code> is set to True.</p>
@@ -5554,56 +5508,29 @@ postfix is supplied, the name will be <code>plugin_&lt;plugin identifier&gt;_&lt
 <p>Plugins may use this for specific logging tasks. For example, a :class:<code>~octoprint.plugin.SlicingPlugin</code> might
 want to create a log file for logging the output of the slicing engine itself if some debug flag is set.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>postfix</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Postfix of the logfile for which to create the path. If set, the file name of the log file
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>postfix</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Postfix of the logfile for which to create the path. If set, the file name of the log file
 will be <code>plugin_&lt;plugin identifier&gt;_&lt;postfix&gt;.log</code>, if not it will be
 <code>plugin_&lt;plugin identifier&gt;.log</code>.</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+        </div>
+      </li>
+  </ul>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-<th>Name</th>        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-<td><code>str</code></td>          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Absolute path to the log file, directly usable by the plugin.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+<b>str</b>        –
+        <div class="doc-md-description">
+          <p>Absolute path to the log file, directly usable by the plugin.</p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -5846,122 +5773,70 @@ and/or failure of each call which can be used to return individual results to th
        error_callback=my_error_callback
    )</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>types</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>A list of plugin implementation types to match against.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>method</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/string.html#module-string">string</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Name of the method to call on all matching implementations.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>args</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>A tuple containing the arguments to supply to the called <code>method</code>. Optional.</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>kwargs</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>A dictionary containing the keyword arguments to supply to the called <code>method</code>. Optional.</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>callback</code></td>
-          <td>
-                <code>function</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>A callback to invoke after an implementation has been called successfully. Will be called
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>types</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>A list of plugin implementation types to match against.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>method</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/string.html#module-string">string</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Name of the method to call on all matching implementations.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>args</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>A tuple containing the arguments to supply to the called <code>method</code>. Optional.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>kwargs</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>A dictionary containing the keyword arguments to supply to the called <code>method</code>. Optional.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>callback</b>
+            (<code>function</code>)
+        –
+        <div class="doc-md-description">
+          <p>A callback to invoke after an implementation has been called successfully. Will be called
 with the three arguments <code>name</code>, <code>plugin</code> and <code>result</code>. <code>name</code> will be the plugin identifier,
 <code>plugin</code> the plugin implementation instance itself and <code>result</code> the result returned from the
 <code>method</code> invocation.</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>error_callback</code></td>
-          <td>
-                <code>function</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>A callback to invoke after the call of an implementation resulted in an exception.
+        </div>
+      </li>
+      <li class="field-body">
+        <b>error_callback</b>
+            (<code>function</code>)
+        –
+        <div class="doc-md-description">
+          <p>A callback to invoke after the call of an implementation resulted in an exception.
 Will be called with the three arguments <code>name</code>, <code>plugin</code> and <code>exc</code>. <code>name</code> will be the plugin
 identifier, <code>plugin</code> the plugin implementation instance itself and <code>exc</code> the caught exception.</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>initialized</code></td>
-          <td>
-                <code>boolean</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Ignored.</p>
-            </div>
-          </td>
-          <td>
-                <code>True</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>initialized</b>
+            (<code>boolean</code>)
+        –
+        <div class="doc-md-description">
+          <p>Ignored.</p>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -5982,247 +5857,143 @@ identifier, <code>plugin</code> the plugin implementation instance itself and <c
       <p>Factory method for initially constructing and consecutively retrieving the :class:<code>~octoprint.plugin.core.PluginManager</code>
 singleton.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>init</code></td>
-          <td>
-                <code>boolean</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>A flag indicating whether this is the initial call to construct the singleton (True) or not
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>init</b>
+            (<code>boolean</code>)
+        –
+        <div class="doc-md-description">
+          <p>A flag indicating whether this is the initial call to construct the singleton (True) or not
 (False, default). If this is set to True and the plugin manager has already been initialized, a :class:<code>ValueError</code>
 will be raised. The same will happen if the plugin manager has not yet been initialized and this is set to
 False.</p>
-            </div>
-          </td>
-          <td>
-                <code>False</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>plugin_folders</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>A list of folders (as strings containing the absolute path to them) in which to look for
+        </div>
+      </li>
+      <li class="field-body">
+        <b>plugin_folders</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>A list of folders (as strings containing the absolute path to them) in which to look for
 potential plugin modules. If not provided this defaults to the configured <code>plugins</code> base folder and
 <code>src/plugins</code> within OctoPrint's code base.</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>plugin_bases</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>A list of recognized plugin base classes for which to look for provided implementations. If not
+        </div>
+      </li>
+      <li class="field-body">
+        <b>plugin_bases</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>A list of recognized plugin base classes for which to look for provided implementations. If not
 provided this defaults to :class:<code>~octoprint.plugin.OctoPrintPlugin</code>.</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>plugin_entry_points</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>A list of entry points pointing to modules which to load as plugins. If not provided
+        </div>
+      </li>
+      <li class="field-body">
+        <b>plugin_entry_points</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>A list of entry points pointing to modules which to load as plugins. If not provided
 this defaults to the entry point <code>octoprint.plugin</code>.</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>plugin_disabled_list</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>A list of plugin identifiers that are currently disabled. If not provided this
+        </div>
+      </li>
+      <li class="field-body">
+        <b>plugin_disabled_list</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>A list of plugin identifiers that are currently disabled. If not provided this
 defaults to all plugins for which <code>enabled</code> is set to <code>False</code> in the settings.</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>plugin_sorting_order</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>A dict containing a custom sorting orders for plugins. The keys are plugin identifiers,
+        </div>
+      </li>
+      <li class="field-body">
+        <b>plugin_sorting_order</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>A dict containing a custom sorting orders for plugins. The keys are plugin identifiers,
 mapped to dictionaries containing the sorting contexts as key and the custom sorting value as value.</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>plugin_blacklist</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>A list of plugin identifiers/identifier-requirement tuples
+        </div>
+      </li>
+      <li class="field-body">
+        <b>plugin_blacklist</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>A list of plugin identifiers/identifier-requirement tuples
 that are currently blacklisted.</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>plugin_restart_needing_hooks</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>A list of hook namespaces which cause a plugin to need a restart in order
+        </div>
+      </li>
+      <li class="field-body">
+        <b>plugin_restart_needing_hooks</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>A list of hook namespaces which cause a plugin to need a restart in order
 be enabled/disabled. Does not have to contain full hook identifiers, will be matched with startswith similar
 to logging handlers</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>plugin_obsolete_hooks</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>A list of hooks that have been declared obsolete. Plugins implementing them will
+        </div>
+      </li>
+      <li class="field-body">
+        <b>plugin_obsolete_hooks</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>A list of hooks that have been declared obsolete. Plugins implementing them will
 not be enabled since they might depend on functionality that is no longer available.</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>plugin_considered_bundled</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>A list of plugin identifiers that are considered bundled plugins even if
+        </div>
+      </li>
+      <li class="field-body">
+        <b>plugin_considered_bundled</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>A list of plugin identifiers that are considered bundled plugins even if
 installed separately.</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>plugin_validators</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>A list of additional plugin validators through which to process each plugin.</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>compatibility_ignored_list</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>A list of plugin keys for which it will be ignored if they are flagged as
+        </div>
+      </li>
+      <li class="field-body">
+        <b>plugin_validators</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>A list of additional plugin validators through which to process each plugin.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>compatibility_ignored_list</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>A list of plugin keys for which it will be ignored if they are flagged as
 incompatible. This is for development purposes only and should not be used in production.</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+        </div>
+      </li>
+  </ul>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-<th>Name</th>        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-<td><code>PluginManager</code></td>          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>A fully initialized :class:<code>~octoprint.plugin.core.PluginManager</code> instance to be used for plugin
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+<b>PluginManager</b>        –
+        <div class="doc-md-description">
+          <p>A fully initialized :class:<code>~octoprint.plugin.core.PluginManager</code> instance to be used for plugin
 management tasks.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+      </div>
+      </li>
+  </ul>
 
-  <p><strong>Raises:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/exceptions.html#ValueError">ValueError</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p><code>init</code> was True although the plugin manager was already initialized, or it was False although
+  <p>Raises:</p>
+  <ul>
+      <li class="field-body">
+            <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/exceptions.html#ValueError">ValueError</a></code>
+          –
+        <div class="doc-md-description">
+          <p><code>init</code> was True although the plugin manager was already initialized, or it was False although
 the plugin manager was not yet initialized.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -6242,111 +6013,60 @@ the plugin manager was not yet initialized.</p>
   
       <p>Factory method for creating a :class:<code>PluginSettings</code> instance.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>plugin_key</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/string.html#module-string">string</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The plugin identifier for which to create the settings instance.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>defaults</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The default settings for the plugin, if different from get_settings_defaults.</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>get_preprocessors</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The getter preprocessors for the plugin.</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>set_preprocessors</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The setter preprocessors for the plugin.</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>settings</code></td>
-          <td>
-                <code><a class="autorefs autorefs-internal" href="../#octoprint">octoprint</a>.<a class="autorefs autorefs-internal" title="octoprint.settings" href="../settings/#octoprint.settings">settings</a>.<a class="autorefs autorefs-internal" title="octoprint.settings.Settings" href="../settings/#octoprint.settings.Settings">Settings</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The settings instance to use.</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>plugin_key</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/string.html#module-string">string</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The plugin identifier for which to create the settings instance.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>defaults</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The default settings for the plugin, if different from get_settings_defaults.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>get_preprocessors</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The getter preprocessors for the plugin.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>set_preprocessors</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The setter preprocessors for the plugin.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>settings</b>
+            (<code><a class="autorefs autorefs-internal" href="../#octoprint">octoprint</a>.<a class="autorefs autorefs-internal" title="octoprint.settings" href="../settings/#octoprint.settings">settings</a>.<a class="autorefs autorefs-internal" title="octoprint.settings.Settings" href="../settings/#octoprint.settings.Settings">Settings</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The settings instance to use.</p>
+        </div>
+      </li>
+  </ul>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-<th>Name</th>        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-<td><code>PluginSettings</code></td>          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>A fully initialized :class:<code>PluginSettings</code> instance to be used to access the plugin's
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+<b>PluginSettings</b>        –
+        <div class="doc-md-description">
+          <p>A fully initialized :class:<code>PluginSettings</code> instance to be used to access the plugin's
 settings</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -6367,83 +6087,44 @@ settings</p>
       <p>Factory method for creating a :class:<code>PluginSettings</code> instance for a given :class:<code>SettingsPlugin</code> instance.</p>
 <p>Will return <code>None</code> if the provided <code>instance</code> is not a :class:<code>SettingsPlugin</code> instance.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>plugin_key</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/string.html#module-string">string</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The plugin identifier for which to create the settings instance.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>implementation</code></td>
-          <td>
-                <code><a class="autorefs autorefs-internal" href="../#octoprint">octoprint</a>.<a class="autorefs autorefs-internal" title="octoprint.plugin" href="#octoprint.plugin">plugin</a>.<a class="autorefs autorefs-internal" title="octoprint.plugin.SettingsPlugin" href="types/#octoprint.plugin.types.SettingsPlugin">SettingsPlugin</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The :class:<code>SettingsPlugin</code> instance.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>settings</code></td>
-          <td>
-                <code><a class="autorefs autorefs-internal" href="../#octoprint">octoprint</a>.<a class="autorefs autorefs-internal" title="octoprint.settings" href="../settings/#octoprint.settings">settings</a>.<a class="autorefs autorefs-internal" title="octoprint.settings.Settings" href="../settings/#octoprint.settings.Settings">Settings</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The settings instance to use. Defaults to the global OctoPrint settings.</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>plugin_key</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/string.html#module-string">string</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The plugin identifier for which to create the settings instance.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>implementation</b>
+            (<code><a class="autorefs autorefs-internal" href="../#octoprint">octoprint</a>.<a class="autorefs autorefs-internal" title="octoprint.plugin" href="#octoprint.plugin">plugin</a>.<a class="autorefs autorefs-internal" title="octoprint.plugin.SettingsPlugin" href="types/#octoprint.plugin.types.SettingsPlugin">SettingsPlugin</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The :class:<code>SettingsPlugin</code> instance.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>settings</b>
+            (<code><a class="autorefs autorefs-internal" href="../#octoprint">octoprint</a>.<a class="autorefs autorefs-internal" title="octoprint.settings" href="../settings/#octoprint.settings">settings</a>.<a class="autorefs autorefs-internal" title="octoprint.settings.Settings" href="../settings/#octoprint.settings.Settings">Settings</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The settings instance to use. Defaults to the global OctoPrint settings.</p>
+        </div>
+      </li>
+  </ul>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>PluginSettings or None: A fully initialized :class:<code>PluginSettings</code> instance to be used to access the plugin's
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+        –
+        <div class="doc-md-description">
+          <p>PluginSettings or None: A fully initialized :class:<code>PluginSettings</code> instance to be used to access the plugin's
 settings, or <code>None</code> if the provided <code>instance</code> was not a class:<code>SettingsPlugin</code></p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -6537,7 +6218,7 @@ settings, or <code>None</code> if the provided <code>instance</code> was not a c
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking"], "search": "../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking"], "search": "../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.220ee61c.min.js"></script>

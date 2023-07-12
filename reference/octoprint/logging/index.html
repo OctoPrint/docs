@@ -86,24 +86,6 @@
       
     </div>
     
-      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
-        
-          <aside class="md-banner md-banner--warning">
-            <div class="md-banner__inner md-grid md-typeset">
-              
-  You're not viewing the latest version.
-  <a href="../../../.."> 
-
-
-    <strong>Click here to go to latest.</strong>
-  </a>
-
-            </div>
-            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
-          </aside>
-        
-      </div>
-    
     
       
 
@@ -5032,92 +5014,47 @@
 <a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="gr">AssertionError</span>: <span class="n">indent is not an int</span>
 </code></pre></div>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>c</code></td>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>character to use for the line</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>message</code></td>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>message to print in the line</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>length</code></td>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>length of the line</p>
-            </div>
-          </td>
-          <td>
-                <code>78</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>indent</code></td>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>indentation of message in line</p>
-            </div>
-          </td>
-          <td>
-                <code>3</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>c</b>
+        –
+        <div class="doc-md-description">
+          <p>character to use for the line</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>message</b>
+        –
+        <div class="doc-md-description">
+          <p>message to print in the line</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>length</b>
+        –
+        <div class="doc-md-description">
+          <p>length of the line</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>indent</b>
+        –
+        <div class="doc-md-description">
+          <p>indentation of message in line</p>
+        </div>
+      </li>
+  </ul>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>formatted divider line</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+        –
+        <div class="doc-md-description">
+          <p>formatted divider line</p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -5140,66 +5077,33 @@
 limited to that logger, otherwise the root logger will be
 searched.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>name</code></td>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>the name of the handler to look for</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>logger</code></td>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>(optional) the logger to search in, root logger if not provided</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>name</b>
+        –
+        <div class="doc-md-description">
+          <p>the name of the handler to look for</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>logger</b>
+        –
+        <div class="doc-md-description">
+          <p>(optional) the logger to search in, root logger if not provided</p>
+        </div>
+      </li>
+  </ul>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>the handler if it could be found, None otherwise</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+        –
+        <div class="doc-md-description">
+          <p>the handler if it could be found, None otherwise</p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -5219,110 +5123,58 @@ searched.</p>
   
       <p>Logs to the provided handler only.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>logger</code></td>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>logger to log to</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>handler</code></td>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>handler to restrict logging to</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>level</code></td>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>level to log at</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>msg</code></td>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>message to log</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>exc_info</code></td>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>optional exception info</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>extra</code></td>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>optional extra data</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>*args</code></td>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>log args</p>
-            </div>
-          </td>
-          <td>
-                <code>()</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>logger</b>
+        –
+        <div class="doc-md-description">
+          <p>logger to log to</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>handler</b>
+        –
+        <div class="doc-md-description">
+          <p>handler to restrict logging to</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>level</b>
+        –
+        <div class="doc-md-description">
+          <p>level to log at</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>msg</b>
+        –
+        <div class="doc-md-description">
+          <p>message to log</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>exc_info</b>
+        –
+        <div class="doc-md-description">
+          <p>optional exception info</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>extra</b>
+        –
+        <div class="doc-md-description">
+          <p>optional extra data</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>*args</b>
+        –
+        <div class="doc-md-description">
+          <p>log args</p>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -5432,7 +5284,7 @@ searched.</p>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking"], "search": "../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking"], "search": "../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.220ee61c.min.js"></script>

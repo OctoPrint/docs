@@ -86,24 +86,6 @@
       
     </div>
     
-      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
-        
-          <aside class="md-banner md-banner--warning">
-            <div class="md-banner__inner md-grid md-typeset">
-              
-  You're not viewing the latest version.
-  <a href="../../../../.."> 
-
-
-    <strong>Click here to go to latest.</strong>
-  </a>
-
-            </div>
-            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
-          </aside>
-        
-      </div>
-    
     
       
 
@@ -5444,113 +5426,62 @@ contents and such we need to find something that works "mostly" all of the time 
 resources. Feel free to propose a better solution within the above limitations (and I mean that, this solution
 here makes me unhappy).</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>progress</code></td>
-          <td>
-                <code>float or None</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Current percentage in the printed file</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>printTime</code></td>
-          <td>
-                <code>float or None</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Print time elapsed so far</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>cleanedPrintTime</code></td>
-          <td>
-                <code>float or None</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Print time elapsed minus the time needed for getting up to temperature
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>progress</b>
+            (<code>float or None</code>)
+        –
+        <div class="doc-md-description">
+          <p>Current percentage in the printed file</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>printTime</b>
+            (<code>float or None</code>)
+        –
+        <div class="doc-md-description">
+          <p>Print time elapsed so far</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>cleanedPrintTime</b>
+            (<code>float or None</code>)
+        –
+        <div class="doc-md-description">
+          <p>Print time elapsed minus the time needed for getting up to temperature
 (if detectable).</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>statisticalTotalPrintTime</code></td>
-          <td>
-                <code>float or None</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Total print time of past prints against same printer profile,
+        </div>
+      </li>
+      <li class="field-body">
+        <b>statisticalTotalPrintTime</b>
+            (<code>float or None</code>)
+        –
+        <div class="doc-md-description">
+          <p>Total print time of past prints against same printer profile,
 or estimated total print time from GCODE analysis.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>statisticalTotalPrintTimeType</code></td>
-          <td>
-                <code>str or None</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Type of statistical print time, either "average" (total time
+        </div>
+      </li>
+      <li class="field-body">
+        <b>statisticalTotalPrintTimeType</b>
+            (<code>str or None</code>)
+        –
+        <div class="doc-md-description">
+          <p>Type of statistical print time, either "average" (total time
 of former prints) or "analysis"</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+        </div>
+      </li>
+  </ul>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>(2-tuple) estimated print time left or None if not proper estimate could be made at all, origin of estimation</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+        –
+        <div class="doc-md-description">
+          <p>(2-tuple) estimated print time left or None if not proper estimate could be made at all, origin of estimation</p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -5870,7 +5801,7 @@ of former prints) or "analysis"</p>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking"], "search": "../../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking"], "search": "../../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../../assets/javascripts/bundle.220ee61c.min.js"></script>

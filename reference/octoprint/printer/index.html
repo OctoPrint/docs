@@ -86,24 +86,6 @@
       
     </div>
     
-      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
-        
-          <aside class="md-banner md-banner--warning">
-            <div class="md-banner__inner md-grid md-typeset">
-              
-  You're not viewing the latest version.
-  <a href="../../../.."> 
-
-
-    <strong>Click here to go to latest.</strong>
-  </a>
-
-            </div>
-            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
-          </aside>
-        
-      </div>
-    
     
       
 
@@ -5509,33 +5491,17 @@ abstracted version of the actual printer communication.</p>
   
       <p>Called when the :class:<code>PrinterInterface</code> receives a new communication log entry from the communication layer.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>data</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The received log line.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>data</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The received log line.</p>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -5555,33 +5521,17 @@ abstracted version of the actual printer communication.</p>
   
       <p>Called when the :class:<code>PrinterInterface</code> receives a new message from the communication layer.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>data</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The received message.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>data</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The received message.</p>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -5613,33 +5563,17 @@ chamber:
     target: &lt;target temperature of the chamber, in degC&gt;
 </code></pre></div>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>data</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>A dict of all current temperatures in the format as specified above</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>data</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>A dict of all current temperatures in the format as specified above</p>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -5659,47 +5593,25 @@ chamber:
   
       <p>Called when the :class:<code>PrinterInterface</code> received a registered message, e.g. from a feedback command.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>name</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Name of the registered message (e.g. the feedback command)</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>output</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Output for the registered message</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>name</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Name of the registered message (e.g. the feedback command)</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>output</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Output for the registered message</p>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -5751,33 +5663,17 @@ currentZ: &lt;current position of the z axis, in mm&gt;
 offsets: &lt;current configured temperature offsets, keys are &quot;bed&quot; or &quot;tool[0-9]+&quot;, values the offset in degC&gt;
 </code></pre></div>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>data</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The current data in the format as specified above.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>data</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The current data in the format as specified above.</p>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -5812,33 +5708,17 @@ logs: &lt;list of current communication log lines&gt;
 messages: &lt;list of current messages from the firmware&gt;
 </code></pre></div>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>data</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The initial data in the format as specified above.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>data</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The initial data in the format as specified above.</p>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -5991,68 +5871,35 @@ when it is not being printed is fine though.</p>
    to depend on this particular method in this interface, be advised that it might vanish in future
    versions!</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>path</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>path in storage of the file to check</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>sd</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>True if to check against SD storage, False otherwise</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>path</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>path in storage of the file to check</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>sd</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>True if to check against SD storage, False otherwise</p>
+        </div>
+      </li>
+  </ul>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>(bool) True if the file may be modified, False otherwise</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+        –
+        <div class="doc-md-description">
+          <p>(bool) True if the file may be modified, False otherwise</p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -6072,33 +5919,17 @@ when it is not being printed is fine though.</p>
   
       <p>Cancels the current print job.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>tags</code></td>
-          <td>
-                <code>set of str</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>An optional set of tags to attach to the command(s) throughout their lifecycle</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>tags</b>
+            (<code>set of str</code>)
+        –
+        <div class="doc-md-description">
+          <p>An optional set of tags to attach to the command(s) throughout their lifecycle</p>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -6118,47 +5949,25 @@ when it is not being printed is fine though.</p>
   
       <p>Switch the currently active <code>tool</code> (for which extrude commands will apply).</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>tool</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The tool to switch to, matching the regex "tool[0-9]+" (e.g. "tool0", "tool1", ...)</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>tags</code></td>
-          <td>
-                <code>set of str</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>An optional set of tags to attach to the command(s) throughout their lifecycle</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>tool</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The tool to switch to, matching the regex "tool[0-9]+" (e.g. "tool0", "tool1", ...)</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>tags</b>
+            (<code>set of str</code>)
+        –
+        <div class="doc-md-description">
+          <p>An optional set of tags to attach to the command(s) throughout their lifecycle</p>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -6178,62 +5987,34 @@ when it is not being printed is fine though.</p>
   
       <p>Sends the provided <code>commands</code> to the printer.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>commands</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The commands to send. Might be a single command provided just as a string or a list
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>commands</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The commands to send. Might be a single command provided just as a string or a list
 of multiple commands to send in order.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>tags</code></td>
-          <td>
-                <code>set of str</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>An optional set of tags to attach to the command(s) throughout their lifecycle</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>force</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Whether to force sending of the command right away or allow queuing while printing</p>
-            </div>
-          </td>
-          <td>
-                <code>False</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>tags</b>
+            (<code>set of str</code>)
+        –
+        <div class="doc-md-description">
+          <p>An optional set of tags to attach to the command(s) throughout their lifecycle</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>force</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Whether to force sending of the command right away or allow queuing while printing</p>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -6255,62 +6036,34 @@ of multiple commands to send in order.</p>
 connection is already established, that connection will be closed prior to connecting anew with the provided
 parameters.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>port</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Name of the serial port to connect to. If not provided, an auto detection will be attempted.</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>baudrate</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Baudrate to connect with. If not provided, an auto detection will be attempted.</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>profile</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Name of the printer profile to use for this connection. If not provided, the default
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>port</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Name of the serial port to connect to. If not provided, an auto detection will be attempted.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>baudrate</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Baudrate to connect with. If not provided, an auto detection will be attempted.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>profile</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Name of the printer profile to use for this connection. If not provided, the default
 will be retrieved from the :class:<code>PrinterProfileManager</code>.</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -6348,61 +6101,33 @@ will be retrieved from the :class:<code>PrinterProfileManager</code>.</p>
   
       <p>Extrude <code>amount</code> millimeters of material from the tool.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>amount</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The amount of material to extrude in mm</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>speed</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a>, None</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Speed at which to extrude (F parameter). If set to <code>None</code> (or left out)</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>tags</code></td>
-          <td>
-                <code>set of str</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>An optional set of tags to attach to the command(s) throughout their lifecycle</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>amount</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The amount of material to extrude in mm</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>speed</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a>, None</code>)
+        –
+        <div class="doc-md-description">
+          <p>Speed at which to extrude (F parameter). If set to <code>None</code> (or left out)</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>tags</b>
+            (<code>set of str</code>)
+        –
+        <div class="doc-md-description">
+          <p>An optional set of tags to attach to the command(s) throughout their lifecycle</p>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -6442,48 +6167,26 @@ things going again.</p>
   
       <p>Sets the <code>factor</code> for the printer's feed rate.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>factor</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The factor for the feed rate to send to the firmware. Percentage expressed as either an
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>factor</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The factor for the feed rate to send to the firmware. Percentage expressed as either an
 int between 0 and 100 or a float between 0 and 1.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>tags</code></td>
-          <td>
-                <code>set of str</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>An optional set of tags to attach to the command(s) throughout their lifecycle</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>tags</b>
+            (<code>set of str</code>)
+        –
+        <div class="doc-md-description">
+          <p>An optional set of tags to attach to the command(s) throughout their lifecycle</p>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -6503,48 +6206,26 @@ int between 0 and 100 or a float between 0 and 1.</p>
   
       <p>Sets the <code>factor</code> for the printer's flow rate.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>factor</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The factor for the flow rate to send to the firmware. Percentage expressed as either an
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>factor</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The factor for the flow rate to send to the firmware. Percentage expressed as either an
 int between 0 and 100 or a float between 0 and 1.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>tags</code></td>
-          <td>
-                <code>set of str</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>An optional set of tags to attach to the command(s) throughout their lifecycle</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>tags</b>
+            (<code>set of str</code>)
+        –
+        <div class="doc-md-description">
+          <p>An optional set of tags to attach to the command(s) throughout their lifecycle</p>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -6575,27 +6256,16 @@ baudratePreference: &lt;configured default baudrate&gt;
 autoconnect: &lt;whether autoconnect upon server startup is enabled or not&gt;
 </code></pre></div>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>A dictionary holding the connection options in the structure specified above</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+            <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
+        –
+        <div class="doc-md-description">
+          <p>A dictionary holding the connection options in the structure specified above</p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -6614,27 +6284,16 @@ autoconnect: &lt;whether autoconnect upon server startup is enabled or not&gt;
   <div class="doc doc-contents ">
   
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>(tuple) The current connection information as a 4-tuple <code>(connection_string, port, baudrate, printer_profile)</code>.
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+        –
+        <div class="doc-md-description">
+          <p>(tuple) The current connection information as a 4-tuple <code>(connection_string, port, baudrate, printer_profile)</code>.
 If the printer is currently not connected, the tuple will be <code>("Closed", None, None, None)</code>.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -6653,26 +6312,15 @@ If the printer is currently not connected, the tuple will be <code>("Closed", No
   <div class="doc doc-contents ">
   
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>(dict) The current state data.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+        –
+        <div class="doc-md-description">
+          <p>(dict) The current state data.</p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -6691,26 +6339,15 @@ If the printer is currently not connected, the tuple will be <code>("Closed", No
   <div class="doc doc-contents ">
   
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>(dict) The data of the current job.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+        –
+        <div class="doc-md-description">
+          <p>(dict) The data of the current job.</p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -6729,26 +6366,15 @@ If the printer is currently not connected, the tuple will be <code>("Closed", No
   <div class="doc doc-contents ">
   
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>(dict) The current temperatures.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+        –
+        <div class="doc-md-description">
+          <p>(dict) The current temperatures.</p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -6787,26 +6413,15 @@ If the printer is currently not connected, the tuple will be <code>("Closed", No
 <li>NONE</li>
 </ul>
 </details>
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>(str) A unique identifier corresponding to the current communication state.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+        –
+        <div class="doc-md-description">
+          <p>(str) A unique identifier corresponding to the current communication state.</p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -6825,26 +6440,15 @@ If the printer is currently not connected, the tuple will be <code>("Closed", No
   <div class="doc doc-contents ">
   
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>(str) A human readable string corresponding to the current communication state.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+        –
+        <div class="doc-md-description">
+          <p>(str) A human readable string corresponding to the current communication state.</p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -6863,26 +6467,15 @@ If the printer is currently not connected, the tuple will be <code>("Closed", No
   <div class="doc doc-contents ">
   
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>(list) The temperature history.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+        –
+        <div class="doc-md-description">
+          <p>(list) The temperature history.</p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -6904,26 +6497,15 @@ If the printer is currently not connected, the tuple will be <code>("Closed", No
 <p>Note that this doesn't have to necessarily be a :class:<code>serial.Serial</code> instance, it might also be something
 different, so take care to do instance checks before attempting to access any properties or methods.</p>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-<th>Name</th>        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-<td><code>object</code></td>          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The communication layer's transport object</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+<b>object</b>        –
+        <div class="doc-md-description">
+          <p>The communication layer's transport object</p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -6943,48 +6525,26 @@ different, so take care to do instance checks before attempting to access any pr
   
       <p>Homes the specified printer <code>axes</code>.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>axes</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The axis or axes to home, each of which must converted to lower case must match one of
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>axes</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The axis or axes to home, each of which must converted to lower case must match one of
 "x", "y", "z" and "e"</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>tags</code></td>
-          <td>
-                <code>set of str</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>An optional set of tags to attach to the command(s) throughout their lifecycle</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>tags</b>
+            (<code>set of str</code>)
+        –
+        <div class="doc-md-description">
+          <p>An optional set of tags to attach to the command(s) throughout their lifecycle</p>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -7003,26 +6563,15 @@ different, so take care to do instance checks before attempting to access any pr
   <div class="doc doc-contents ">
   
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>(boolean) Whether the printer is currently cancelling a print.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+        –
+        <div class="doc-md-description">
+          <p>(boolean) Whether the printer is currently cancelling a print.</p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -7041,26 +6590,15 @@ different, so take care to do instance checks before attempting to access any pr
   <div class="doc doc-contents ">
   
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>(boolean) Whether the printer is currently disconnected and/or in an error state.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+        –
+        <div class="doc-md-description">
+          <p>(boolean) Whether the printer is currently disconnected and/or in an error state.</p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -7087,68 +6625,35 @@ file for printing.</p>
    to depend on this particular method in this interface, be advised that it might vanish in future
    versions!</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>path</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>path in storage of the file to check</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>sd</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>True if to check against SD storage, False otherwise</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>path</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>path in storage of the file to check</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>sd</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>True if to check against SD storage, False otherwise</p>
+        </div>
+      </li>
+  </ul>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>(bool) True if the file is currently selected, False otherwise</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+        –
+        <div class="doc-md-description">
+          <p>(bool) True if the file is currently selected, False otherwise</p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -7167,26 +6672,15 @@ file for printing.</p>
   <div class="doc doc-contents ">
   
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>(boolean) Whether the printer is currently in an error state.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+        –
+        <div class="doc-md-description">
+          <p>(boolean) Whether the printer is currently in an error state.</p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -7205,26 +6699,15 @@ file for printing.</p>
   <div class="doc doc-contents ">
   
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>(boolean) Whether the printer is currently connected and available.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+        –
+        <div class="doc-md-description">
+          <p>(boolean) Whether the printer is currently connected and available.</p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -7243,26 +6726,15 @@ file for printing.</p>
   <div class="doc doc-contents ">
   
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>(boolean) Whether the printer is currently paused.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+        –
+        <div class="doc-md-description">
+          <p>(boolean) Whether the printer is currently paused.</p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -7281,26 +6753,15 @@ file for printing.</p>
   <div class="doc doc-contents ">
   
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>(boolean) Whether the printer is currently pausing a print.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+        –
+        <div class="doc-md-description">
+          <p>(boolean) Whether the printer is currently pausing a print.</p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -7319,26 +6780,15 @@ file for printing.</p>
   <div class="doc doc-contents ">
   
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>(boolean) Whether the printer is currently printing.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+        –
+        <div class="doc-md-description">
+          <p>(boolean) Whether the printer is currently printing.</p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -7357,26 +6807,15 @@ file for printing.</p>
   <div class="doc doc-contents ">
   
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>(boolean) Whether the printer is currently operational and ready for new print jobs (not printing).</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+        –
+        <div class="doc-md-description">
+          <p>(boolean) Whether the printer is currently operational and ready for new print jobs (not printing).</p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -7409,33 +6848,17 @@ taking a snapshot from the webcam, then continuing). If you abuse this, you WILL
 don't want to block on acquire, be sure to set <code>blocking</code> to <code>False</code> and catch the <code>RuntimeException</code> thrown
 if the lock can't be acquired.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>blocking</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Whether to block while attempting to acquire the lock (default) or not</p>
-            </div>
-          </td>
-          <td>
-                <code>True</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>blocking</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Whether to block while attempting to acquire the lock (default) or not</p>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -7455,78 +6878,44 @@ if the lock can't be acquired.</p>
   
       <p>Jogs the specified printer <code>axis</code> by the specified <code>amount</code> in mm.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>axes</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Axes and distances to jog, keys are axes ("x", "y", "z"), values are distances in mm</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>relative</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Whether to interpret the distance values as relative (true, default) or absolute (false)
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>axes</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Axes and distances to jog, keys are axes ("x", "y", "z"), values are distances in mm</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>relative</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Whether to interpret the distance values as relative (true, default) or absolute (false)
 coordinates</p>
-            </div>
-          </td>
-          <td>
-                <code>True</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>speed</code></td>
-          <td>
-                <code>int, bool or None</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Speed at which to jog (F parameter). If set to <code>False</code> no speed will be set
+        </div>
+      </li>
+      <li class="field-body">
+        <b>speed</b>
+            (<code>int, bool or None</code>)
+        –
+        <div class="doc-md-description">
+          <p>Speed at which to jog (F parameter). If set to <code>False</code> no speed will be set
 specifically. If set to <code>None</code> (or left out) the minimum of all involved axes speeds from the printer
 profile will be used.</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>tags</code></td>
-          <td>
-                <code>set of str</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>An optional set of tags to attach to the command(s) throughout their lifecycle</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>tags</b>
+            (<code>set of str</code>)
+        –
+        <div class="doc-md-description">
+          <p>An optional set of tags to attach to the command(s) throughout their lifecycle</p>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -7546,32 +6935,16 @@ profile will be used.</p>
   
       <p>Logs the provided lines to the printer log and serial.log</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>*lines</code></td>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>the lines to log</p>
-            </div>
-          </td>
-          <td>
-                <code>()</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>*lines</b>
+        –
+        <div class="doc-md-description">
+          <p>the lines to log</p>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -7591,33 +6964,17 @@ profile will be used.</p>
   
       <p>Pauses the current print job if it is currently running, does nothing otherwise.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>tags</code></td>
-          <td>
-                <code>set of str</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>An optional set of tags to attach to the command(s) throughout their lifecycle</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>tags</b>
+            (<code>set of str</code>)
+        –
+        <div class="doc-md-description">
+          <p>An optional set of tags to attach to the command(s) throughout their lifecycle</p>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -7637,33 +6994,17 @@ profile will be used.</p>
   
       <p>Registers a :class:<code>PrinterCallback</code> with the instance.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>callback</code></td>
-          <td>
-                <code><a class="autorefs autorefs-internal" title="octoprint.printer.PrinterCallback" href="#octoprint.printer.PrinterCallback">PrinterCallback</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The callback object to register.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>callback</b>
+            (<code><a class="autorefs autorefs-internal" title="octoprint.printer.PrinterCallback" href="#octoprint.printer.PrinterCallback">PrinterCallback</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The callback object to register.</p>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -7683,33 +7024,17 @@ profile will be used.</p>
   
       <p>Resumes the current print job if it is currently paused, does nothing otherwise.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>tags</code></td>
-          <td>
-                <code>set of str</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>An optional set of tags to attach to the command(s) throughout their lifecycle</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>tags</b>
+            (<code>set of str</code>)
+        –
+        <div class="doc-md-description">
+          <p>An optional set of tags to attach to the command(s) throughout their lifecycle</p>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -7732,83 +7057,44 @@ profile will be used.</p>
 <code>context</code> with additional template variables to use.</p>
 <p>If the script is unknown, an :class:<code>UnknownScriptException</code> will be raised.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>name</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The name of the GCODE script to render.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>context</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>An optional context of additional template variables to provide to the renderer.</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>tags</code></td>
-          <td>
-                <code>set of str</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>An optional set of tags to attach to the command(s) throughout their lifecycle</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>name</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The name of the GCODE script to render.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>context</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>An optional context of additional template variables to provide to the renderer.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>tags</b>
+            (<code>set of str</code>)
+        –
+        <div class="doc-md-description">
+          <p>An optional set of tags to attach to the command(s) throughout their lifecycle</p>
+        </div>
+      </li>
+  </ul>
 
-  <p><strong>Raises:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-                <code>UnknownScriptException</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>There is no GCODE script with name <code>name</code></p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Raises:</p>
+  <ul>
+      <li class="field-body">
+            <code>UnknownScriptException</code>
+          –
+        <div class="doc-md-description">
+          <p>There is no GCODE script with name <code>name</code></p>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -7829,110 +7115,62 @@ profile will be used.</p>
       <p>Selects the specified <code>path</code> for printing, specifying if the file is to be found on the <code>sd</code> or not.
 Optionally can also directly start the print after selecting the file.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>path</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The path to select for printing. Either an absolute path or relative path to a  local file in
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>path</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The path to select for printing. Either an absolute path or relative path to a  local file in
 the uploads folder or a filename on the printer's SD card.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>sd</code></td>
-          <td>
-                <code>boolean</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Indicates whether the file is on the printer's SD card or not.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>printAfterSelect</code></td>
-          <td>
-                <code>boolean</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Indicates whether a print should be started
+        </div>
+      </li>
+      <li class="field-body">
+        <b>sd</b>
+            (<code>boolean</code>)
+        –
+        <div class="doc-md-description">
+          <p>Indicates whether the file is on the printer's SD card or not.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>printAfterSelect</b>
+            (<code>boolean</code>)
+        –
+        <div class="doc-md-description">
+          <p>Indicates whether a print should be started
 after the file is selected.</p>
-            </div>
-          </td>
-          <td>
-                <code>False</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>tags</code></td>
-          <td>
-                <code>set of str</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>An optional set of tags to attach to the command(s) throughout their lifecycle</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>tags</b>
+            (<code>set of str</code>)
+        –
+        <div class="doc-md-description">
+          <p>An optional set of tags to attach to the command(s) throughout their lifecycle</p>
+        </div>
+      </li>
+  </ul>
 
-  <p><strong>Raises:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-                <code><a class="autorefs autorefs-internal" title="octoprint.printer.InvalidFileType" href="#octoprint.printer.InvalidFileType">InvalidFileType</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>if the file is not a machinecode file and hence cannot be printed</p>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-                <code><a class="autorefs autorefs-internal" title="octoprint.printer.InvalidFileLocation" href="#octoprint.printer.InvalidFileLocation">InvalidFileLocation</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>if an absolute path was provided and not contained within local storage or
+  <p>Raises:</p>
+  <ul>
+      <li class="field-body">
+            <code><a class="autorefs autorefs-internal" title="octoprint.printer.InvalidFileType" href="#octoprint.printer.InvalidFileType">InvalidFileType</a></code>
+          –
+        <div class="doc-md-description">
+          <p>if the file is not a machinecode file and hence cannot be printed</p>
+        </div>
+      </li>
+      <li class="field-body">
+            <code><a class="autorefs autorefs-internal" title="octoprint.printer.InvalidFileLocation" href="#octoprint.printer.InvalidFileLocation">InvalidFileLocation</a></code>
+          –
+        <div class="doc-md-description">
+          <p>if an absolute path was provided and not contained within local storage or
 doesn't exist</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -7952,33 +7190,17 @@ doesn't exist</p>
   
       <p>Sends the initial printer update to :class:<code>PrinterCallback</code>.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>callback</code></td>
-          <td>
-                <code><a class="autorefs autorefs-internal" title="octoprint.printer.PrinterCallback" href="#octoprint.printer.PrinterCallback">PrinterCallback</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The callback object to send initial data to.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>callback</b>
+            (<code><a class="autorefs autorefs-internal" title="octoprint.printer.PrinterCallback" href="#octoprint.printer.PrinterCallback">PrinterCallback</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The callback object to send initial data to.</p>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -8013,68 +7235,35 @@ be stuck forever.</p>
 <p>Just like :func:<code>~octoprint.printer.PrinterInterface.job_on_hold</code> this should be used sparingly and only for
 very specific situations. If you abuse this, you WILL cause print quality issues!</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>value</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The value to set</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>blocking</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Whether to block while attempting to set the value (default) or not</p>
-            </div>
-          </td>
-          <td>
-                <code>True</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>value</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The value to set</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>blocking</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Whether to block while attempting to set the value (default) or not</p>
+        </div>
+      </li>
+  </ul>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>(bool) Whether the value could be set successfully (True) or a timeout was encountered (False)</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+        –
+        <div class="doc-md-description">
+          <p>(bool) Whether the value could be set successfully (True) or a timeout was encountered (False)</p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -8094,63 +7283,35 @@ very specific situations. If you abuse this, you WILL cause print quality issues
   
       <p>Sets the target temperature on the specified <code>heater</code> to the given <code>value</code> in celsius.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>heater</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The heater for which to set the target temperature. Either "bed" for setting the bed
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>heater</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The heater for which to set the target temperature. Either "bed" for setting the bed
 temperature or something matching the regular expression "tool[0-9]+" (e.g. "tool0", "tool1", ...) for
 the hotends of the printer</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>value</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The temperature in celsius to set the target temperature to.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>tags</code></td>
-          <td>
-                <code>set of str</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>An optional set of tags to attach to the command(s) throughout their lifecycle</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>value</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The temperature in celsius to set the target temperature to.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>tags</b>
+            (<code>set of str</code>)
+        –
+        <div class="doc-md-description">
+          <p>An optional set of tags to attach to the command(s) throughout their lifecycle</p>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -8170,49 +7331,27 @@ the hotends of the printer</p>
   
       <p>Sets the temperature <code>offsets</code> to apply to target temperatures read from a GCODE file while printing.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>offsets</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>A dictionary specifying the offsets to apply. Keys must match the format for the <code>heater</code>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>offsets</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>A dictionary specifying the offsets to apply. Keys must match the format for the <code>heater</code>
 parameter to :func:<code>set_temperature</code>, so "bed" for the offset for the bed target temperature and
 "tool[0-9]+" for the offsets to the hotend target temperatures.</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>tags</code></td>
-          <td>
-                <code>set of str</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>An optional set of tags to attach to the command(s) throughout their lifecycle</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>tags</b>
+            (<code>set of str</code>)
+        –
+        <div class="doc-md-description">
+          <p>An optional set of tags to attach to the command(s) throughout their lifecycle</p>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -8232,33 +7371,17 @@ parameter to :func:<code>set_temperature</code>, so "bed" for the offset for the
   
       <p>Starts printing the currently selected file. If no file is currently selected, does nothing.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>tags</code></td>
-          <td>
-                <code>set of str</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>An optional set of tags to attach to the command(s) throughout their lifecycle</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>tags</b>
+            (<code>set of str</code>)
+        –
+        <div class="doc-md-description">
+          <p>An optional set of tags to attach to the command(s) throughout their lifecycle</p>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -8278,33 +7401,17 @@ parameter to :func:<code>set_temperature</code>, so "bed" for the offset for the
   
       <p>Pauses the current print job if it is currently running or resumes it if it is currently paused.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>tags</code></td>
-          <td>
-                <code>set of str</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>An optional set of tags to attach to the command(s) throughout their lifecycle</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>tags</b>
+            (<code>set of str</code>)
+        –
+        <div class="doc-md-description">
+          <p>An optional set of tags to attach to the command(s) throughout their lifecycle</p>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -8324,33 +7431,17 @@ parameter to :func:<code>set_temperature</code>, so "bed" for the offset for the
   
       <p>Unregisters a :class:<code>PrinterCallback</code> from the instance.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>callback</code></td>
-          <td>
-                <code><a class="autorefs autorefs-internal" title="octoprint.printer.PrinterCallback" href="#octoprint.printer.PrinterCallback">PrinterCallback</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The callback object to unregister.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>callback</b>
+            (<code><a class="autorefs autorefs-internal" title="octoprint.printer.PrinterCallback" href="#octoprint.printer.PrinterCallback">PrinterCallback</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The callback object to unregister.</p>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -8560,7 +7651,7 @@ parameter to :func:<code>set_temperature</code>, so "bed" for the offset for the
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking"], "search": "../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking"], "search": "../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.220ee61c.min.js"></script>

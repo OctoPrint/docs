@@ -86,24 +86,6 @@
       
     </div>
     
-      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
-        
-          <aside class="md-banner md-banner--warning">
-            <div class="md-banner__inner md-grid md-typeset">
-              
-  You're not viewing the latest version.
-  <a href="../../../../.."> 
-
-
-    <strong>Click here to go to latest.</strong>
-  </a>
-
-            </div>
-            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
-          </aside>
-        
-      </div>
-    
     
       
 
@@ -5603,33 +5585,17 @@
   
       <p>Wrapper for file representations to save to storages.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>filename</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The file's name</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>filename</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The file's name</p>
+        </div>
+      </li>
+  </ul>
 
 
 
@@ -5714,47 +5680,25 @@
   
       <p>Saves the file's content to the given absolute path.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>path</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The absolute path to where to save the file</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>permissions</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The permissions to set on the file</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>path</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The absolute path to where to save the file</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>permissions</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The permissions to set on the file</p>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -5774,26 +5718,15 @@
   
       <p>Returns a Python stream object (subclass of io.IOBase) representing the file's contents.</p>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>io.IOBase: The file's contents as a stream.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+        –
+        <div class="doc-md-description">
+          <p>io.IOBase: The file's contents as a stream.</p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -5827,61 +5760,33 @@
 will either copy the file to the new path (preserving file attributes) or -- if <code>move</code> is <code>True</code> (the default) --
 move the file.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>filename</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The file's name</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>path</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The file's absolute path</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>move</code></td>
-          <td>
-                <code>boolean</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Whether to move the file upon saving (True, default) or copying.</p>
-            </div>
-          </td>
-          <td>
-                <code>True</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>filename</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The file's name</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>path</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The file's absolute path</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>move</b>
+            (<code>boolean</code>)
+        –
+        <div class="doc-md-description">
+          <p>Whether to move the file upon saving (True, default) or copying.</p>
+        </div>
+      </li>
+  </ul>
 
 
 
@@ -6013,33 +5918,17 @@ move the file.</p>
 <code>process_line</code> will receive the line as a byte stream - if underlying code needs to operate on unicode you'll need
 to do the decoding yourself.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>input_stream</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/io.html#module-io">io</a>.<a class="autorefs autorefs-external" title="io.RawIOBase" href="https://docs.python.org/3/library/io.html#io.RawIOBase">RawIOBase</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The stream to process on the fly.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>input_stream</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/io.html#module-io">io</a>.<a class="autorefs autorefs-external" title="io.RawIOBase" href="https://docs.python.org/3/library/io.html#io.RawIOBase">RawIOBase</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The stream to process on the fly.</p>
+        </div>
+      </li>
+  </ul>
 
 
 
@@ -6141,55 +6030,28 @@ to do the decoding yourself.</p>
 <p>By returning <code>None</code> the line will not be returned from the read stream, effectively being stripped from the
 wrapper <code>input_stream</code>.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>line</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#bytes">bytes</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The line as read from <code>self.input_stream</code> in byte representation</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>line</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#bytes">bytes</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The line as read from <code>self.input_stream</code> in byte representation</p>
+        </div>
+      </li>
+  </ul>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>bytes or None: The processed version of the line (might also be multiple lines), or None if the line is to be
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+        –
+        <div class="doc-md-description">
+          <p>bytes or None: The processed version of the line (might also be multiple lines), or None if the line is to be
 stripped from the processed stream.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -6302,32 +6164,16 @@ stripped from the processed stream.</p>
       <p>A stream implementation which when read reads from multiple streams, one after the other, basically concatenating
 their contents in the order they are provided to the constructor.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>*streams</code></td>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>One or more <img alt="🇵🇾" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/1f1f5-1f1fe.svg" title=":py:" />class:<code>io.IOBase</code> streams to concatenate.</p>
-            </div>
-          </td>
-          <td>
-                <code>()</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>*streams</b>
+        –
+        <div class="doc-md-description">
+          <p>One or more <img alt="🇵🇾" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/1f1f5-1f1fe.svg" title=":py:" />class:<code>io.IOBase</code> streams to concatenate.</p>
+        </div>
+      </li>
+  </ul>
 
 
 
@@ -6519,32 +6365,16 @@ their contents in the order they are provided to the constructor.</p>
   
       <p>A wrapper allowing processing of one or more consecutive streams.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>*streams</code></td>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>One or more <img alt="🇵🇾" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/1f1f5-1f1fe.svg" title=":py:" />class:<code>io.IOBase</code> streams to process one after another to save to storage.</p>
-            </div>
-          </td>
-          <td>
-                <code>()</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>*streams</b>
+        –
+        <div class="doc-md-description">
+          <p>One or more <img alt="🇵🇾" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/1f1f5-1f1fe.svg" title=":py:" />class:<code>io.IOBase</code> streams to process one after another to save to storage.</p>
+        </div>
+      </li>
+  </ul>
 
 
 
@@ -6730,7 +6560,7 @@ provided streams in the order they were provided, else the first and only stream
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking"], "search": "../../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking"], "search": "../../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../../assets/javascripts/bundle.220ee61c.min.js"></script>

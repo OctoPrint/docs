@@ -86,24 +86,6 @@
       
     </div>
     
-      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
-        
-          <aside class="md-banner md-banner--warning">
-            <div class="md-banner__inner md-grid md-typeset">
-              
-  You're not viewing the latest version.
-  <a href="../../../../.."> 
-
-
-    <strong>Click here to go to latest.</strong>
-  </a>
-
-            </div>
-            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
-          </aside>
-        
-      </div>
-    
     
       
 
@@ -5142,122 +5124,66 @@ raise ValueError
 through names of the format <code>some_f~1.gco</code>, <code>some_f~2.gco</code>, ..., <code>some_~10.gco</code>, <code>some_~11.gco</code>, ...,
 <code>&lt;prefix&gt;~&lt;n&gt;.gco</code> for <code>n</code> less than 10 ^ <code>max_power</code>, returning as soon as one is found that is not colliding.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>filename</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/string.html#module-string">string</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The filename without the extension to convert to 8.3.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>extension</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/string.html#module-string">string</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The extension to convert to 8.3 -- will be truncated to 3 characters if it's longer than
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>filename</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/string.html#module-string">string</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The filename without the extension to convert to 8.3.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>extension</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/string.html#module-string">string</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The extension to convert to 8.3 -- will be truncated to 3 characters if it's longer than
 that.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>existing_filenames</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>A list of existing filenames to prevent name collisions with.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>max_power</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Limits the possible attempts of generating a collision free name to 10 ^ <code>max_power</code>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>existing_filenames</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>A list of existing filenames to prevent name collisions with.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>max_power</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Limits the possible attempts of generating a collision free name to 10 ^ <code>max_power</code>
 variations. Defaults to 2, so the name generation will maximally reach <code>&lt;name&gt;~99.&lt;ext&gt;</code> before
 aborting and raising an exception.</p>
-            </div>
-          </td>
-          <td>
-                <code>2</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+        </div>
+      </li>
+  </ul>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-<th>Name</th>        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-<td><code>string</code></td>          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>A 8.3 representation of the provided original filename, ensured to not collide with the provided
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+<b>string</b>        –
+        <div class="doc-md-description">
+          <p>A 8.3 representation of the provided original filename, ensured to not collide with the provided
 <code>existing_filenames</code></p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+      </div>
+      </li>
+  </ul>
 
-  <p><strong>Raises:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/exceptions.html#ValueError">ValueError</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>No collision free name could be found.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Raises:</p>
+  <ul>
+      <li class="field-body">
+            <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/exceptions.html#ValueError">ValueError</a></code>
+          –
+        <div class="doc-md-description">
+          <p>No collision free name could be found.</p>
+        </div>
+      </li>
+  </ul>
 
 <p><strong>Examples:</strong></p>
     <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">find_collision_free_name</span><span class="p">(</span><span class="s2">&quot;test1234&quot;</span><span class="p">,</span> <span class="s2">&quot;gco&quot;</span><span class="p">,</span> <span class="p">[])</span>
@@ -5307,137 +5233,75 @@ aborting and raising an exception.</p>
 conversion result will be guaranteed not to collide with any of the filenames provided thus.</p>
 <p>Uses :func:<code>find_collision_free_name</code> internally.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>input</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/string.html#module-string">string</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The original filename incl. extension to convert to the 8.3 format.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>existing_filenames</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>A list of existing filenames with which the generated 8.3 name must not collide.
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>input</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/string.html#module-string">string</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The original filename incl. extension to convert to the 8.3 format.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>existing_filenames</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>A list of existing filenames with which the generated 8.3 name must not collide.
 Optional.</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>extension</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/string.html#module-string">string</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The .3 file extension to use for the generated filename. If not provided, the extension of
+        </div>
+      </li>
+      <li class="field-body">
+        <b>extension</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/string.html#module-string">string</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The .3 file extension to use for the generated filename. If not provided, the extension of
 the provided <code>filename</code> will simply be truncated to 3 characters.</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>whitelisted_extensions</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>A list of extensions on <code>input</code> that will be left as-is instead of
+        </div>
+      </li>
+      <li class="field-body">
+        <b>whitelisted_extensions</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>A list of extensions on <code>input</code> that will be left as-is instead of
 exchanging for <code>extension</code>.</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>kwargs</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Additional keyword arguments to provide to :func:<code>find_collision_free_name</code>.</p>
-            </div>
-          </td>
-          <td>
-                <code>{}</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>kwargs</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Additional keyword arguments to provide to :func:<code>find_collision_free_name</code>.</p>
+        </div>
+      </li>
+  </ul>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-<th>Name</th>        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-<td><code>string</code></td>          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>A 8.3 compatible translation of the original filename, not colliding with the optionally provided
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+<b>string</b>        –
+        <div class="doc-md-description">
+          <p>A 8.3 compatible translation of the original filename, not colliding with the optionally provided
 <code>existing_filenames</code> and with the provided <code>extension</code> or the original extension shortened to
 a maximum of 3 characters.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+      </div>
+      </li>
+  </ul>
 
-  <p><strong>Raises:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/exceptions.html#ValueError">ValueError</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>No 8.3 compatible name could be found that doesn't collide with the provided <code>existing_filenames</code>.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Raises:</p>
+  <ul>
+      <li class="field-body">
+            <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/exceptions.html#ValueError">ValueError</a></code>
+          –
+        <div class="doc-md-description">
+          <p>No 8.3 compatible name could be found that doesn't collide with the provided <code>existing_filenames</code>.</p>
+        </div>
+      </li>
+  </ul>
 
 <p><strong>Examples:</strong></p>
     <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">get_dos_filename</span><span class="p">(</span><span class="s2">&quot;test1234.gco&quot;</span><span class="p">)</span>
@@ -5483,54 +5347,27 @@ Upper 16 bit contain date, lower 16 bit contain time.</p>
 <p>Format derived from FAT filesystem timestamps:
 <a href="https://wiki.osdev.org/FAT">https://wiki.osdev.org/FAT</a></p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>timestamp</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/string.html#module-string">string</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>M20 T timestamp as hex string</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>timestamp</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/string.html#module-string">string</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>M20 T timestamp as hex string</p>
+        </div>
+      </li>
+  </ul>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-<th>Name</th>        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-<td><code>int</code></td>          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Unix timestamp in seconds</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+<b>int</b>        –
+        <div class="doc-md-description">
+          <p>Unix timestamp in seconds</p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -5558,67 +5395,34 @@ safe chars <code>-_.()[]</code> and all spaces replaced by <code>_</code>. This 
 <p>In all cases, a single leading <code>.</code> will be removed (as it denotes hidden files
 on *nix).</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>name</code></td>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The file name to sanitize. Only the name, no path elements.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>really_universal</code></td>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>If <code>True</code>, the old method of sanitization will always
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>name</b>
+        –
+        <div class="doc-md-description">
+          <p>The file name to sanitize. Only the name, no path elements.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>really_universal</b>
+        –
+        <div class="doc-md-description">
+          <p>If <code>True</code>, the old method of sanitization will always
               be used. Defaults to <code>False</code>.</p>
-            </div>
-          </td>
-          <td>
-                <code>False</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+        </div>
+      </li>
+  </ul>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>the sanitized file name</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+        –
+        <div class="doc-md-description">
+          <p>the sanitized file name</p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -5670,33 +5474,17 @@ on *nix).</p>
   
       <p>Silently removes a file. Does not raise an error if the file doesn't exist.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>file</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/string.html#module-string">string</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The path of the file to be removed</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>file</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/string.html#module-string">string</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The path of the file to be removed</p>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -5721,54 +5509,27 @@ Upper 16 bit contain date, lower 16 bit contain time.</p>
 <p>Format derived from FAT filesystem timestamps:
 <a href="https://wiki.osdev.org/FAT">https://wiki.osdev.org/FAT</a></p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>unix_timestamp</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Unix timestamp in seconds</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>unix_timestamp</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Unix timestamp in seconds</p>
+        </div>
+      </li>
+  </ul>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-<th>Name</th>        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-<td><code>string</code></td>          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>M20 T timestamp as hex string</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+<b>string</b>        –
+        <div class="doc-md-description">
+          <p>M20 T timestamp as hex string</p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -5862,7 +5623,7 @@ Upper 16 bit contain date, lower 16 bit contain time.</p>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking"], "search": "../../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking"], "search": "../../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../../assets/javascripts/bundle.220ee61c.min.js"></script>

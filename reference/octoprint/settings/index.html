@@ -86,24 +86,6 @@
       
     </div>
     
-      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
-        
-          <aside class="md-banner md-banner--warning">
-            <div class="md-banner__inner md-grid md-typeset">
-              
-  You're not viewing the latest version.
-  <a href="../../../.."> 
-
-
-    <strong>Click here to go to latest.</strong>
-  </a>
-
-            </div>
-            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
-          </aside>
-        
-      </div>
-    
     
       
 
@@ -6862,26 +6844,15 @@ modify anything in the settings, utilize the provided set and remove methods.</p
   <div class="doc doc-contents ">
   
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>(int) The last modification time of the configuration file.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+        –
+        <div class="doc-md-description">
+          <p>(int) The last modification time of the configuration file.</p>
+      </div>
+      </li>
+  </ul>
   </div>
 
 </div>
@@ -7363,124 +7334,68 @@ modify anything in the settings, utilize the provided set and remove methods.</p
       <p>Factory method for initially constructing and consecutively retrieving the :class:<code>~octoprint.settings.Settings</code>
 singleton.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>init</code></td>
-          <td>
-                <code>boolean</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>A flag indicating whether this is the initial call to construct the singleton (True) or not
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>init</b>
+            (<code>boolean</code>)
+        –
+        <div class="doc-md-description">
+          <p>A flag indicating whether this is the initial call to construct the singleton (True) or not
 (False, default). If this is set to True and the plugin manager has already been initialized, a :class:<code>ValueError</code>
 will be raised. The same will happen if the plugin manager has not yet been initialized and this is set to
 False.</p>
-            </div>
-          </td>
-          <td>
-                <code>False</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>basedir</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Path of the base directory for all of OctoPrint's settings, log files, uploads etc. If not set
+        </div>
+      </li>
+      <li class="field-body">
+        <b>basedir</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Path of the base directory for all of OctoPrint's settings, log files, uploads etc. If not set
 the default will be used: <code>~/.octoprint</code> on Linux, <code>%APPDATA%/OctoPrint</code> on Windows and
 <code>~/Library/Application Support/OctoPrint</code> on MacOS.</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>configfile</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Path of the configuration file (<code>config.yaml</code>) to work on. If not set the default will
+        </div>
+      </li>
+      <li class="field-body">
+        <b>configfile</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Path of the configuration file (<code>config.yaml</code>) to work on. If not set the default will
 be used: <code>&lt;basedir&gt;/config.yaml</code> for <code>basedir</code> as defined above.</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>overlays</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>List of paths to config overlays to put between default settings and config.yaml</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>overlays</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>List of paths to config overlays to put between default settings and config.yaml</p>
+        </div>
+      </li>
+  </ul>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-<th>Name</th>        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-<td><code>Settings</code></td>          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The fully initialized :class:<code>Settings</code> instance.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+<b>Settings</b>        –
+        <div class="doc-md-description">
+          <p>The fully initialized :class:<code>Settings</code> instance.</p>
+      </div>
+      </li>
+  </ul>
 
-  <p><strong>Raises:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/exceptions.html#ValueError">ValueError</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p><code>init</code> is True but settings are already initialized or vice versa.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Raises:</p>
+  <ul>
+      <li class="field-body">
+            <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/exceptions.html#ValueError">ValueError</a></code>
+          –
+        <div class="doc-md-description">
+          <p><code>init</code> is True but settings are already initialized or vice versa.</p>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -7574,7 +7489,7 @@ be used: <code>&lt;basedir&gt;/config.yaml</code> for <code>basedir</code> as de
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking"], "search": "../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking"], "search": "../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.220ee61c.min.js"></script>

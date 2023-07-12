@@ -86,24 +86,6 @@
       
     </div>
     
-      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
-        
-          <aside class="md-banner md-banner--warning">
-            <div class="md-banner__inner md-grid md-typeset">
-              
-  You're not viewing the latest version.
-  <a href="../../../../.."> 
-
-
-    <strong>Click here to go to latest.</strong>
-  </a>
-
-            </div>
-            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
-          </aside>
-        
-      </div>
-    
     
       
 
@@ -5407,32 +5389,16 @@ relevant requests &amp; methods.</p>
       <p>Determines if the current user (either from the session, api key or authorization
 header) has all of the requested permissions.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>*permissions</code></td>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>list of all permissions required to pass the check</p>
-            </div>
-          </td>
-          <td>
-                <code>()</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>*permissions</b>
+        –
+        <div class="doc-md-description">
+          <p>list of all permissions required to pass the check</p>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -5489,45 +5455,23 @@ header) has all of the requested permissions.</p>
   
       <p>Logs the provided <code>user</code> into Flask Login and Principal if not None and active</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>user</code></td>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>the User to login. May be None in which case the login will fail</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>remember</code></td>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Whether to set the <code>remember</code> flag on the Flask Login operation</p>
-            </div>
-          </td>
-          <td>
-                <code>False</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>user</b>
+        –
+        <div class="doc-md-description">
+          <p>the User to login. May be None in which case the login will fail</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>remember</b>
+        –
+        <div class="doc-md-description">
+          <p>Whether to set the <code>remember</code> flag on the Flask Login operation</p>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -5655,32 +5599,16 @@ to prevent all client side caching from taking place.</p>
       <p>Returns a redirect response to the login view if the permission requirements are
 not met.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>*permissions</code></td>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>a list of permissions required to pass the check</p>
-            </div>
-          </td>
-          <td>
-                <code>()</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>*permissions</b>
+        –
+        <div class="doc-md-description">
+          <p>a list of permissions required to pass the check</p>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -5700,45 +5628,23 @@ not met.</p>
   
       <p>Requires a login with the given permissions and/or user id.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>permissions</code></td>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>list of all permissions required to pass the check</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>user_id</code></td>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>required user to pass the check</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>permissions</b>
+        –
+        <div class="doc-md-description">
+          <p>list of all permissions required to pass the check</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>user_id</b>
+        –
+        <div class="doc-md-description">
+          <p>required user to pass the check</p>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -5760,69 +5666,36 @@ not met.</p>
 <p>An <code>url</code> is valid for a local redirect if it has neither scheme nor netloc defined,
 and its path is one of the given allowed paths.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>url</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>URL to validate</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>allowed_paths</code></td>
-          <td>
-                <code>List[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>]</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>List of allowed paths, only paths contained
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>url</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>URL to validate</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>allowed_paths</b>
+            (<code>List[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>]</code>)
+        –
+        <div class="doc-md-description">
+          <p>List of allowed paths, only paths contained
 will be considered valid.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+        </div>
+      </li>
+  </ul>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-<th>Name</th>        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-<td><code>bool</code></td>          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Whether the <code>url</code> passed validation or not.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+<b>bool</b>        –
+        <div class="doc-md-description">
+          <p>Whether the <code>url</code> passed validation or not.</p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -5916,7 +5789,7 @@ will be considered valid.</p>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking"], "search": "../../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking"], "search": "../../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../../assets/javascripts/bundle.220ee61c.min.js"></script>

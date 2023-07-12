@@ -86,24 +86,6 @@
       
     </div>
     
-      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
-        
-          <aside class="md-banner md-banner--warning">
-            <div class="md-banner__inner md-grid md-typeset">
-              
-  You're not viewing the latest version.
-  <a href="../../../.."> 
-
-
-    <strong>Click here to go to latest.</strong>
-  </a>
-
-            </div>
-            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
-          </aside>
-        
-      </div>
-    
     
       
 
@@ -6070,114 +6052,63 @@ warning) can be overridden using the optional <code>stacklevel</code> parameter.
 provided, a deprecation warning will also be added to the function's docstring by providing or extending its <code>__doc__</code>
 property.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>message</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/string.html#module-string">string</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The message to include in the deprecation warning.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>stacklevel</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Stack level for including the caller of the offending method in the logged warning. Defaults to 1,
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>message</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/string.html#module-string">string</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The message to include in the deprecation warning.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>stacklevel</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Stack level for including the caller of the offending method in the logged warning. Defaults to 1,
 meaning the direct caller of the method. It might make sense to increase this in case of the function call
 happening dynamically from a fixed position to not shadow the real caller (e.g. in case of overridden
 <code>getattr</code> methods).</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>includedoc</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/string.html#module-string">string</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Message about the deprecation to include in the wrapped function's docstring.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>extenddoc</code></td>
-          <td>
-                <code>boolean</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>If True the original docstring of the wrapped function will be extended by the deprecation
+        </div>
+      </li>
+      <li class="field-body">
+        <b>includedoc</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/string.html#module-string">string</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Message about the deprecation to include in the wrapped function's docstring.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>extenddoc</b>
+            (<code>boolean</code>)
+        –
+        <div class="doc-md-description">
+          <p>If True the original docstring of the wrapped function will be extended by the deprecation
 message, if False (default) it will be replaced with the deprecation message.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>since</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/string.html#module-string">string</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Version since when the function was deprecated, must be present for the docstring to get extended.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>since</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/string.html#module-string">string</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Version since when the function was deprecated, must be present for the docstring to get extended.</p>
+        </div>
+      </li>
+  </ul>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-<th>Name</th>        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-<td><code>function</code></td>          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The wrapped function with the deprecation warnings in place.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+<b>function</b>        –
+        <div class="doc-md-description">
+          <p>The wrapped function with the deprecation warnings in place.</p>
+      </div>
+      </li>
+  </ul>
   </div>
 
 </div>
@@ -6242,114 +6173,63 @@ the warning) can be overridden using the optional <code>stacklevel</code> parame
 provided, a deprecation warning will also be added to the function's docstring by providing or extending its <code>__doc__</code>
 property.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>message</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/string.html#module-string">string</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The message to include in the deprecation warning.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>stacklevel</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Stack level for including the caller of the offending method in the logged warning. Defaults to 1,
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>message</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/string.html#module-string">string</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The message to include in the deprecation warning.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>stacklevel</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Stack level for including the caller of the offending method in the logged warning. Defaults to 1,
 meaning the direct caller of the method. It might make sense to increase this in case of the function call
 happening dynamically from a fixed position to not shadow the real caller (e.g. in case of overridden
 <code>getattr</code> methods).</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>extenddoc</code></td>
-          <td>
-                <code>boolean</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>If True the original docstring of the wrapped function will be extended by the deprecation
+        </div>
+      </li>
+      <li class="field-body">
+        <b>extenddoc</b>
+            (<code>boolean</code>)
+        –
+        <div class="doc-md-description">
+          <p>If True the original docstring of the wrapped function will be extended by the deprecation
 message, if False (default) it will be replaced with the deprecation message.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>includedoc</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/string.html#module-string">string</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Message about the deprecation to include in the wrapped function's docstring.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>since</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/string.html#module-string">string</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Version since when the function was deprecated, must be present for the docstring to get extended.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>includedoc</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/string.html#module-string">string</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Message about the deprecation to include in the wrapped function's docstring.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>since</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/string.html#module-string">string</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Version since when the function was deprecated, must be present for the docstring to get extended.</p>
+        </div>
+      </li>
+  </ul>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-<th>Name</th>        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-<td><code>function</code></td>          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The wrapped function with the deprecation warnings in place.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+<b>function</b>        –
+        <div class="doc-md-description">
+          <p>The wrapped function with the deprecation warnings in place.</p>
+      </div>
+      </li>
+  </ul>
   </div>
 
 </div>
@@ -6450,85 +6330,46 @@ message, if False (default) it will be replaced with the deprecation message.</p
 supplied <code>message</code>. The call stack level used (for adding the source location of the offending call to the
 warning) can be overridden using the optional <code>stacklevel</code> parameter.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>message</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/string.html#module-string">string</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The message to include in the deprecation warning.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>stacklevel</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Stack level for including the caller of the offending method in the logged warning. Defaults to 1,
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>message</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/string.html#module-string">string</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The message to include in the deprecation warning.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>stacklevel</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Stack level for including the caller of the offending method in the logged warning. Defaults to 1,
 meaning the direct caller of the method. It might make sense to increase this in case of the function call
 happening dynamically from a fixed position to not shadow the real caller (e.g. in case of overridden
 <code>getattr</code> methods).</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>since</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/string.html#module-string">string</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Version since when the function was deprecated, must be present for the docstring to get extended.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>since</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/string.html#module-string">string</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Version since when the function was deprecated, must be present for the docstring to get extended.</p>
+        </div>
+      </li>
+  </ul>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-<th>Name</th>        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-<td><code>value</code></td>          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The value of the variable with the deprecation warnings in place.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+<b>value</b>        –
+        <div class="doc-md-description">
+          <p>The value of the variable with the deprecation warnings in place.</p>
+      </div>
+      </li>
+  </ul>
   </div>
 
 </div>
@@ -6553,85 +6394,46 @@ happening dynamically from a fixed position to not shadow the real caller (e.g. 
 including the supplied <code>message</code>. The call stack level used (for adding the source location of the offending call to
 the warning) can be overridden using the optional <code>stacklevel</code> parameter.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>message</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/string.html#module-string">string</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The message to include in the deprecation warning.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>stacklevel</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Stack level for including the caller of the offending method in the logged warning. Defaults to 1,
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>message</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/string.html#module-string">string</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The message to include in the deprecation warning.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>stacklevel</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Stack level for including the caller of the offending method in the logged warning. Defaults to 1,
 meaning the direct caller of the method. It might make sense to increase this in case of the function call
 happening dynamically from a fixed position to not shadow the real caller (e.g. in case of overridden
 <code>getattr</code> methods).</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>since</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/string.html#module-string">string</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Version since when the function was deprecated, must be present for the docstring to get extended.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>since</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/string.html#module-string">string</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Version since when the function was deprecated, must be present for the docstring to get extended.</p>
+        </div>
+      </li>
+  </ul>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-<th>Name</th>        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-<td><code>value</code></td>          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The value of the variable with the deprecation warnings in place.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+<b>value</b>        –
+        <div class="doc-md-description">
+          <p>The value of the variable with the deprecation warnings in place.</p>
+      </div>
+      </li>
+  </ul>
   </div>
 
 </div>
@@ -7444,164 +7246,94 @@ not be exactly the same as the interval specified by the user.</p>
    t.start() # prints "Hello World!" 5 times, printing the first one
              # directly, then waiting 1, 2, 3, 4s in between (adaptive interval)</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>interval</code></td>
-          <td>
-                <code>float or callable</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The interval between each <code>function</code> call, in seconds. Can also be a callable
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>interval</b>
+            (<code>float or callable</code>)
+        –
+        <div class="doc-md-description">
+          <p>The interval between each <code>function</code> call, in seconds. Can also be a callable
 returning the interval to use, in case the interval is not static.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>function</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#callable">callable</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The function to call.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>args</code></td>
-          <td>
-                <code>list or tuple</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The arguments for the <code>function</code> call. Defaults to an empty list.</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>kwargs</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The keyword arguments for the <code>function</code> call. Defaults to an empty dict.</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>run_first</code></td>
-          <td>
-                <code>boolean</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>If set to True, the function will be run for the first time <em>before</em> the first wait period.
+        </div>
+      </li>
+      <li class="field-body">
+        <b>function</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#callable">callable</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The function to call.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>args</b>
+            (<code>list or tuple</code>)
+        –
+        <div class="doc-md-description">
+          <p>The arguments for the <code>function</code> call. Defaults to an empty list.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>kwargs</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The keyword arguments for the <code>function</code> call. Defaults to an empty dict.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>run_first</b>
+            (<code>boolean</code>)
+        –
+        <div class="doc-md-description">
+          <p>If set to True, the function will be run for the first time <em>before</em> the first wait period.
 If set to False (the default), the function will be run for the first time <em>after</em> the first wait period.</p>
-            </div>
-          </td>
-          <td>
-                <code>False</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>condition</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#callable">callable</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Condition that needs to be True for loop to continue. Defaults to <code>lambda: True</code>.</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>on_condition_false</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#callable">callable</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Callback to call when the timer finishes due to condition becoming false. Will
+        </div>
+      </li>
+      <li class="field-body">
+        <b>condition</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#callable">callable</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Condition that needs to be True for loop to continue. Defaults to <code>lambda: True</code>.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>on_condition_false</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#callable">callable</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Callback to call when the timer finishes due to condition becoming false. Will
 be called before the <code>on_finish</code> callback.</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>on_cancelled</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#callable">callable</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Callback to call when the timer finishes due to being cancelled. Will be called
+        </div>
+      </li>
+      <li class="field-body">
+        <b>on_cancelled</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#callable">callable</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Callback to call when the timer finishes due to being cancelled. Will be called
 before the <code>on_finish</code> callback.</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>on_finish</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#callable">callable</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Callback to call when the timer finishes, either due to being cancelled or since
+        </div>
+      </li>
+      <li class="field-body">
+        <b>on_finish</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#callable">callable</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Callback to call when the timer finishes, either due to being cancelled or since
 the condition became false.</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>daemon</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>daemon flag to set on underlying thread.</p>
-            </div>
-          </td>
-          <td>
-                <code>True</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>daemon</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>daemon flag to set on underlying thread.</p>
+        </div>
+      </li>
+  </ul>
 
 
 
@@ -7913,118 +7645,66 @@ between runs) by calling the :func:<code>cancel</code> method. Resetting the cou
    t.reset()
    print("Reset at {}").format(time.time())</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>interval</code></td>
-          <td>
-                <code>float or callable</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The interval before calling <code>function</code>, in seconds. Can also be a callable
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>interval</b>
+            (<code>float or callable</code>)
+        –
+        <div class="doc-md-description">
+          <p>The interval before calling <code>function</code>, in seconds. Can also be a callable
 returning the interval to use, in case the interval is not static.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>function</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#callable">callable</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The function to call.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>args</code></td>
-          <td>
-                <code>list or tuple</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The arguments for the <code>function</code> call. Defaults to an empty list.</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>kwargs</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The keyword arguments for the <code>function</code> call. Defaults to an empty dict.</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>on_cancelled</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#callable">callable</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Callback to call when the timer finishes due to being cancelled.</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>on_reset</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#callable">callable</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Callback to call when the timer is reset.</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>daemon</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>daemon flag to set on underlying thread.</p>
-            </div>
-          </td>
-          <td>
-                <code>True</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>function</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#callable">callable</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The function to call.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>args</b>
+            (<code>list or tuple</code>)
+        –
+        <div class="doc-md-description">
+          <p>The arguments for the <code>function</code> call. Defaults to an empty list.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>kwargs</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The keyword arguments for the <code>function</code> call. Defaults to an empty dict.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>on_cancelled</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#callable">callable</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Callback to call when the timer finishes due to being cancelled.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>on_reset</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#callable">callable</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Callback to call when the timer is reset.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>daemon</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>daemon flag to set on underlying thread.</p>
+        </div>
+      </li>
+  </ul>
 
 
 
@@ -8729,68 +8409,35 @@ returning the interval to use, in case the interval is not static.</p>
 <p>In the current implementation this uses json.loads and - if the file is found to be
 compressed - zlib.decompress.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>filename</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The file to deserialize from</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>encoding</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The encoding to use for the file, defaults to utf-8</p>
-            </div>
-          </td>
-          <td>
-                <code>&#39;utf-8&#39;</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>filename</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The file to deserialize from</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>encoding</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The encoding to use for the file, defaults to utf-8</p>
+        </div>
+      </li>
+  </ul>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The deserialized data structure</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+        –
+        <div class="doc-md-description">
+          <p>The deserialized data structure</p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -8819,68 +8466,35 @@ True
 False
 </code></pre></div>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>a</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The dictionary to check for the keys from <code>b</code>.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>b</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The dictionary whose keys to check <code>a</code> for.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>a</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The dictionary to check for the keys from <code>b</code>.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>b</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The dictionary whose keys to check <code>a</code> for.</p>
+        </div>
+      </li>
+  </ul>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-<th>Name</th>        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-<td><code>boolean</code></td>          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>True if all keys found in <code>b</code> are also present in <code>a</code>, False otherwise.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+<b>boolean</b>        –
+        <div class="doc-md-description">
+          <p>True if all keys found in <code>b</code> are also present in <code>a</code>, False otherwise.</p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -8921,71 +8535,38 @@ Traceback (most recent call last):
 AssertionError
 </code></pre></div>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>dictionary</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The dictionary to filter</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>filter_function</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#callable">callable</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The filter function to apply, called with key and
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>dictionary</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The dictionary to filter</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>filter_function</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#callable">callable</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The filter function to apply, called with key and
 value of an entry in the dictionary, must return <code>True</code> for values to
 keep and <code>False</code> for values to strip</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+        </div>
+      </li>
+  </ul>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-<th>Name</th>        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-<td><code>dict</code></td>          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>A shallow copy of the provided dictionary, stripped of the key-value-pairs
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+<b>dict</b>        –
+        <div class="doc-md-description">
+          <p>A shallow copy of the provided dictionary, stripped of the key-value-pairs
 for which the <code>filter_function</code> returned <code>False</code></p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -9012,58 +8593,30 @@ for which the <code>filter_function</code> returned <code>False</code></p>
     &gt;&gt;&gt; len(shared) == len(expected)
     True</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>dictionary</code></td>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>the dictionary to flatten</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>prefix</code></td>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>the key prefix, initially an empty string</p>
-            </div>
-          </td>
-          <td>
-                <code>&#39;&#39;</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>separator</code></td>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>key separator, '.' by default</p>
-            </div>
-          </td>
-          <td>
-                <code>&#39;.&#39;</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>dictionary</b>
+        –
+        <div class="doc-md-description">
+          <p>the dictionary to flatten</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>prefix</b>
+        –
+        <div class="doc-md-description">
+          <p>the key prefix, initially an empty string</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>separator</b>
+        –
+        <div class="doc-md-description">
+          <p>key separator, '.' by default</p>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -9115,96 +8668,51 @@ False
 True
 </code></pre></div>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>a</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The dictionary to merge <code>b</code> into</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>b</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The dictionary to merge into <code>a</code></p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>leaf_merger</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#callable">callable</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>An optional callable to use to merge leaves (non-dict values)</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>in_place</code></td>
-          <td>
-                <code>boolean</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>If set to True, a will be merged with b in place, meaning a will be modified</p>
-            </div>
-          </td>
-          <td>
-                <code>False</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>a</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The dictionary to merge <code>b</code> into</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>b</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The dictionary to merge into <code>a</code></p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>leaf_merger</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#callable">callable</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>An optional callable to use to merge leaves (non-dict values)</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>in_place</b>
+            (<code>boolean</code>)
+        –
+        <div class="doc-md-description">
+          <p>If set to True, a will be merged with b in place, meaning a will be modified</p>
+        </div>
+      </li>
+  </ul>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-<th>Name</th>        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-<td><code>dict</code></td>          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p><code>b</code> deep-merged into <code>a</code></p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+<b>dict</b>        –
+        <div class="doc-md-description">
+          <p><code>b</code> deep-merged into <code>a</code></p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -9234,69 +8742,36 @@ True
 True
 </code></pre></div>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>source</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Source dictionary</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>target</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Dictionary to compare to source dictionary and derive diff for</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>source</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Source dictionary</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>target</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Dictionary to compare to source dictionary and derive diff for</p>
+        </div>
+      </li>
+  </ul>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-<th>Name</th>        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-<td><code>dict</code></td>          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The minimal dictionary to deep merge on <code>source</code> to get the same result
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+<b>dict</b>        –
+        <div class="doc-md-description">
+          <p>The minimal dictionary to deep merge on <code>source</code> to get the same result
 as deep merging <code>target</code> on <code>source</code>.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -9326,47 +8801,25 @@ True
 True
 </code></pre></div>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>a</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The dictionary to clean against <code>b</code>.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>b</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The dictionary containing the key structure to clean from <code>a</code>.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>a</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The dictionary to clean against <code>b</code>.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>b</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The dictionary containing the key structure to clean from <code>a</code>.</p>
+        </div>
+      </li>
+  </ul>
 
 <details class="results" open>
   <summary>Results</summary>
@@ -9406,54 +8859,27 @@ True
   
       <p>Filter predicate to test if a line contains non ASCII characters.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>line</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/string.html#module-string">string</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The line to test</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>line</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/string.html#module-string">string</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The line to test</p>
+        </div>
+      </li>
+  </ul>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-<th>Name</th>        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-<td><code>boolean</code></td>          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>True if the line contains non ASCII characters, False otherwise.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+<b>boolean</b>        –
+        <div class="doc-md-description">
+          <p>True if the line contains non ASCII characters, False otherwise.</p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -9521,68 +8947,35 @@ True
   
       <p>Check if the file has a BOM and if so return it.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>filename</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The file to check.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>encoding</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The encoding to check for.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>filename</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The file to check.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>encoding</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The encoding to check for.</p>
+        </div>
+      </li>
+  </ul>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>(bytes) the BOM or None if there is no BOM.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+        –
+        <div class="doc-md-description">
+          <p>(bytes) the BOM or None if there is no BOM.</p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -9602,54 +8995,27 @@ True
   
       <p>Retrieves the class object for a given fully qualified class name.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>name</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/string.html#module-string">string</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The fully qualified class name, including all modules separated by <code>.</code></p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>name</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/string.html#module-string">string</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The fully qualified class name, including all modules separated by <code>.</code></p>
+        </div>
+      </li>
+  </ul>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-<th>Name</th>        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-<td><code>type</code></td>          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The class if it could be found.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+<b>type</b>        –
+        <div class="doc-md-description">
+          <p>The class if it could be found.</p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -9670,26 +9036,15 @@ True
       <p>Retrieves the exception info of the last raised exception and returns it as a string formatted as
 <code>&lt;exception type&gt;: &lt;exception message&gt; @ &lt;source file&gt;:&lt;function name&gt;:&lt;line number&gt;</code>.</p>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-<th>Name</th>        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-<td><code>string</code></td>          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The formatted exception information.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+<b>string</b>        –
+        <div class="doc-md-description">
+          <p>The formatted exception information.</p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -9709,54 +9064,27 @@ True
   
       <p>Formats a datetime instance as "YYYY-mm-dd HH:MM" and returns the resulting string.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>d</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/datetime.html#module-datetime">datetime</a>.<a class="autorefs autorefs-external" title="datetime.datetime" href="https://docs.python.org/3/library/datetime.html#datetime.datetime">datetime</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The datetime instance to format</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>d</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/datetime.html#module-datetime">datetime</a>.<a class="autorefs autorefs-external" title="datetime.datetime" href="https://docs.python.org/3/library/datetime.html#datetime.datetime">datetime</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The datetime instance to format</p>
+        </div>
+      </li>
+  </ul>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-<th>Name</th>        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-<td><code>string</code></td>          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The datetime formatted as "YYYY-mm-dd HH:MM"</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+<b>string</b>        –
+        <div class="doc-md-description">
+          <p>The datetime formatted as "YYYY-mm-dd HH:MM"</p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -9778,54 +9106,27 @@ True
 K(ilo)B(ytes), M(ega)B(ytes), G(iga)B(ytes) and T(era)B(ytes), with one decimal place.</p>
 <p>Based on <a href="http://stackoverflow.com/a/1094933/2028598">http://stackoverflow.com/a/1094933/2028598</a></p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>num</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The byte count to format</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>num</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The byte count to format</p>
+        </div>
+      </li>
+  </ul>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-<th>Name</th>        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-<td><code>string</code></td>          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The formatted byte count.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+<b>string</b>        –
+        <div class="doc-md-description">
+          <p>The formatted byte count.</p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -9845,54 +9146,27 @@ K(ilo)B(ytes), M(ega)B(ytes), G(iga)B(ytes) and T(era)B(ytes), with one decimal 
   
       <p>Formats a timedelta instance as "HH:MM:ss" and returns the resulting string.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>d</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/datetime.html#module-datetime">datetime</a>.<a class="autorefs autorefs-external" title="datetime.timedelta" href="https://docs.python.org/3/library/datetime.html#datetime.timedelta">timedelta</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The timedelta instance to format</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>d</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/datetime.html#module-datetime">datetime</a>.<a class="autorefs autorefs-external" title="datetime.timedelta" href="https://docs.python.org/3/library/datetime.html#datetime.timedelta">timedelta</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The timedelta instance to format</p>
+        </div>
+      </li>
+  </ul>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-<th>Name</th>        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-<td><code>string</code></td>          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The timedelta formatted as "HH:MM:ss"</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+<b>string</b>        –
+        <div class="doc-md-description">
+          <p>The timedelta formatted as "HH:MM:ss"</p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -9913,53 +9187,26 @@ K(ilo)B(ytes), M(ega)B(ytes), G(iga)B(ytes) and T(era)B(ytes), with one decimal 
       <p>Returns the fully qualified class name for an object.</p>
 <p>Based on <a href="https://stackoverflow.com/a/2020083">https://stackoverflow.com/a/2020083</a></p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>o</code></td>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>the object of which to determine the fqcn</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>o</b>
+        –
+        <div class="doc-md-description">
+          <p>the object of which to determine the fqcn</p>
+        </div>
+      </li>
+  </ul>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>(str) the fqcn of the object</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+        –
+        <div class="doc-md-description">
+          <p>(str) the fqcn of the object</p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -9995,47 +9242,25 @@ K(ilo)B(ytes), M(ega)B(ytes), G(iga)B(ytes) and T(era)B(ytes), with one decimal 
   
       <p>Determines if the provided <code>filename</code> has one of the supplied <code>extensions</code>. The check is done case-insensitive.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>filename</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/string.html#module-string">string</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The file name to check against the extensions.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>extensions</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The extensions to check against, a list of strings</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>filename</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/string.html#module-string">string</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The file name to check against the extensions.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>extensions</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The extensions to check against, a list of strings</p>
+        </div>
+      </li>
+  </ul>
 
 <details class="return" open>
   <summary>Return</summary>
@@ -10217,75 +9442,41 @@ supported by json.dumps by default.</p>
 <p>This is not thread-safe, if concurrent access is required, the caller needs to ensure
 that only one thread is writing to the file at any given time.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>filename</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The file to write to</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>data</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#object">object</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The data to serialize</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>encoding</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The encoding to use for the file</p>
-            </div>
-          </td>
-          <td>
-                <code>&#39;utf-8&#39;</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>compressed</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Whether to compress the data before writing it to the file</p>
-            </div>
-          </td>
-          <td>
-                <code>True</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>filename</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The file to write to</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>data</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#object">object</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The data to serialize</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>encoding</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The encoding to use for the file</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>compressed</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Whether to compress the data before writing it to the file</p>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -10385,83 +9576,44 @@ that only one thread is writing to the file at any given time.</p>
   
       <p>Make sure <code>s_or_u</code> is a byte string.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>s_or_u</code></td>
-          <td>
-                <code>str or bytes</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The value to convert</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>encoding</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>encoding to use if necessary, see :meth:<code>python:str.encode</code></p>
-            </div>
-          </td>
-          <td>
-                <code>&#39;utf-8&#39;</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>errors</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>error handling to use if necessary, see :meth:<code>python:str.encode</code></p>
-            </div>
-          </td>
-          <td>
-                <code>&#39;strict&#39;</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>s_or_u</b>
+            (<code>str or bytes</code>)
+        –
+        <div class="doc-md-description">
+          <p>The value to convert</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>encoding</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>encoding to use if necessary, see :meth:<code>python:str.encode</code></p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>errors</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>error handling to use if necessary, see :meth:<code>python:str.encode</code></p>
+        </div>
+      </li>
+  </ul>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-<th>Name</th>        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-<td><code>bytes</code></td>          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#bytes">bytes</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>converted bytes.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+<b>bytes</b>(            <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#bytes">bytes</a></code>
+)        –
+        <div class="doc-md-description">
+          <p>converted bytes.</p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -10481,83 +9633,44 @@ that only one thread is writing to the file at any given time.</p>
   
       <p>Make sure <code>s_or_u</code> is a string (str).</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>s_or_u</code></td>
-          <td>
-                <code>str or bytes</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The value to convert</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>encoding</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>encoding to use if necessary, see :meth:<code>python:bytes.decode</code></p>
-            </div>
-          </td>
-          <td>
-                <code>&#39;utf-8&#39;</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>errors</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>error handling to use if necessary, see :meth:<code>python:bytes.decode</code></p>
-            </div>
-          </td>
-          <td>
-                <code>&#39;strict&#39;</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>s_or_u</b>
+            (<code>str or bytes</code>)
+        –
+        <div class="doc-md-description">
+          <p>The value to convert</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>encoding</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>encoding to use if necessary, see :meth:<code>python:bytes.decode</code></p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>errors</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>error handling to use if necessary, see :meth:<code>python:bytes.decode</code></p>
+        </div>
+      </li>
+  </ul>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-<th>Name</th>        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-<td><code>str</code></td>          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>converted string.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+<b>str</b>(            <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
+)        –
+        <div class="doc-md-description">
+          <p>converted string.</p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -10699,7 +9812,7 @@ that only one thread is writing to the file at any given time.</p>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking"], "search": "../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking"], "search": "../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.220ee61c.min.js"></script>

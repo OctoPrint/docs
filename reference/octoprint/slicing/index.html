@@ -86,24 +86,6 @@
       
     </div>
     
-      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
-        
-          <aside class="md-banner md-banner--warning">
-            <div class="md-banner__inner md-grid md-typeset">
-              
-  You're not viewing the latest version.
-  <a href="../../../.."> 
-
-
-    <strong>Click here to go to latest.</strong>
-  </a>
-
-            </div>
-            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
-          </aside>
-        
-      </div>
-    
     
       
 
@@ -5234,48 +5216,26 @@
   
       <p>The :class:<code>SlicingManager</code> is responsible for managing available slicers and slicing profiles.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>profile_path</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Absolute path to the base folder where all slicing profiles are stored.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>printer_profile_manager</code></td>
-          <td>
-                <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.printer">printer</span>.<span title="octoprint.util.printer.profile">profile</span>.<span title="octoprint.util.printer.profile.PrinterProfileManager">PrinterProfileManager</span></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>:class:<code>~octoprint.printer.profile.PrinterProfileManager</code>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>profile_path</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Absolute path to the base folder where all slicing profiles are stored.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>printer_profile_manager</b>
+            (<code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.printer">printer</span>.<span title="octoprint.util.printer.profile">profile</span>.<span title="octoprint.util.printer.profile.PrinterProfileManager">PrinterProfileManager</span></code>)
+        –
+        <div class="doc-md-description">
+          <p>:class:<code>~octoprint.printer.profile.PrinterProfileManager</code>
 instance to use for accessing available printer profiles, most importantly the currently selected one.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+        </div>
+      </li>
+  </ul>
 
 
 
@@ -5306,26 +5266,15 @@ instance to use for accessing available printer profiles, most importantly the c
   <div class="doc doc-contents ">
   
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>(list of str) Identifiers of all available configured slicers.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+        –
+        <div class="doc-md-description">
+          <p>(list of str) Identifiers of all available configured slicers.</p>
+      </div>
+      </li>
+  </ul>
   </div>
 
 </div>
@@ -5348,27 +5297,16 @@ instance to use for accessing available printer profiles, most importantly the c
   
       <p>Retrieves the default slicer.</p>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>(str) The identifier of the default slicer or <code>None</code> if the default slicer is not registered in the
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+        –
+        <div class="doc-md-description">
+          <p>(str) The identifier of the default slicer or <code>None</code> if the default slicer is not registered in the
 system.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+      </div>
+      </li>
+  </ul>
   </div>
 
 </div>
@@ -5390,26 +5328,15 @@ system.</p>
   <div class="doc doc-contents ">
   
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>(list of str) Identifiers of all available slicers.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+        –
+        <div class="doc-md-description">
+          <p>(list of str) Identifiers of all available slicers.</p>
+      </div>
+      </li>
+  </ul>
   </div>
 
 </div>
@@ -5431,26 +5358,15 @@ system.</p>
   <div class="doc doc-contents ">
   
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>(boolean) True if there is at least one configured slicer available, False otherwise.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+        –
+        <div class="doc-md-description">
+          <p>(boolean) True if there is at least one configured slicer available, False otherwise.</p>
+      </div>
+      </li>
+  </ul>
   </div>
 
 </div>
@@ -5489,102 +5405,55 @@ system.</p>
 <p>If <code>require_configured</code> is set to True (default is False), only will return the profiles if the <code>slicer</code>
 is already configured, otherwise a :class:<code>SlicerNotConfigured</code> exception will be raised.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>slicer</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Identifier of the slicer for which to retrieve all slicer profiles</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>require_configured</code></td>
-          <td>
-                <code>boolean</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Whether to require the slicer <code>slicer</code> to be already configured (True)
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>slicer</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Identifier of the slicer for which to retrieve all slicer profiles</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>require_configured</b>
+            (<code>boolean</code>)
+        –
+        <div class="doc-md-description">
+          <p>Whether to require the slicer <code>slicer</code> to be already configured (True)
 or not (False, default). If False and the slicer is not yet configured, a :class:<code>~octoprint.slicing.exceptions.SlicerNotConfigured</code>
 exception will be raised.</p>
-            </div>
-          </td>
-          <td>
-                <code>False</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+        </div>
+      </li>
+  </ul>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>dict of SlicingProfile: A dict of all :class:<code>SlicingProfile</code> instances available for the slicer <code>slicer</code>, mapped by the identifier.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+        –
+        <div class="doc-md-description">
+          <p>dict of SlicingProfile: A dict of all :class:<code>SlicingProfile</code> instances available for the slicer <code>slicer</code>, mapped by the identifier.</p>
+      </div>
+      </li>
+  </ul>
 
-  <p><strong>Raises:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-                <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.UnknownSlicer">UnknownSlicer</span></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The slicer <code>slicer</code> is unknown.</p>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-                <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.SlicerNotConfigured">SlicerNotConfigured</span></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The slicer <code>slicer</code> is not configured and <code>require_configured</code> was True.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Raises:</p>
+  <ul>
+      <li class="field-body">
+            <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.UnknownSlicer">UnknownSlicer</span></code>
+          –
+        <div class="doc-md-description">
+          <p>The slicer <code>slicer</code> is unknown.</p>
+        </div>
+      </li>
+      <li class="field-body">
+            <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.SlicerNotConfigured">SlicerNotConfigured</span></code>
+          –
+        <div class="doc-md-description">
+          <p>The slicer <code>slicer</code> is not configured and <code>require_configured</code> was True.</p>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -5604,83 +5473,44 @@ exception will be raised.</p>
   
       <p>Cancels the slicing job on slicer <code>slicer_name</code> from <code>source_path</code> to <code>dest_path</code>.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>slicer_name</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Identifier of the slicer on which to cancel the job.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>source_path</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The absolute path to the source file being sliced.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>dest_path</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The absolute path to the destination file being sliced to.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>slicer_name</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Identifier of the slicer on which to cancel the job.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>source_path</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The absolute path to the source file being sliced.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>dest_path</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The absolute path to the destination file being sliced to.</p>
+        </div>
+      </li>
+  </ul>
 
-  <p><strong>Raises:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-                <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.UnknownSlicer">UnknownSlicer</span></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The slicer specified via <code>slicer_name</code> is unknown.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Raises:</p>
+  <ul>
+      <li class="field-body">
+            <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.UnknownSlicer">UnknownSlicer</span></code>
+          –
+        <div class="doc-md-description">
+          <p>The slicer specified via <code>slicer_name</code> is unknown.</p>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -5701,79 +5531,43 @@ exception will be raised.</p>
       <p>Deletes the profile <code>name</code> for the specified <code>slicer</code>.</p>
 <p>If the profile does not exist, nothing will happen.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>slicer</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Identifier of the slicer for which to delete the profile.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>name</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Identifier of the profile to delete.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>slicer</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Identifier of the slicer for which to delete the profile.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>name</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Identifier of the profile to delete.</p>
+        </div>
+      </li>
+  </ul>
 
-  <p><strong>Raises:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-                <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.UnknownSlicer">UnknownSlicer</span></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The slicer <code>slicer</code> is unknown.</p>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-                <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.CouldNotDeleteProfile">CouldNotDeleteProfile</span></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>There was an error while deleting the profile.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Raises:</p>
+  <ul>
+      <li class="field-body">
+            <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.UnknownSlicer">UnknownSlicer</span></code>
+          –
+        <div class="doc-md-description">
+          <p>The slicer <code>slicer</code> is unknown.</p>
+        </div>
+      </li>
+      <li class="field-body">
+            <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.CouldNotDeleteProfile">CouldNotDeleteProfile</span></code>
+          –
+        <div class="doc-md-description">
+          <p>There was an error while deleting the profile.</p>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -5795,114 +5589,61 @@ exception will be raised.</p>
 <p>If <code>must_exist</code> is set to True (defaults to False) a :class:<code>UnknownProfile</code> exception will be raised if the
 profile doesn't exist yet.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>slicer</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Identifier of the slicer to which the profile belongs to.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>name</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Identifier of the profile for which to retrieve the path.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>must_exist</code></td>
-          <td>
-                <code>boolean</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Whether the path must exist (True) or not (False, default).</p>
-            </div>
-          </td>
-          <td>
-                <code>False</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>slicer</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Identifier of the slicer to which the profile belongs to.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>name</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Identifier of the profile for which to retrieve the path.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>must_exist</b>
+            (<code>boolean</code>)
+        –
+        <div class="doc-md-description">
+          <p>Whether the path must exist (True) or not (False, default).</p>
+        </div>
+      </li>
+  </ul>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-<th>Name</th>        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-<td><code>str</code></td>          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The absolute path to the profile identified by <code>name</code> for slicer <code>slicer</code>.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+<b>str</b>        –
+        <div class="doc-md-description">
+          <p>The absolute path to the profile identified by <code>name</code> for slicer <code>slicer</code>.</p>
+      </div>
+      </li>
+  </ul>
 
-  <p><strong>Raises:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-                <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.UnknownSlicer">UnknownSlicer</span></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The slicer <code>slicer</code> is unknown.</p>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-                <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.UnknownProfile">UnknownProfile</span></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The profile named <code>name</code> doesn't exist and <code>must_exist</code> was True.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Raises:</p>
+  <ul>
+      <li class="field-body">
+            <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.UnknownSlicer">UnknownSlicer</span></code>
+          –
+        <div class="doc-md-description">
+          <p>The slicer <code>slicer</code> is unknown.</p>
+        </div>
+      </li>
+      <li class="field-body">
+            <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.UnknownProfile">UnknownProfile</span></code>
+          –
+        <div class="doc-md-description">
+          <p>The profile named <code>name</code> doesn't exist and <code>must_exist</code> was True.</p>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -5923,80 +5664,44 @@ profile doesn't exist yet.</p>
       <p>Retrieves the slicer named <code>slicer</code>. If <code>require_configured</code> is set to True (the default) an exception
 will be raised if the slicer is not yet configured.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>slicer</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Identifier of the slicer to return</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>require_configured</code></td>
-          <td>
-                <code>boolean</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Whether to raise an exception if the slicer has not been configured yet (True,
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>slicer</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Identifier of the slicer to return</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>require_configured</b>
+            (<code>boolean</code>)
+        –
+        <div class="doc-md-description">
+          <p>Whether to raise an exception if the slicer has not been configured yet (True,
 the default), or also return an unconfigured slicer (False).</p>
-            </div>
-          </td>
-          <td>
-                <code>True</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+        </div>
+      </li>
+  </ul>
 
-  <p><strong>Raises:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-                <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.UnknownSlicer">UnknownSlicer</span></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The <code>slicer</code> is unknown.</p>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-                <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.SlicerNotConfigured">SlicerNotConfigured</span></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The <code>slicer</code> is not yet configured and <code>require_configured</code> was set to True.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Raises:</p>
+  <ul>
+      <li class="field-body">
+            <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.UnknownSlicer">UnknownSlicer</span></code>
+          –
+        <div class="doc-md-description">
+          <p>The <code>slicer</code> is unknown.</p>
+        </div>
+      </li>
+      <li class="field-body">
+            <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.SlicerNotConfigured">SlicerNotConfigured</span></code>
+          –
+        <div class="doc-md-description">
+          <p>The <code>slicer</code> is not yet configured and <code>require_configured</code> was set to True.</p>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -6016,76 +5721,38 @@ the default), or also return an unconfigured slicer (False).</p>
   
       <p>Retrieves the path where the profiles for slicer <code>slicer</code> are stored.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>slicer</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Identifier of the slicer for which to retrieve the path.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>slicer</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Identifier of the slicer for which to retrieve the path.</p>
+        </div>
+      </li>
+  </ul>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-<th>Name</th>        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-<td><code>str</code></td>          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The absolute path to the folder where the slicer's profiles are stored.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+<b>str</b>        –
+        <div class="doc-md-description">
+          <p>The absolute path to the folder where the slicer's profiles are stored.</p>
+      </div>
+      </li>
+  </ul>
 
-  <p><strong>Raises:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-                <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.UnknownSlicer">UnknownSlicer</span></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The slicer <code>slicer</code> is unknown.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Raises:</p>
+  <ul>
+      <li class="field-body">
+            <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.UnknownSlicer">UnknownSlicer</span></code>
+          –
+        <div class="doc-md-description">
+          <p>The slicer <code>slicer</code> is unknown.</p>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -6127,69 +5794,41 @@ due to an :class:<code>IOError</code> <code>None</code> will be returned instead
 <p>If <code>require_configured</code> is True (the default) a :class:<code>SlicerNotConfigured</code> exception will be raised
 if the indicated <code>slicer</code> has not yet been configured.</p>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-<th>Name</th>        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-<td><code>SlicingProfile</code></td>          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The requested slicing profile or None if it could not be loaded.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+<b>SlicingProfile</b>        –
+        <div class="doc-md-description">
+          <p>The requested slicing profile or None if it could not be loaded.</p>
+      </div>
+      </li>
+  </ul>
 
-  <p><strong>Raises:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-                <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.UnknownSlicer">UnknownSlicer</span></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The slicer specified via <code>slicer</code> is unknown.</p>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-                <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.SlicerNotConfigured">SlicerNotConfigured</span></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The slicer specified via <code>slicer</code> has not yet been configured and
+  <p>Raises:</p>
+  <ul>
+      <li class="field-body">
+            <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.UnknownSlicer">UnknownSlicer</span></code>
+          –
+        <div class="doc-md-description">
+          <p>The slicer specified via <code>slicer</code> is unknown.</p>
+        </div>
+      </li>
+      <li class="field-body">
+            <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.SlicerNotConfigured">SlicerNotConfigured</span></code>
+          –
+        <div class="doc-md-description">
+          <p>The slicer specified via <code>slicer</code> has not yet been configured and
 <code>require_configured</code> was True.</p>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-                <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.UnknownProfile">UnknownProfile</span></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The profile for slicer <code>slicer</code> named <code>name</code> does not exist.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+        </div>
+      </li>
+      <li class="field-body">
+            <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.UnknownProfile">UnknownProfile</span></code>
+          –
+        <div class="doc-md-description">
+          <p>The profile for slicer <code>slicer</code> named <code>name</code> does not exist.</p>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -6209,54 +5848,27 @@ if the indicated <code>slicer</code> has not yet been configured.</p>
   
       <p>Retrieves the last modification date of <code>slicer</code>'s profiles.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>slicer</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>the slicer for which to retrieve the last modification date</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>slicer</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>the slicer for which to retrieve the last modification date</p>
+        </div>
+      </li>
+  </ul>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>(float) the time stamp of the last modification of the slicer's profiles</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+        –
+        <div class="doc-md-description">
+          <p>(float) the time stamp of the last modification of the slicer's profiles</p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -6303,183 +5915,103 @@ the profile data as the :attr:<code>~SlicingProfile.data</code> attribute.</p>
 <p>.. note::</p>
 <p>If the profile is the first profile to be saved for the slicer, it will automatically be marked as default.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>slicer</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Identifier of the slicer for which to save the <code>profile</code>.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>name</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Identifier under which to save the <code>profile</code>.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>profile</code></td>
-          <td>
-                <code>SlicingProfile or dict</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The :class:<code>SlicingProfile</code> or a :class:<code>dict</code> containing the profile
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>slicer</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Identifier of the slicer for which to save the <code>profile</code>.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>name</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Identifier under which to save the <code>profile</code>.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>profile</b>
+            (<code>SlicingProfile or dict</code>)
+        –
+        <div class="doc-md-description">
+          <p>The :class:<code>SlicingProfile</code> or a :class:<code>dict</code> containing the profile
 data of the profile the save.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>overrides</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Overrides to apply to the <code>profile</code> before saving it.</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>allow_overwrite</code></td>
-          <td>
-                <code>boolean</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>If True (default) if a profile for the same <code>slicer</code> of the same <code>name</code>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>overrides</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Overrides to apply to the <code>profile</code> before saving it.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>allow_overwrite</b>
+            (<code>boolean</code>)
+        –
+        <div class="doc-md-description">
+          <p>If True (default) if a profile for the same <code>slicer</code> of the same <code>name</code>
 already exists, it will be overwritten. Otherwise an exception will be thrown.</p>
-            </div>
-          </td>
-          <td>
-                <code>True</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>display_name</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The name to display to the user for the profile.</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>description</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>A description of the profile.</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>display_name</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The name to display to the user for the profile.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>description</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>A description of the profile.</p>
+        </div>
+      </li>
+  </ul>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-<th>Name</th>        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-<td><code>SlicingProfile</code></td>          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The saved profile (including the applied overrides).</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+<b>SlicingProfile</b>        –
+        <div class="doc-md-description">
+          <p>The saved profile (including the applied overrides).</p>
+      </div>
+      </li>
+  </ul>
 
-  <p><strong>Raises:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/exceptions.html#ValueError">ValueError</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The supplied <code>profile</code> is neither a :class:<code>SlicingProfile</code> nor a :class:<code>dict</code>.</p>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-                <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.UnknownSlicer">UnknownSlicer</span></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The slicer <code>slicer</code> is unknown.</p>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-                <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.ProfileAlreadyExists">ProfileAlreadyExists</span></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>A profile with name <code>name</code> already exists for <code>slicer</code> and <code>allow_overwrite</code> is
+  <p>Raises:</p>
+  <ul>
+      <li class="field-body">
+            <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/exceptions.html#ValueError">ValueError</a></code>
+          –
+        <div class="doc-md-description">
+          <p>The supplied <code>profile</code> is neither a :class:<code>SlicingProfile</code> nor a :class:<code>dict</code>.</p>
+        </div>
+      </li>
+      <li class="field-body">
+            <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.UnknownSlicer">UnknownSlicer</span></code>
+          –
+        <div class="doc-md-description">
+          <p>The slicer <code>slicer</code> is unknown.</p>
+        </div>
+      </li>
+      <li class="field-body">
+            <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.ProfileAlreadyExists">ProfileAlreadyExists</span></code>
+          –
+        <div class="doc-md-description">
+          <p>A profile with name <code>name</code> already exists for <code>slicer</code> and <code>allow_overwrite</code> is
 False.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -6499,127 +6031,76 @@ False.</p>
   
       <p>Sets the given profile as default profile for the slicer.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>slicer</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Identifier of the slicer for which to set the default
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>slicer</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Identifier of the slicer for which to set the default
 profile.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>name</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Identifier of the profile to set as default.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>require_configured</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Whether the slicer needs to be configured
+        </div>
+      </li>
+      <li class="field-body">
+        <b>name</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Identifier of the profile to set as default.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>require_configured</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Whether the slicer needs to be configured
 for the action to succeed. Defaults to false. Will raise a
 SlicerNotConfigured error if true and the slicer has not been
 configured yet.</p>
-            </div>
-          </td>
-          <td>
-                <code>False</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>require_exists</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Whether the profile is required to exist in
+        </div>
+      </li>
+      <li class="field-body">
+        <b>require_exists</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Whether the profile is required to exist in
 order to be set as default. Defaults to true. Will raise a
 UnknownProfile error if true and the profile is unknown.</p>
-            </div>
-          </td>
-          <td>
-                <code>True</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+        </div>
+      </li>
+  </ul>
 
-  <p><strong>Raises:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-                <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.UnknownSlicer">UnknownSlicer</span></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The slicer <code>slicer</code>
+  <p>Raises:</p>
+  <ul>
+      <li class="field-body">
+            <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.UnknownSlicer">UnknownSlicer</span></code>
+          –
+        <div class="doc-md-description">
+          <p>The slicer <code>slicer</code>
 is unknown</p>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-                <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.SlicerNotConfigured">SlicerNotConfigured</span></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The slicer <code>slicer</code>
+        </div>
+      </li>
+      <li class="field-body">
+            <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.SlicerNotConfigured">SlicerNotConfigured</span></code>
+          –
+        <div class="doc-md-description">
+          <p>The slicer <code>slicer</code>
 has not yet been configured and <code>require_configured</code> was true.</p>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-                <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.UnknownProfile">UnknownProfile</span></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The profile <code>name</code>
+        </div>
+      </li>
+      <li class="field-body">
+            <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.UnknownProfile">UnknownProfile</span></code>
+          –
+        <div class="doc-md-description">
+          <p>The profile <code>name</code>
 was unknown for slicer <code>slicer</code> and <code>require_exists</code> was
 true.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -6662,240 +6143,138 @@ via the keyword argument <code>printer_profile_id</code>.</p>
 <p>If the <code>source_path</code> is to be a sliced at a different position than the print bed center, this <code>position</code> can
 be supplied as a dictionary defining the <code>x</code> and <code>y</code> coordinate in print bed coordinates of the model's center.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>slicer_name</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The identifier of the slicer to use for slicing.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>source_path</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The absolute path to the source file to slice.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>dest_path</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The absolute path to the destination file to slice to.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>profile_name</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The name of the slicing profile to use.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>callback</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#callable">callable</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>A callback to call after slicing has finished.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>callback_args</code></td>
-          <td>
-                <code>list or tuple</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Arguments of the callback to call after slicing has finished. Defaults to
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>slicer_name</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The identifier of the slicer to use for slicing.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>source_path</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The absolute path to the source file to slice.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>dest_path</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The absolute path to the destination file to slice to.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>profile_name</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The name of the slicing profile to use.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>callback</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#callable">callable</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>A callback to call after slicing has finished.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>callback_args</b>
+            (<code>list or tuple</code>)
+        –
+        <div class="doc-md-description">
+          <p>Arguments of the callback to call after slicing has finished. Defaults to
 an empty list.</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>callback_kwargs</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Keyword arguments for the callback to call after slicing has finished, will be
+        </div>
+      </li>
+      <li class="field-body">
+        <b>callback_kwargs</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Keyword arguments for the callback to call after slicing has finished, will be
 extended by <code>_analysis</code>, <code>_error</code> or <code>_cancelled</code> as described above! Defaults to an empty
 dictionary.</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>overrides</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Overrides for the printer profile to apply.</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>on_progress</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#callable">callable</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Callback to call upon slicing progress.</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>on_progress_args</code></td>
-          <td>
-                <code>list or tuple</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Arguments of the progress callback. Defaults to an empty list.</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>on_progress_kwargs</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Keyword arguments of the progress callback, will be extended by <code>_progress</code>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>overrides</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Overrides for the printer profile to apply.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>on_progress</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#callable">callable</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Callback to call upon slicing progress.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>on_progress_args</b>
+            (<code>list or tuple</code>)
+        –
+        <div class="doc-md-description">
+          <p>Arguments of the progress callback. Defaults to an empty list.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>on_progress_kwargs</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Keyword arguments of the progress callback, will be extended by <code>_progress</code>
 as described above! Defaults to an empty dictionary.</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>printer_profile_id</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Identifier of the printer profile for which to slice, if another than the
+        </div>
+      </li>
+      <li class="field-body">
+        <b>printer_profile_id</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Identifier of the printer profile for which to slice, if another than the
 one currently selected is to be used.</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>position</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Dictionary containing the <code>x</code> and <code>y</code> coordinate in the print bed's coordinate system
+        </div>
+      </li>
+      <li class="field-body">
+        <b>position</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Dictionary containing the <code>x</code> and <code>y</code> coordinate in the print bed's coordinate system
 of the sliced model's center. If not provided the model will be positioned at the print bed's center.
 Example: <code>dict(x=10,y=20)</code>.</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+        </div>
+      </li>
+  </ul>
 
-  <p><strong>Raises:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-                <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.UnknownSlicer">UnknownSlicer</span></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The slicer specified via <code>slicer_name</code> is unknown.</p>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-                <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.SlicerNotConfigured">SlicerNotConfigured</span></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The slice specified via <code>slicer_name</code> is not configured yet.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Raises:</p>
+  <ul>
+      <li class="field-body">
+            <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.UnknownSlicer">UnknownSlicer</span></code>
+          –
+        <div class="doc-md-description">
+          <p>The slicer specified via <code>slicer_name</code> is unknown.</p>
+        </div>
+      </li>
+      <li class="field-body">
+            <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.SlicerNotConfigured">SlicerNotConfigured</span></code>
+          –
+        <div class="doc-md-description">
+          <p>The slice specified via <code>slicer_name</code> is not configured yet.</p>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -6925,103 +6304,57 @@ Example: <code>dict(x=10,y=20)</code>.</p>
   
       <p>A wrapper for slicing profiles, both meta data and actual profile data.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>slicer</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Identifier of the slicer this profile belongs to.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>name</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Identifier of this slicing profile.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>data</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#object">object</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Profile data, actual structure depends on individual slicer implementation.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>display_name</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Displayable name for this slicing profile.</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>description</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Description of this slicing profile.</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>default</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Whether this is the default slicing profile for the slicer.</p>
-            </div>
-          </td>
-          <td>
-                <code>False</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>slicer</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Identifier of the slicer this profile belongs to.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>name</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Identifier of this slicing profile.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>data</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#object">object</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Profile data, actual structure depends on individual slicer implementation.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>display_name</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Displayable name for this slicing profile.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>description</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Description of this slicing profile.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>default</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Whether this is the default slicing profile for the slicer.</p>
+        </div>
+      </li>
+  </ul>
 
 
 
@@ -7198,63 +6531,35 @@ optional <code>overrides</code> applied through the supplied <code>save_profile<
    with (temporary) as profile_path:
        my_slicer.do_slice(..., profile_path=profile_path, ...)</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>save_profile</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#callable">callable</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Method to use for saving the temporary profile, also responsible for applying the
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>save_profile</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#callable">callable</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Method to use for saving the temporary profile, also responsible for applying the
 supplied <code>overrides</code>. This will be called according to the method signature of
 :meth:<code>~octoprint.plugin.SlicerPlugin.save_slicer_profile</code>.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>profile</code></td>
-          <td>
-                <code><a class="autorefs autorefs-internal" title="octoprint.slicing.SlicingProfile" href="#octoprint.slicing.SlicingProfile">SlicingProfile</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The profile from which to derive the temporary profile.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>overrides</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Optional overrides to apply to the <code>profile</code> for creation of the temporary profile.</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>profile</b>
+            (<code><a class="autorefs autorefs-internal" title="octoprint.slicing.SlicingProfile" href="#octoprint.slicing.SlicingProfile">SlicingProfile</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The profile from which to derive the temporary profile.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>overrides</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Optional overrides to apply to the <code>profile</code> for creation of the temporary profile.</p>
+        </div>
+      </li>
+  </ul>
 
 
 
@@ -7472,7 +6777,7 @@ supplied <code>overrides</code>. This will be called according to the method sig
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking"], "search": "../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking"], "search": "../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.220ee61c.min.js"></script>

@@ -86,24 +86,6 @@
       
     </div>
     
-      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
-        
-          <aside class="md-banner md-banner--warning">
-            <div class="md-banner__inner md-grid md-typeset">
-              
-  You're not viewing the latest version.
-  <a href="../../../../.."> 
-
-
-    <strong>Click here to go to latest.</strong>
-  </a>
-
-            </div>
-            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
-          </aside>
-        
-      </div>
-    
     
       
 
@@ -5540,35 +5522,19 @@
 :class:<code>GcodeAnalysisQueue</code>. It offers methods to enqueue new entries to analyze and pausing and resuming analysis
 processing.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>finished_callback</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#callable">callable</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Callback that will be called upon finishing analysis of an entry in the queue.
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>finished_callback</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#callable">callable</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Callback that will be called upon finishing analysis of an entry in the queue.
 The callback will be called with the analyzed entry as the first argument and the analysis result as
 returned from the queue implementation as the second parameter.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+        </div>
+      </li>
+  </ul>
       <p>.. automethod:: _do_analysis</p>
 <p>.. automethod:: _do_abort</p>
 
@@ -5715,55 +5681,28 @@ returned from the queue implementation as the second parameter.</p>
       <p>Performs the actual analysis of the current entry which can be accessed via <code>self._current</code>. Needs to be
 overridden by sub classes.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>high_priority</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Whether the current entry has high priority or not.</p>
-            </div>
-          </td>
-          <td>
-                <code>False</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>high_priority</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Whether the current entry has high priority or not.</p>
+        </div>
+      </li>
+  </ul>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-<th>Name</th>        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-<td><code>object</code></td>          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The result of the analysis which will be forwarded to the <code>finished_callback</code> provided during
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+<b>object</b>        –
+        <div class="doc-md-description">
+          <p>The result of the analysis which will be forwarded to the <code>finished_callback</code> provided during
 construction.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -5817,48 +5756,26 @@ construction.</p>
 <p>If <code>high_priority</code> is True (defaults to False), the entry will be prioritized and hence processed before
 other entries in the queue with normal priority.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>entry</code></td>
-          <td>
-                <code><a class="autorefs autorefs-internal" title="octoprint.filemanager.analysis.QueueEntry" href="#octoprint.filemanager.analysis.QueueEntry">QueueEntry</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The :class:<code>QueueEntry</code> to analyze.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>high_priority</code></td>
-          <td>
-                <code>boolean</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Whether to process the provided entry with high priority (True) or not
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>entry</b>
+            (<code><a class="autorefs autorefs-internal" title="octoprint.filemanager.analysis.QueueEntry" href="#octoprint.filemanager.analysis.QueueEntry">QueueEntry</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The :class:<code>QueueEntry</code> to analyze.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>high_priority</b>
+            (<code>boolean</code>)
+        –
+        <div class="doc-md-description">
+          <p>Whether to process the provided entry with high priority (True) or not
 (False, default)</p>
-            </div>
-          </td>
-          <td>
-                <code>False</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -6429,118 +6346,66 @@ entry will be enqueued with the type specific analysis queue.</p>
       <p>A :class:<code>QueueEntry</code> for processing through the :class:<code>AnalysisQueue</code>. Wraps the entry's properties necessary
 for processing.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>name</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Name of the file to analyze.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>path</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Storage location specific path to the file to analyze.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>type</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Type of file to analyze, necessary to map to the correct :class:<code>AbstractAnalysisQueue</code> sub class.
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>name</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Name of the file to analyze.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>path</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Storage location specific path to the file to analyze.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>type</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Type of file to analyze, necessary to map to the correct :class:<code>AbstractAnalysisQueue</code> sub class.
 At the moment, only <code>gcode</code> is supported here.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>location</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Location the file is located on.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>absolute_path</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Absolute path on disk through which to access the file.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>printer_profile</code></td>
-          <td>
-                <code>PrinterProfile</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>:class:<code>PrinterProfile</code> which to use for analysis.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>analysis</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>:class:<code>GcodeAnalysisQueue</code> results from prior analysis, or <code>None</code> if there is none.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>location</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Location the file is located on.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>absolute_path</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Absolute path on disk through which to access the file.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>printer_profile</b>
+            (<code>PrinterProfile</code>)
+        –
+        <div class="doc-md-description">
+          <p>:class:<code>PrinterProfile</code> which to use for analysis.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>analysis</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>:class:<code>GcodeAnalysisQueue</code> results from prior analysis, or <code>None</code> if there is none.</p>
+        </div>
+      </li>
+  </ul>
 
 
 
@@ -6669,7 +6534,7 @@ At the moment, only <code>gcode</code> is supported here.</p>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking"], "search": "../../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking"], "search": "../../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../../assets/javascripts/bundle.220ee61c.min.js"></script>

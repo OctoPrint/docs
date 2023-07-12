@@ -86,24 +86,6 @@
       
     </div>
     
-      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
-        
-          <aside class="md-banner md-banner--warning">
-            <div class="md-banner__inner md-grid md-typeset">
-              
-  You're not viewing the latest version.
-  <a href="../../../../../.."> 
-
-
-    <strong>Click here to go to latest.</strong>
-  </a>
-
-            </div>
-            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
-          </aside>
-        
-      </div>
-    
     
       
 
@@ -6917,33 +6899,17 @@ with method and path regex having to match in order for maximum body size to tak
       <p><code>tornado.web.RequestHandler &lt;http://tornado.readthedocs.org/en/branch4.0/web.html#request-handlers&gt;</code>_ that redirects
 to another <code>url</code> and logs a deprecation warning.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>url</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>URL to which to redirect</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>url</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>URL to which to redirect</p>
+        </div>
+      </li>
+  </ul>
 
 
 
@@ -7379,176 +7345,106 @@ to another <code>url</code> and logs a deprecation warning.</p>
 that allows delivery of the requested resource as attachment and access and request path validation through
 optional callbacks. Note that access validation takes place before path validation.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>path</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The system path from which to serve files (this will be forwarded to the <code>initialize</code> method of
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>path</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The system path from which to serve files (this will be forwarded to the <code>initialize</code> method of
  :class:<code>~tornado.web.StaticFileHandler</code>)</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>default_filename</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The default filename to serve if none is explicitly specified and the request references
+        </div>
+      </li>
+      <li class="field-body">
+        <b>default_filename</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The default filename to serve if none is explicitly specified and the request references
  a subdirectory of the served path (this will be forwarded to the <code>initialize</code> method of
  :class:<code>~tornado.web.StaticFileHandler</code> as the <code>default_filename</code> keyword parameter). Defaults to <code>None</code>.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>as_attachment</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Whether to serve requested files with <code>Content-Disposition: attachment</code> header (<code>True</code>)
+        </div>
+      </li>
+      <li class="field-body">
+        <b>as_attachment</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Whether to serve requested files with <code>Content-Disposition: attachment</code> header (<code>True</code>)
  or not. Defaults to <code>False</code>.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>allow_client_caching</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Whether to allow the client to cache (by not setting any <code>Cache-Control</code> or
+        </div>
+      </li>
+      <li class="field-body">
+        <b>allow_client_caching</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Whether to allow the client to cache (by not setting any <code>Cache-Control</code> or
  <code>Expires</code> headers on the response) or not.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>access_validation</code></td>
-          <td>
-                <code>function</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Callback to call in the <code>get</code> method to validate access to the resource. Will
+        </div>
+      </li>
+      <li class="field-body">
+        <b>access_validation</b>
+            (<code>function</code>)
+        –
+        <div class="doc-md-description">
+          <p>Callback to call in the <code>get</code> method to validate access to the resource. Will
  be called with <code>self.request</code> as parameter which contains the full tornado request object. Should raise
  a <code>tornado.web.HTTPError</code> if access is not allowed in which case the request will not be further processed.
  Defaults to <code>None</code> and hence no access validation being performed.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>path_validation</code></td>
-          <td>
-                <code>function</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Callback to call in the <code>get</code> method to validate the requested path. Will be called
+        </div>
+      </li>
+      <li class="field-body">
+        <b>path_validation</b>
+            (<code>function</code>)
+        –
+        <div class="doc-md-description">
+          <p>Callback to call in the <code>get</code> method to validate the requested path. Will be called
  with the requested path as parameter. Should raise a <code>tornado.web.HTTPError</code> (e.g. an 404) if the requested
  path does not pass validation in which case the request will not be further processed.
  Defaults to <code>None</code> and hence no path validation being performed.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>etag_generator</code></td>
-          <td>
-                <code>function</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Callback to call for generating the value of the ETag response header. Will be
+        </div>
+      </li>
+      <li class="field-body">
+        <b>etag_generator</b>
+            (<code>function</code>)
+        –
+        <div class="doc-md-description">
+          <p>Callback to call for generating the value of the ETag response header. Will be
  called with the response handler as parameter. May return <code>None</code> to prevent the ETag response header
  from being set. If not provided the last modified time of the file in question will be used as returned
  by <code>get_content_version</code>.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>name_generator</code></td>
-          <td>
-                <code>function</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Callback to call for generating the value of the attachment file name header. Will be
+        </div>
+      </li>
+      <li class="field-body">
+        <b>name_generator</b>
+            (<code>function</code>)
+        –
+        <div class="doc-md-description">
+          <p>Callback to call for generating the value of the attachment file name header. Will be
  called with the requested path as parameter.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>mime_type_guesser</code></td>
-          <td>
-                <code>function</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Callback to guess the mime type to use for the content type encoding of the
+        </div>
+      </li>
+      <li class="field-body">
+        <b>mime_type_guesser</b>
+            (<code>function</code>)
+        –
+        <div class="doc-md-description">
+          <p>Callback to guess the mime type to use for the content type encoding of the
  response. Will be called with the requested path on disk as parameter.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>is_pre_compressed</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>if the file is expected to be pre-compressed, i.e, if there is a file in the same
+        </div>
+      </li>
+      <li class="field-body">
+        <b>is_pre_compressed</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>if the file is expected to be pre-compressed, i.e, if there is a file in the same
  directory with the same name, but with '.gz' appended and gzip-encoded</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+        </div>
+      </li>
+  </ul>
 
 
 
@@ -7821,47 +7717,25 @@ that might still change while being transmitted (e.g. log files)</p>
       <p><code>tornado.web.RequestHandler &lt;http://tornado.readthedocs.org/en/branch4.0/web.html#request-handlers&gt;</code>_ that returns
 static <code>data</code> of a configured <code>content_type</code>.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>data</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The data with which to respond</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>content_type</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The content type with which to respond. Defaults to <code>text/plain</code></p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>data</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The data with which to respond</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>content_type</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The content type with which to respond. Defaults to <code>text/plain</code></p>
+        </div>
+      </li>
+  </ul>
 
 
 
@@ -8484,79 +8358,45 @@ for making the request to the configured endpoint and return the body of the cli
   no <code>filename</code> attribute will be set.</li>
 </ul>
 </details>
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>url</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>URL to forward any requests to. A 404 response will be returned if this is not set. Defaults to <code>None</code>.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>as_attachment</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Whether to serve files with <code>Content-Disposition: attachment</code> header (<code>True</code>)
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>url</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>URL to forward any requests to. A 404 response will be returned if this is not set. Defaults to <code>None</code>.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>as_attachment</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Whether to serve files with <code>Content-Disposition: attachment</code> header (<code>True</code>)
  or not. Defaults to <code>False</code>.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>basename</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>base name of file names to return as part of the attachment header, see above. Defaults to <code>None</code>.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>access_validation</code></td>
-          <td>
-                <code>function</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Callback to call in the <code>get</code> method to validate access to the resource. Will
+        </div>
+      </li>
+      <li class="field-body">
+        <b>basename</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>base name of file names to return as part of the attachment header, see above. Defaults to <code>None</code>.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>access_validation</b>
+            (<code>function</code>)
+        –
+        <div class="doc-md-description">
+          <p>Callback to call in the <code>get</code> method to validate access to the resource. Will
  be called with <code>self.request</code> as parameter which contains the full tornado request object. Should raise
  a <code>tornado.web.HTTPError</code> if access is not allowed in which case the request will not be further processed.
  Defaults to <code>None</code> and hence no access validation being performed.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+        </div>
+      </li>
+  </ul>
 
 
 
@@ -9033,7 +8873,7 @@ header case-insensitively, as defined in RFC6454, Section 4, item 5.</p>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking"], "search": "../../../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking"], "search": "../../../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../../../assets/javascripts/bundle.220ee61c.min.js"></script>

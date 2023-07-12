@@ -86,24 +86,6 @@
       
     </div>
     
-      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
-        
-          <aside class="md-banner md-banner--warning">
-            <div class="md-banner__inner md-grid md-typeset">
-              
-  You're not viewing the latest version.
-  <a href="../../../../.."> 
-
-
-    <strong>Click here to go to latest.</strong>
-  </a>
-
-            </div>
-            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
-          </aside>
-        
-      </div>
-    
     
       
 
@@ -6397,27 +6379,16 @@ be used by templates injected through a <a class="autorefs autorefs-internal" hr
 your plugin stores its assets at some other place than the <code>static</code> sub folder in
 the plugin base directory.</p>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The absolute path to the folder where the plugin stores its static assets</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+            <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
+        –
+        <div class="doc-md-description">
+          <p>The absolute path to the folder where the plugin stores its static assets</p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -6471,27 +6442,16 @@ plugin's identifier and <code>path</code> being the path as defined in the asset
 <p>Assets of the types <code>js</code>, <code>css</code> and <code>less</code> will be automatically bundled by
 OctoPrint using <a href="http://flask-assets.readthedocs.org/en/latest/">Flask-Assets</a>.</p>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>A dictionary describing the static assets to publish for the plugin.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+            <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
+        –
+        <div class="doc-md-description">
+          <p>A dictionary describing the static assets to publish for the plugin.</p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -6924,48 +6884,26 @@ videos rendering etc.</p>
 implementation or you <strong>will</strong> block and break the server.</p>
 </div>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>event</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The type of event that got fired, see :ref:<code>the list of events &lt;sec-events-available_events&gt;</code>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>event</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The type of event that got fired, see :ref:<code>the list of events &lt;sec-events-available_events&gt;</code>
 for possible values</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>payload</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The payload as provided with the event</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>payload</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The payload as provided with the event</p>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -6997,165 +6935,120 @@ for possible values</p>
   
       <p>The parent class of all OctoPrint plugin mixins.</p>
 
-  <p><strong>Attributes:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>_plugin_manager</code></td>
-          <td>
-                <code><a class="autorefs autorefs-internal" href="../../#octoprint">octoprint</a>.<a class="autorefs autorefs-internal" title="octoprint.plugin" href="../#octoprint.plugin">plugin</a>.<a class="autorefs autorefs-internal" title="octoprint.plugin.core" href="../core/#octoprint.plugin.core">core</a>.<a class="autorefs autorefs-internal" title="octoprint.plugin.core.PluginManager" href="../core/#octoprint.plugin.core.PluginManager">PluginManager</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The <a class="autorefs autorefs-internal" href="../core/#octoprint.plugin.core.PluginManager">octoprint.plugin.core.PluginManager</a> instance.
+  <p>Attributes:</p>
+  <ul>
+      <li class="field-body">
+        <b>_plugin_manager</b>
+            (<code><a class="autorefs autorefs-internal" href="../../#octoprint">octoprint</a>.<a class="autorefs autorefs-internal" title="octoprint.plugin" href="../#octoprint.plugin">plugin</a>.<a class="autorefs autorefs-internal" title="octoprint.plugin.core" href="../core/#octoprint.plugin.core">core</a>.<a class="autorefs autorefs-internal" title="octoprint.plugin.core.PluginManager" href="../core/#octoprint.plugin.core.PluginManager">PluginManager</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The <a class="autorefs autorefs-internal" href="../core/#octoprint.plugin.core.PluginManager">octoprint.plugin.core.PluginManager</a> instance.
 Injected by the plugin core system upon initialization of the implementation.</p>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td><code>_printer_profile_manager</code></td>
-          <td>
-                <code><a class="autorefs autorefs-internal" href="../../#octoprint">octoprint</a>.<a class="autorefs autorefs-internal" title="octoprint.printer" href="../../printer/#octoprint.printer">printer</a>.<a class="autorefs autorefs-internal" title="octoprint.printer.profile" href="../../printer/profile/#octoprint.printer.profile">profile</a>.<a class="autorefs autorefs-internal" title="octoprint.printer.profile.PrinterProfileManager" href="../../printer/profile/#octoprint.printer.profile.PrinterProfileManager">PrinterProfileManager</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The <a class="autorefs autorefs-internal" href="../../printer/profile/#octoprint.printer.profile.PrinterProfileManager">octoprint.printer.profile.PrinterProfileManager</a> instance.
+        </div>
+      </li>
+      <li class="field-body">
+        <b>_printer_profile_manager</b>
+            (<code><a class="autorefs autorefs-internal" href="../../#octoprint">octoprint</a>.<a class="autorefs autorefs-internal" title="octoprint.printer" href="../../printer/#octoprint.printer">printer</a>.<a class="autorefs autorefs-internal" title="octoprint.printer.profile" href="../../printer/profile/#octoprint.printer.profile">profile</a>.<a class="autorefs autorefs-internal" title="octoprint.printer.profile.PrinterProfileManager" href="../../printer/profile/#octoprint.printer.profile.PrinterProfileManager">PrinterProfileManager</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The <a class="autorefs autorefs-internal" href="../../printer/profile/#octoprint.printer.profile.PrinterProfileManager">octoprint.printer.profile.PrinterProfileManager</a> instance.
 Injected by the plugin core system upon initialization of the implementation.</p>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td><code>_event_bus</code></td>
-          <td>
-                <code><a class="autorefs autorefs-internal" href="../../#octoprint">octoprint</a>.<a class="autorefs autorefs-internal" title="octoprint.events" href="../../events/#octoprint.events">events</a>.<a class="autorefs autorefs-internal" title="octoprint.events.Events" href="../../events/#octoprint.events.Events">Events</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The <a class="autorefs autorefs-internal" href="../../events/#octoprint.events.Events">Events</a> instance. Injected by the plugin core system upon
+        </div>
+      </li>
+      <li class="field-body">
+        <b>_event_bus</b>
+            (<code><a class="autorefs autorefs-internal" href="../../#octoprint">octoprint</a>.<a class="autorefs autorefs-internal" title="octoprint.events" href="../../events/#octoprint.events">events</a>.<a class="autorefs autorefs-internal" title="octoprint.events.Events" href="../../events/#octoprint.events.Events">Events</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The <a class="autorefs autorefs-internal" href="../../events/#octoprint.events.Events">Events</a> instance. Injected by the plugin core system upon
 initialization of the implementation.</p>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td><code>_analysis_queue</code></td>
-          <td>
-                <code><a class="autorefs autorefs-internal" href="../../#octoprint">octoprint</a>.<a class="autorefs autorefs-internal" title="octoprint.filemanager" href="../../filemanager/#octoprint.filemanager">filemanager</a>.<a class="autorefs autorefs-internal" title="octoprint.filemanager.analysis" href="../../filemanager/analysis/#octoprint.filemanager.analysis">analysis</a>.<a class="autorefs autorefs-internal" title="octoprint.filemanager.analysis.AnalysisQueue" href="../../filemanager/analysis/#octoprint.filemanager.analysis.AnalysisQueue">AnalysisQueue</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The <a class="autorefs autorefs-internal" href="../../filemanager/analysis/#octoprint.filemanager.analysis.AnalysisQueue">AnalysisQueue</a> instance. Injected by the plugin core system upon
+        </div>
+      </li>
+      <li class="field-body">
+        <b>_analysis_queue</b>
+            (<code><a class="autorefs autorefs-internal" href="../../#octoprint">octoprint</a>.<a class="autorefs autorefs-internal" title="octoprint.filemanager" href="../../filemanager/#octoprint.filemanager">filemanager</a>.<a class="autorefs autorefs-internal" title="octoprint.filemanager.analysis" href="../../filemanager/analysis/#octoprint.filemanager.analysis">analysis</a>.<a class="autorefs autorefs-internal" title="octoprint.filemanager.analysis.AnalysisQueue" href="../../filemanager/analysis/#octoprint.filemanager.analysis.AnalysisQueue">AnalysisQueue</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The <a class="autorefs autorefs-internal" href="../../filemanager/analysis/#octoprint.filemanager.analysis.AnalysisQueue">AnalysisQueue</a> instance. Injected by the plugin core system upon
 initialization of the implementation.</p>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td><code>_slicing_manager</code></td>
-          <td>
-                <code><a class="autorefs autorefs-internal" href="../../#octoprint">octoprint</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing" href="../../slicing/#octoprint.slicing">slicing</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing.SlicingManager" href="../../slicing/#octoprint.slicing.SlicingManager">SlicingManager</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The <a class="autorefs autorefs-internal" href="../../slicing/#octoprint.slicing.SlicingManager">SlicingManager</a> instance. Injected by the plugin core system upon
+        </div>
+      </li>
+      <li class="field-body">
+        <b>_slicing_manager</b>
+            (<code><a class="autorefs autorefs-internal" href="../../#octoprint">octoprint</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing" href="../../slicing/#octoprint.slicing">slicing</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing.SlicingManager" href="../../slicing/#octoprint.slicing.SlicingManager">SlicingManager</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The <a class="autorefs autorefs-internal" href="../../slicing/#octoprint.slicing.SlicingManager">SlicingManager</a> instance. Injected by the plugin core system upon
 initialization of the implementation.</p>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td><code>_file_manager</code></td>
-          <td>
-                <code><a class="autorefs autorefs-internal" href="../../#octoprint">octoprint</a>.<a class="autorefs autorefs-internal" title="octoprint.filemanager" href="../../filemanager/#octoprint.filemanager">filemanager</a>.<a class="autorefs autorefs-internal" title="octoprint.filemanager.FileManager" href="../../filemanager/#octoprint.filemanager.FileManager">FileManager</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The <a class="autorefs autorefs-internal" href="../../filemanager/#octoprint.filemanager.FileManager">FileManager</a> instance. Injected by the plugin core system upon
+        </div>
+      </li>
+      <li class="field-body">
+        <b>_file_manager</b>
+            (<code><a class="autorefs autorefs-internal" href="../../#octoprint">octoprint</a>.<a class="autorefs autorefs-internal" title="octoprint.filemanager" href="../../filemanager/#octoprint.filemanager">filemanager</a>.<a class="autorefs autorefs-internal" title="octoprint.filemanager.FileManager" href="../../filemanager/#octoprint.filemanager.FileManager">FileManager</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The <a class="autorefs autorefs-internal" href="../../filemanager/#octoprint.filemanager.FileManager">FileManager</a> instance. Injected by the plugin core system upon
 initialization of the implementation.</p>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td><code>_printer</code></td>
-          <td>
-                <code><a class="autorefs autorefs-internal" href="../../#octoprint">octoprint</a>.<a class="autorefs autorefs-internal" title="octoprint.printer" href="../../printer/#octoprint.printer">printer</a>.<span title="octoprint.printer.Printer">Printer</span></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The [Printer][octoprint.printer.Printer] instance. Injected by the plugin core system upon
+        </div>
+      </li>
+      <li class="field-body">
+        <b>_printer</b>
+            (<code><a class="autorefs autorefs-internal" href="../../#octoprint">octoprint</a>.<a class="autorefs autorefs-internal" title="octoprint.printer" href="../../printer/#octoprint.printer">printer</a>.<span title="octoprint.printer.Printer">Printer</span></code>)
+        –
+        <div class="doc-md-description">
+          <p>The [Printer][octoprint.printer.Printer] instance. Injected by the plugin core system upon
 initialization of the implementation.</p>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td><code>_app_session_manager</code></td>
-          <td>
-                <code><a class="autorefs autorefs-internal" href="../../#octoprint">octoprint</a>.<a class="autorefs autorefs-internal" title="octoprint.server" href="../../server/#octoprint.server">server</a>.<a class="autorefs autorefs-internal" title="octoprint.server.app" href="../../server/#octoprint.server.app">app</a>.<span title="octoprint.server.app.AppSessionManager">AppSessionManager</span></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The [AppSessionManager][octoprint.server.app.AppSessionManager] instance. Injected by the plugin core system upon
+        </div>
+      </li>
+      <li class="field-body">
+        <b>_app_session_manager</b>
+            (<code><a class="autorefs autorefs-internal" href="../../#octoprint">octoprint</a>.<a class="autorefs autorefs-internal" title="octoprint.server" href="../../server/#octoprint.server">server</a>.<a class="autorefs autorefs-internal" title="octoprint.server.app" href="../../server/#octoprint.server.app">app</a>.<span title="octoprint.server.app.AppSessionManager">AppSessionManager</span></code>)
+        –
+        <div class="doc-md-description">
+          <p>The [AppSessionManager][octoprint.server.app.AppSessionManager] instance. Injected by the plugin core system upon
 initialization of the implementation.</p>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td><code>_plugin_lifecycle_manager</code></td>
-          <td>
-                <code><a class="autorefs autorefs-internal" href="../../#octoprint">octoprint</a>.<a class="autorefs autorefs-internal" title="octoprint.plugin" href="../#octoprint.plugin">plugin</a>.<span title="octoprint.plugin.LifecycleManager">LifecycleManager</span></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The [LifecycleManager][octoprint.plugin.LifecycleManager] instance. Injected by the plugin core system upon
+        </div>
+      </li>
+      <li class="field-body">
+        <b>_plugin_lifecycle_manager</b>
+            (<code><a class="autorefs autorefs-internal" href="../../#octoprint">octoprint</a>.<a class="autorefs autorefs-internal" title="octoprint.plugin" href="../#octoprint.plugin">plugin</a>.<span title="octoprint.plugin.LifecycleManager">LifecycleManager</span></code>)
+        –
+        <div class="doc-md-description">
+          <p>The [LifecycleManager][octoprint.plugin.LifecycleManager] instance. Injected by the plugin core system upon
 initialization of the implementation.</p>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td><code>_user_manager</code></td>
-          <td>
-                <code><a class="autorefs autorefs-internal" href="../../#octoprint">octoprint</a>.<a class="autorefs autorefs-internal" title="octoprint.users" href="../../users/#octoprint.users">users</a>.<a class="autorefs autorefs-internal" title="octoprint.users.UserManager" href="../../access/users/#octoprint.access.users.UserManager">UserManager</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The <a class="autorefs autorefs-internal" href="../../access/users/#octoprint.access.users.UserManager">UserManager</a> instance. Injected by the plugin core system upon
+        </div>
+      </li>
+      <li class="field-body">
+        <b>_user_manager</b>
+            (<code><a class="autorefs autorefs-internal" href="../../#octoprint">octoprint</a>.<a class="autorefs autorefs-internal" title="octoprint.users" href="../../users/#octoprint.users">users</a>.<a class="autorefs autorefs-internal" title="octoprint.users.UserManager" href="../../access/users/#octoprint.access.users.UserManager">UserManager</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The <a class="autorefs autorefs-internal" href="../../access/users/#octoprint.access.users.UserManager">UserManager</a> instance. Injected by the plugin core system upon
 initialization of the implementation.</p>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td><code>_connectivity_checker</code></td>
-          <td>
-                <code><a class="autorefs autorefs-internal" href="../../#octoprint">octoprint</a>.<a class="autorefs autorefs-internal" title="octoprint.util" href="../../util/#octoprint.util">util</a>.<a class="autorefs autorefs-internal" title="octoprint.util.connectivity" href="../../util/connectivity/#octoprint.util.connectivity">connectivity</a>.<a class="autorefs autorefs-internal" title="octoprint.util.connectivity.ConnectivityChecker" href="../../util/connectivity/#octoprint.util.connectivity.ConnectivityChecker">ConnectivityChecker</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The <a class="autorefs autorefs-internal" href="../../util/connectivity/#octoprint.util.connectivity.ConnectivityChecker">ConnectivityChecker</a> instance. Injected by the plugin core system upon
+        </div>
+      </li>
+      <li class="field-body">
+        <b>_connectivity_checker</b>
+            (<code><a class="autorefs autorefs-internal" href="../../#octoprint">octoprint</a>.<a class="autorefs autorefs-internal" title="octoprint.util" href="../../util/#octoprint.util">util</a>.<a class="autorefs autorefs-internal" title="octoprint.util.connectivity" href="../../util/connectivity/#octoprint.util.connectivity">connectivity</a>.<a class="autorefs autorefs-internal" title="octoprint.util.connectivity.ConnectivityChecker" href="../../util/connectivity/#octoprint.util.connectivity.ConnectivityChecker">ConnectivityChecker</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The <a class="autorefs autorefs-internal" href="../../util/connectivity/#octoprint.util.connectivity.ConnectivityChecker">ConnectivityChecker</a> instance. Injected by the plugin core system upon
 initialization of the implementation.</p>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td><code>_data_folder</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The path to the data folder of the plugin, to use for any data
+        </div>
+      </li>
+      <li class="field-body">
+        <b>_data_folder</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The path to the data folder of the plugin, to use for any data
 it might have to persist. Should always be accessed through <a class="autorefs autorefs-internal" href="#octoprint.plugin.types.OctoPrintPlugin.get_plugin_data_folder">get_plugin_data_folder</a>,
 since that function will also ensure that the data folder actually exists
 and if not create it before returning it. Injected by the plugin core system
 upon initialization of the implementation.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+        </div>
+      </li>
+  </ul>
 
 
 
@@ -7285,61 +7178,33 @@ print jobs or slicing jobs, limited to minimally 1% steps.</p>
   
       <p>Called by OctoPrint on minimally 1% increments during a running print job.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>storage</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Location of the file.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>path</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Path of the file in the storage.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>progress</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Current progress as a value between 0 and 100.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>storage</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Location of the file.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>path</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Path of the file in the storage.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>progress</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Current progress as a value between 0 and 100.</p>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -7359,103 +7224,57 @@ print jobs or slicing jobs, limited to minimally 1% steps.</p>
   
       <p>Called by OctoPrint on minimally 1% increments during a running slicing job.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>slicer</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Key of the slicer reporting the progress.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>source_location</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Location of the source file.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>source_path</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Path of the source file in the source location.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>destination_location</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Location of the destination file.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>destination_path</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Path of the destination file in the destination location.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>progress</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Current progress as a value between 0 and 100.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>slicer</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Key of the slicer reporting the progress.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>source_location</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Location of the source file.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>source_path</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Path of the source file in the source location.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>destination_location</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Location of the destination file.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>destination_path</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Path of the destination file in the destination location.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>progress</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Current progress as a value between 0 and 100.</p>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -7678,28 +7497,17 @@ the transformed value.</p>
 </code></pre></div>
 </div>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-                <code>Tuple[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a>]</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>A tuple consisting of two dictionaries, the first being the plugin's preprocessors for
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+            <code>Tuple[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a>]</code>
+        –
+        <div class="doc-md-description">
+          <p>A tuple consisting of two dictionaries, the first being the plugin's preprocessors for
 getters, the second the preprocessors for setters</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -7808,30 +7616,19 @@ the path elements) for which to restrict access via the REST API accordingly.</p
 <p>Use this to have OctoPrint trigger your migration function if it detects an outdated settings version in
 config.yaml.</p>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-                <code>Optional[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a>]</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>an <code>int</code> signifying the current settings format, should be
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+            <code>Optional[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a>]</code>
+        –
+        <div class="doc-md-description">
+          <p>an <code>int</code> signifying the current settings format, should be
 incremented by plugins whenever there are backwards incompatible changes.
 Returning None here disables the version tracking for the plugin's
 configuration.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -7909,27 +7706,16 @@ empty list (as fallback for restricted lists) or <code>None</code> values where 
 Make sure to do your own restriction if you decide to fully overload this method.</p>
 </div>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The current settings of the plugin, as a dictionary.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+            <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
+        –
+        <div class="doc-md-description">
+          <p>The current settings of the plugin, as a dictionary.</p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -7956,49 +7742,27 @@ will take care of saving any changes to disk by calling <code>self._settings.sav
 having taken place. You can therefore depend on the configuration having been migrated by the time
 <code>on_settings_initialized</code> is called.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>target</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The settings format version the plugin requires, this should
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>target</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The settings format version the plugin requires, this should
 always be the same value as returned by <code>get_settings_version</code>.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>current</code></td>
-          <td>
-                <code>Optional[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a>]</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The settings format version as currently stored in
+        </div>
+      </li>
+      <li class="field-body">
+        <b>current</b>
+            (<code>Optional[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a>]</code>)
+        –
+        <div class="doc-md-description">
+          <p>The settings format version as currently stored in
 <code>config.yaml</code>. May be <code>None</code> if no version information can be found.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -8029,55 +7793,28 @@ and iterate yourself over all your settings, retrieving them (if set) from the s
 and using the proper setter methods on the settings manager to persist the data in the correct format.</p>
 </div>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>data</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The settings dictionary to be saved for the plugin</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>data</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The settings dictionary to be saved for the plugin</p>
+        </div>
+      </li>
+  </ul>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The settings that differed from the defaults and were actually saved.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+            <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
+        –
+        <div class="doc-md-description">
+          <p>The settings that differed from the defaults and were actually saved.</p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -8274,27 +8011,16 @@ that parameter was set or unset. <code>command2</code> will log the content of t
       <p>Return a dictionary here with the keys representing the accepted commands and the values being lists of
 mandatory parameter names.</p>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-                <code>Optional[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a>]</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>a dictionary descripting the accepted commands and their mandatory parameters</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+            <code>Optional[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a>]</code>
+        –
+        <div class="doc-md-description">
+          <p>a dictionary descripting the accepted commands and their mandatory parameters</p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -8314,27 +8040,16 @@ mandatory parameter names.</p>
   
       <p>Return True if the API is only available to users having the admin role.</p>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>True if the API is only available to users having the admin permission</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+            <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>
+        –
+        <div class="doc-md-description">
+          <p>True if the API is only available to users having the admin permission</p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -8361,71 +8076,38 @@ example given above, for the <code>command2</code> request the <code>data</code>
 for you. You may also return regular responses as you would return from any Flask view here though, e.g.
 <code>return flask.jsonify(result="some json result")</code> or <code>flask.abort(404)</code>.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>command</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>the command with which the resource was called</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>data</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>the full request body of the POST request parsed from JSON into a Python dictionary</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>command</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>the command with which the resource was called</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>data</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>the full request body of the POST request parsed from JSON into a Python dictionary</p>
+        </div>
+      </li>
+  </ul>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-                <code>Optional[<a class="autorefs autorefs-external" href="https://flask.palletsprojects.com/api/#module-flask">flask</a>.<a class="autorefs autorefs-external" title="flask.Response" href="https://flask.palletsprojects.com/api/#flask.Response">Response</a>]</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>a response to be returned to the client, either <code>None</code>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+            <code>Optional[<a class="autorefs autorefs-external" href="https://flask.palletsprojects.com/api/#module-flask">flask</a>.<a class="autorefs autorefs-external" title="flask.Response" href="https://flask.palletsprojects.com/api/#flask.Response">Response</a>]</code>
+        –
+        <div class="doc-md-description">
+          <p>a response to be returned to the client, either <code>None</code>
 in which case OctoPrint will generate a <code>204 No content</code> response with empty body, or optionally
 a proper Flask response.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -8454,57 +8136,30 @@ for you. You may also return regular responses as you would return from any Flas
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">return</span> <span class="n">flask</span><span class="o">.</span><span class="n">abort</span><span class="p">(</span><span class="mi">404</span><span class="p">)</span>
 </code></pre></div>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>request</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://flask.palletsprojects.com/api/#module-flask">flask</a>.<a class="autorefs autorefs-external" title="flask.Request" href="https://flask.palletsprojects.com/api/#flask.Request">Request</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>the Flask request object</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>request</b>
+            (<code><a class="autorefs autorefs-external" href="https://flask.palletsprojects.com/api/#module-flask">flask</a>.<a class="autorefs autorefs-external" title="flask.Request" href="https://flask.palletsprojects.com/api/#flask.Request">Request</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>the Flask request object</p>
+        </div>
+      </li>
+  </ul>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-                <code>Optional[<a class="autorefs autorefs-external" href="https://flask.palletsprojects.com/api/#module-flask">flask</a>.<a class="autorefs autorefs-external" title="flask.Response" href="https://flask.palletsprojects.com/api/#flask.Response">Response</a>]</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>a response to be returned to the client, either <code>None</code>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+            <code>Optional[<a class="autorefs autorefs-external" href="https://flask.palletsprojects.com/api/#module-flask">flask</a>.<a class="autorefs autorefs-external" title="flask.Response" href="https://flask.palletsprojects.com/api/#flask.Response">Response</a>]</code>
+        –
+        <div class="doc-md-description">
+          <p>a response to be returned to the client, either <code>None</code>
 in which case OctoPrint will generate a <code>204 No content</code> response with empty body, or optionally
 a proper Flask response.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -8564,34 +8219,18 @@ a proper Flask response.</p>
   
       <p>Cancels the slicing to the indicated file.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>machinecode_path</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The absolute path to the machine code file to which
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>machinecode_path</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The absolute path to the machine code file to which
 to stop slicing to.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -8645,49 +8284,27 @@ data structure described for the analysis queue of the matching machine code for
 containing a human readable reason for the error.</p>
 <p>If the job gets cancelled, a <a class="autorefs autorefs-internal" href="../../slicing/exceptions/#octoprint.slicing.exceptions.SlicingCancelled">octoprint.slicing.SlicingCancelled</a> exception should be raised.</p>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>A 2-tuple (boolean, object) as outlined above.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+            <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a></code>
+        –
+        <div class="doc-md-description">
+          <p>A 2-tuple (boolean, object) as outlined above.</p>
+      </div>
+      </li>
+  </ul>
 
-  <p><strong>Raises:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-                <code>SlicingCancelled</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The slicing job was cancelled (via <code>cancel_slicing</code>).</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Raises:</p>
+  <ul>
+      <li class="field-body">
+            <code>SlicingCancelled</code>
+          –
+        <div class="doc-md-description">
+          <p>The slicing job was cancelled (via <code>cancel_slicing</code>).</p>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -8708,28 +8325,17 @@ containing a human readable reason for the error.</p>
       <p>Should return a <a class="autorefs autorefs-internal" href="../../slicing/#octoprint.slicing.SlicingProfile">octoprint.slicing.SlicingProfile</a> containing the default slicing profile to use with
 this slicer if no other profile has been selected.</p>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-                <code>SlicingProfile</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The <a class="autorefs autorefs-internal" href="../../slicing/#octoprint.slicing.SlicingProfile">octoprint.slicing.SlicingProfile</a> containing the default slicing profile for
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+            <code>SlicingProfile</code>
+        –
+        <div class="doc-md-description">
+          <p>The <a class="autorefs autorefs-internal" href="../../slicing/#octoprint.slicing.SlicingProfile">octoprint.slicing.SlicingProfile</a> containing the default slicing profile for
 this slicer.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -8752,26 +8358,15 @@ this slicer.</p>
 additional/other file types will want to override this.</p>
 <p>For the extension tree format, take a look at the docs of the <a href=""><code>octoprint.filemanager.extension_tree</code> hook</a>.</p>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>(dict) a dictionary containing a valid extension subtree.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+        –
+        <div class="doc-md-description">
+          <p>(dict) a dictionary containing a valid extension subtree.</p>
+      </div>
+      </li>
+  </ul>
       <p>{{ version_added("1.3.11") }}</p>
 
   </div>
@@ -8793,55 +8388,28 @@ additional/other file types will want to override this.</p>
       <p>Should return a <a class="autorefs autorefs-internal" href="../../slicing/#octoprint.slicing.SlicingProfile">octoprint.slicing.SlicingProfile</a> parsed from the slicing profile stored at the
 indicated <code>path</code>.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>path</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The absolute path from which to read the slicing profile.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>path</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The absolute path from which to read the slicing profile.</p>
+        </div>
+      </li>
+  </ul>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-                <code>SlicingProfile</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The specified slicing profile.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+            <code>SlicingProfile</code>
+        –
+        <div class="doc-md-description">
+          <p>The specified slicing profile.</p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -8864,33 +8432,17 @@ indicated <code>path</code>.</p>
 .profile files in the plugin's <code>profile_path</code>, utilizing the <a href="#octoprint.plugin.types.SlicerPlugin.get_slicer_profiles--octoprint.plugin.SlicingPlugin.get_slicer_profile"><code>SlicingPlugin.get_slicer_profile</code></a> method
 of the plugin implementation.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>profile_path</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The base folder where OctoPrint stores this slicer plugin's profiles</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>profile_path</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The base folder where OctoPrint stores this slicer plugin's profiles</p>
+        </div>
+      </li>
+  </ul>
       <p>{{ version_added("1.3.7") }}</p>
 
   </div>
@@ -8951,27 +8503,16 @@ targeted slicer's <code>source_file_types</code>.</dd>
 <dd>The possible extensions of slicing result files.</dd>
 </dl>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>A dict describing the slicer as outlined above.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+            <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
+        –
+        <div class="doc-md-description">
+          <p>A dict describing the slicer as outlined above.</p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -8994,27 +8535,16 @@ sub system upon startup. Plugins may use this to do some start up checks to veri
 a slicing binary as set and the binary is executable, or credentials of a cloud slicing platform are properly
 entered etc.</p>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p><code>True</code> if the slicer is configured and ready to be used, <code>False</code> otherwise.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+            <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>
+        –
+        <div class="doc-md-description">
+          <p><code>True</code> if the slicer is configured and ready to be used, <code>False</code> otherwise.</p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -9036,77 +8566,43 @@ entered etc.</p>
 any supplied <code>overrides</code>. If a profile is already saved under the indicated path and <code>allow_overwrite</code> is
 set to <code>False</code> (defaults to <code>True</code>), an <code>IOError</code> should be raised.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>path</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The absolute path to which to save the profile.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>profile</code></td>
-          <td>
-                <code>SlicingProfile</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The profile to save.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>allow_overwrite</code></td>
-          <td>
-                <code>boolean</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Whether to allow to overwrite an existing profile at the indicated path (<code>True</code>,
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>path</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The absolute path to which to save the profile.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>profile</b>
+            (<code>SlicingProfile</code>)
+        –
+        <div class="doc-md-description">
+          <p>The profile to save.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>allow_overwrite</b>
+            (<code>boolean</code>)
+        –
+        <div class="doc-md-description">
+          <p>Whether to allow to overwrite an existing profile at the indicated path (<code>True</code>,
 default) or not (<code>False</code>). If a profile already exists on the path and this is False an
 <code>IOError</code> should be raised.</p>
-            </div>
-          </td>
-          <td>
-                <code>True</code>
-          </td>
-        </tr>
-        <tr>
-          <td><code>overrides</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Profile overrides to apply to the <code>profile</code> before saving it</p>
-            </div>
-          </td>
-          <td>
-                <code>None</code>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>overrides</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Profile overrides to apply to the <code>profile</code> before saving it</p>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -9202,47 +8698,25 @@ externally reachable, use <code>on_after_startup</code> instead or additionally.
 </div>
 <p>The relevant sorting context is <code>StartupPlugin.on_startup</code>.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>host</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/string.html#module-string">string</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>the host the server will listen on, may be <code>0.0.0.0</code></p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>port</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>the port the server will listen on</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>host</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/string.html#module-string">string</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>the host the server will listen on, may be <code>0.0.0.0</code></p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>port</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>the port the server will listen on</p>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -9609,27 +9083,16 @@ injection of the default template. You'll have to include it explicitly:</p>
 </code></pre></div>
 </div>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>a list containing the configuration options for the plugin's injected templates</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+            <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></code>
+        –
+        <div class="doc-md-description">
+          <p>a list containing the configuration options for the plugin's injected templates</p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -9650,27 +9113,16 @@ injection of the default template. You'll have to include it explicitly:</p>
       <p>Defines the folder where the plugin stores its templates. Override this if your plugin stores its templates at
 some other place than the <code>templates</code> sub folder in the plugin base directory.</p>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>the absolute path to the folder where the plugin stores its jinja2 templates</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+            <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
+        –
+        <div class="doc-md-description">
+          <p>the absolute path to the folder where the plugin stores its jinja2 templates</p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -9691,27 +9143,16 @@ some other place than the <code>templates</code> sub folder in the plugin base d
       <p>Defines additional template variables to include into the template renderer. Variable names will be prefixed
 with <code>plugin_&lt;plugin identifier&gt;_</code>.</p>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>a dictionary containing any additional template variables to include in the renderer</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+            <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
+        –
+        <div class="doc-md-description">
+          <p>a dictionary containing any additional template variables to include in the renderer</p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -9874,55 +9315,28 @@ server startup (basically eager caching instead of lazily waiting for the first 
 <p>By default the same list will be returned that is also used in the stock UI (and injected
 via the parameter <code>default_additional</code>).</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>default_additional</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The list of default fields added to the ETag of the default UI</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>default_additional</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The list of default fields added to the ETag of the default UI</p>
+        </div>
+      </li>
+  </ul>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>A list of additional fields for the ETag generation, or None</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+            <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></code>
+        –
+        <div class="doc-md-description">
+          <p>A list of additional fields for the ETag generation, or None</p>
+      </div>
+      </li>
+  </ul>
       <p>{{ version_added("1.3.0") }}</p>
 
   </div>
@@ -9943,29 +9357,18 @@ via the parameter <code>default_additional</code>).</p>
   
       <p>Allows to return additional data to use in the cache key.</p>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-                <code>Union[List, Tuple, None]</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>A list or tuple of strings to use in the cache key. Will be joined by OctoPrint
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+            <code>Union[List, Tuple, None]</code>
+        –
+        <div class="doc-md-description">
+          <p>A list or tuple of strings to use in the cache key. Will be joined by OctoPrint
 using <code>:</code> as separator and appended to the existing <code>ui:&lt;identifier&gt;:&lt;base url&gt;:&lt;locale&gt;</code>
 cache key. Ignored if <code>None</code> is returned.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+      </div>
+      </li>
+  </ul>
       <p>{{ version_added("1.3.0") }}</p>
 
   </div>
@@ -9990,28 +9393,17 @@ to use for the fake request used for populating the preemptive cache.</p>
 <a href="http://werkzeug.pocoo.org/docs/0.11/test/#werkzeug.test.EnvironBuilder">Werkzeug EnvironBuilder</a>
 used for creating the fake request.</p>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Additional request data to persist in the preemptive cache configuration and to
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+            <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
+        –
+        <div class="doc-md-description">
+          <p>Additional request data to persist in the preemptive cache configuration and to
 use for request environment construction.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+      </div>
+      </li>
+  </ul>
       <p>{{ version_added("1.3.0") }}</p>
 
   </div>
@@ -10034,28 +9426,17 @@ use for request environment construction.</p>
 will track all declared templates, assets and translation files in the system. Additional
 files can be added by a plugin through this callback.</p>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-                <code>Optional[List]</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>A list of paths to additional files whose modification to track for (in)validating
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+            <code>Optional[List]</code>
+        –
+        <div class="doc-md-description">
+          <p>A list of paths to additional files whose modification to track for (in)validating
 the cache. Ignored if <code>None</code> is returned.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+      </div>
+      </li>
+  </ul>
       <p>{{ version_added("1.3.0") }}</p>
 
   </div>
@@ -10077,27 +9458,16 @@ the cache. Ignored if <code>None</code> is returned.</p>
       <p>Allows to use a custom way to calculate the ETag, instead of the default method (hashing
 OctoPrint's version, tracked file paths and <code>LastModified</code> value).</p>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>An alternatively calculated ETag value. Ignored if <code>None</code> is returned (default).</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+            <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>
+        –
+        <div class="doc-md-description">
+          <p>An alternatively calculated ETag value. Ignored if <code>None</code> is returned (default).</p>
+      </div>
+      </li>
+  </ul>
       <p>{{ version_added("1.3.0") }}</p>
 
   </div>
@@ -10119,27 +9489,16 @@ OctoPrint's version, tracked file paths and <code>LastModified</code> value).</p
       <p>Allows to calculate the LastModified differently than using the most recent modification
 date of all tracked files.</p>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-                <code>Optional[Int]</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>An alternatively calculated LastModified value. Ignored if <code>None</code> is returned (default).</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+            <code>Optional[Int]</code>
+        –
+        <div class="doc-md-description">
+          <p>An alternatively calculated LastModified value. Ignored if <code>None</code> is returned (default).</p>
+      </div>
+      </li>
+  </ul>
       <p>{{ version_added("1.3.0") }}</p>
 
   </div>
@@ -10163,57 +9522,30 @@ date of all tracked files.</p>
 <p>Only relevant for UiPlugins that actually utilize the stock templates of OctoPrint.</p>
 <p>By default simply returns the provided <code>default_template_filter</code>.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>default_template_filter</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#callable">callable</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The default template filter used by the default UI</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>default_template_filter</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#callable">callable</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The default template filter used by the default UI</p>
+        </div>
+      </li>
+  </ul>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#callable">callable</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>A filter function accepting the <code>template_type</code> and <code>template_key</code> of a template
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+            <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#callable">callable</a></code>
+        –
+        <div class="doc-md-description">
+          <p>A filter function accepting the <code>template_type</code> and <code>template_key</code> of a template
 and returning <code>True</code> to keep it and <code>False</code> to filter it out. If <code>None</code> is returned, no
 filtering will take place.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+      </div>
+      </li>
+  </ul>
       <p>{{ version_added("1.3.0") }}</p>
 
   </div>
@@ -10236,28 +9568,17 @@ filtering will take place.</p>
 method returns something, the templates, assets and translation files won't be tracked, only the
 files specified in the returned list.</p>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-                <code>Optional[List]</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>A list of paths representing the only files whose modification to track for (in)validating
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+            <code>Optional[List]</code>
+        –
+        <div class="doc-md-description">
+          <p>A list of paths representing the only files whose modification to track for (in)validating
 the cache. Ignored if <code>None</code> is returned.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+      </div>
+      </li>
+  </ul>
       <p>{{ version_added("1.3.0") }}</p>
 
   </div>
@@ -10279,27 +9600,16 @@ the cache. Ignored if <code>None</code> is returned.</p>
       <p>Allows defining additional data to be persisted in the preemptive cache configuration, on
 top of the request path, base URL and used locale.</p>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Additional data to persist in the preemptive cache configuration.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+            <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
+        –
+        <div class="doc-md-description">
+          <p>Additional data to persist in the preemptive cache configuration.</p>
+      </div>
+      </li>
+  </ul>
       <p>{{ version_added("1.3.0") }}</p>
 
   </div>
@@ -10326,28 +9636,17 @@ list will instruct OctoPrint to never show a login dialog when this UiPlugin's
 view renders, in which case it will fall to your plugin to implement its own
 login logic.</p>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>A list of permissions which to check the current user session against.
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+            <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></code>
+        –
+        <div class="doc-md-description">
+          <p>A list of permissions which to check the current user session against.
 May be empty to indicate that no permission checks should be made by OctoPrint.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+      </div>
+      </li>
+  </ul>
       <p>{{ version_added("1.5.0") }}</p>
 
   </div>
@@ -10371,27 +9670,16 @@ your plugin's UI.</p>
 <p>OctoPrint will call this method when processing a UI request, to determine whether to record the
 access or not. If you return <code>True</code> here, no record will be created.</p>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Whether to suppress a record (<code>True</code>) or not (<code>False</code>, default)</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+            <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>
+        –
+        <div class="doc-md-description">
+          <p>Whether to suppress a record (<code>True</code>) or not (<code>False</code>, default)</p>
+      </div>
+      </li>
+  </ul>
       <p>{{ version_added("1.3.0") }}</p>
 
   </div>
@@ -10414,27 +9702,16 @@ access or not. If you return <code>True</code> here, no record will be created.<
 cached on server startup (default) or not.</p>
 <p>Have this return False if you do not want your plugin's UI to ever be preemptively cached.</p>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Whether to enable preemptive caching (<code>True</code>, default) or not (<code>False</code>)</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+            <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>
+        –
+        <div class="doc-md-description">
+          <p>Whether to enable preemptive caching (<code>True</code>, default) or not (<code>False</code>)</p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -10533,89 +9810,50 @@ those you should depend on as a plugin developer at the current time):</p>
 <p>On top of that all additional template variables as provided by <a class="autorefs autorefs-internal" href="#octoprint.plugin.types.TemplatePlugin.get_template_vars"><code>get_template_vars</code></a>
 will be contained in the dictionary as well.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>now</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/datetime.html#module-datetime">datetime</a>.<a class="autorefs autorefs-external" title="datetime.datetime" href="https://docs.python.org/3/library/datetime.html#datetime.datetime">datetime</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The datetime instance representing "now"
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>now</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/datetime.html#module-datetime">datetime</a>.<a class="autorefs autorefs-external" title="datetime.datetime" href="https://docs.python.org/3/library/datetime.html#datetime.datetime">datetime</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The datetime instance representing "now"
 for this request, in case your plugin implementation needs this
 information.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>request</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://flask.palletsprojects.com/api/#module-flask">flask</a>.<a class="autorefs autorefs-external" title="flask.Request" href="https://flask.palletsprojects.com/api/#flask.Request">Request</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>A <a href="http://flask.pocoo.org/docs/0.10/api/#flask.Request&gt;">Flask Request</a> object.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>render_kwargs</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The (cached) render keyword arguments that
+        </div>
+      </li>
+      <li class="field-body">
+        <b>request</b>
+            (<code><a class="autorefs autorefs-external" href="https://flask.palletsprojects.com/api/#module-flask">flask</a>.<a class="autorefs autorefs-external" title="flask.Request" href="https://flask.palletsprojects.com/api/#flask.Request">Request</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>A <a href="http://flask.pocoo.org/docs/0.10/api/#flask.Request&gt;">Flask Request</a> object.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>render_kwargs</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The (cached) render keyword arguments that
 would usually be provided to the core UI render function.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+        </div>
+      </li>
+  </ul>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://flask.palletsprojects.com/api/#module-flask">flask</a>.<a class="autorefs autorefs-external" title="flask.Response" href="https://flask.palletsprojects.com/api/#flask.Response">Response</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>Should return a <a href="http://flask.pocoo.org/docs/0.10/api/#flask.Response">Flask Response</a>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+            <code><a class="autorefs autorefs-external" href="https://flask.palletsprojects.com/api/#module-flask">flask</a>.<a class="autorefs autorefs-external" title="flask.Response" href="https://flask.palletsprojects.com/api/#flask.Response">Response</a></code>
+        –
+        <div class="doc-md-description">
+          <p>Should return a <a href="http://flask.pocoo.org/docs/0.10/api/#flask.Response">Flask Response</a>
 object that can be served to the requesting client directly. May be
 created with <code>flask.make_response</code> combined with something like
 <code>flask.render_template</code>.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -10641,57 +9879,30 @@ is what should be served to the user.</p>
 <p>The execution order of calls to this method can be influenced via the sorting context
 <code>UiPlugin.will_handle_ui</code>.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>request</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://flask.palletsprojects.com/api/#module-flask">flask</a>.<a class="autorefs autorefs-external" title="flask.Request" href="https://flask.palletsprojects.com/api/#flask.Request">Request</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>A <a href="http://flask.pocoo.org/docs/0.10/api/#flask.Request">Flask Request</a>
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>request</b>
+            (<code><a class="autorefs autorefs-external" href="https://flask.palletsprojects.com/api/#module-flask">flask</a>.<a class="autorefs autorefs-external" title="flask.Request" href="https://flask.palletsprojects.com/api/#flask.Request">Request</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>A <a href="http://flask.pocoo.org/docs/0.10/api/#flask.Request">Flask Request</a>
 object.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+        </div>
+      </li>
+  </ul>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p><code>True</code> if the implementation will serve the request,
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+            <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>
+        –
+        <div class="doc-md-description">
+          <p><code>True</code> if the implementation will serve the request,
 <code>False</code> otherwise.</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -10808,28 +10019,17 @@ that will then be made available to the view models via the view model callback 
 <p>Use this if your plugin's view model that handles your wizard dialog needs additional
 data to perform its task.</p>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>a dictionary containing additional data to provide to the frontend. Whatever the plugin
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+            <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
+        –
+        <div class="doc-md-description">
+          <p>a dictionary containing additional data to provide to the frontend. Whatever the plugin
 returns here will be made available on the wizard API under the plugin's identifier</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -10855,30 +10055,19 @@ wizard in this particular version and not reshow it.</p>
 of changes in the required settings), increasing this value is the
 way to notify OctoPrint of these changes.</p>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-                <code>Optional[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a>]</code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>an int signifying the current wizard version, should be incremented by plugins whenever there
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+            <code>Optional[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a>]</code>
+        –
+        <div class="doc-md-description">
+          <p>an int signifying the current wizard version, should be incremented by plugins whenever there
 are changes to the plugin that might necessitate reshowing the wizard if it is required. <code>None</code>
 will also be accepted and lead to the wizard always be ignored unless it has never been finished
 so far</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -10975,73 +10164,40 @@ provided information about already seen wizards and their versions or not.</p>
 </tbody>
 </table>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>seen_wizards</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>A dictionary with information about already seen
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>seen_wizards</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>A dictionary with information about already seen
 wizards and their versions. Mappings from the identifiers of
 the plugin providing the wizard to the reported wizard
 version (int or None) that was already seen by the user.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-        <tr>
-          <td><code>implementation</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#object">object</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>The plugin implementation to check.</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>implementation</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#object">object</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The plugin implementation to check.</p>
+        </div>
+      </li>
+  </ul>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>False if the provided <code>implementation</code> is either not a <code>WizardPlugin</code>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+            <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>
+        –
+        <div class="doc-md-description">
+          <p>False if the provided <code>implementation</code> is either not a <code>WizardPlugin</code>
 or has not yet been seen (in this version), True otherwise</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -11067,27 +10223,16 @@ Still, if OctoPrint already displayed that wizard in the same version
 to the user once it won't be displayed again regardless whether this
 method returns <code>True</code> or not, refer to <a class="autorefs autorefs-internal" href="#octoprint.plugin.types.WizardPlugin.is_wizard_ignored"><code>is_wizard_ignored</code></a>.</p>
 
-  <p><strong>Returns:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p><code>True</code> if the plugin needs to display a wizard to the user, <code>False</code> otherwise (default).</p>
-            </div>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+            <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>
+        –
+        <div class="doc-md-description">
+          <p><code>True</code> if the plugin needs to display a wizard to the user, <code>False</code> otherwise (default).</p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -11112,35 +10257,19 @@ it was reporting that the wizard was required and the wizard plus version was no
 ignored/had already been seen).</p>
 <p>Use this to do any clean up tasks necessary after wizard completion.</p>
 
-  <p><strong>Parameters:</strong></p>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Default</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td><code>handled</code></td>
-          <td>
-                <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>
-          </td>
-          <td>
-            <div class="doc-md-description">
-              <p>True if the plugin's wizard was previously reported as
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>handled</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>True if the plugin's wizard was previously reported as
             required, not ignored and thus presented to the user,
             False otherwise</p>
-            </div>
-          </td>
-          <td>
-              <em>required</em>
-          </td>
-        </tr>
-    </tbody>
-  </table>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -11243,7 +10372,7 @@ ignored/had already been seen).</p>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking"], "search": "../../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking"], "search": "../../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../../assets/javascripts/bundle.220ee61c.min.js"></script>
