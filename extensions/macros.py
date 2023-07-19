@@ -106,6 +106,12 @@ def define_env(env):
 
             return name
 
+        def convert_enum(enum_):
+            bases = [base for base in enum_.__bases__ if not issubclass(base, Enum)]
+            if bases:
+                return bases[0]
+            return enum_
+
         def type_name(type_):
             if inspect.isclass(type_) and hasattr(type_, "__name__"):
                 name = type_.__name__
@@ -124,9 +130,7 @@ def define_env(env):
 
         def type_doc(type_):
             if inspect.isclass(type_) and issubclass(type_, Enum):
-                bases = [base for base in type_.__bases__ if not issubclass(base, Enum)]
-                if bases:
-                    type_ = bases[0]
+                type_ = convert_enum(type_)
             elif str(type_).startswith("typing.Literal") or str(type_).startswith(
                 "typing_extensions.Literal"
             ):
@@ -146,6 +150,8 @@ def define_env(env):
                 default = "*required*"
             elif default is None:
                 default = "*unset*"
+            elif isinstance(default, Enum) and convert_enum(t) is not t:
+                default = f"`{default.value!r}`"
             else:
                 default = f"`{default!r}`"
 
@@ -154,9 +160,19 @@ def define_env(env):
                 description = ""
 
             if inspect.isclass(t) and issubclass(t, Enum):
-                choices = [
-                    f"`{getattr(t, e)}`" for e in dir(t) if not e.startswith("_")
-                ]
+                if convert_enum(t) is not t:
+                    choices = [
+                        f"`{getattr(t, e).value}`"
+                        for e in dir(t)
+                        if not e.startswith("_") and hasattr(getattr(t, e), "value")
+                    ]
+                else:
+                    choices = [
+                        f"`{getattr(t, e)}`"
+                        for e in dir(t)
+                        if not e.startswith("_") and hasattr(getattr(t, e), "value")
+                    ]
+
                 description += (
                     " " if description else ""
                 ) + f"Valid values: {', '.join(choices)}."
