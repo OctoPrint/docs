@@ -39,6 +39,11 @@ ADDITIONAL_OPTIONS = {
             "!setBoolean",
         ]
     },
+    "octoprint.plugin.core": {
+        "filters": FILTERS
+        + ["_identifier", "_plugin_name", "_plugin_version", "_basefolder", "_logger"]
+    },
+    "octoprint.plugin.types": {"filters": FILTERS + ["^_"]},
 }
 
 nav = mkdocs_gen_files.Nav()
