@@ -6459,6 +6459,7 @@ identifier, <code>plugin</code> the plugin implementation instance itself and <c
   
       <p>Factory method for initially constructing and consecutively retrieving the <a class="autorefs autorefs-internal" href="core/#octoprint.plugin.core.PluginManager">PluginManager</a>
 singleton.</p>
+<p>Will set the logging prefix to <code>octoprint.plugins.</code>.</p>
 
   <p>Parameters:</p>
   <ul>
@@ -6534,8 +6535,9 @@ that are currently blacklisted.</p>
         –
         <div class="doc-md-description">
           <p>A list of hook namespaces which cause a plugin to need a restart in order
-be enabled/disabled. Does not have to contain full hook identifiers, will be matched with startswith similar
-to logging handlers</p>
+be enabled/disabled. Does not have to contain full hook identifiers, will be matched with glob patterns. If
+not provided this defaults to <code>octoprint.server.http.*</code>, <code>octoprint.printer.factory</code>,
+<code>octoprint.access.permissions</code> and <code>octoprint.timelapse.extensions</code>.</p>
         </div>
       </li>
       <li class="field-body">
@@ -6544,7 +6546,8 @@ to logging handlers</p>
         –
         <div class="doc-md-description">
           <p>A list of hooks that have been declared obsolete. Plugins implementing them will
-not be enabled since they might depend on functionality that is no longer available.</p>
+not be enabled since they might depend on functionality that is no longer available. If not provided this
+defaults to <code>octoprint.comm.protocol.gcode</code>.</p>
         </div>
       </li>
       <li class="field-body">
@@ -6553,7 +6556,7 @@ not be enabled since they might depend on functionality that is no longer availa
         –
         <div class="doc-md-description">
           <p>A list of plugin identifiers that are considered bundled plugins even if
-installed separately.</p>
+installed separately. If not provided this defaults to <code>firmware_check</code>, <code>file_check</code> and <code>pi_support</code>.</p>
         </div>
       </li>
       <li class="field-body">

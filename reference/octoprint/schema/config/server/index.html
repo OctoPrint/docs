@@ -3481,13 +3481,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#octoprint.schema.config.server.ServerConfig.incompleteStartup" class="md-nav__link">
-    incompleteStartup
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#octoprint.schema.config.server.ServerConfig.ipCheck" class="md-nav__link">
     ipCheck
   </a>
@@ -5838,13 +5831,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#octoprint.schema.config.server.ServerConfig.incompleteStartup" class="md-nav__link">
-    incompleteStartup
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#octoprint.schema.config.server.ServerConfig.ipCheck" class="md-nav__link">
     ipCheck
   </a>
@@ -6150,7 +6136,7 @@
 
 
 <h3 id="octoprint.schema.config.server.CookiesConfig.samesite" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">samesite</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Literal</span><span class="p">[</span><span class="n">Strict</span><span class="p">,</span> <span class="n">Lax</span><span class="p">,</span> <span class="kc">None</span><span class="p">]]</span> <span class="o">=</span> <span class="s1">&#39;Lax&#39;</span></code>
+<code class="highlight language-python"><span class="n">samesite</span><span class="p">:</span> <span class="n">SameSiteEnum</span> <span class="o">=</span> <span class="n">SameSiteEnum</span><span class="o">.</span><span class="n">lax</span></code>
   
   <span class="doc doc-labels">
       <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
@@ -7111,28 +7097,6 @@
   <div class="doc doc-contents ">
   
       <p>Set this to true to make OctoPrint ignore incomplete startups. Helpful for development.</p>
-  </div>
-
-</div>
-
-<div class="doc doc-object doc-attribute">
-
-
-
-<h3 id="octoprint.schema.config.server.ServerConfig.incompleteStartup" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">incompleteStartup</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span></code>
-  
-  <span class="doc doc-labels">
-      <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
-      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
-  </span>
-
-<a href="#octoprint.schema.config.server.ServerConfig.incompleteStartup" class="headerlink" title="Permanent link">#</a></h3>
-
-
-  <div class="doc doc-contents ">
-  
-      <p>Signals to OctoPrint that the last startup was incomplete. OctoPrint will then startup in safe mode.</p>
   </div>
 
 </div>

@@ -6531,7 +6531,7 @@ of the various UI components</p>
 <tr>
 <td><code>color</code></td>
 <td><code>str</code></td>
-<td>Use this to color the navigation bar. Valid values: <code>'red'</code>, <code>'orange'</code>, <code>'green'</code>, <code>'blue'</code>, <code>'yellow'</code>, <code>'violet'</code>, <code>'default'</code>.</td>
+<td>Use this to color the navigation bar. Valid values: <code>blue</code>, <code>default</code>, <code>green</code>, <code>orange</code>, <code>red</code>, <code>violet</code>, <code>yellow</code>.</td>
 <td><code>'default'</code></td>
 </tr>
 <tr>
@@ -6826,7 +6826,7 @@ control or a container.</p>
 <tr>
 <td><code>layout</code></td>
 <td><code>str</code></td>
-<td>The layout to use for laying out the contained children, either from top to bottom (<code>vertical</code>) or from left to right (<code>horizontal</code>). Valid values: <code>'horizontal'</code>, <code>'vertical'</code>.</td>
+<td>The layout to use for laying out the contained children, either from top to bottom (<code>vertical</code>) or from left to right (<code>horizontal</code>). Valid values: <code>horizontal</code>, <code>vertical</code>.</td>
 <td><code>'vertical'</code></td>
 </tr>
 </tbody>
@@ -6919,7 +6919,7 @@ control or a container.</p>
 <tr>
 <td><code>stylesheet</code></td>
 <td><code>str</code></td>
-<td>Settings for stylesheet preference. OctoPrint will prefer to use the stylesheet type specified here. Usually (on a production install) that will be the compiled css (default). Developers may specify less here too. Valid values: <code>'css'</code>, <code>'less'</code>.</td>
+<td>Settings for stylesheet preference. OctoPrint will prefer to use the stylesheet type specified here. Usually (on a production install) that will be the compiled css (default). Developers may specify less here too. Valid values: <code>css</code>, <code>less</code>.</td>
 <td><code>'css'</code></td>
 </tr>
 <tr>
@@ -7118,7 +7118,7 @@ control or a container.</p>
 <tr>
 <td><code>subscriptions[].type</code></td>
 <td><code>str</code></td>
-<td>The type of the command. Valid values: <code>'system'</code>, <code>'gcode'</code>.</td>
+<td>The type of the command. Valid values: <code>gcode</code>, <code>system</code>.</td>
 <td><em>required</em></td>
 </tr>
 <tr>
@@ -7426,7 +7426,7 @@ subscription's command after performing all placeholder replacements.</p>
 <tr>
 <td><code>runAt</code></td>
 <td><code>str</code></td>
-<td>Whether to run the analysis only when idle (not printing), regardless of printing state or never. Valid values: <code>'never'</code>, <code>'idle'</code>, <code>'always'</code>.</td>
+<td>Whether to run the analysis only when idle (not printing), regardless of printing state or never. Valid values: <code>always</code>, <code>idle</code>, <code>never</code>.</td>
 <td><code>'idle'</code></td>
 </tr>
 <tr>
@@ -8031,7 +8031,7 @@ See <a href="">GCODE Scripts</a>.</p>
 <tr>
 <td><code>supportResendsWithoutOk</code></td>
 <td><code>str</code></td>
-<td>Whether to support resends without follow-up ok or not. Valid values: <code>'always'</code>, <code>'detect'</code>, <code>'never'</code>.</td>
+<td>Whether to support resends without follow-up ok or not. Valid values: <code>always</code>, <code>detect</code>, <code>never</code>.</td>
 <td><code>'detect'</code></td>
 </tr>
 <tr>
@@ -8175,7 +8175,7 @@ See <a href="">GCODE Scripts</a>.</p>
 <tr>
 <td><code>useParityWorkaround</code></td>
 <td><code>str</code></td>
-<td>Valid values: <code>'always'</code>, <code>'detect'</code>, <code>'never'</code>.</td>
+<td>Valid values: <code>always</code>, <code>detect</code>, <code>never</code>.</td>
 <td><code>'detect'</code></td>
 </tr>
 <tr>
@@ -8211,7 +8211,7 @@ See <a href="">GCODE Scripts</a>.</p>
 <tr>
 <td><code>notifySuppressedCommands</code></td>
 <td><code>str</code></td>
-<td>Valid values: <code>'info'</code>, <code>'warn'</code>, <code>'never'</code>.</td>
+<td>Valid values: <code>info</code>, <code>never</code>, <code>warn</code>.</td>
 <td><code>'warn'</code></td>
 </tr>
 <tr>
@@ -8308,57 +8308,56 @@ See <a href="">GCODE Scripts</a>.</p>
 <a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="w">  </span><span class="nt">firstRun</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="w">  </span><span class="nt">startOnceInSafeMode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="w">  </span><span class="nt">ignoreIncompleteStartup</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
-<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="w">  </span><span class="nt">incompleteStartup</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
-<a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a><span class="w">  </span><span class="nt">seenWizards</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
-<a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a><span class="w">  </span><span class="nt">secretKey</span><span class="p">:</span>
-<a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a><span class="w">  </span><span class="nt">heartbeat</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">900</span>
-<a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a><span class="w">  </span><span class="nt">reverseProxy</span><span class="p">:</span>
-<a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a><span class="w">    </span><span class="nt">prefixHeader</span><span class="p">:</span>
-<a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a><span class="w">    </span><span class="nt">schemeHeader</span><span class="p">:</span>
-<a id="__codelineno-22-14" name="__codelineno-22-14" href="#__codelineno-22-14"></a><span class="w">    </span><span class="nt">hostHeader</span><span class="p">:</span>
-<a id="__codelineno-22-15" name="__codelineno-22-15" href="#__codelineno-22-15"></a><span class="w">    </span><span class="nt">serverHeader</span><span class="p">:</span>
-<a id="__codelineno-22-16" name="__codelineno-22-16" href="#__codelineno-22-16"></a><span class="w">    </span><span class="nt">portHeader</span><span class="p">:</span>
-<a id="__codelineno-22-17" name="__codelineno-22-17" href="#__codelineno-22-17"></a><span class="w">    </span><span class="nt">prefixFallback</span><span class="p">:</span>
-<a id="__codelineno-22-18" name="__codelineno-22-18" href="#__codelineno-22-18"></a><span class="w">    </span><span class="nt">schemeFallback</span><span class="p">:</span>
-<a id="__codelineno-22-19" name="__codelineno-22-19" href="#__codelineno-22-19"></a><span class="w">    </span><span class="nt">hostFallback</span><span class="p">:</span>
-<a id="__codelineno-22-20" name="__codelineno-22-20" href="#__codelineno-22-20"></a><span class="w">    </span><span class="nt">serverFallback</span><span class="p">:</span>
-<a id="__codelineno-22-21" name="__codelineno-22-21" href="#__codelineno-22-21"></a><span class="w">    </span><span class="nt">portFallback</span><span class="p">:</span>
-<a id="__codelineno-22-22" name="__codelineno-22-22" href="#__codelineno-22-22"></a><span class="w">    </span><span class="nt">trustedDownstream</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span>
-<a id="__codelineno-22-23" name="__codelineno-22-23" href="#__codelineno-22-23"></a><span class="w">  </span><span class="nt">uploads</span><span class="p">:</span>
-<a id="__codelineno-22-24" name="__codelineno-22-24" href="#__codelineno-22-24"></a><span class="w">    </span><span class="nt">maxSize</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1073741824</span>
-<a id="__codelineno-22-25" name="__codelineno-22-25" href="#__codelineno-22-25"></a><span class="w">    </span><span class="nt">nameSuffix</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">name</span>
-<a id="__codelineno-22-26" name="__codelineno-22-26" href="#__codelineno-22-26"></a><span class="w">    </span><span class="nt">pathSuffix</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">path</span>
-<a id="__codelineno-22-27" name="__codelineno-22-27" href="#__codelineno-22-27"></a><span class="w">  </span><span class="nt">maxSize</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">102400</span>
-<a id="__codelineno-22-28" name="__codelineno-22-28" href="#__codelineno-22-28"></a><span class="w">  </span><span class="nt">commands</span><span class="p">:</span>
-<a id="__codelineno-22-29" name="__codelineno-22-29" href="#__codelineno-22-29"></a><span class="w">    </span><span class="nt">systemShutdownCommand</span><span class="p">:</span>
-<a id="__codelineno-22-30" name="__codelineno-22-30" href="#__codelineno-22-30"></a><span class="w">    </span><span class="nt">systemRestartCommand</span><span class="p">:</span>
-<a id="__codelineno-22-31" name="__codelineno-22-31" href="#__codelineno-22-31"></a><span class="w">    </span><span class="nt">serverRestartCommand</span><span class="p">:</span>
-<a id="__codelineno-22-32" name="__codelineno-22-32" href="#__codelineno-22-32"></a><span class="w">    </span><span class="nt">localPipCommand</span><span class="p">:</span>
-<a id="__codelineno-22-33" name="__codelineno-22-33" href="#__codelineno-22-33"></a><span class="w">  </span><span class="nt">onlineCheck</span><span class="p">:</span>
-<a id="__codelineno-22-34" name="__codelineno-22-34" href="#__codelineno-22-34"></a><span class="w">    </span><span class="nt">enabled</span><span class="p">:</span>
-<a id="__codelineno-22-35" name="__codelineno-22-35" href="#__codelineno-22-35"></a><span class="w">    </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">900</span>
-<a id="__codelineno-22-36" name="__codelineno-22-36" href="#__codelineno-22-36"></a><span class="w">    </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.1.1.1</span>
-<a id="__codelineno-22-37" name="__codelineno-22-37" href="#__codelineno-22-37"></a><span class="w">    </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">53</span>
-<a id="__codelineno-22-38" name="__codelineno-22-38" href="#__codelineno-22-38"></a><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">octoprint.org</span>
-<a id="__codelineno-22-39" name="__codelineno-22-39" href="#__codelineno-22-39"></a><span class="w">  </span><span class="nt">pluginBlacklist</span><span class="p">:</span>
-<a id="__codelineno-22-40" name="__codelineno-22-40" href="#__codelineno-22-40"></a><span class="w">    </span><span class="nt">enabled</span><span class="p">:</span>
-<a id="__codelineno-22-41" name="__codelineno-22-41" href="#__codelineno-22-41"></a><span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://plugins.octoprint.org/blacklist.json</span>
-<a id="__codelineno-22-42" name="__codelineno-22-42" href="#__codelineno-22-42"></a><span class="w">    </span><span class="nt">ttl</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">900</span>
-<a id="__codelineno-22-43" name="__codelineno-22-43" href="#__codelineno-22-43"></a><span class="w">    </span><span class="nt">timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3.05</span>
-<a id="__codelineno-22-44" name="__codelineno-22-44" href="#__codelineno-22-44"></a><span class="w">  </span><span class="nt">diskspace</span><span class="p">:</span>
-<a id="__codelineno-22-45" name="__codelineno-22-45" href="#__codelineno-22-45"></a><span class="w">    </span><span class="nt">warning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">524288000</span>
-<a id="__codelineno-22-46" name="__codelineno-22-46" href="#__codelineno-22-46"></a><span class="w">    </span><span class="nt">critical</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">209715200</span>
-<a id="__codelineno-22-47" name="__codelineno-22-47" href="#__codelineno-22-47"></a><span class="w">  </span><span class="nt">preemptiveCache</span><span class="p">:</span>
-<a id="__codelineno-22-48" name="__codelineno-22-48" href="#__codelineno-22-48"></a><span class="w">    </span><span class="nt">exceptions</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span>
-<a id="__codelineno-22-49" name="__codelineno-22-49" href="#__codelineno-22-49"></a><span class="w">    </span><span class="nt">until</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">7</span>
-<a id="__codelineno-22-50" name="__codelineno-22-50" href="#__codelineno-22-50"></a><span class="w">  </span><span class="nt">ipCheck</span><span class="p">:</span>
-<a id="__codelineno-22-51" name="__codelineno-22-51" href="#__codelineno-22-51"></a><span class="w">    </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<a id="__codelineno-22-52" name="__codelineno-22-52" href="#__codelineno-22-52"></a><span class="w">    </span><span class="nt">trustedSubnets</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span>
-<a id="__codelineno-22-53" name="__codelineno-22-53" href="#__codelineno-22-53"></a><span class="w">  </span><span class="nt">allowFraming</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
-<a id="__codelineno-22-54" name="__codelineno-22-54" href="#__codelineno-22-54"></a><span class="w">  </span><span class="nt">cookies</span><span class="p">:</span>
-<a id="__codelineno-22-55" name="__codelineno-22-55" href="#__codelineno-22-55"></a><span class="w">    </span><span class="nt">secure</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
-<a id="__codelineno-22-56" name="__codelineno-22-56" href="#__codelineno-22-56"></a><span class="w">    </span><span class="nt">samesite</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Lax</span>
-<a id="__codelineno-22-57" name="__codelineno-22-57" href="#__codelineno-22-57"></a><span class="w">  </span><span class="nt">allowedLoginRedirectPaths</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span>
+<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="w">  </span><span class="nt">seenWizards</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
+<a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a><span class="w">  </span><span class="nt">secretKey</span><span class="p">:</span>
+<a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a><span class="w">  </span><span class="nt">heartbeat</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">900</span>
+<a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a><span class="w">  </span><span class="nt">reverseProxy</span><span class="p">:</span>
+<a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a><span class="w">    </span><span class="nt">prefixHeader</span><span class="p">:</span>
+<a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a><span class="w">    </span><span class="nt">schemeHeader</span><span class="p">:</span>
+<a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a><span class="w">    </span><span class="nt">hostHeader</span><span class="p">:</span>
+<a id="__codelineno-22-14" name="__codelineno-22-14" href="#__codelineno-22-14"></a><span class="w">    </span><span class="nt">serverHeader</span><span class="p">:</span>
+<a id="__codelineno-22-15" name="__codelineno-22-15" href="#__codelineno-22-15"></a><span class="w">    </span><span class="nt">portHeader</span><span class="p">:</span>
+<a id="__codelineno-22-16" name="__codelineno-22-16" href="#__codelineno-22-16"></a><span class="w">    </span><span class="nt">prefixFallback</span><span class="p">:</span>
+<a id="__codelineno-22-17" name="__codelineno-22-17" href="#__codelineno-22-17"></a><span class="w">    </span><span class="nt">schemeFallback</span><span class="p">:</span>
+<a id="__codelineno-22-18" name="__codelineno-22-18" href="#__codelineno-22-18"></a><span class="w">    </span><span class="nt">hostFallback</span><span class="p">:</span>
+<a id="__codelineno-22-19" name="__codelineno-22-19" href="#__codelineno-22-19"></a><span class="w">    </span><span class="nt">serverFallback</span><span class="p">:</span>
+<a id="__codelineno-22-20" name="__codelineno-22-20" href="#__codelineno-22-20"></a><span class="w">    </span><span class="nt">portFallback</span><span class="p">:</span>
+<a id="__codelineno-22-21" name="__codelineno-22-21" href="#__codelineno-22-21"></a><span class="w">    </span><span class="nt">trustedDownstream</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span>
+<a id="__codelineno-22-22" name="__codelineno-22-22" href="#__codelineno-22-22"></a><span class="w">  </span><span class="nt">uploads</span><span class="p">:</span>
+<a id="__codelineno-22-23" name="__codelineno-22-23" href="#__codelineno-22-23"></a><span class="w">    </span><span class="nt">maxSize</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1073741824</span>
+<a id="__codelineno-22-24" name="__codelineno-22-24" href="#__codelineno-22-24"></a><span class="w">    </span><span class="nt">nameSuffix</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">name</span>
+<a id="__codelineno-22-25" name="__codelineno-22-25" href="#__codelineno-22-25"></a><span class="w">    </span><span class="nt">pathSuffix</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">path</span>
+<a id="__codelineno-22-26" name="__codelineno-22-26" href="#__codelineno-22-26"></a><span class="w">  </span><span class="nt">maxSize</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">102400</span>
+<a id="__codelineno-22-27" name="__codelineno-22-27" href="#__codelineno-22-27"></a><span class="w">  </span><span class="nt">commands</span><span class="p">:</span>
+<a id="__codelineno-22-28" name="__codelineno-22-28" href="#__codelineno-22-28"></a><span class="w">    </span><span class="nt">systemShutdownCommand</span><span class="p">:</span>
+<a id="__codelineno-22-29" name="__codelineno-22-29" href="#__codelineno-22-29"></a><span class="w">    </span><span class="nt">systemRestartCommand</span><span class="p">:</span>
+<a id="__codelineno-22-30" name="__codelineno-22-30" href="#__codelineno-22-30"></a><span class="w">    </span><span class="nt">serverRestartCommand</span><span class="p">:</span>
+<a id="__codelineno-22-31" name="__codelineno-22-31" href="#__codelineno-22-31"></a><span class="w">    </span><span class="nt">localPipCommand</span><span class="p">:</span>
+<a id="__codelineno-22-32" name="__codelineno-22-32" href="#__codelineno-22-32"></a><span class="w">  </span><span class="nt">onlineCheck</span><span class="p">:</span>
+<a id="__codelineno-22-33" name="__codelineno-22-33" href="#__codelineno-22-33"></a><span class="w">    </span><span class="nt">enabled</span><span class="p">:</span>
+<a id="__codelineno-22-34" name="__codelineno-22-34" href="#__codelineno-22-34"></a><span class="w">    </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">900</span>
+<a id="__codelineno-22-35" name="__codelineno-22-35" href="#__codelineno-22-35"></a><span class="w">    </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.1.1.1</span>
+<a id="__codelineno-22-36" name="__codelineno-22-36" href="#__codelineno-22-36"></a><span class="w">    </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">53</span>
+<a id="__codelineno-22-37" name="__codelineno-22-37" href="#__codelineno-22-37"></a><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">octoprint.org</span>
+<a id="__codelineno-22-38" name="__codelineno-22-38" href="#__codelineno-22-38"></a><span class="w">  </span><span class="nt">pluginBlacklist</span><span class="p">:</span>
+<a id="__codelineno-22-39" name="__codelineno-22-39" href="#__codelineno-22-39"></a><span class="w">    </span><span class="nt">enabled</span><span class="p">:</span>
+<a id="__codelineno-22-40" name="__codelineno-22-40" href="#__codelineno-22-40"></a><span class="w">    </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://plugins.octoprint.org/blacklist.json</span>
+<a id="__codelineno-22-41" name="__codelineno-22-41" href="#__codelineno-22-41"></a><span class="w">    </span><span class="nt">ttl</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">900</span>
+<a id="__codelineno-22-42" name="__codelineno-22-42" href="#__codelineno-22-42"></a><span class="w">    </span><span class="nt">timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3.05</span>
+<a id="__codelineno-22-43" name="__codelineno-22-43" href="#__codelineno-22-43"></a><span class="w">  </span><span class="nt">diskspace</span><span class="p">:</span>
+<a id="__codelineno-22-44" name="__codelineno-22-44" href="#__codelineno-22-44"></a><span class="w">    </span><span class="nt">warning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">524288000</span>
+<a id="__codelineno-22-45" name="__codelineno-22-45" href="#__codelineno-22-45"></a><span class="w">    </span><span class="nt">critical</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">209715200</span>
+<a id="__codelineno-22-46" name="__codelineno-22-46" href="#__codelineno-22-46"></a><span class="w">  </span><span class="nt">preemptiveCache</span><span class="p">:</span>
+<a id="__codelineno-22-47" name="__codelineno-22-47" href="#__codelineno-22-47"></a><span class="w">    </span><span class="nt">exceptions</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span>
+<a id="__codelineno-22-48" name="__codelineno-22-48" href="#__codelineno-22-48"></a><span class="w">    </span><span class="nt">until</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">7</span>
+<a id="__codelineno-22-49" name="__codelineno-22-49" href="#__codelineno-22-49"></a><span class="w">  </span><span class="nt">ipCheck</span><span class="p">:</span>
+<a id="__codelineno-22-50" name="__codelineno-22-50" href="#__codelineno-22-50"></a><span class="w">    </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-22-51" name="__codelineno-22-51" href="#__codelineno-22-51"></a><span class="w">    </span><span class="nt">trustedSubnets</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span>
+<a id="__codelineno-22-52" name="__codelineno-22-52" href="#__codelineno-22-52"></a><span class="w">  </span><span class="nt">allowFraming</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<a id="__codelineno-22-53" name="__codelineno-22-53" href="#__codelineno-22-53"></a><span class="w">  </span><span class="nt">cookies</span><span class="p">:</span>
+<a id="__codelineno-22-54" name="__codelineno-22-54" href="#__codelineno-22-54"></a><span class="w">    </span><span class="nt">secure</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<a id="__codelineno-22-55" name="__codelineno-22-55" href="#__codelineno-22-55"></a><span class="w">    </span><span class="nt">samesite</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Lax</span>
+<a id="__codelineno-22-56" name="__codelineno-22-56" href="#__codelineno-22-56"></a><span class="w">  </span><span class="nt">allowedLoginRedirectPaths</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span>
 </code></pre></div>
 <h3 id="data-model_15">Data model<a class="headerlink" href="#data-model_15" title="Permanent link">#</a></h3>
 <table>
@@ -8399,12 +8398,6 @@ See <a href="">GCODE Scripts</a>.</p>
 <td><code>ignoreIncompleteStartup</code></td>
 <td><code>bool</code></td>
 <td>Set this to true to make OctoPrint ignore incomplete startups. Helpful for development.</td>
-<td><code>False</code></td>
-</tr>
-<tr>
-<td><code>incompleteStartup</code></td>
-<td><code>bool</code></td>
-<td>Signals to OctoPrint that the last startup was incomplete. OctoPrint will then startup in safe mode.</td>
 <td><code>False</code></td>
 </tr>
 <tr>
@@ -8697,8 +8690,8 @@ See <a href="">GCODE Scripts</a>.</p>
 </tr>
 <tr>
 <td><code>cookies.samesite</code></td>
-<td><code>Optional[Literal[</code></td>
-<td><code>SameSite</code> setting to use on the cookies. Possible values are <code>None</code>, <code>Lax</code> and <code>Strict</code>. Defaults to <code>Lax</code>. Be advised that if forced unset, this has security implications as many browsers now default to <code>Lax</code> unless you configure cookies to be set with <code>Secure</code> flag set, explicitly set <code>SameSite</code> setting here and also serve OctoPrint over https. The <code>Lax</code> setting is known to cause with embedding OctoPrint in frames. See also <a href="https://www.chromestatus.com/feature/5088147346030592">"Feature: Cookies default to SameSite=Lax"</a>, <a href="https://www.chromestatus.com/feature/5633521622188032">"Feature: Reject insecure SameSite=None cookies"</a> and <a href="https://github.com/OctoPrint/OctoPrint/issues/3482">issue #3482</a>.</td>
+<td><code>str</code></td>
+<td><code>SameSite</code> setting to use on the cookies. Possible values are <code>None</code>, <code>Lax</code> and <code>Strict</code>. Defaults to <code>Lax</code>. Be advised that if forced unset, this has security implications as many browsers now default to <code>Lax</code> unless you configure cookies to be set with <code>Secure</code> flag set, explicitly set <code>SameSite</code> setting here and also serve OctoPrint over https. The <code>Lax</code> setting is known to cause with embedding OctoPrint in frames. See also <a href="https://www.chromestatus.com/feature/5088147346030592">"Feature: Cookies default to SameSite=Lax"</a>, <a href="https://www.chromestatus.com/feature/5633521622188032">"Feature: Reject insecure SameSite=None cookies"</a> and <a href="https://github.com/OctoPrint/OctoPrint/issues/3482">issue #3482</a>. Valid values: <code>Lax</code>, <code>None</code>, <code>Strict</code>.</td>
 <td><code>'Lax'</code></td>
 </tr>
 <tr>
@@ -9012,7 +9005,7 @@ See <a href="">GCODE Scripts</a>.</p>
 <tr>
 <td><code>timelapse.type</code></td>
 <td><code>str</code></td>
-<td>The timelapse type. Valid values: <code>'off'</code>, <code>'zchange'</code>, <code>'timed'</code>.</td>
+<td>The timelapse type. Valid values: <code>off</code>, <code>timed</code>, <code>zchange</code>.</td>
 <td><code>'off'</code></td>
 </tr>
 <tr>
