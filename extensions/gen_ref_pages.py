@@ -26,7 +26,19 @@ OPTIONS = {
 ADDITIONAL_OPTIONS = {
     "octoprint.filemanager.analysis": {
         "filters": FILTERS + ["_do_analysis", "_do_abort"]
-    }
+    },
+    "octoprint.plugin": {
+        "filters": FILTERS
+        + [
+            "!get_plugin_data_folder",
+            "!getInt",
+            "!getFloat",
+            "!getBoolean",
+            "!setInt",
+            "!setFloat",
+            "!setBoolean",
+        ]
+    },
 }
 
 nav = mkdocs_gen_files.Nav()

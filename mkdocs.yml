@@ -132,10 +132,11 @@ plugins:
         python:
           options:
             show_source: false
-            show_if_no_docstring: true
+            show_if_no_docstring: false
             show_signature_annotations: true
             inherited_members: false
             docstring_section_style: list
+            merge_init_into_class: true
           paths:
             - !ENV [OCTOPRINT_SRC, "../OctoPrint/src/"]
           import:

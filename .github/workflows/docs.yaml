@@ -35,7 +35,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           repository: "OctoPrint/OctoPrint"
-          ref: improve/mkdocs
+          ref: improve/mkdocstrings
           path: OctoPrint
 
       - name: 🏗 Build docs
