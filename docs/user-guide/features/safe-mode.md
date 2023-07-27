@@ -32,13 +32,13 @@ You can select "Restart OctoPrint in safe mode" from the "System" menu, if the "
 OctoPrint" server command has been correctly configured.
 
 <figure markdown>
-  !["Restart OctoPrint in safe mode" in the "System" menu](../../images/user-guide/features/safe_mode/systemmenu.png)
+  !["Restart OctoPrint in safe mode" in the "System" menu](site:images/user-guide/features/safe_mode/systemmenu.png)
   <figcaption>"Restart OctoPrint in safe mode" in the "System" menu</figcaption>
 </figure>
 
 ### Via the `server.startOnceInSafeMode` config flag
 
-You can set the flag `server.startOnceInSafeMode` in [`config.yaml`](../configuration/config_yaml)
+You can set the flag `server.startOnceInSafeMode` in [`config.yaml`][user-guide.configuration.config-yaml]
 to `true` and restart. This will make OctoPrint start up in safe mode. The flag will clear
 automatically.
 
@@ -56,7 +56,7 @@ To set this flag you have the following options:
       startOnceInSafeMode: true
     ```
 
-    Please also refer to the [YAML primer](../configuration/yaml).
+    Please also refer to the [YAML primer][user-guide.configuration.yaml-primer].
 
 ### Via the `--safe` command line flag
 
@@ -81,7 +81,7 @@ When OctoPrint is running in safe mode the following changes to its normal opera
     safe mode.
 
     <figure markdown>
-      ![Safe mode notification](../../images/user-guide/features/safe_mode/notification.png)
+      ![Safe mode notification](site:images/user-guide/features/safe_mode/notification.png)
       <figcaption>Safe mode notification</figcaption>
     </figure>
 

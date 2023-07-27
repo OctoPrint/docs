@@ -12,7 +12,7 @@ There are three sources of installed plugins that OctoPrint will check during st
 
 Each plugin that OctoPrint finds it will first load, then enable. On enabling a plugin, OctoPrint will
 register its declared [hook handlers][plugin-guide.concepts.hooks] and [helpers][plugin-guide.concepts.helpers], apply
-any [settings overlays][plugin-guide.concepts.control-properties.settings-overlays],
+any [settings overlays][plugin-guide.concepts.control-properties.plugin-settings-overlay],
 [inject the required properties][plugin-guide.concepts.mixins.injected-properties] into its declared
 [mixin implementation][plugin-guide.concepts.mixins] and register those as well.
 
@@ -42,5 +42,5 @@ that the Plugin Manager is not the only way to uninstall a plugin from the syste
 manually through the command line, circumventing Plugin Manager completely.
 
 <figure markdown>
-![The lifecycle of OctoPrint plugins.](../images/plugin-guide/lifecycle/plugins_lifecycle.svg)
+  ![The lifecycle of OctoPrint plugins.](site:images/plugin-guide/lifecycle/plugins_lifecycle.svg)
 </figure>

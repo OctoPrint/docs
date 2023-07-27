@@ -247,52 +247,66 @@ OctoPrint's connectivity checker, an instance of [`octoprint.util.ConnectivityCh
 
 ## Available plugin mixins {: #plugin-guide.concepts.mixins.available-plugin-mixins }
 
-Please note that all plugin mixins inherit from 
-[`Plugin`][octoprint.plugin.core.Plugin] and 
-[`OctoPrintPlugin`][octoprint.plugin.types.OctoPrintPlugin], 
-which also provide attributes of interest to plugin developers.
+Please note that all plugin mixins inherit from [`Plugin`][octoprint.plugin.core.Plugin] and 
+[`OctoPrintPlugin`][octoprint.plugin.types.OctoPrintPlugin], which also provide attributes of interest to plugin developers.
 
 [`AssetPlugin`][octoprint.plugin.types.AssetPlugin]
 :   The AssetPlugin mixin allows plugins to define additional static assets such as 
     JavaScript or CSS files to be automatically embedded into the pages delivered by the 
     server to be used within the client sided part of the plugin.
+
 [`BlueprintPlugin`][octoprint.plugin.types.BlueprintPlugin]
 :   The `BlueprintPlugin` mixin allows plugins to define their own full fledged endpoints 
     for whatever purpose, be it a more sophisticated API than what is possible via the 
     [`SimpleApiPlugin`][octoprint.plugin.SimpleApiPlugin] or a custom web frontend.
+
 [`EnvironmentDetectionPlugin`][octoprint.plugin.types.EnvironmentDetectionPlugin]
 :   The `EnvironmentDetectionPlugin` mixin allows enrichting OctoPrint's environmental
     information collections with additional data, and to react to successfully collected
     environmental information.
+
 [`EventHandlerPlugin`][octoprint.plugin.types.EventHandlerPlugin]
 :   The `EventHandlerPlugin` mixin allows OctoPrint plugins to react to any of [OctoPrint's events][dev-guide.events].
     OctoPrint will call the `on_event` method for any event fired on its internal event bus, supplying the
     event type and the associated payload.
+
 [`ProgressPlugin`][octoprint.plugin.types.ProgressPlugin]
 :   Via the `ProgressPlugin` mixin plugins can let themselves be called upon progress in
     print jobs or slicing jobs, limited to minimally 1% steps.
+
 [`SettingsPlugin`][octoprint.plugin.types.SettingsPlugin]
 :   Including the `SettingsPlugin` mixin allows plugins to store and retrieve their own
     settings within OctoPrint's configuration.
+
 [`ShutdownPlugin`][octoprint.plugin.types.ShutdownPlugin]
 :   The `ShutdownPlugin` allows hooking into the shutdown of OctoPrint. It's usually
     used in conjunction with the [`StartupPlugin`][octoprint.plugin.types.StartupPlugin]
     mixin, to cleanly shut down additional services again that where started by the
     [`StartupPlugin`][octoprint.plugin.types.StartupPlugin] part of the plugin.
+
 [`SimpleApiPlugin`][octoprint.plugin.types.SimpleApiPlugin]
 :   Utilizing the `SimpleApiPlugin` mixin plugins may implement a simple API based around 
     one GET resource and one resource accepting JSON commands POSTed to it.
+
 [`SlicerPlugin`][octoprint.plugin.types.SlicerPlugin]
 :   Via the `SlicerPlugin` mixin plugins can add support for slicing engines to be used by 
     OctoPrint.
+
 [`StartupPlugin`][octoprint.plugin.types.StartupPlugin]
 :   The `StartupPlugin` allows hooking into the startup of OctoPrint. It can be used to 
     start up additional services on or just after the startup of the server.
+
 [`TemplatePlugin`][octoprint.plugin.types.TemplatePlugin]
 :   Using the `TemplatePlugin` mixin plugins may inject their own components into the
     OctoPrint web interface.
+
 [`UiPlugin`][octoprint.plugin.types.UiPlugin]
 :   The `UiPlugin` mixin allows plugins to completely replace the UI served by OctoPrint.
+
+[`WebcamProviderPlugin`][octoprint.plugin.types.WebcamProviderPlugin]
+:   The `WebcamProviderPlugin` can be used to provide one or more webcams visible on the 
+    frontend and used for snapshots/timelapses.
+
 [`WizardPlugin`][octoprint.plugin.types.WizardPlugin]
 :   The `WizardPlugin` mixin allows plugins to report to OctoPrint whether
     the `wizard` templates they define via the 
