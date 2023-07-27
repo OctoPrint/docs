@@ -55,7 +55,18 @@
     
     
     
-  </head>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+            </style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -4970,7 +4981,7 @@
 </ul>
 <p>Each plugin that OctoPrint finds it will first load, then enable. On enabling a plugin, OctoPrint will
 register its declared <a class="autorefs autorefs-internal" href="../hooks/#plugin-guide.concepts.hooks">hook handlers</a> and <a class="autorefs autorefs-internal" href="../helpers/#plugin-guide.concepts.helpers">helpers</a>, apply
-any [settings overlays][plugin-guide.concepts.control-properties.settings-overlays],
+any <a class="autorefs autorefs-internal" href="../control-properties/#plugin-guide.concepts.control-properties.plugin-settings-overlay">settings overlays</a>,
 <a class="autorefs autorefs-internal" href="../mixins/#plugin-guide.concepts.mixins.injected-properties">inject the required properties</a> into its declared
 <a class="autorefs autorefs-internal" href="../mixins/#plugin-guide.concepts.mixins">mixin implementation</a> and register those as well.</p>
 <p>On disabling a plugin, its hook handlers, helpers, mixin implementations and settings 
@@ -4995,7 +5006,7 @@ regardless of whether the plugin requires a restart of OctoPrint to be fully uni
 that the Plugin Manager is not the only way to uninstall a plugin from the system, a user may also uninstall it
 manually through the command line, circumventing Plugin Manager completely.</p>
 <figure>
-<p><img alt="The lifecycle of OctoPrint plugins." src="../images/plugin-guide/lifecycle/plugins_lifecycle.svg" /></p>
+<p><a class="glightbox" href="/images/plugin-guide/lifecycle/plugins_lifecycle.svg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="The lifecycle of OctoPrint plugins." src="/images/plugin-guide/lifecycle/plugins_lifecycle.svg" /></a></p>
 </figure>
 
 
@@ -5078,11 +5089,11 @@ manually through the command line, circumventing Plugin Manager completely.</p>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking"], "search": "../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.instant", "navigation.path", "navigation.prune", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "toc.follow"], "search": "../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.220ee61c.min.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

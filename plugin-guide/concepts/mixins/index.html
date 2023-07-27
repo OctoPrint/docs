@@ -55,7 +55,18 @@
     
     
     
-  </head>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+            </style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -5475,10 +5486,8 @@ An instance of <a class="autorefs autorefs-internal" href="../../../reference/oc
 </dl>
 </div>
 <h2 id="plugin-guide.concepts.mixins.available-plugin-mixins">Available plugin mixins<a class="headerlink" href="#plugin-guide.concepts.mixins.available-plugin-mixins" title="Permanent link">#</a></h2>
-<p>Please note that all plugin mixins inherit from 
-<a class="autorefs autorefs-internal" href="../../../reference/octoprint/plugin/core/#octoprint.plugin.core.Plugin"><code>Plugin</code></a> and 
-<a class="autorefs autorefs-internal" href="../../../reference/octoprint/plugin/types/#octoprint.plugin.types.OctoPrintPlugin"><code>OctoPrintPlugin</code></a>, 
-which also provide attributes of interest to plugin developers.</p>
+<p>Please note that all plugin mixins inherit from <a class="autorefs autorefs-internal" href="../../../reference/octoprint/plugin/core/#octoprint.plugin.core.Plugin"><code>Plugin</code></a> and 
+<a class="autorefs autorefs-internal" href="../../../reference/octoprint/plugin/types/#octoprint.plugin.types.OctoPrintPlugin"><code>OctoPrintPlugin</code></a>, which also provide attributes of interest to plugin developers.</p>
 <dl>
 <dt><a class="autorefs autorefs-internal" href="../../../reference/octoprint/plugin/types/#octoprint.plugin.types.AssetPlugin"><code>AssetPlugin</code></a></dt>
 <dd>The AssetPlugin mixin allows plugins to define additional static assets such as 
@@ -5520,17 +5529,16 @@ start up additional services on or just after the startup of the server.</dd>
 <dd>Using the <code>TemplatePlugin</code> mixin plugins may inject their own components into the
 OctoPrint web interface.</dd>
 <dt><a class="autorefs autorefs-internal" href="../../../reference/octoprint/plugin/types/#octoprint.plugin.types.UiPlugin"><code>UiPlugin</code></a></dt>
-<dd>
-<dl>
-<dt>The <code>UiPlugin</code> mixin allows plugins to completely replace the UI served by OctoPrint.</dt>
+<dd>The <code>UiPlugin</code> mixin allows plugins to completely replace the UI served by OctoPrint.</dd>
+<dt><a class="autorefs autorefs-internal" href="../../../reference/octoprint/plugin/types/#octoprint.plugin.types.WebcamProviderPlugin"><code>WebcamProviderPlugin</code></a></dt>
+<dd>The <code>WebcamProviderPlugin</code> can be used to provide one or more webcams visible on the 
+frontend and used for snapshots/timelapses.</dd>
 <dt><a class="autorefs autorefs-internal" href="../../../reference/octoprint/plugin/types/#octoprint.plugin.types.WizardPlugin"><code>WizardPlugin</code></a></dt>
 <dd>The <code>WizardPlugin</code> mixin allows plugins to report to OctoPrint whether
 the <code>wizard</code> templates they define via the 
 <a class="autorefs autorefs-internal" href="../../../reference/octoprint/plugin/types/#octoprint.plugin.types.TemplatePlugin"><code>TemplatePlugin</code></a> should be displayed to the 
 user, what details to provide to their respective wizard frontend components and 
 what to do when the wizard is finished by the user.</dd>
-</dl>
-</dd>
 </dl>
 <p>For more detailed information on each of the available plugin mixins, please click on
 their respective links.</p>
@@ -5615,11 +5623,11 @@ their respective links.</p>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking"], "search": "../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.instant", "navigation.path", "navigation.prune", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "toc.follow"], "search": "../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.220ee61c.min.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

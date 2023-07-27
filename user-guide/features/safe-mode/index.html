@@ -55,7 +55,18 @@
     
     
     
-  </head>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+            </style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -5097,12 +5108,12 @@ ensure it really is an issue in OctoPrint itself and now caused by one of your i
 <p>You can select "Restart OctoPrint in safe mode" from the "System" menu, if the "Restart 
 OctoPrint" server command has been correctly configured.</p>
 <figure>
-<p><img alt="&quot;Restart OctoPrint in safe mode&quot; in the &quot;System&quot; menu" src="../../../images/user-guide/features/safe_mode/systemmenu.png" />
+<p><a class="glightbox" href="/images/user-guide/features/safe_mode/systemmenu.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="&quot;Restart OctoPrint in safe mode&quot; in the &quot;System&quot; menu" src="/images/user-guide/features/safe_mode/systemmenu.png" /></a>
   </p>
 <figcaption>"Restart OctoPrint in safe mode" in the "System" menu</figcaption>
 </figure>
 <h3 id="via-the-serverstartonceinsafemode-config-flag">Via the <code>server.startOnceInSafeMode</code> config flag<a class="headerlink" href="#via-the-serverstartonceinsafemode-config-flag" title="Permanent link">#</a></h3>
-<p>You can set the flag <code>server.startOnceInSafeMode</code> in <a href="../configuration/config_yaml"><code>config.yaml</code></a>
+<p>You can set the flag <code>server.startOnceInSafeMode</code> in <a class="autorefs autorefs-internal" href="../../configuration/config-yaml/#user-guide.configuration.config-yaml"><code>config.yaml</code></a>
 to <code>true</code> and restart. This will make OctoPrint start up in safe mode. The flag will clear
 automatically.</p>
 <p>To set this flag you have the following options:</p>
@@ -5119,7 +5130,7 @@ automatically.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">server</span><span class="p">:</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">startOnceInSafeMode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
-<p>Please also refer to the <a href="../configuration/yaml">YAML primer</a>.</p>
+<p>Please also refer to the <a class="autorefs autorefs-internal" href="../../configuration/yaml-primer/#user-guide.configuration.yaml-primer">YAML primer</a>.</p>
 </li>
 </ul>
 <h3 id="via-the-safe-command-line-flag">Via the <code>--safe</code> command line flag<a class="headerlink" href="#via-the-safe-command-line-flag" title="Permanent link">#</a></h3>
@@ -5142,7 +5153,7 @@ Don't forget to shutdown OctoPrint first before doing this.</p>
 <p>OctoPrint's web interface will display a notification to remind you that it is running in
     safe mode.</p>
 <p><figure markdown>
-  <img alt="Safe mode notification" src="../../../images/user-guide/features/safe_mode/notification.png" />
+  <a class="glightbox" href="/images/user-guide/features/safe_mode/notification.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Safe mode notification" src="/images/user-guide/features/safe_mode/notification.png" /></a>
   <figcaption>Safe mode notification</figcaption>
 </figure></p>
 </li>
@@ -5244,11 +5255,11 @@ Don't forget to shutdown OctoPrint first before doing this.</p>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking"], "search": "../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.instant", "navigation.path", "navigation.prune", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "toc.follow"], "search": "../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.220ee61c.min.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

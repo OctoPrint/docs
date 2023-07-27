@@ -55,7 +55,18 @@
     
     
     
-  </head>
+   <link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+            </style> <script src="../../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -6866,57 +6877,61 @@ type, the files being represented as relative paths from the asset folder as def
 
   
       <p>The <code>BlueprintPlugin</code> mixin allows plugins to define their own full fledged endpoints for whatever purpose,
-be it a more sophisticated API than what is possible via the :class:<code>SimpleApiPlugin</code> or a custom web frontend.</p>
-<p>The mechanism at work here is <code>Flask's &lt;https://flask.palletsprojects.com/&gt;</code><em> own <code>Blueprint mechanism &lt;https://flask.palletsprojects.com/blueprints/&gt;</code></em>.</p>
+be it a more sophisticated API than what is possible via the <a class="autorefs autorefs-internal" href="#octoprint.plugin.types.SimpleApiPlugin"><code>SimpleApiPlugin</code></a> or a custom web frontend.</p>
+<p>The mechanism at work here is Flask's own <a href="https://flask.palletsprojects.com/blueprints/">Blueprint mechanism</a>.</p>
 <p>The mixin automatically creates a blueprint for you that will be registered under <code>/plugin/&lt;plugin identifier&gt;/</code>.
-All you need to do is decorate all of your view functions with the :func:<code>route</code> decorator,
-which behaves exactly the same like Flask's regular <code>route</code> decorators. Example:</p>
-<p>.. code-block:: python</p>
-<p>import octoprint.plugin
-   import flask</p>
-<p>class MyBlueprintPlugin(octoprint.plugin.BlueprintPlugin):
-       @octoprint.plugin.BlueprintPlugin.route("/echo", methods=["GET"])
-       def myEcho(self):
-           if not "text" in flask.request.values:
-               abort(400, description="Expected a text to echo back.")
-           return flask.request.values["text"]</p>
-<p><strong>plugin_implementation</strong> = MyBlueprintPlugin()</p>
-<p>Your blueprint will be published by OctoPrint under the base URL <code>/plugin/&lt;plugin identifier&gt;/</code>, so the above
-example of a plugin with the identifier "myblueprintplugin" would be reachable under
-<code>/plugin/myblueprintplugin/echo</code>.</p>
-<p>Just like with regular blueprints you'll be able to create URLs via <code>url_for</code>, just use the prefix
-<code>plugin.&lt;plugin identifier&gt;.&lt;method_name&gt;</code>, e.g.:</p>
-<p>.. code-block:: python</p>
-<p>flask.url_for("plugin.myblueprintplugin.myEcho") # will return "/plugin/myblueprintplugin/echo"</p>
-<p>.. warning::</p>
-<p>As of OctoPrint 1.8.3, endpoints provided through a <code>BlueprintPlugin</code> do <strong>not</strong> automatically fall under
-   OctoPrint's :ref:<code>CSRF protection &lt;sec-api-general-csrf&gt;</code>, for reasons of backwards compatibility. There will be a short grace period before this changes. You
-   can and should however already opt into CSRF protection for your endpoints by implementing <code>is_blueprint_csrf_protected</code>
-   and returning <code>True</code> from it. You can exempt certain endpoints from CSRF protection by decorating them with
-   <code>@octoprint.plugin.BlueprintPlugin.csrf_exempt</code>.</p>
-<p>.. code-block:: python</p>
-<div class="highlight"><pre><span></span><code>  class MyPlugin(octoprint.plugin.BlueprintPlugin):
-      @octoprint.plugin.BlueprintPlugin.route(&quot;/hello_world&quot;, methods=[&quot;GET&quot;])
-      def hello_world(self):
-          # This is a GET request and thus not subject to CSRF protection
-          return &quot;Hello world!&quot;
-
-      @octoprint.plugin.BlueprintPlugin.route(&quot;/hello_you&quot;, methods=[&quot;POST&quot;])
-      def hello_you(self):
-          # This is a POST request and thus subject to CSRF protection. It is not exempt.
-          return &quot;Hello you!&quot;
-
-      @octoprint.plugin.BlueprintPlugin.route(&quot;/hello_me&quot;, methods=[&quot;POST&quot;])
-      @octoprint.plugin.BlueprintPlugin.csrf_exempt()
-      def hello_me(self):
-          # This is a POST request and thus subject to CSRF protection, but this one is exempt.
-          return &quot;Hello me!&quot;
-
-      def is_blueprint_csrf_protected(self):
-          return True
+All you need to do is decorate all of your view functions with the <code>@route</code> decorator,
+which behaves exactly the same like Flask's regular <code>@route</code> decorators. Example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span> <span class="nn">octoprint.plugin</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span> <span class="nn">flask</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="k">class</span> <span class="nc">MyBlueprintPlugin</span><span class="p">(</span><span class="n">octoprint</span><span class="o">.</span><span class="n">plugin</span><span class="o">.</span><span class="n">BlueprintPlugin</span><span class="p">):</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="nd">@octoprint</span><span class="o">.</span><span class="n">plugin</span><span class="o">.</span><span class="n">BlueprintPlugin</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/echo&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GET&quot;</span><span class="p">])</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="k">def</span> <span class="nf">myEcho</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="s2">&quot;text&quot;</span> <span class="ow">in</span> <span class="n">flask</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">values</span><span class="p">:</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>            <span class="n">abort</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Expected a text to echo back.&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>        <span class="k">return</span> <span class="n">flask</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">]</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="n">__plugin_implementation__</span> <span class="o">=</span> <span class="n">MyBlueprintPlugin</span><span class="p">()</span>
 </code></pre></div>
-<p><code>BlueprintPlugin</code> implements :class:<code>~octoprint.plugins.core.RestartNeedingPlugin</code>.</p>
-<p>.. versionchanged:: 1.8.3</p>
+<p>Your blueprint will be published by OctoPrint under the base URL <code>/plugin/&lt;plugin identifier&gt;/</code>, so the above
+example of a plugin with the identifier <code>myblueprintplugin</code> would be reachable under
+<code>/plugin/myblueprintplugin/echo</code>.</p>
+<p>Just like with regular blueprints you'll be able to create URLs via <a class="autorefs autorefs-external" href="https://flask.palletsprojects.com/api/#flask.url_for"><code>url_for</code></a>, just use the prefix
+<code>plugin.&lt;plugin identifier&gt;.&lt;method_name&gt;</code>, e.g.:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># will return &quot;/plugin/myblueprintplugin/echo&quot;</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">flask</span><span class="o">.</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;plugin.myblueprintplugin.myEcho&quot;</span><span class="p">)</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>As of OctoPrint 1.8.3, endpoints provided through a <code>BlueprintPlugin</code> do <strong>not</strong> automatically fall under
+OctoPrint's [CSRF protection][], for reasons of backwards compatibility. There will be a short grace period before this changes. You
+can and should however already opt into CSRF protection for your endpoints by implementing <code>is_blueprint_csrf_protected</code>
+and returning <code>True</code> from it. You can exempt certain endpoints from CSRF protection by decorating them with
+<code>@octoprint.plugin.BlueprintPlugin.csrf_exempt</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">class</span> <span class="nc">MyPlugin</span><span class="p">(</span><span class="n">octoprint</span><span class="o">.</span><span class="n">plugin</span><span class="o">.</span><span class="n">BlueprintPlugin</span><span class="p">):</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="nd">@octoprint</span><span class="o">.</span><span class="n">plugin</span><span class="o">.</span><span class="n">BlueprintPlugin</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/hello_world&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GET&quot;</span><span class="p">])</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="k">def</span> <span class="nf">hello_world</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>        <span class="c1"># This is a GET request and thus not subject to CSRF protection</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>        <span class="k">return</span> <span class="s2">&quot;Hello world!&quot;</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    <span class="nd">@octoprint</span><span class="o">.</span><span class="n">plugin</span><span class="o">.</span><span class="n">BlueprintPlugin</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/hello_you&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;POST&quot;</span><span class="p">])</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    <span class="k">def</span> <span class="nf">hello_you</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>        <span class="c1"># This is a POST request and thus subject to CSRF protection. It is not exempt.</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>        <span class="k">return</span> <span class="s2">&quot;Hello you!&quot;</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>    <span class="nd">@octoprint</span><span class="o">.</span><span class="n">plugin</span><span class="o">.</span><span class="n">BlueprintPlugin</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/hello_me&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;POST&quot;</span><span class="p">])</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>    <span class="nd">@octoprint</span><span class="o">.</span><span class="n">plugin</span><span class="o">.</span><span class="n">BlueprintPlugin</span><span class="o">.</span><span class="n">csrf_exempt</span><span class="p">()</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>    <span class="k">def</span> <span class="nf">hello_me</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>        <span class="c1"># This is a POST request and thus subject to CSRF protection, but this one is exempt.</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>        <span class="k">return</span> <span class="s2">&quot;Hello me!&quot;</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>    <span class="k">def</span> <span class="nf">is_blueprint_csrf_protected</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>        <span class="k">return</span> <span class="kc">True</span>
+</code></pre></div>
+</div>
+<p><code>BlueprintPlugin</code> implements [<code>RestartNeedingPlugin</code>][octoprint.plugins.core.RestartNeedingPlugin].</p>
+<p><em>Changed in version <a href="https://github.com/OctoPrint/OctoPrint/releases/tag/1.8.3">1.8.3</a></em></p>
 
 
 
@@ -6948,10 +6963,10 @@ example of a plugin with the identifier "myblueprintplugin" would be reachable u
 
   <div class="doc doc-contents ">
   
-      <p>A decorator to mark a view method in your BlueprintPlugin as exempt from :ref:<code>CSRF protection &lt;sec-api-general-csrf&gt;</code>. This makes sense
-if you offer an authenticated API for a certain workflow (see e.g. the bundled appkeys plugin) but in most
+      <p>A decorator to mark a view method in your BlueprintPlugin as exempt from [CSRF protection][].</p>
+<p>This makes sense if you offer an authenticated API for a certain workflow (see e.g. the bundled appkeys plugin) but in most
 cases should not be needed.</p>
-<p>.. versionadded:: 1.8.3</p>
+<p><em>Added in version <a href="https://github.com/OctoPrint/OctoPrint/releases/tag/1.8.3">1.8.3</a></em></p>
 
   </div>
 
@@ -6974,11 +6989,9 @@ cases should not be needed.</p>
   <div class="doc doc-contents ">
   
       <p>A decorator to mark errorhandlings methods in your BlueprintPlugin subclass. Works just the same as Flask's
-own <code>errorhandler</code> decorator available on blueprints.</p>
-<p>See <code>the documentation for flask.Blueprint.errorhandler &lt;https://flask.palletsprojects.com/api/#flask.Blueprint.errorhandler&gt;</code><em>
-and <code>the documentation for flask.Flask.errorhandler &lt;https://flask.palletsprojects.com/api/#flask.Flask.errorhandler&gt;</code></em> for more
-information.</p>
-<p>.. versionadded:: 1.3.0</p>
+own <code>@errorhandler</code> decorator available on blueprints.</p>
+<p>See <a class="autorefs autorefs-external" href="https://flask.palletsprojects.com/api/#flask.Blueprint.errorhandler">flask.Blueprint.errorhandler</a> and <a class="autorefs autorefs-external" href="https://flask.palletsprojects.com/api/#flask.Flask.errorhandler">flask.Flask.errorhandler</a> for further information.</p>
+<p><em>Added in version <a href="https://github.com/OctoPrint/OctoPrint/releases/tag/1.3.0">1.3.0</a></em></p>
 
   </div>
 
@@ -6996,9 +7009,22 @@ information.</p>
 
   <div class="doc doc-contents ">
   
-      <p>Creates and returns the blueprint for your plugin. Override this if you want to define and handle your blueprint yourself.</p>
+      <p>Creates and returns the blueprint for your plugin.</p>
+<p>Override this if you want to define and handle your blueprint yourself. Note that the
+default implementation takes care of attaching rules, error handlers and [CSRF protection][],
+so if you override this you will need to take care of that yourself.</p>
 <p>This method will only be called once during server initialization.</p>
-<p>:return: the blueprint ready to be registered with Flask</p>
+
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+            <code><a class="autorefs autorefs-external" href="https://flask.palletsprojects.com/api/#module-flask">flask</a>.<a class="autorefs autorefs-external" title="flask.Blueprint" href="https://flask.palletsprojects.com/api/#flask.Blueprint">Blueprint</a></code>
+        –
+        <div class="doc-md-description">
+          <p>The blueprint for your plugin.</p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -7017,11 +7043,11 @@ information.</p>
   <div class="doc doc-contents ">
   
       <p>Return all prefixes of your endpoint that are an API that should be containing JSON only.</p>
-<p>Anything that matches this will generate JSON error messages in case of flask.abort
+<p>Anything that matches this will generate JSON error messages in case of <a class="autorefs autorefs-external" href="https://flask.palletsprojects.com/api/#flask.abort">flask.abort</a>
 calls, instead of the default HTML ones.</p>
 <p>Defaults to all endpoints under the blueprint. Limit this further as needed. E.g.,
-if you only want your endpoints /foo, /foo/1 and /bar to be declared as API,
-return <code>["/foo", "/bar"]</code>. A match will be determined via startswith.</p>
+if you only want your endpoints <code>/foo</code>, <code>/foo/1</code> and <code>/bar</code> to be declared as API,
+return <code>["/foo", "/bar"]</code>. A match will be determined via <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str.startswith">startswith</a>.</p>
 
   </div>
 
@@ -7039,11 +7065,12 @@ return <code>["/foo", "/bar"]</code>. A match will be determined via startswith.
 
   <div class="doc doc-contents ">
   
-      <p>Override this if you want your blueprint constructed with additional options such as <code>static_folder</code>,
+      <p>Returns a dictionary of keyword arguments to pass to the blueprint constructor.</p>
+<p>Override this if you want your blueprint constructed with additional options such as <code>static_folder</code>,
 <code>template_folder</code>, etc.</p>
-<p>Defaults to the blueprint's <code>static_folder</code> and <code>template_folder</code> to be set to the plugin's basefolder
-plus <code>/static</code> or respectively <code>/templates</code>, or -- if the plugin also implements :class:<code>AssetPlugin</code> and/or
-:class:<code>TemplatePlugin</code> -- the paths provided by <code>get_asset_folder</code> and <code>get_template_folder</code> respectively.</p>
+<p>Defaults to the blueprint's <code>static_folder</code> and <code>`templae_folder</code> to be set to the plugin's basefolder
+plus <code>/static</code> or respectively <code>/templates</code>, or -- if the plugin also implements <code>AssetPlugin</code> and/or
+<code>TemplatePlugin</code> -- the paths provided by <code>get_asset_folder</code> and <code>get_template_folder</code> respectively.</p>
 
   </div>
 
@@ -7061,13 +7088,13 @@ plus <code>/static</code> or respectively <code>/templates</code>, or -- if the 
 
   <div class="doc doc-contents ">
   
-      <p>Whether a blueprint's endpoints are :ref:<code>CSRF protected &lt;sec-api-general-csrf&gt;</code>. For now, this defaults to <code>False</code> to leave it up to
+      <p>Whether a blueprint's endpoints are [CSRF protected][]. For now, this defaults to <code>False</code> to leave it up to
 plugins to decide which endpoints <em>should</em> be protected. Long term, this will default to <code>True</code> and hence
-enforce protection unless a plugin opts out by returning False here.</p>
+enforce protection unless a plugin opts out by returning <code>False</code> here.</p>
 <p>If you do not override this method in your mixin implementation, a warning will be logged to the console
 to alert you of the requirement to make a decision here and to not rely on the default implementation, due to the
 forthcoming change in implemented default behaviour.</p>
-<p>.. versionadded:: 1.8.3</p>
+<p><em>Added in version <a href="https://github.com/OctoPrint/OctoPrint/releases/tag/1.8.3">1.8.3</a></em></p>
 
   </div>
 
@@ -7089,7 +7116,7 @@ forthcoming change in implemented default behaviour.</p>
 a session is the default. Note that this only restricts access to the blueprint's dynamic methods, static files
 are always accessible.</p>
 <p>If you want your blueprint's endpoints to have specific permissions, return <code>False</code> for this and do your
-permissions checks explicitly.</p>
+permission checks explicitly.</p>
 
   </div>
 
@@ -7111,11 +7138,9 @@ permissions checks explicitly.</p>
 
   <div class="doc doc-contents ">
   
-      <p>A decorator to mark view methods in your BlueprintPlugin subclass. Works just the same as Flask's
+      <p>A decorator to mark view methods in your BlueprintPlugin subclass. It works just the same as Flask's
 own <code>route</code> decorator available on blueprints.</p>
-<p>See <code>the documentation for flask.Blueprint.route &lt;https://flask.palletsprojects.com/api/#flask.Blueprint.route&gt;</code><em>
-and <code>the documentation for flask.Flask.route &lt;https://flask.palletsprojects.com/api/#flask.Flask.route&gt;</code></em> for more
-information.</p>
+<p>See <a class="autorefs autorefs-external" href="https://flask.palletsprojects.com/api/#flask.Blueprint.route">flask.Blueprint.route</a> and <a class="autorefs autorefs-external" href="https://flask.palletsprojects.com/api/#flask.Flask.route">flask.Flask.route</a> for further information.</p>
 
   </div>
 
@@ -7244,9 +7269,10 @@ information.</p>
         Bases: <code><a class="autorefs autorefs-internal" title="octoprint.plugin.types.OctoPrintPlugin" href="#octoprint.plugin.types.OctoPrintPlugin">OctoPrintPlugin</a></code></p>
 
   
-      <p>The <code>EventHandlerPlugin</code> mixin allows OctoPrint plugins to react to any of :ref:<code>OctoPrint's events &lt;sec-events&gt;</code>.
-OctoPrint will call the :func:<code>on_event</code> method for any event fired on its internal event bus, supplying the
-event type and the associated payload. Please note that until your plugin returns from that method, further event
+      <p>The <code>EventHandlerPlugin</code> mixin allows OctoPrint plugins to react to any of [OctoPrint's events][dev-guide.events].</p>
+<p>OctoPrint will call the <code>on_event</code> method for any event fired on its internal event bus, supplying the
+event type and the associated payload.</p>
+<p>Please note that until your plugin returns from that method, further event
 processing within OctoPrint will block - the event queue itself is run asynchronously from the rest of OctoPrint,
 but the processing of the events within the queue itself happens consecutively.</p>
 <p>This mixin is especially interesting for plugins which want to react on things like print jobs finishing, timelapse
@@ -7279,8 +7305,10 @@ videos rendering etc.</p>
   <div class="doc doc-contents ">
   
       <p>Called by OctoPrint upon processing of a fired event on the platform.</p>
-<p>.. warning::</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
 <p>Do not perform long-running or even blocking operations in your implementation or you <strong>will</strong> block and break the server.</p>
+</div>
 
   <p>Parameters:</p>
   <ul>
@@ -7685,7 +7713,7 @@ before returning it.</p>
         Bases: <code><a class="autorefs autorefs-internal" title="octoprint.plugin.types.OctoPrintPlugin" href="#octoprint.plugin.types.OctoPrintPlugin">OctoPrintPlugin</a></code></p>
 
   
-      <p>Via the <code>ProgressPlugin</code> mixing plugins can let themselves be called upon progress in print jobs or slicing jobs,
+      <p>Using the <code>ProgressPlugin</code> mixin, plugins can let themselves be called upon progress in print jobs or slicing jobs,
 limited to minimally 1% steps.</p>
 
 
@@ -7715,9 +7743,34 @@ limited to minimally 1% steps.</p>
   <div class="doc doc-contents ">
   
       <p>Called by OctoPrint on minimally 1% increments during a running print job.</p>
-<p>:param string storage:  Location of the file
-:param string path:     Path of the file
-:param int progress:    Current progress as a value between 0 and 100</p>
+
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>storage</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The storage location of the file being printed.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>path</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The path of the file being printed.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>progress</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The current progress as a value between 0 and 100.</p>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -7736,12 +7789,58 @@ limited to minimally 1% steps.</p>
   <div class="doc doc-contents ">
   
       <p>Called by OctoPrint on minimally 1% increments during a running slicing job.</p>
-<p>:param string slicer:               Key of the slicer reporting the progress
-:param string source_location:      Location of the source file
-:param string source_path:          Path of the source file
-:param string destination_location: Location the destination file
-:param string destination_path:     Path of the destination file
-:param int progress:                Current progress as a value between 0 and 100</p>
+
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>slicer</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Identifier of the slicer reporting the progress</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>source_location</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Location of the source file</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>source_path</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Path of the source file</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>destination_location</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Location the destination file</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>destination_path</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Path of the destination file</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b>progress</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The current progress as a value between 0 and 100.</p>
+        </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -7796,50 +7895,57 @@ limited to minimally 1% steps.</p>
   
       <p>Including the <code>SettingsPlugin</code> mixin allows plugins to store and retrieve their own settings within OctoPrint's
 configuration.</p>
-<p>Plugins including the mixing will get injected an additional property <code>self._settings</code> which is an instance of
-:class:<code>PluginSettingsManager</code> already properly initialized for use by the plugin. In order for the manager to
-know about the available settings structure and default values upon initialization, implementing plugins will need
-to provide a dictionary with the plugin's default settings through overriding the method :func:<code>get_settings_defaults</code>.
-The defined structure will then be available to access through the settings manager available as <code>self._settings</code>.</p>
+<p>Plugins including the mixin will get injected an additional property <code>self._settings</code> which is an instance of
+<a class="autorefs autorefs-internal" href="../#octoprint.plugin.PluginSettings">PluginSettings</a> already properly initialized for use by the plugin. In order
+for the PluginSettings instance to know about the available settings structure and default values upon
+initialization, implementing plugins will need to provide a dictionary with the plugin's default settings through
+overriding the method <code>get_settings_defaults</code>. The defined structure will then be available to access through the
+settings manager available as <code>self._settings</code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Make sure to protect sensitive information stored by your plugin that only logged in administrators (or users)
+should have access to via <a class="autorefs autorefs-internal" href="#octoprint.plugin.types.SettingsPlugin.get_settings_restricted_paths">get_settings_restricted_paths</a>.
+OctoPrint will return its settings on the REST API even to anonymous clients, but will filter out fields it knows are restricted,
+therefore you <strong>must</strong> make sure that you specify sensitive information accordingly to limit access as required!</p>
+</div>
 <p>If your plugin needs to react to the change of specific configuration values on the fly, e.g. to adjust the log level
 of a logger when the user changes a corresponding flag via the settings dialog, you can override the
-:func:<code>on_settings_save</code> method and wrap the call to the implementation from the parent class with retrieval of the
+<code>on_settings_save</code> method and wrap the call to the implementation from the parent class with retrieval of the
 old and the new value and react accordingly.</p>
-<p>Example:</p>
-<p>.. code-block:: python</p>
-<p>import octoprint.plugin</p>
-<p>class MySettingsPlugin(octoprint.plugin.SettingsPlugin, octoprint.plugin.StartupPlugin):
-       def get_settings_defaults(self):
-           return dict(
-               some_setting="foo",
-               some_value=23,
-               sub=dict(
-                   some_flag=True
-               )
-           )</p>
-<div class="highlight"><pre><span></span><code>   def on_settings_save(self, data):
-       old_flag = self._settings.get_boolean([&quot;sub&quot;, &quot;some_flag&quot;])
-
-       octoprint.plugin.SettingsPlugin.on_settings_save(self, data)
-
-       new_flag = self._settings.get_boolean([&quot;sub&quot;, &quot;some_flag&quot;])
-       if old_flag != new_flag:
-           self._logger.info(&quot;sub.some_flag changed from {old_flag} to {new_flag}&quot;.format(**locals()))
-
-   def on_after_startup(self):
-       some_setting = self._settings.get([&quot;some_setting&quot;])
-       some_value = self._settings.get_int([&quot;some_value&quot;])
-       some_flag = self._settings.get_boolean([&quot;sub&quot;, &quot;some_flag&quot;])
-       self._logger.info(&quot;some_setting = {some_setting}, some_value = {some_value}, sub.some_flag = {some_flag}&quot;.format(**locals())
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span> <span class="nn">octoprint.plugin</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">class</span> <span class="nc">MySettingsPlugin</span><span class="p">(</span><span class="n">octoprint</span><span class="o">.</span><span class="n">plugin</span><span class="o">.</span><span class="n">SettingsPlugin</span><span class="p">,</span> <span class="n">octoprint</span><span class="o">.</span><span class="n">plugin</span><span class="o">.</span><span class="n">StartupPlugin</span><span class="p">):</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="k">def</span> <span class="nf">get_settings_defaults</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>        <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>            <span class="n">some_setting</span><span class="o">=</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>            <span class="n">some_value</span><span class="o">=</span><span class="mi">23</span><span class="p">,</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>            <span class="n">sub</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>                <span class="n">some_flag</span><span class="o">=</span><span class="kc">True</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>            <span class="p">)</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>        <span class="p">)</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    <span class="k">def</span> <span class="nf">on_settings_save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>        <span class="n">old_flag</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_settings</span><span class="o">.</span><span class="n">get_boolean</span><span class="p">([</span><span class="s2">&quot;sub&quot;</span><span class="p">,</span> <span class="s2">&quot;some_flag&quot;</span><span class="p">])</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>        <span class="n">octoprint</span><span class="o">.</span><span class="n">plugin</span><span class="o">.</span><span class="n">SettingsPlugin</span><span class="o">.</span><span class="n">on_settings_save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>        <span class="n">new_flag</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_settings</span><span class="o">.</span><span class="n">get_boolean</span><span class="p">([</span><span class="s2">&quot;sub&quot;</span><span class="p">,</span> <span class="s2">&quot;some_flag&quot;</span><span class="p">])</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>        <span class="k">if</span> <span class="n">old_flag</span> <span class="o">!=</span> <span class="n">new_flag</span><span class="p">:</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;sub.some_flag changed from </span><span class="si">{old_flag}</span><span class="s2"> to </span><span class="si">{new_flag}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="nb">locals</span><span class="p">()))</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>    <span class="k">def</span> <span class="nf">on_after_startup</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>        <span class="n">some_setting</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_settings</span><span class="o">.</span><span class="n">get</span><span class="p">([</span><span class="s2">&quot;some_setting&quot;</span><span class="p">])</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>        <span class="n">some_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_settings</span><span class="o">.</span><span class="n">get_int</span><span class="p">([</span><span class="s2">&quot;some_value&quot;</span><span class="p">])</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>        <span class="n">some_flag</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_settings</span><span class="o">.</span><span class="n">get_boolean</span><span class="p">([</span><span class="s2">&quot;sub&quot;</span><span class="p">,</span> <span class="s2">&quot;some_flag&quot;</span><span class="p">])</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;some_setting = </span><span class="si">{some_setting}</span><span class="s2">, some_value = </span><span class="si">{some_value}</span><span class="s2">, sub.some_flag = </span><span class="si">{some_flag}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="nb">locals</span><span class="p">())</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="n">__plugin_implementation__</span> <span class="o">=</span> <span class="n">MySettingsPlugin</span><span class="p">()</span>
 </code></pre></div>
-<p><strong>plugin_implementation</strong> = MySettingsPlugin()</p>
-<p>Of course, you are always free to completely override both :func:<code>on_settings_load</code> and :func:<code>on_settings_save</code> if the
+</div>
+<p>Of course, you are always free to completely override both <code>on_settings_load</code> and <code>on_settings_save</code> if the
 default implementations do not fit your requirements.</p>
-<p>.. warning::</p>
-<p>Make sure to protect sensitive information stored by your plugin that only logged in administrators (or users)
-   should have access to via :meth:<code>~octoprint.plugin.SettingsPlugin.get_settings_restricted_paths</code>. OctoPrint will
-   return its settings on the REST API even to anonymous clients, but will filter out fields it knows are restricted,
-   therefore you <strong>must</strong> make sure that you specify sensitive information accordingly to limit access as required!</p>
 
 
 
@@ -7869,7 +7975,7 @@ default implementations do not fit your requirements.</p>
 
   <div class="doc doc-contents ">
   
-      <p>The :class:<code>~octoprint.plugin.PluginSettings</code> instance to use for accessing the plugin's settings. Injected by
+      <p>The <a class="autorefs autorefs-internal" href="../#octoprint.plugin.PluginSettings">PluginSettings</a> instance to use for accessing the plugin's settings. Injected by
 the plugin core system upon initialization of the implementation.</p>
   </div>
 
@@ -7911,7 +8017,8 @@ the plugin core system upon initialization of the implementation.</p>
 
   <div class="doc doc-contents ">
   
-      <p>Retrieves the plugin's default settings with which the plugin's settings manager will be initialized.</p>
+      <p>Retrieves the plugin's default settings with which the <a class="autorefs autorefs-internal" href="../#octoprint.plugin.PluginSettings">PluginSettings</a>
+instance will be initialized.</p>
 <p>Override this in your plugin's implementation and return a dictionary defining your settings data structure
 with included default values.</p>
 
@@ -7936,37 +8043,46 @@ them.</p>
 <p>The preprocessors should be provided as a dictionary mapping the path of the values to preprocess
 (hierarchically) to a transform function which will get the value to transform as only input and should return
 the transformed value.</p>
-<p>Example:</p>
-<p>.. code-block:: python</p>
-<p>def get_settings_defaults(self):
-       return dict(some_key="Some_Value", some_other_key="Some_Value")</p>
-<p>def get_settings_preprocessors(self):
-       return dict(some_key=lambda x: x.upper()),        # getter preprocessors
-              dict(some_other_key=lambda x: x.lower())   # setter preprocessors</p>
-<p>def some_method(self):
-       # getting the value for "some_key" should turn it to upper case
-       assert self._settings.get(["some_key"]) == "SOME_VALUE"</p>
-<div class="highlight"><pre><span></span><code>   # the value for &quot;some_other_key&quot; should be left alone
-   assert self._settings.get([&quot;some_other_key&quot;] = &quot;Some_Value&quot;
-
-   # setting a value for &quot;some_other_key&quot; should cause the value to first be turned to lower case
-   self._settings.set([&quot;some_other_key&quot;], &quot;SOME_OTHER_VALUE&quot;)
-   assert self._settings.get([&quot;some_other_key&quot;]) == &quot;some_other_value&quot;
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">def</span> <span class="nf">get_settings_defaults</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="k">return</span> <span class="p">{</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>        <span class="s2">&quot;some_key&quot;</span><span class="p">:</span> <span class="s2">&quot;Some_Value&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>        <span class="s2">&quot;some_other_key&quot;</span><span class="p">:</span> <span class="s2">&quot;Some_Value&quot;</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="p">}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="k">def</span> <span class="nf">get_settings_preprocessors</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="n">getter_preprocessors</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>        <span class="s2">&quot;some_key&quot;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">upper</span><span class="p">(),</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="p">}</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    <span class="n">setter_preprocessors</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>        <span class="s2">&quot;some_other_key&quot;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    <span class="p">}</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    <span class="k">return</span> <span class="n">getter_preprocessors</span><span class="p">,</span> <span class="n">setter_preprocessors</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="k">def</span> <span class="nf">some_method</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>    <span class="c1"># getting the value for &quot;some_key&quot; should turn it to upper case</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>    <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">_settings</span><span class="o">.</span><span class="n">get</span><span class="p">([</span><span class="s2">&quot;some_key&quot;</span><span class="p">])</span> <span class="o">==</span> <span class="s2">&quot;SOME_VALUE&quot;</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>    <span class="c1"># the value for &quot;some_other_key&quot; should be left alone</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>    <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">_settings</span><span class="o">.</span><span class="n">get</span><span class="p">([</span><span class="s2">&quot;some_other_key&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Some_Value&quot;</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>    <span class="c1"># setting a value for &quot;some_other_key&quot; should cause the value to first be turned to lower case</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">_settings</span><span class="o">.</span><span class="n">set</span><span class="p">([</span><span class="s2">&quot;some_other_key&quot;</span><span class="p">],</span> <span class="s2">&quot;SOME_OTHER_VALUE&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>    <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">_settings</span><span class="o">.</span><span class="n">get</span><span class="p">([</span><span class="s2">&quot;some_other_key&quot;</span><span class="p">])</span> <span class="o">==</span> <span class="s2">&quot;some_other_value&quot;</span>
 </code></pre></div>
+</div>
 
   <p>Returns:</p>
   <ul>
       <li class="field-body">
-            <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
+            <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a></code>
         –
         <div class="doc-md-description">
-          <p>A tuple consisting of two dictionaries, the first being the plugin's preprocessors for</p>
-      </div>
-      </li>
-      <li class="field-body">
-        –
-        <div class="doc-md-description">
-          <p>getters, the second the preprocessors for setters</p>
+          <p>A tuple consisting of two dictionaries, the first being the plugin's preprocessors for
+getters, the second the preprocessors for setters</p>
       </div>
       </li>
   </ul>
@@ -7993,62 +8109,206 @@ certain permissions, or never on the REST API.</p>
 <p>Return a <code>dict</code> with one of the following keys, mapping to a list of paths (as tuples or lists of
 the path elements) for which to restrict access via the REST API accordingly.</p>
 <ul>
-<li>An <img alt="🇵🇾" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/1f1f5-1f1fe.svg" title=":py:" />class:<code>~octoprint.access.permissions.OctoPrintPermission</code> instance: Paths will only be available on the REST API for users with the permission</li>
-<li><code>admin</code>: Paths will only be available on the REST API for users with admin rights (any user with the SETTINGS permission)</li>
+<li>An <a class="autorefs autorefs-internal" href="../../access/permissions/#octoprint.access.permissions.OctoPrintPermission">OctoPrintPermission</a> instance: Paths will only be available
+  on the REST API for users with the permission</li>
+<li><code>admin</code>: Paths will only be available on the REST API for users with admin rights (any user with the <code>SETTINGS</code> permission)</li>
 <li><code>user</code>: Paths will only be available on the REST API when accessed as a logged in user</li>
-<li><code>never</code>: Paths will never be returned on the API</li>
+<li><code>never</code>: Paths will never be returned on the REST API</li>
 </ul>
-<p>Example:</p>
-<p>.. code-block:: python</p>
-<p>def get_settings_defaults(self):
-       return dict(some=dict(admin_only=dict(path="path", foo="foo"),
-                             user_only=dict(path="path", bar="bar")),
-                   another=dict(admin_only=dict(path="path"),
-                                field="field"),
-                   path=dict(to=dict(never=dict(return="return"))),
-                   the=dict(webcam=dict(data="webcam")))</p>
-<p>def get_settings_restricted_paths(self):
-       from octoprint.access.permissions import Permissions
-       return {'admin':[["some", "admin_only", "path"], ["another", "admin_only", "path"],],
-               'user':[["some", "user_only", "path"],],
-               'never':[["path", "to", "never", "return"],],
-               Permissions.WEBCAM:[["the", "webcam", "data"],]}</p>
-<p># this will make the plugin return settings on the REST API like this for an anonymous user
-   #
-   #     dict(some=dict(admin_only=dict(path=None, foo="foo"),
-   #                    user_only=dict(path=None, bar="bar")),
-   #          another=dict(admin_only=dict(path=None),
-   #                       field="field"),
-   #          path=dict(to=dict(never=dict(return=None))),
-   #          the=dict(webcam=dict(data=None)))
-   #
-   # like this for a logged in user without the webcam permission
-   #
-   #     dict(some=dict(admin_only=dict(path=None, foo="foo"),
-   #                    user_only=dict(path="path", bar="bar")),
-   #          another=dict(admin_only=dict(path=None),
-   #                       field="field"),
-   #          path=dict(to=dict(never=dict(return=None))),
-   #          the=dict(webcam=dict(data=None)))
-   #
-   # like this for a logged in user with the webcam permission
-   #
-   #     dict(some=dict(admin_only=dict(path=None, foo="foo"),
-   #                    user_only=dict(path="path", bar="bar")),
-   #          another=dict(admin_only=dict(path=None),
-   #                       field="field"),
-   #          path=dict(to=dict(never=dict(return=None))),
-   #          the=dict(webcam=dict(data="webcam")))
-   #
-   # and like this for an admin user
-   #
-   #     dict(some=dict(admin_only=dict(path="path", foo="foo"),
-   #                    user_only=dict(path="path", bar="bar")),
-   #          another=dict(admin_only=dict(path="path"),
-   #                       field="field"),
-   #          path=dict(to=dict(never=dict(return=None))),
-   #          the=dict(webcam=dict(data="webcam")))</p>
-<p>.. versionadded:: 1.2.17</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>Let's assume we have a plugin that defines the following <code>get_settings_defaults</code> and <code>get_settings_restricted_paths</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">def</span> <span class="nf">get_settings_defaults</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="k">return</span> <span class="p">{</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>        <span class="s2">&quot;some&quot;</span><span class="p">:</span> <span class="p">{</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>            <span class="s2">&quot;admin_only&quot;</span><span class="p">:</span> <span class="p">{</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>                <span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;path&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>                <span class="s2">&quot;foo&quot;</span><span class="p">:</span> <span class="s2">&quot;foo&quot;</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>            <span class="p">},</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>            <span class="s2">&quot;user_only&quot;</span><span class="p">:</span> <span class="p">{</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>                <span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;path&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>                <span class="s2">&quot;bar&quot;</span><span class="p">:</span> <span class="s2">&quot;bar&quot;</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>            <span class="p">}</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>        <span class="p">},</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>        <span class="s2">&quot;another&quot;</span><span class="p">:</span> <span class="p">{</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>            <span class="s2">&quot;admin_only&quot;</span><span class="p">:</span> <span class="p">{</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>                <span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;path&quot;</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>            <span class="p">},</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>            <span class="s2">&quot;field&quot;</span><span class="p">:</span> <span class="s2">&quot;field&quot;</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>        <span class="p">},</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>        <span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="p">{</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>            <span class="s2">&quot;to&quot;</span><span class="p">:</span> <span class="p">{</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>                <span class="s2">&quot;never&quot;</span><span class="p">:</span> <span class="p">{</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>                    <span class="s2">&quot;return&quot;</span><span class="p">:</span> <span class="s2">&quot;return&quot;</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>                <span class="p">}</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>            <span class="p">}</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>        <span class="p">},</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>        <span class="s2">&quot;the&quot;</span><span class="p">:</span> <span class="p">{</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>            <span class="s2">&quot;webcam&quot;</span><span class="p">:</span> <span class="p">{</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>                <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="s2">&quot;webcam&quot;</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>            <span class="p">}</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>        <span class="p">}</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>    <span class="p">}</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>
+<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="k">def</span> <span class="nf">get_settings_restricted_paths</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>    <span class="kn">from</span> <span class="nn">octoprint.access.permissions</span> <span class="kn">import</span> <span class="n">Permissions</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>
+<a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>    <span class="k">return</span> <span class="p">{</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>        <span class="s2">&quot;admin&quot;</span><span class="p">:</span> <span class="p">[</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>            <span class="p">[</span><span class="s2">&quot;some&quot;</span><span class="p">,</span> <span class="s2">&quot;admin_only&quot;</span><span class="p">,</span> <span class="s2">&quot;path&quot;</span><span class="p">],</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a>            <span class="p">[</span><span class="s2">&quot;another&quot;</span><span class="p">,</span> <span class="s2">&quot;admin_only&quot;</span><span class="p">,</span> <span class="s2">&quot;path&quot;</span><span class="p">],</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a>        <span class="p">],</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a>        <span class="s2">&quot;user&quot;</span><span class="p">:</span> <span class="p">[</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a>            <span class="p">[</span><span class="s2">&quot;some&quot;</span><span class="p">,</span> <span class="s2">&quot;user_only&quot;</span><span class="p">,</span> <span class="s2">&quot;path&quot;</span><span class="p">],</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a>        <span class="p">],</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a>        <span class="s2">&quot;never&quot;</span><span class="p">:</span> <span class="p">[</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a>            <span class="p">[</span><span class="s2">&quot;path&quot;</span><span class="p">,</span> <span class="s2">&quot;to&quot;</span><span class="p">,</span> <span class="s2">&quot;never&quot;</span><span class="p">,</span> <span class="s2">&quot;return&quot;</span><span class="p">],</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a>        <span class="p">],</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a>        <span class="n">Permissions</span><span class="o">.</span><span class="n">WEBCAM</span><span class="p">:</span> <span class="p">[</span>
+<a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a>            <span class="p">[</span><span class="s2">&quot;the&quot;</span><span class="p">,</span> <span class="s2">&quot;webcam&quot;</span><span class="p">,</span> <span class="s2">&quot;data&quot;</span><span class="p">],</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a>        <span class="p">]</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a>    <span class="p">}</span>
+</code></pre></div>
+<p>Here's what an anonymous user, a user <em>without</em> the webcam permission, a user <em>with</em> the webcam permission and an admin user would get
+when accessing the plugin's settings on the REST API:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="octoprint.plugin.types.SettingsPlugin.get_settings_restricted_paths--__tabbed_1_1" name="octoprint.plugin.types.SettingsPlugin.get_settings_restricted_paths--__tabbed_1" type="radio" /><input id="octoprint.plugin.types.SettingsPlugin.get_settings_restricted_paths--__tabbed_1_2" name="octoprint.plugin.types.SettingsPlugin.get_settings_restricted_paths--__tabbed_1" type="radio" /><input id="octoprint.plugin.types.SettingsPlugin.get_settings_restricted_paths--__tabbed_1_3" name="octoprint.plugin.types.SettingsPlugin.get_settings_restricted_paths--__tabbed_1" type="radio" /><input id="octoprint.plugin.types.SettingsPlugin.get_settings_restricted_paths--__tabbed_1_4" name="octoprint.plugin.types.SettingsPlugin.get_settings_restricted_paths--__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="octoprint.plugin.types.SettingsPlugin.get_settings_restricted_paths--__tabbed_1_1">Anonymous</label><label for="octoprint.plugin.types.SettingsPlugin.get_settings_restricted_paths--__tabbed_1_2">No webcam permission</label><label for="octoprint.plugin.types.SettingsPlugin.get_settings_restricted_paths--__tabbed_1_3">Webcam permission</label><label for="octoprint.plugin.types.SettingsPlugin.get_settings_restricted_paths--__tabbed_1_4">Admin</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="nt">&quot;some&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">        </span><span class="nt">&quot;admin_only&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">            </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">            </span><span class="nt">&quot;foo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;foo&quot;</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">        </span><span class="p">},</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">        </span><span class="nt">&quot;user_only&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">            </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">            </span><span class="nt">&quot;bar&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bar&quot;</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="nt">&quot;another&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">        </span><span class="nt">&quot;admin_only&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">            </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">        </span><span class="p">},</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">        </span><span class="nt">&quot;field&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;field&quot;</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">    </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">        </span><span class="nt">&quot;to&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">            </span><span class="nt">&quot;never&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">                </span><span class="nt">&quot;return&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="w">    </span><span class="nt">&quot;the&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="w">        </span><span class="nt">&quot;webcam&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="w">            </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="nt">&quot;some&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">        </span><span class="nt">&quot;admin_only&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">            </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">            </span><span class="nt">&quot;foo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;foo&quot;</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">        </span><span class="p">},</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">        </span><span class="nt">&quot;user_only&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">            </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;path&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">            </span><span class="nt">&quot;bar&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bar&quot;</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="nt">&quot;another&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">        </span><span class="nt">&quot;admin_only&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">            </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">        </span><span class="p">},</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">        </span><span class="nt">&quot;field&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;field&quot;</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">    </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">        </span><span class="nt">&quot;to&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">            </span><span class="nt">&quot;never&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">                </span><span class="nt">&quot;return&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="w">    </span><span class="nt">&quot;the&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="w">        </span><span class="nt">&quot;webcam&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="w">            </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="nt">&quot;some&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">        </span><span class="nt">&quot;admin_only&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">            </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">            </span><span class="nt">&quot;foo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;foo&quot;</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">        </span><span class="p">},</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">        </span><span class="nt">&quot;user_only&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">            </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;path&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">            </span><span class="nt">&quot;bar&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bar&quot;</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">    </span><span class="nt">&quot;another&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">        </span><span class="nt">&quot;admin_only&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">            </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">        </span><span class="p">},</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">        </span><span class="nt">&quot;field&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;field&quot;</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">    </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">        </span><span class="nt">&quot;to&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">            </span><span class="nt">&quot;never&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">                </span><span class="nt">&quot;return&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="w">    </span><span class="nt">&quot;the&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="w">        </span><span class="nt">&quot;webcam&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="w">            </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;webcam&quot;</span>
+<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">{</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="nt">&quot;some&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">        </span><span class="nt">&quot;admin_only&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">            </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;path&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">            </span><span class="nt">&quot;foo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;foo&quot;</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">        </span><span class="p">},</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">        </span><span class="nt">&quot;user_only&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">            </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;path&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">            </span><span class="nt">&quot;bar&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bar&quot;</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">    </span><span class="nt">&quot;another&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">        </span><span class="nt">&quot;admin_only&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">            </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;path&quot;</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">        </span><span class="p">},</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">        </span><span class="nt">&quot;field&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;field&quot;</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">    </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">        </span><span class="nt">&quot;to&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="w">            </span><span class="nt">&quot;never&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="w">                </span><span class="nt">&quot;return&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;return&quot;</span>
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a><span class="w">    </span><span class="nt">&quot;the&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a><span class="w">        </span><span class="nt">&quot;webcam&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a><span class="w">            </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;webcam&quot;</span>
+<a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</div>
+<p><em>Added in version <a href="https://github.com/OctoPrint/OctoPrint/releases/tag/1.2.17">1.2.17</a></em></p>
 
   </div>
 
@@ -8073,21 +8333,12 @@ config.yaml.</p>
   <p>Returns:</p>
   <ul>
       <li class="field-body">
+            <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a> | None</code>
         –
         <div class="doc-md-description">
-          <p>int or None: an int signifying the current settings format, should be incremented by plugins whenever there</p>
-      </div>
-      </li>
-      <li class="field-body">
-        –
-        <div class="doc-md-description">
-          <p>are backwards incompatible changes. Returning None here disables the version tracking for the</p>
-      </div>
-      </li>
-      <li class="field-body">
-        –
-        <div class="doc-md-description">
-          <p>plugin's configuration.</p>
+          <p>an int signifying the current settings format, should be incremented by plugins whenever there
+are backwards incompatible changes. Returning None here disables the version tracking for the
+plugin's configuration.</p>
       </div>
       </li>
   </ul>
@@ -8108,12 +8359,12 @@ config.yaml.</p>
 
   <div class="doc doc-contents ">
   
-      <p>Called after migration and initialization but before call to :func:<code>on_settings_initialized</code>.</p>
+      <p>Called after migration and initialization but before call to <code>on_settings_initialized</code>.</p>
 <p>Plugins may overwrite this method to perform additional clean up tasks.</p>
 <p>The default implementation just minimizes the data persisted on disk to only contain
 the differences to the defaults (in case the current data was persisted with an older
 version of OctoPrint that still duplicated default data).</p>
-<p>.. versionadded:: 1.3.0</p>
+<p><em>Added in version <a href="https://github.com/OctoPrint/OctoPrint/releases/tag/1.3.0">1.3.0</a></em></p>
 
   </div>
 
@@ -8132,7 +8383,7 @@ version of OctoPrint that still duplicated default data).</p>
   <div class="doc doc-contents ">
   
       <p>Called after the settings have been initialized and - if necessary - also been migrated through a call to
-func:<code>on_settings_migrate</code>.</p>
+<code>on_settings_migrate</code>.</p>
 <p>This method will always be called after the <code>initialize</code> method.</p>
 
   </div>
@@ -8152,20 +8403,32 @@ func:<code>on_settings_migrate</code>.</p>
   <div class="doc doc-contents ">
   
       <p>Loads the settings for the plugin, called by the Settings API view in order to retrieve all settings from
-all plugins. Override this if you want to inject additional settings properties that are not stored within
-OctoPrint's configuration.</p>
-<p>.. note::</p>
+all plugins.</p>
+<p>Override this if you want to inject additional settings properties that are not stored within OctoPrint's configuration.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>The default implementation will return your plugin's settings as is, so just in the structure and in the types
-   that are currently stored in OctoPrint's configuration.</p>
+that are currently stored in OctoPrint's configuration.</p>
 <p>If you need more granular control here, e.g. over the used data types, you'll need to override this method
-   and iterate yourself over all your settings, using the proper retriever methods on the settings manager
-   to retrieve the data in the correct format.</p>
+and iterate yourself over all your settings, using the proper retriever methods on the settings manager
+to retrieve the data in the correct format.</p>
 <p>The default implementation will also replace any paths that have been restricted by your plugin through
-   :func:<code>~octoprint.plugin.SettingsPlugin.get_settings_restricted_paths</code> with either the provided
-   default value (if one was provided), an empty dictionary (as fallback for restricted dictionaries), an
-   empty list (as fallback for restricted lists) or <code>None</code> values where necessary.
-   Make sure to do your own restriction if you decide to fully overload this method.</p>
-<p>:return: the current settings of the plugin, as a dictionary</p>
+<code>get_settings_restricted_paths</code> with either the provided default value (if one was provided), an empty
+dictionary (as fallback for restricted dictionaries), an empty list (as fallback for restricted lists)
+or <code>None</code> values where necessary. Make sure to do your own restriction if you decide to fully overload
+this method.</p>
+</div>
+
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+            <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
+        –
+        <div class="doc-md-description">
+          <p>The current settings of the plugin</p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -8184,13 +8447,13 @@ OctoPrint's configuration.</p>
   <div class="doc doc-contents ">
   
       <p>Called by OctoPrint if it detects that the installed version of the plugin necessitates a higher settings version
-than the one currently stored in _config.yaml. Will also be called if the settings data stored in config.yaml
-doesn't have version information, in which case the <code>current</code> parameter will be None.</p>
-<p>Your plugin's implementation should take care of migrating any data by utilizing self._settings. OctoPrint
+than the one currently stored in <code>config.yaml</code>. Will also be called if the settings data stored in <code>config.yaml</code>
+doesn't have version information, in which case the <code>current</code> parameter will be <code>None</code>.</p>
+<p>Your plugin's implementation should take care of migrating any data by utilizing <code>self._settings</code>. OctoPrint
 will take care of saving any changes to disk by calling <code>self._settings.save()</code> after returning from this method.</p>
-<p>This method will be called before your plugin's :func:<code>on_settings_initialized</code> method, with all injections already
+<p>This method will be called before your plugin's <code>on_settings_initialized</code> method, with all injections already
 having taken place. You can therefore depend on the configuration having been migrated by the time
-:func:<code>on_settings_initialized</code> is called.</p>
+<code>on_settings_initialized</code> is called.</p>
 
   <p>Parameters:</p>
   <ul>
@@ -8200,16 +8463,16 @@ having taken place. You can therefore depend on the configuration having been mi
         –
         <div class="doc-md-description">
           <p>The settings format version the plugin requires, this should always be the same value as
-          returned by :func:<code>get_settings_version</code>.</p>
+returned by <code>get_settings_version</code>.</p>
         </div>
       </li>
       <li class="field-body">
         <b>current</b>
-            (<code>int or None</code>)
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a> | None</code>)
         –
         <div class="doc-md-description">
           <p>The settings format version as currently stored in config.yaml. May be None if
-          no version information can be found.</p>
+no version information can be found.</p>
         </div>
       </li>
   </ul>
@@ -8231,15 +8494,18 @@ having taken place. You can therefore depend on the configuration having been mi
   <div class="doc doc-contents ">
   
       <p>Saves the settings for the plugin, called by the Settings API view in order to persist all settings
-from all plugins. Override this if you need to directly react to settings changes or want to extract
-additional settings properties that are not stored within OctoPrint's configuration.</p>
-<p>.. note::</p>
+from all plugins.</p>
+<p>Override this if you need to directly react to settings changes or want to extract additional settings
+properties that are not stored within OctoPrint's configuration.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>The default implementation will persist your plugin's settings as is, so just in the structure and in the
-   types that were received by the Settings API view. Values identical to the default settings values
-   will <em>not</em> be persisted.</p>
+types that were received by the Settings API view. Values identical to the default settings values
+will <em>not</em> be persisted.</p>
 <p>If you need more granular control here, e.g. over the used data types, you'll need to override this method
-   and iterate yourself over all your settings, retrieving them (if set) from the supplied received <code>data</code>
-   and using the proper setter methods on the settings manager to persist the data in the correct format.</p>
+and iterate yourself over all your settings, retrieving them (if set) from the supplied received <code>data</code>
+and using the proper setter methods on the settings manager to persist the data in the correct format.</p>
+</div>
 
   <p>Parameters:</p>
   <ul>
@@ -8256,7 +8522,8 @@ additional settings properties that are not stored within OctoPrint's configurat
   <p>Returns:</p>
   <ul>
       <li class="field-body">
-<b>dict</b>        –
+            <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
+        –
         <div class="doc-md-description">
           <p>The settings that differed from the defaults and were actually saved.</p>
       </div>
@@ -8635,7 +8902,7 @@ a proper Flask response.</p>
         Bases: <code><a class="autorefs autorefs-internal" title="octoprint.plugin.types.OctoPrintPlugin" href="#octoprint.plugin.types.OctoPrintPlugin">OctoPrintPlugin</a></code></p>
 
   
-      <p>Via the <code>SlicerPlugin</code> mixin plugins can add support for slicing engines to be used by OctoPrint.</p>
+      <p>Using the <code>SlicerPlugin</code> mixin, plugins can add support for slicing engines to be used by OctoPrint.</p>
 
 
 
@@ -8693,46 +8960,49 @@ a proper Flask response.</p>
 
   <div class="doc doc-contents ">
   
-      <p>Called by OctoPrint to slice <code>model_path</code> for the indicated <code>printer_profile</code>. If the <code>machinecode_path</code> is <code>None</code>,
-slicer implementations should generate it from the provided <code>model_path</code>.</p>
+      <p>Called by OctoPrint to slice <code>model_path</code> for the indicated <code>printer_profile</code>.</p>
+<p>If the <code>machinecode_path</code> is <code>None</code>, slicer implementations should generate it from the provided <code>model_path</code>.</p>
 <p>If provided, the <code>profile_path</code> is guaranteed by OctoPrint to be a serialized slicing profile created through the slicing
-plugin's own :func:<code>save_slicer_profile</code> method.</p>
+plugin's own <code>save_slicer_profile</code> method.</p>
 <p>If provided, <code>position</code> will be a <code>dict</code> containing and <code>x</code> and a <code>y</code> key, indicating the position
 the center of the model on the print bed should have in the final sliced machine code. If not provided, slicer
 implementations should place the model in the center of the print bed.</p>
 <p><code>on_progress</code> will be a callback which expects an additional keyword argument <code>_progress</code> with the current
 slicing progress which - if progress reporting is supported - the slicing plugin should call like the following:</p>
-<p>.. code-block:: python</p>
-<p>if on_progress is not None:
-       if on_progress_args is None:
-           on_progress_args = ()
-       if on_progress_kwargs is None:
-           on_progress_kwargs = dict()</p>
-<div class="highlight"><pre><span></span><code>   on_progress_kwargs[&quot;_progress&quot;] = your_plugins_slicing_progress
-   on_progress(*on_progress_args, **on_progress_kwargs)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">if</span> <span class="n">on_progress</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="k">if</span> <span class="n">on_progress_args</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>        <span class="n">on_progress_args</span> <span class="o">=</span> <span class="p">()</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="k">if</span> <span class="n">on_progress_kwargs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>        <span class="n">on_progress_kwargs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="n">on_progress_kwargs</span><span class="p">[</span><span class="s2">&quot;_progress&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">your_plugins_slicing_progress</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="n">on_progress</span><span class="p">(</span><span class="o">*</span><span class="n">on_progress_args</span><span class="p">,</span> <span class="o">**</span><span class="n">on_progress_kwargs</span><span class="p">)</span>
 </code></pre></div>
 <p>Please note that both <code>on_progress_args</code> and <code>on_progress_kwargs</code> as supplied by OctoPrint might be <code>None</code>,
 so always make sure to initialize those values to sane defaults like depicted above before invoking the callback.</p>
-<p>In order to support external cancellation of an ongoing slicing job via :func:<code>cancel_slicing</code>, implementations
+<p>In order to support external cancellation of an ongoing slicing job via <code>cancel_slicing</code>, implementations
 should make sure to track the started jobs via the <code>machinecode_path</code>, if provided.</p>
 <p>The method should return a 2-tuple consisting of a boolean <code>flag</code> indicating whether the slicing job was
-finished successfully (True) or not (False) and a <code>result</code> depending on the success of the slicing job.</p>
-<p>For jobs that finished successfully, <code>result</code> should be a :class:<code>dict</code> containing additional information
+finished successfully (<code>True</code>) or not (<code>False</code>) and a <code>result</code> depending on the success of the slicing job.</p>
+<p>For jobs that finished successfully, <code>result</code> should be a <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a> containing additional information
 about the slicing job under the following keys:</p>
-<p>analysis
-    Analysis result of the generated machine code as returned by the slicer itself. This should match the
-    data structure described for the analysis queue of the matching machine code format, e.g.
-    :class:<code>~octoprint.filemanager.analysis.GcodeAnalysisQueue</code> for GCODE files.</p>
-<p>For jobs that did not finish successfully (but not due to being cancelled!), <code>result</code> should be a :class:<code>str</code>
+<dl>
+<dt><code>analysis</code></dt>
+<dd>Analysis result of the generated machine code as returned by the slicer itself. This should match the
+data structure described for the analysis queue of the matching machine code format, e.g.
+<a class="autorefs autorefs-internal" href="../../filemanager/analysis/#octoprint.filemanager.analysis.GcodeAnalysisQueue">GcodeAnalysisQueue</a> for GCODE files.</dd>
+</dl>
+<p>For jobs that did not finish successfully (but not due to being cancelled!), <code>result</code> should be a <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>
 containing a human readable reason for the error.</p>
-<p>If the job gets cancelled, a :class:<code>~octoprint.slicing.SlicingCancelled</code> exception should be raised.</p>
+<p>If the job gets cancelled, a <a class="autorefs autorefs-internal" href="../../slicing/exceptions/#octoprint.slicing.exceptions.SlicingCancelled">octoprint.slicing.SlicingCancelled</a> exception should be raised.</p>
 
   <p>Returns:</p>
   <ul>
       <li class="field-body">
-<b>tuple</b>        –
+            <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a></code>
+        –
         <div class="doc-md-description">
-          <p>A 2-tuple (boolean, object) as outlined above.</p>
+          <p>A 2-tuple (bool, object) as outlined above.</p>
       </div>
       </li>
   </ul>
@@ -8740,10 +9010,10 @@ containing a human readable reason for the error.</p>
   <p>Raises:</p>
   <ul>
       <li class="field-body">
-            <code>SlicingCancelled</code>
+            <code><a class="autorefs autorefs-internal" href="../../#octoprint">octoprint</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing" href="../../slicing/#octoprint.slicing">slicing</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing.SlicingCancelled" href="../../slicing/exceptions/#octoprint.slicing.exceptions.SlicingCancelled">SlicingCancelled</a></code>
           –
         <div class="doc-md-description">
-          <p>The slicing job was cancelled (via :meth:<code>cancel_slicing</code>).</p>
+          <p>The slicing job was cancelled (via <code>cancel_slicing</code>).</p>
         </div>
       </li>
   </ul>
@@ -8764,16 +9034,16 @@ containing a human readable reason for the error.</p>
 
   <div class="doc doc-contents ">
   
-      <p>Should return a :class:<code>~octoprint.slicing.SlicingProfile</code> containing the default slicing profile to use with
+      <p>Should return a <a class="autorefs autorefs-internal" href="../../slicing/#octoprint.slicing.SlicingProfile">SlicingProfile</a> containing the default slicing profile to use with
 this slicer if no other profile has been selected.</p>
 
   <p>Returns:</p>
   <ul>
       <li class="field-body">
-<b>SlicingProfile</b>        –
+            <code><a class="autorefs autorefs-internal" href="../../#octoprint">octoprint</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing" href="../../slicing/#octoprint.slicing">slicing</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing.SlicingProfile" href="../../slicing/#octoprint.slicing.SlicingProfile">SlicingProfile</a></code>
+        –
         <div class="doc-md-description">
-          <p>The :class:<code>~octoprint.slicing.SlicingProfile</code> containing the default slicing profile for
-this slicer.</p>
+          <p>The default <code>SlicingProfile</code> for the slicer.</p>
       </div>
       </li>
   </ul>
@@ -8795,10 +9065,22 @@ this slicer.</p>
   <div class="doc doc-contents ">
   
       <p>Fetch additional entries to put into the extension tree for accepted files</p>
-<p>By default, a subtree for <code>model</code> files with <code>stl</code> extension is returned. Slicers who want to support
+<p>By default, a subtree for <code>model</code> files with <code>stl</code> extension is returned. Slicer plugins which want to support
 additional/other file types will want to override this.</p>
-<p>For the extension tree format, take a look at the docs of the :ref:<code>octoprint.filemanager.extension_tree hook &lt;sec-plugins-hook-filemanager-extensiontree&gt;</code>.</p>
-      <p>.. versionadded:: 1.3.11</p>
+<p>For the extension tree format, take a look at the docs of the
+[octoprint.filemanager.extension_tree hook][plugin-guide.hooks.octoprint-filemanager-extension_tree].</p>
+
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+            <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
+        –
+        <div class="doc-md-description">
+          <p>a dictionary containing a valid extension subtree.</p>
+      </div>
+      </li>
+  </ul>
+      <p><em>Added in version <a href="https://github.com/OctoPrint/OctoPrint/releases/tag/1.3.11">1.3.11</a></em></p>
 
   </div>
 
@@ -8816,7 +9098,7 @@ additional/other file types will want to override this.</p>
 
   <div class="doc doc-contents ">
   
-      <p>Should return a :class:<code>~octoprint.slicing.SlicingProfile</code> parsed from the slicing profile stored at the
+      <p>Should return a <a class="autorefs autorefs-internal" href="../../slicing/#octoprint.slicing.SlicingProfile">SlicingProfile</a> parsed from the slicing profile stored at the
 indicated <code>path</code>.</p>
 
   <p>Parameters:</p>
@@ -8834,7 +9116,8 @@ indicated <code>path</code>.</p>
   <p>Returns:</p>
   <ul>
       <li class="field-body">
-<b>SlicingProfile</b>        –
+            <code><a class="autorefs autorefs-internal" href="../../#octoprint">octoprint</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing" href="../../slicing/#octoprint.slicing">slicing</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing.SlicingProfile" href="../../slicing/#octoprint.slicing.SlicingProfile">SlicingProfile</a></code>
+        –
         <div class="doc-md-description">
           <p>The specified slicing profile.</p>
       </div>
@@ -8857,9 +9140,9 @@ indicated <code>path</code>.</p>
 
   <div class="doc doc-contents ">
   
-      <p>Fetch all :class:<code>~octoprint.slicing.SlicingProfile</code> stored for this slicer.</p>
+      <p>Fetch all <a class="autorefs autorefs-internal" href="../../slicing/#octoprint.slicing.SlicingProfile">SlicingProfile</a>s stored for this slicer.</p>
 <p>For compatibility reasons with existing slicing plugins this method defaults to returning profiles parsed from
-.profile files in the plugin's <code>profile_path</code>, utilizing the :func:<code>SlicingPlugin.get_slicer_profile</code> method
+<code>.profile</code> files in the plugin's <code>profile_path</code>, utilizing the <code>get_slicer_profile</code> method
 of the plugin implementation.</p>
 
   <p>Parameters:</p>
@@ -8873,7 +9156,7 @@ of the plugin implementation.</p>
         </div>
       </li>
   </ul>
-      <p>.. versionadded:: 1.3.7</p>
+      <p><em>Added in version <a href="https://github.com/OctoPrint/OctoPrint/releases/tag/1.3.7">1.3.7</a></em></p>
 
   </div>
 
@@ -8891,7 +9174,8 @@ of the plugin implementation.</p>
 
   <div class="doc doc-contents ">
   
-      <p>.. versionadded:: 1.3.0</p>
+      <p>Fetch the last modification timestamp of the slicer's profiles.</p>
+<p><em>Added in version <a href="https://github.com/OctoPrint/OctoPrint/releases/tag/1.3.0">1.3.0</a></em></p>
 
   </div>
 
@@ -8909,34 +9193,39 @@ of the plugin implementation.</p>
 
   <div class="doc doc-contents ">
   
-      <p>Plugins should override this method to return a <code>dict</code> containing a bunch of meta data about the implemented slicer.</p>
-<p>The expected keys in the returned <code>dict</code> have the following meaning:</p>
-<p>type
-    The type identifier to use for the slicer. This should be a short unique lower case string which will be
-    used to store slicer profiles under or refer to the slicer programmatically or from the API.
-name
-    The human readable name of the slicer. This will be displayed to the user during slicer selection.
-same_device
-    True if the slicer runs on the same device as OctoPrint, False otherwise. Slicers running on the same
-    device will not be allowed to slice on systems with less than two CPU cores (or an unknown number) while a
-    print is running due to performance reasons. Slice requests against slicers running on the same device and
-    less than two cores will result in an error.
-progress_report
-    <code>True</code> if the slicer can report back slicing progress to OctoPrint <code>False</code> otherwise.
-source_file_types
-    A list of file types this slicer supports as valid origin file types. These are file types as found in the
-    paths within the extension tree. Plugins may add additional file types through the :ref:<code>sec-plugins-hook-filemanager-extensiontree</code> hook.
-    The system will test source files contains in incoming slicing requests via :meth:<code>octoprint.filemanager.valid_file_type</code> against the
-    targeted slicer's <code>source_file_types</code>.
-destination_extension
-    The possible extensions of slicing result files.</p>
+      <p>Returns the properties of the slicer.</p>
+<p>Plugins should override this method to return a <code>dict</code> containing a bunch of meta data about the implemented slicer.</p>
+<p>The expected keys in the returned <code>dict</code> are the following:</p>
+<dl>
+<dt><code>type</code></dt>
+<dd>The type identifier to use for the slicer. This should be a short unique lower case string which will be
+used to store slicer profiles under or refer to the slicer programmatically or from the API.</dd>
+<dt><code>name</code></dt>
+<dd>The human readable name of the slicer. This will be displayed to the user during slicer selection.</dd>
+<dt><code>same_device</code></dt>
+<dd><code>True</code> if the slicer runs on the same device as OctoPrint, <code>False</code> otherwise. Slicers running on the same
+device will not be allowed to slice on systems with less than two CPU cores (or an unknown number) while a
+print is running due to performance reasons. Slice requests against slicers running on the same device and
+less than two cores will result in an error.</dd>
+<dt><code>progress_report</code></dt>
+<dd><code>True</code> if the slicer can report back slicing progress to OctoPrint <code>False</code> otherwise.</dd>
+<dt><code>source_file_types</code></dt>
+<dd>A list of file types this slicer supports as valid origin file types. These are file types as found in the
+paths within the extension tree. Plugins may add additional file types through the
+[octoprint.filemanager.extension_tree][plugin-guide.hooks.octoprint-filemanager-extension_tree] hook.
+The system will test source files contains in incoming slicing requests using
+[octoprint.filemanager.valid_file_type][] against the targeted slicer's <code>source_file_types</code>.</dd>
+<dt><code>destination_extensions</code></dt>
+<dd>The possible extensions of slicing result files.</dd>
+</dl>
 
   <p>Returns:</p>
   <ul>
       <li class="field-body">
-<b>dict</b>        –
+            <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>
+        –
         <div class="doc-md-description">
-          <p>A dict describing the slicer as outlined above.</p>
+          <p>A dict containing the slicer's properties as outlined above.</p>
       </div>
       </li>
   </ul>
@@ -8957,10 +9246,22 @@ destination_extension
 
   <div class="doc doc-contents ">
   
-      <p>Unless the return value of this method is <code>True</code>, OctoPrint will not register the slicer within the slicing
+      <p>Reports whether the slicer is properly configured and ready to be used.</p>
+<p>Unless the return value of this method is <code>True</code>, OctoPrint will not register the slicer within the slicing
 sub system upon startup. Plugins may use this to do some start up checks to verify that e.g. the path to
 a slicing binary as set and the binary is executable, or credentials of a cloud slicing platform are properly
 entered etc.</p>
+
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+            <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>
+        –
+        <div class="doc-md-description">
+          <p>Whether the slicer is properly configured and ready to be used.</p>
+      </div>
+      </li>
+  </ul>
 
   </div>
 
@@ -8978,9 +9279,10 @@ entered etc.</p>
 
   <div class="doc doc-contents ">
   
-      <p>Should save the provided :class:<code>~octoprint.slicing.SlicingProfile</code> to the indicated <code>path</code>, after applying
-any supplied <code>overrides</code>. If a profile is already saved under the indicated path and <code>allow_overwrite</code> is
-set to False (defaults to True), an :class:<code>IOError</code> should be raised.</p>
+      <p>Should save the provided <a class="autorefs autorefs-internal" href="../../slicing/#octoprint.slicing.SlicingProfile">SlicingProfile</a> to the
+indicated <code>path</code>, after applying any supplied <code>overrides</code>.</p>
+<p>If a profile is already saved under the indicated path and <code>allow_overwrite</code> is
+set to <code>False</code> (defaults to <code>True</code>), an <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/exceptions.html#IOError">IOError</a> should be raised.</p>
 
   <p>Parameters:</p>
   <ul>
@@ -8994,7 +9296,7 @@ set to False (defaults to True), an :class:<code>IOError</code> should be raised
       </li>
       <li class="field-body">
         <b>profile</b>
-            (<code>SlicingProfile</code>)
+            (<code><a class="autorefs autorefs-internal" href="../../#octoprint">octoprint</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing" href="../../slicing/#octoprint.slicing">slicing</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing.SlicingProfile" href="../../slicing/#octoprint.slicing.SlicingProfile">SlicingProfile</a></code>)
         –
         <div class="doc-md-description">
           <p>The profile to save.</p>
@@ -9002,12 +9304,11 @@ set to False (defaults to True), an :class:<code>IOError</code> should be raised
       </li>
       <li class="field-body">
         <b>allow_overwrite</b>
-            (<code>boolean</code>)
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>)
         –
         <div class="doc-md-description">
-          <p>Whether to allow to overwrite an existing profile at the indicated path (True,
-default) or not (False). If a profile already exists on the path and this is False an
-:class:<code>IOError</code> should be raised.</p>
+          <p>Whether to allow to overwrite an existing profile at the indicated path (<code>True</code>,
+default) or not (<code>False</code>).</p>
         </div>
       </li>
       <li class="field-body">
@@ -9016,6 +9317,17 @@ default) or not (False). If a profile already exists on the path and this is Fal
         –
         <div class="doc-md-description">
           <p>Profile overrides to apply to the <code>profile</code> before saving it</p>
+        </div>
+      </li>
+  </ul>
+
+  <p>Raises:</p>
+  <ul>
+      <li class="field-body">
+            <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/exceptions.html#IOError">IOError</a></code>
+          –
+        <div class="doc-md-description">
+          <p>If a profile already exists on the path and <code>allow_overwrite</code> is <code>False</code>.</p>
         </div>
       </li>
   </ul>
@@ -9168,17 +9480,19 @@ the "helloworld" plugin in OctoPrint's [Plugin Tutorial][].</p>
 <code>get_template_configs</code> below. Note that if a plugin replaces a core component, it is the plugin's responsibility
 to ensure that all core functionality is still maintained.</p>
 <p>Plugins can also add additional template types by implementing the [octoprint.ui.web.templatetypes][] hook.</p>
-<p><code>TemplatePlugin</code> is a [ReloadNeedingPlugin][octoprint.plugin.core.ReloadNeedingPlugin].</p>
+<p><code>TemplatePlugin</code> is a <a class="autorefs autorefs-internal" href="#octoprint.plugin.types.ReloadNeedingPlugin">ReloadNeedingPlugin</a>.</p>
 <h4 id="octoprint.plugin.types.TemplatePlugin--supported-template-types">Supported template types<a class="headerlink" href="#octoprint.plugin.types.TemplatePlugin--supported-template-types" title="Permanent link">#</a></h4>
 <p>Currently OctoPrint supports several types out of the box which are described below.</p>
-<p>.. figure:: ../images/template-plugin-types-main.png
-   :align: center
-   :alt: Template injection types in the main part of the interface</p>
-<p>Template injection types in the main part of the interface</p>
-<p>.. figure:: ../images/template-plugin-types-settings.png
-   :align: center
-   :alt: Template injection types in the settings</p>
-<p>Template injection types in the settings</p>
+<figure>
+<p><a class="glightbox" href="/images/reference/octoprint/plugin/types/template-plugin-types-main.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Template injection types in the main part of the interface" src="/images/reference/octoprint/plugin/types/template-plugin-types-main.png" /></a>
+  </p>
+<figcaption>Template injection types in the main part of the interface</figcaption>
+</figure>
+<figure>
+<p><a class="glightbox" href="/images/reference/octoprint/plugin/types/template-plugin-types-settings.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Template injection types in the settings" src="/images/reference/octoprint/plugin/types/template-plugin-types-settings.png" /></a>
+  </p>
+<figcaption>Template injection types in the settings</figcaption>
+</figure>
 <h5 id="octoprint.plugin.types.TemplatePlugin--navbar">Navbar<a class="headerlink" href="#octoprint.plugin.types.TemplatePlugin--navbar" title="Permanent link">#</a></h5>
 <p>The right part of the navigation bar located at the top of the UI can be enriched with additional links. Note that
 with the current implementation, plugins will always be located <em>to the left</em> of the existing links.</p>
@@ -9551,61 +9865,63 @@ mixin.</p>
 <p>What follows is a very simple example that renders a different (non functional and
 only exemplary) UI if the requesting client has a UserAgent string hinting
 at it being a mobile device:</p>
-<div class="highlight"><span class="filename">dummy_mobile_ui/__init__.py</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kn">import</span> <span class="nn">octoprint.plugin</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="k">class</span> <span class="nc">DummyMobileUiPlugin</span><span class="p">(</span><span class="n">octoprint</span><span class="o">.</span><span class="n">plugin</span><span class="o">.</span><span class="n">UiPlugin</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>                          <span class="n">octoprint</span><span class="o">.</span><span class="n">plugin</span><span class="o">.</span><span class="n">TemplatePlugin</span><span class="p">):</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="k">def</span> <span class="nf">will_handle_ui</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>        <span class="c1"># returns True if the User Agent sent by the client matches one of</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>        <span class="c1"># the User Agent strings known for any of the platforms android, ipad</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>        <span class="c1"># or iphone</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>        <span class="k">return</span> <span class="n">request</span><span class="o">.</span><span class="n">user_agent</span> <span class="ow">and</span>                     <span class="n">request</span><span class="o">.</span><span class="n">user_agent</span><span class="o">.</span><span class="n">platform</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;android&quot;</span><span class="p">,</span> <span class="s2">&quot;ipad&quot;</span><span class="p">,</span> <span class="s2">&quot;iphone&quot;</span><span class="p">)</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    <span class="k">def</span> <span class="nf">on_ui_render</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">now</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">render_kwargs</span><span class="p">):</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>        <span class="c1"># if will_handle_ui returned True, we will now render our custom index</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>        <span class="c1"># template, using the render_kwargs as provided by OctoPrint</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>        <span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">make_response</span><span class="p">,</span> <span class="n">render_template</span>
-<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>        <span class="k">return</span> <span class="n">make_response</span><span class="p">(</span><span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;dummy_mobile_ui_index.jinja2&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>                                            <span class="o">**</span><span class="n">render_kwargs</span><span class="p">))</span>
-<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>
-<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="n">__plugin_name__</span> <span class="o">=</span> <span class="s2">&quot;Dummy Mobile UI&quot;</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="n">__plugin_pythoncompat__</span> <span class="o">=</span> <span class="s2">&quot;&gt;=3.7,&lt;4&quot;</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="n">__plugin_implementation__</span> <span class="o">=</span> <span class="n">DummyMobileUiPlugin</span><span class="p">()</span>
+<div class="highlight"><span class="filename">dummy_mobile_ui/__init__.py</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># coding=utf-8</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kn">import</span> <span class="nn">octoprint.plugin</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="k">class</span> <span class="nc">DummyMobileUiPlugin</span><span class="p">(</span><span class="n">octoprint</span><span class="o">.</span><span class="n">plugin</span><span class="o">.</span><span class="n">UiPlugin</span><span class="p">,</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>                          <span class="n">octoprint</span><span class="o">.</span><span class="n">plugin</span><span class="o">.</span><span class="n">TemplatePlugin</span><span class="p">):</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    <span class="k">def</span> <span class="nf">will_handle_ui</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>        <span class="c1"># returns True if the User Agent sent by the client matches one of</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>        <span class="c1"># the User Agent strings known for any of the platforms android, ipad</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>        <span class="c1"># or iphone</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>        <span class="k">return</span> <span class="n">request</span><span class="o">.</span><span class="n">user_agent</span> <span class="ow">and</span> \
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>               <span class="n">request</span><span class="o">.</span><span class="n">user_agent</span><span class="o">.</span><span class="n">platform</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;android&quot;</span><span class="p">,</span> <span class="s2">&quot;ipad&quot;</span><span class="p">,</span> <span class="s2">&quot;iphone&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    <span class="k">def</span> <span class="nf">on_ui_render</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">now</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">render_kwargs</span><span class="p">):</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>        <span class="c1"># if will_handle_ui returned True, we will now render our custom index</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>        <span class="c1"># template, using the render_kwargs as provided by OctoPrint</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>        <span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">make_response</span><span class="p">,</span> <span class="n">render_template</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>        <span class="k">return</span> <span class="n">make_response</span><span class="p">(</span><span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;dummy_mobile_ui_index.jinja2&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>                                             <span class="o">**</span><span class="n">render_kwargs</span><span class="p">))</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="n">__plugin_name__</span> <span class="o">=</span> <span class="s2">&quot;Dummy Mobile UI&quot;</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="n">__plugin_pythoncompat__</span> <span class="o">=</span> <span class="s2">&quot;&gt;=2.7,&lt;4&quot;</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="n">__plugin_implementation__</span> <span class="o">=</span> <span class="n">DummyMobileUiPlugin</span><span class="p">()</span>
 </code></pre></div>
-<div class="highlight"><span class="filename">dummy_mobile_ui/templates/dummy_mobile_ui_index.jinja2</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>&lt;html&gt;
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    &lt;head&gt;
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>        &lt;title&gt;Dummy Mobile OctoPrint UI&lt;/title&gt;
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0&quot;/&gt;
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    &lt;/head&gt;
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    &lt;body&gt;
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>        &lt;h1&gt;Dummy Mobile OctoPrint UI&lt;/h1&gt;
+<div class="highlight"><span class="filename">dummy_mobile_ui/templates/dummy_mobile_ui_index.jinja2</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="x">&lt;html&gt;</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="x">    &lt;head&gt;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="x">        &lt;title&gt;Dummy Mobile OctoPrint UI&lt;/title&gt;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="x">        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0&quot;/&gt;</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="x">    &lt;/head&gt;</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="x">    &lt;body&gt;</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="x">        &lt;h1&gt;Dummy Mobile OctoPrint UI&lt;/h1&gt;</span>
 <a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>        &lt;p&gt;
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>            Well hello there. Sadly, this is only a placeholder page used to
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>            demonstrate how UiPlugins work. Hence the &quot;Dummy&quot; in the name.
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>            Hope you are not too disappointed :)
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>        &lt;/p&gt;
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="x">        &lt;p&gt;</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="x">            Well hello there. Sadly, this is only a placeholder page used to</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="x">            demonstrate how UiPlugins work. Hence the &quot;Dummy&quot; in the name.</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="x">            Hope you are not too disappointed :)</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="x">        &lt;/p&gt;</span>
 <a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>
-<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>        &lt;p&gt;
-<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>            Some data from the &lt;code&gt;render_kwargs&lt;/code&gt; passed to this
-<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>            template:
-<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>        &lt;/p&gt;
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="x">        &lt;p&gt;</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="x">            Some data from the &lt;code&gt;render_kwargs&lt;/code&gt; passed to this</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="x">            template:</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="x">        &lt;/p&gt;</span>
 <a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>
-<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>        &lt;ul&gt;
-<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>            &lt;!--
-<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>            We can include any render keywords arguments by their name,
-<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>            using the regular Jinja templating functionality.
-<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>            --&gt;
-<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>            &lt;li&gt;Version: {{ display_version }}&lt;/li&gt;
-<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>            &lt;li&gt;Debug: {{ debug }}&lt;/li&gt;
-<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>            &lt;li&gt;Template Count: {{ templates|length }}&lt;/li&gt;
-<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>            &lt;li&gt;Installed Plugins: {{ pluginNames|join(&quot;, &quot;) }}&lt;/li&gt;
-<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>        &lt;/ul&gt;
-<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>    &lt;/body&gt;
-<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a>&lt;/html&gt;
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="x">        &lt;ul&gt;</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="x">            &lt;!--</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="x">             We can include any render keywords arguments by their name,</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="x">             using the regular Jinja templating functionality.</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="x">             --&gt;</span>
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="x">            &lt;li&gt;Version: </span><span class="cp">{{</span> <span class="nv">display_version</span> <span class="cp">}}</span><span class="x">&lt;/li&gt;</span>
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="x">            &lt;li&gt;Debug: </span><span class="cp">{{</span> <span class="nv">debug</span> <span class="cp">}}</span><span class="x">&lt;/li&gt;</span>
+<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="x">            &lt;li&gt;Template Count: </span><span class="cp">{{</span> <span class="nv">templates</span><span class="o">|</span><span class="nf">length</span> <span class="cp">}}</span><span class="x">&lt;/li&gt;</span>
+<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="x">            &lt;li&gt;Installed Plugins: </span><span class="cp">{{</span> <span class="nv">pluginNames</span><span class="o">|</span><span class="nf">join</span><span class="o">(</span><span class="s2">&quot;, &quot;</span><span class="o">)</span> <span class="cp">}}</span><span class="x">&lt;/li&gt;</span>
+<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="x">        &lt;/ul&gt;</span>
+<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="x">    &lt;/body&gt;</span>
+<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="x">&lt;/html&gt;</span>
 </code></pre></div>
 <p>Try installing the above plugin <code>dummy_mobile_ui</code> (also available in the
 <a href="https://github.com/OctoPrint/Plugin-Examples/blob/master/dummy_mobile_ui">plugin examples repository</a>)
@@ -10232,8 +10548,10 @@ is what should be served to the user.</p>
         Bases: <code><a class="autorefs autorefs-internal" title="octoprint.plugin.types.OctoPrintPlugin" href="#octoprint.plugin.types.OctoPrintPlugin">OctoPrintPlugin</a></code></p>
 
   
-      <p>The <code>WebcamProviderPlugin</code> can be used to provide one or more webcams visible on the frontend and used for snapshots/timelapses.</p>
-<p>For an example of how to utilize this, see the bundled <code>classicwebcam</code> plugin, or the <code>testpicture</code> plugin available <code>here &lt;https://github.com/OctoPrint/OctoPrint-Testpicture&gt;</code>_.</p>
+      <p>The <code>WebcamProviderPlugin</code> can be used to provide one or more webcams visible on the
+frontend and used for snapshots/timelapses.</p>
+<p>For an example of how to utilize this, see the bundled <code>classicwebcam</code> plugin, or the
+<code>testpicture</code> plugin available <a href="https://github.com/OctoPrint/OctoPrint-Testpicture">here</a>.</p>
 
 
 
@@ -10266,9 +10584,11 @@ is what should be served to the user.</p>
   <p>Returns:</p>
   <ul>
       <li class="field-body">
+            <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></code>
         –
         <div class="doc-md-description">
-          <p>A list of :class:<code>~octoprint.schema.webcam.Webcam</code>: The available webcams, can be empty if none available.</p>
+          <p>The available webcams as a list of <a class="autorefs autorefs-internal" href="../../schema/webcam/#octoprint.schema.webcam.Webcam">octoprint.schema.webcam.Webcam</a>,
+can be empty if none available.</p>
       </div>
       </li>
   </ul>
@@ -10282,19 +10602,32 @@ is what should be served to the user.</p>
 
 
 <h3 id="octoprint.plugin.types.WebcamProviderPlugin.take_webcam_snapshot" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">take_webcam_snapshot</span><span class="p">(</span><span class="n">webcamName</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">take_webcam_snapshot</span><span class="p">(</span><span class="n">webcam</span><span class="p">)</span></code>
 
 <a href="#octoprint.plugin.types.WebcamProviderPlugin.take_webcam_snapshot" class="headerlink" title="Permanent link">#</a></h3>
 
 
   <div class="doc doc-contents ">
   
-      <p>Used to take a JPEG snapshot of the webcam. This method may raise an exception, you can expect failures to be handled.</p>
-<p>:param string webcamName: The name of the webcam to take a snapshot of as given by the configurations</p>
+      <p>Used to take a JPEG snapshot of the webcam. This method may raise an exception,
+you can expect failures to be handled.</p>
+
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b>webcam</b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The name of the webcam to take a snapshot of as given by the configurations</p>
+        </div>
+      </li>
+  </ul>
 
   <p>Returns:</p>
   <ul>
       <li class="field-body">
+            <code>iterator</code>
         –
         <div class="doc-md-description">
           <p>An iterator over bytes of the JPEG image</p>
@@ -10496,12 +10829,12 @@ provided information about already seen wizards and their versions or not.</p>
 </ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>       |  current  |
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>       | N | 1 | 2 |   N = None
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>   ----+---+---+---+   X = ignored
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>   s N | X |   |   |
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>   ----+---+---+---+   X = shown
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>   s N | . | X | X |   . = ignored
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>   e --+---+---+---+
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>   e 1 | X | X |   |
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>   e 1 | . | . | X |
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>   n --+---+---+---+
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>     2 | X | X | X |
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>     2 | . | . | . |
 <a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>   ----+---+---+---+
 </code></pre></div>
 
@@ -10713,11 +11046,11 @@ required, not ignored and thus presented to the user, <code>False</code> otherwi
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking"], "search": "../../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.annotate", "navigation.indexes", "navigation.instant", "navigation.path", "navigation.prune", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../../assets/javascripts/bundle.220ee61c.min.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>
