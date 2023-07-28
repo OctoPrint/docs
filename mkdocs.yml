@@ -1,4 +1,6 @@
 site_name: OctoPrint
+site_url: !ENV [SITE_URL, "http://127.0.0.1:8000"]
+dev_addr: 0.0.0.0:8008
 repo_name: OctoPrint/OctoPrint
 repo_url: https://github.com/OctoPrint/OctoPrint
 #edit_uri: ../docs.octoprint.org/blob/master/docs/
@@ -91,9 +93,6 @@ markdown_extensions:
       permalink: "#"
   - "extensions.markdown.version"
 
-hooks:
-  - extensions/hooks/site_urls.py
-
 nav:
   - Home: index.md
   - User Guide: 
@@ -157,6 +156,7 @@ plugins:
             - https://click.palletsprojects.com/objects.inv
             - https://flask.palletsprojects.com/objects.inv
   - search
+  - site-urls
 
 watch:
   - docs
