@@ -8,6 +8,8 @@
       
       
       
+        <link rel="canonical" href="https://octoprint.github.io/docs/reference/octoprint/plugin/types/">
+      
       
         <link rel="prev" href="../core/">
       
@@ -15,7 +17,7 @@
         <link rel="next" href="../../plugins/">
       
       <link rel="icon" href="../../../../images/tentacle.svg">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
+      <meta name="generator" content="mkdocs-1.5.1, mkdocs-material-9.1.21">
     
     
       
@@ -23,7 +25,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.eebd395e.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ecc896b0.min.css">
@@ -6738,15 +6740,15 @@ class, <code>OctoPrintPlugin</code>.</p>
 
 
 <h2 id="octoprint.plugin.types.AssetPlugin" class="doc doc-heading">
-        <code>AssetPlugin</code>
+          <code>AssetPlugin</code>
 
 
 <a href="#octoprint.plugin.types.AssetPlugin" class="headerlink" title="Permanent link">#</a></h2>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><a class="autorefs autorefs-internal" title="octoprint.plugin.types.OctoPrintPlugin" href="#octoprint.plugin.types.OctoPrintPlugin">OctoPrintPlugin</a></code>, <code><a class="autorefs autorefs-internal" title="octoprint.plugin.core.RestartNeedingPlugin" href="../core/#octoprint.plugin.core.RestartNeedingPlugin">RestartNeedingPlugin</a></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="octoprint.plugin.types.OctoPrintPlugin" href="#octoprint.plugin.types.OctoPrintPlugin">OctoPrintPlugin</a></code>, <code><a class="autorefs autorefs-internal" title="octoprint.plugin.core.RestartNeedingPlugin" href="../core/#octoprint.plugin.core.RestartNeedingPlugin">RestartNeedingPlugin</a></code></p>
 
   
       <p>The <code>AssetPlugin</code> mixin allows plugins to define additional static assets such as JavaScript or CSS files to
@@ -6757,10 +6759,10 @@ through a <a class="autorefs autorefs-internal" href="#octoprint.plugin.types.Te
 <p><code>AssetPlugin</code> is a <a class="autorefs autorefs-internal" href="../core/#octoprint.plugin.core.RestartNeedingPlugin">RestartNeedingPlugin</a>.</p>
 
 
-
   
 
   <div class="doc doc-children">
+
 
 
 
@@ -6786,6 +6788,8 @@ through a <a class="autorefs autorefs-internal" href="#octoprint.plugin.types.Te
 <p>Override this if your plugin stores its assets at some other place than the <code>static</code> sub folder in the
 plugin base directory.</p>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -6800,6 +6804,7 @@ plugin base directory.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -6837,6 +6842,8 @@ type, the files being represented as relative paths from the asset folder as def
 <p>Assets of the types <code>js</code>, <code>css</code> and <code>less</code> will be automatically bundled by OctoPrint using
 <a href="http://flask-assets.readthedocs.org/en/latest/">Flask-Assets</a>.</p>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -6865,15 +6872,15 @@ type, the files being represented as relative paths from the asset folder as def
 
 
 <h2 id="octoprint.plugin.types.BlueprintPlugin" class="doc doc-heading">
-        <code>BlueprintPlugin</code>
+          <code>BlueprintPlugin</code>
 
 
 <a href="#octoprint.plugin.types.BlueprintPlugin" class="headerlink" title="Permanent link">#</a></h2>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><a class="autorefs autorefs-internal" title="octoprint.plugin.types.OctoPrintPlugin" href="#octoprint.plugin.types.OctoPrintPlugin">OctoPrintPlugin</a></code>, <code><a class="autorefs autorefs-internal" title="octoprint.plugin.core.RestartNeedingPlugin" href="../core/#octoprint.plugin.core.RestartNeedingPlugin">RestartNeedingPlugin</a></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="octoprint.plugin.types.OctoPrintPlugin" href="#octoprint.plugin.types.OctoPrintPlugin">OctoPrintPlugin</a></code>, <code><a class="autorefs autorefs-internal" title="octoprint.plugin.core.RestartNeedingPlugin" href="../core/#octoprint.plugin.core.RestartNeedingPlugin">RestartNeedingPlugin</a></code></p>
 
   
       <p>The <code>BlueprintPlugin</code> mixin allows plugins to define their own full fledged endpoints for whatever purpose,
@@ -6934,10 +6941,10 @@ and returning <code>True</code> from it. You can exempt certain endpoints from C
 <p><em>Changed in version <a href="https://github.com/OctoPrint/OctoPrint/releases/tag/1.8.3">1.8.3</a></em></p>
 
 
-
   
 
   <div class="doc doc-children">
+
 
 
 
@@ -6972,6 +6979,7 @@ cases should not be needed.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6997,6 +7005,7 @@ own <code>@errorhandler</code> decorator available on blueprints.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -7015,6 +7024,8 @@ default implementation takes care of attaching rules, error handlers and [CSRF p
 so if you override this you will need to take care of that yourself.</p>
 <p>This method will only be called once during server initialization.</p>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -7029,6 +7040,7 @@ so if you override this you will need to take care of that yourself.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -7053,6 +7065,7 @@ return <code>["/foo", "/bar"]</code>. A match will be determined via <a class="a
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -7075,6 +7088,7 @@ plus <code>/static</code> or respectively <code>/templates</code>, or -- if the 
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -7100,6 +7114,7 @@ forthcoming change in implemented default behaviour.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -7121,6 +7136,7 @@ permission checks explicitly.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -7159,24 +7175,24 @@ own <code>route</code> decorator available on blueprints.</p>
 
 
 <h2 id="octoprint.plugin.types.EnvironmentDetectionPlugin" class="doc doc-heading">
-        <code>EnvironmentDetectionPlugin</code>
+          <code>EnvironmentDetectionPlugin</code>
 
 
 <a href="#octoprint.plugin.types.EnvironmentDetectionPlugin" class="headerlink" title="Permanent link">#</a></h2>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><a class="autorefs autorefs-internal" title="octoprint.plugin.types.OctoPrintPlugin" href="#octoprint.plugin.types.OctoPrintPlugin">OctoPrintPlugin</a></code>, <code><a class="autorefs autorefs-internal" title="octoprint.plugin.core.RestartNeedingPlugin" href="../core/#octoprint.plugin.core.RestartNeedingPlugin">RestartNeedingPlugin</a></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="octoprint.plugin.types.OctoPrintPlugin" href="#octoprint.plugin.types.OctoPrintPlugin">OctoPrintPlugin</a></code>, <code><a class="autorefs autorefs-internal" title="octoprint.plugin.core.RestartNeedingPlugin" href="../core/#octoprint.plugin.core.RestartNeedingPlugin">RestartNeedingPlugin</a></code></p>
 
   
       <p><em>Added in version <a href="https://github.com/OctoPrint/OctoPrint/releases/tag/1.3.6">1.3.6</a></em></p>
 
 
-
   
 
   <div class="doc doc-children">
+
 
 
 
@@ -7200,6 +7216,8 @@ own <code>route</code> decorator available on blueprints.</p>
   
       <p>Allows the plugin to provide additional environment information.</p>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -7215,6 +7233,7 @@ own <code>route</code> decorator available on blueprints.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -7228,6 +7247,8 @@ own <code>route</code> decorator available on blueprints.</p>
   <div class="doc doc-contents ">
   
       <p>Called when the environment information has been gathered.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -7258,15 +7279,15 @@ own <code>route</code> decorator available on blueprints.</p>
 
 
 <h2 id="octoprint.plugin.types.EventHandlerPlugin" class="doc doc-heading">
-        <code>EventHandlerPlugin</code>
+          <code>EventHandlerPlugin</code>
 
 
 <a href="#octoprint.plugin.types.EventHandlerPlugin" class="headerlink" title="Permanent link">#</a></h2>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><a class="autorefs autorefs-internal" title="octoprint.plugin.types.OctoPrintPlugin" href="#octoprint.plugin.types.OctoPrintPlugin">OctoPrintPlugin</a></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="octoprint.plugin.types.OctoPrintPlugin" href="#octoprint.plugin.types.OctoPrintPlugin">OctoPrintPlugin</a></code></p>
 
   
       <p>The <code>EventHandlerPlugin</code> mixin allows OctoPrint plugins to react to any of [OctoPrint's events][dev-guide.events].</p>
@@ -7279,10 +7300,10 @@ but the processing of the events within the queue itself happens consecutively.<
 videos rendering etc.</p>
 
 
-
   
 
   <div class="doc doc-children">
+
 
 
 
@@ -7309,6 +7330,8 @@ videos rendering etc.</p>
 <p class="admonition-title">Warning</p>
 <p>Do not perform long-running or even blocking operations in your implementation or you <strong>will</strong> block and break the server.</p>
 </div>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -7354,12 +7377,11 @@ for possible values</p>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><a class="autorefs autorefs-internal" title="octoprint.plugin.core.Plugin" href="../core/#octoprint.plugin.core.Plugin">Plugin</a></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="octoprint.plugin.core.Plugin" href="../core/#octoprint.plugin.core.Plugin">Plugin</a></code></p>
 
   
       <p>The parent class of all OctoPrint plugin mixins and thus implementations.</p>
-
 
 
   
@@ -7639,6 +7661,7 @@ of the implementation.</p>
 
 
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -7655,6 +7678,8 @@ of the implementation.</p>
 before returning it.</p>
 <p>Plugins may use this folder for storing additional data they need for their operation.</p>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -7669,6 +7694,7 @@ before returning it.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -7702,25 +7728,25 @@ before returning it.</p>
 
 
 <h2 id="octoprint.plugin.types.ProgressPlugin" class="doc doc-heading">
-        <code>ProgressPlugin</code>
+          <code>ProgressPlugin</code>
 
 
 <a href="#octoprint.plugin.types.ProgressPlugin" class="headerlink" title="Permanent link">#</a></h2>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><a class="autorefs autorefs-internal" title="octoprint.plugin.types.OctoPrintPlugin" href="#octoprint.plugin.types.OctoPrintPlugin">OctoPrintPlugin</a></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="octoprint.plugin.types.OctoPrintPlugin" href="#octoprint.plugin.types.OctoPrintPlugin">OctoPrintPlugin</a></code></p>
 
   
       <p>Using the <code>ProgressPlugin</code> mixin, plugins can let themselves be called upon progress in print jobs or slicing jobs,
 limited to minimally 1% steps.</p>
 
 
-
   
 
   <div class="doc doc-children">
+
 
 
 
@@ -7743,6 +7769,8 @@ limited to minimally 1% steps.</p>
   <div class="doc doc-contents ">
   
       <p>Called by OctoPrint on minimally 1% increments during a running print job.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -7776,6 +7804,7 @@ limited to minimally 1% steps.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -7789,6 +7818,8 @@ limited to minimally 1% steps.</p>
   <div class="doc doc-contents ">
   
       <p>Called by OctoPrint on minimally 1% increments during a running slicing job.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -7859,19 +7890,18 @@ limited to minimally 1% steps.</p>
 
 
 <h2 id="octoprint.plugin.types.ReloadNeedingPlugin" class="doc doc-heading">
-        <code>ReloadNeedingPlugin</code>
+          <code>ReloadNeedingPlugin</code>
 
 
 <a href="#octoprint.plugin.types.ReloadNeedingPlugin" class="headerlink" title="Permanent link">#</a></h2>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><a class="autorefs autorefs-internal" title="octoprint.plugin.core.Plugin" href="../core/#octoprint.plugin.core.Plugin">Plugin</a></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="octoprint.plugin.core.Plugin" href="../core/#octoprint.plugin.core.Plugin">Plugin</a></code></p>
 
   
       <p>Mixin for plugin types that need a reload of the UI after enabling/disabling them.</p>
-
 
 
   </div>
@@ -7889,8 +7919,8 @@ limited to minimally 1% steps.</p>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><a class="autorefs autorefs-internal" title="octoprint.plugin.types.OctoPrintPlugin" href="#octoprint.plugin.types.OctoPrintPlugin">OctoPrintPlugin</a></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="octoprint.plugin.types.OctoPrintPlugin" href="#octoprint.plugin.types.OctoPrintPlugin">OctoPrintPlugin</a></code></p>
 
   
       <p>Including the <code>SettingsPlugin</code> mixin allows plugins to store and retrieve their own settings within OctoPrint's
@@ -7946,7 +7976,6 @@ old and the new value and react accordingly.</p>
 </div>
 <p>Of course, you are always free to completely override both <code>on_settings_load</code> and <code>on_settings_save</code> if the
 default implementations do not fit your requirements.</p>
-
 
 
   
@@ -8005,6 +8034,7 @@ the plugin core system upon initialization of the implementation.</p>
 
 
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -8025,6 +8055,7 @@ with included default values.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -8075,6 +8106,8 @@ the transformed value.</p>
 </code></pre></div>
 </div>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -8090,6 +8123,7 @@ getters, the second the preprocessors for setters</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -8314,6 +8348,7 @@ when accessing the plugin's settings on the REST API:</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -8329,6 +8364,8 @@ when accessing the plugin's settings on the REST API:</p>
       <p>Retrieves the settings format version of the plugin.</p>
 <p>Use this to have OctoPrint trigger your migration function if it detects an outdated settings version in
 config.yaml.</p>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -8346,6 +8383,7 @@ plugin's configuration.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -8370,6 +8408,7 @@ version of OctoPrint that still duplicated default data).</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -8389,6 +8428,7 @@ version of OctoPrint that still duplicated default data).</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -8419,6 +8459,8 @@ or <code>None</code> values where necessary. Make sure to do your own restrictio
 this method.</p>
 </div>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -8433,6 +8475,7 @@ this method.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -8454,6 +8497,8 @@ will take care of saving any changes to disk by calling <code>self._settings.sav
 <p>This method will be called before your plugin's <code>on_settings_initialized</code> method, with all injections already
 having taken place. You can therefore depend on the configuration having been migrated by the time
 <code>on_settings_initialized</code> is called.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -8481,6 +8526,7 @@ no version information can be found.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -8507,6 +8553,8 @@ and iterate yourself over all your settings, retrieving them (if set) from the s
 and using the proper setter methods on the settings manager to persist the data in the correct format.</p>
 </div>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -8518,6 +8566,8 @@ and using the proper setter methods on the settings manager to persist the data 
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -8547,15 +8597,15 @@ and using the proper setter methods on the settings manager to persist the data 
 
 
 <h2 id="octoprint.plugin.types.ShutdownPlugin" class="doc doc-heading">
-        <code>ShutdownPlugin</code>
+          <code>ShutdownPlugin</code>
 
 
 <a href="#octoprint.plugin.types.ShutdownPlugin" class="headerlink" title="Permanent link">#</a></h2>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><a class="autorefs autorefs-internal" title="octoprint.plugin.types.OctoPrintPlugin" href="#octoprint.plugin.types.OctoPrintPlugin">OctoPrintPlugin</a></code>, <code><a class="autorefs autorefs-internal" title="octoprint.plugin.core.SortablePlugin" href="../core/#octoprint.plugin.core.SortablePlugin">SortablePlugin</a></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="octoprint.plugin.types.OctoPrintPlugin" href="#octoprint.plugin.types.OctoPrintPlugin">OctoPrintPlugin</a></code>, <code><a class="autorefs autorefs-internal" title="octoprint.plugin.core.SortablePlugin" href="../core/#octoprint.plugin.core.SortablePlugin">SortablePlugin</a></code></p>
 
   
       <p>The <code>ShutdownPlugin</code> allows hooking into the shutdown of OctoPrint. It's usually used in conjunction with the
@@ -8565,10 +8615,10 @@ part of the plugin.</p>
 <code>on_shutdown</code>.</p>
 
 
-
   
 
   <div class="doc doc-children">
+
 
 
 
@@ -8614,15 +8664,15 @@ part of the plugin.</p>
 
 
 <h2 id="octoprint.plugin.types.SimpleApiPlugin" class="doc doc-heading">
-        <code>SimpleApiPlugin</code>
+          <code>SimpleApiPlugin</code>
 
 
 <a href="#octoprint.plugin.types.SimpleApiPlugin" class="headerlink" title="Permanent link">#</a></h2>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><a class="autorefs autorefs-internal" title="octoprint.plugin.types.OctoPrintPlugin" href="#octoprint.plugin.types.OctoPrintPlugin">OctoPrintPlugin</a></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="octoprint.plugin.types.OctoPrintPlugin" href="#octoprint.plugin.types.OctoPrintPlugin">OctoPrintPlugin</a></code></p>
 
   
       <p>Utilizing the <code>SimpleApiPlugin</code> mixin plugins may implement a simple API based around one GET resource and one
@@ -8697,10 +8747,10 @@ that parameter was set or unset. <code>command2</code> will log the content of t
 </div>
 
 
-
   
 
   <div class="doc doc-children">
+
 
 
 
@@ -8726,6 +8776,8 @@ that parameter was set or unset. <code>command2</code> will log the content of t
 <p>Return a dictionary here with the keys representing the accepted commands and the values being lists of
 mandatory parameter names.</p>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -8741,6 +8793,7 @@ mandatory parameter names.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -8754,6 +8807,8 @@ mandatory parameter names.</p>
   <div class="doc doc-contents ">
   
       <p>Tells OctoPrint whether the API is only available to users having the admin permission or not.</p>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -8769,6 +8824,7 @@ mandatory parameter names.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -8796,6 +8852,8 @@ for you. You may also return regular responses as you would return from any Flas
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">flask</span><span class="o">.</span><span class="n">abort</span><span class="p">(</span><span class="mi">404</span><span class="p">)</span>
 </code></pre></div>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -8816,6 +8874,8 @@ for you. You may also return regular responses as you would return from any Flas
       </li>
   </ul>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -8831,6 +8891,7 @@ a proper Flask response.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -8850,6 +8911,8 @@ which you may evaluate for additional arguments supplied with the request.</p>
 <p>If your plugin returns nothing here, OctoPrint will return an empty response with return code <code>204 No content</code>
 for you. You may also return regular responses as you would return from any Flask view here though, e.g.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -8861,6 +8924,8 @@ for you. You may also return regular responses as you would return from any Flas
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -8891,24 +8956,24 @@ a proper Flask response.</p>
 
 
 <h2 id="octoprint.plugin.types.SlicerPlugin" class="doc doc-heading">
-        <code>SlicerPlugin</code>
+          <code>SlicerPlugin</code>
 
 
 <a href="#octoprint.plugin.types.SlicerPlugin" class="headerlink" title="Permanent link">#</a></h2>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><a class="autorefs autorefs-internal" title="octoprint.plugin.types.OctoPrintPlugin" href="#octoprint.plugin.types.OctoPrintPlugin">OctoPrintPlugin</a></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="octoprint.plugin.types.OctoPrintPlugin" href="#octoprint.plugin.types.OctoPrintPlugin">OctoPrintPlugin</a></code></p>
 
   
       <p>Using the <code>SlicerPlugin</code> mixin, plugins can add support for slicing engines to be used by OctoPrint.</p>
 
 
-
   
 
   <div class="doc doc-children">
+
 
 
 
@@ -8932,6 +8997,8 @@ a proper Flask response.</p>
   
       <p>Cancels the slicing to the indicated file.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -8947,6 +9014,7 @@ a proper Flask response.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -8996,6 +9064,8 @@ data structure described for the analysis queue of the matching machine code for
 containing a human readable reason for the error.</p>
 <p>If the job gets cancelled, a <a class="autorefs autorefs-internal" href="../../slicing/exceptions/#octoprint.slicing.exceptions.SlicingCancelled">octoprint.slicing.SlicingCancelled</a> exception should be raised.</p>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -9006,6 +9076,8 @@ containing a human readable reason for the error.</p>
       </div>
       </li>
   </ul>
+
+
 
   <p>Raises:</p>
   <ul>
@@ -9022,6 +9094,7 @@ containing a human readable reason for the error.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -9037,6 +9110,8 @@ containing a human readable reason for the error.</p>
       <p>Should return a <a class="autorefs autorefs-internal" href="../../slicing/#octoprint.slicing.SlicingProfile">SlicingProfile</a> containing the default slicing profile to use with
 this slicer if no other profile has been selected.</p>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -9051,6 +9126,7 @@ this slicer if no other profile has been selected.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -9070,6 +9146,8 @@ additional/other file types will want to override this.</p>
 <p>For the extension tree format, take a look at the docs of the
 [octoprint.filemanager.extension_tree hook][plugin-guide.hooks.octoprint-filemanager-extension_tree].</p>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -9086,6 +9164,7 @@ additional/other file types will want to override this.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -9101,6 +9180,8 @@ additional/other file types will want to override this.</p>
       <p>Should return a <a class="autorefs autorefs-internal" href="../../slicing/#octoprint.slicing.SlicingProfile">SlicingProfile</a> parsed from the slicing profile stored at the
 indicated <code>path</code>.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -9112,6 +9193,8 @@ indicated <code>path</code>.</p>
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -9127,6 +9210,7 @@ indicated <code>path</code>.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -9145,6 +9229,8 @@ indicated <code>path</code>.</p>
 <code>.profile</code> files in the plugin's <code>profile_path</code>, utilizing the <code>get_slicer_profile</code> method
 of the plugin implementation.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -9161,6 +9247,7 @@ of the plugin implementation.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -9180,6 +9267,7 @@ of the plugin implementation.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -9219,6 +9307,8 @@ The system will test source files contains in incoming slicing requests using
 <dd>The possible extensions of slicing result files.</dd>
 </dl>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -9233,6 +9323,7 @@ The system will test source files contains in incoming slicing requests using
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -9252,6 +9343,8 @@ sub system upon startup. Plugins may use this to do some start up checks to veri
 a slicing binary as set and the binary is executable, or credentials of a cloud slicing platform are properly
 entered etc.</p>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -9266,6 +9359,7 @@ entered etc.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -9283,6 +9377,8 @@ entered etc.</p>
 indicated <code>path</code>, after applying any supplied <code>overrides</code>.</p>
 <p>If a profile is already saved under the indicated path and <code>allow_overwrite</code> is
 set to <code>False</code> (defaults to <code>True</code>), an <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/exceptions.html#IOError">IOError</a> should be raised.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -9321,6 +9417,8 @@ default) or not (<code>False</code>).</p>
       </li>
   </ul>
 
+
+
   <p>Raises:</p>
   <ul>
       <li class="field-body">
@@ -9349,15 +9447,15 @@ default) or not (<code>False</code>).</p>
 
 
 <h2 id="octoprint.plugin.types.StartupPlugin" class="doc doc-heading">
-        <code>StartupPlugin</code>
+          <code>StartupPlugin</code>
 
 
 <a href="#octoprint.plugin.types.StartupPlugin" class="headerlink" title="Permanent link">#</a></h2>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><a class="autorefs autorefs-internal" title="octoprint.plugin.types.OctoPrintPlugin" href="#octoprint.plugin.types.OctoPrintPlugin">OctoPrintPlugin</a></code>, <code><a class="autorefs autorefs-internal" title="octoprint.plugin.core.SortablePlugin" href="../core/#octoprint.plugin.core.SortablePlugin">SortablePlugin</a></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="octoprint.plugin.types.OctoPrintPlugin" href="#octoprint.plugin.types.OctoPrintPlugin">OctoPrintPlugin</a></code>, <code><a class="autorefs autorefs-internal" title="octoprint.plugin.core.SortablePlugin" href="../core/#octoprint.plugin.core.SortablePlugin">SortablePlugin</a></code></p>
 
   
       <p>The <code>StartupPlugin</code> allows hooking into the startup of OctoPrint. It can be used to start up additional services
@@ -9366,10 +9464,10 @@ on or just after the startup of the server.</p>
 sorting contexts for <code>on_startup</code> as well as <code>on_after_startup</code>.</p>
 
 
-
   
 
   <div class="doc doc-children">
+
 
 
 
@@ -9402,6 +9500,7 @@ sorting contexts for <code>on_startup</code> as well as <code>on_after_startup</
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -9424,6 +9523,8 @@ externally reachable, use <code>on_after_startup</code> instead or additionally.
 <p>Do not perform long-running or even blocking operations in your implementation or you <strong>will</strong> block and break the server.</p>
 </div>
 <p>The relevant sorting context is <code>StartupPlugin.on_startup</code>.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -9462,15 +9563,15 @@ externally reachable, use <code>on_after_startup</code> instead or additionally.
 
 
 <h2 id="octoprint.plugin.types.TemplatePlugin" class="doc doc-heading">
-        <code>TemplatePlugin</code>
+          <code>TemplatePlugin</code>
 
 
 <a href="#octoprint.plugin.types.TemplatePlugin" class="headerlink" title="Permanent link">#</a></h2>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><a class="autorefs autorefs-internal" title="octoprint.plugin.types.OctoPrintPlugin" href="#octoprint.plugin.types.OctoPrintPlugin">OctoPrintPlugin</a></code>, <code><a class="autorefs autorefs-internal" title="octoprint.plugin.types.ReloadNeedingPlugin" href="#octoprint.plugin.types.ReloadNeedingPlugin">ReloadNeedingPlugin</a></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="octoprint.plugin.types.OctoPrintPlugin" href="#octoprint.plugin.types.OctoPrintPlugin">OctoPrintPlugin</a></code>, <code><a class="autorefs autorefs-internal" title="octoprint.plugin.types.ReloadNeedingPlugin" href="#octoprint.plugin.types.ReloadNeedingPlugin">ReloadNeedingPlugin</a></code></p>
 
   
       <p>Using the <code>TemplatePlugin</code> mixin plugins may inject their own components into the OctoPrint web interface.</p>
@@ -9484,12 +9585,12 @@ to ensure that all core functionality is still maintained.</p>
 <h4 id="octoprint.plugin.types.TemplatePlugin--supported-template-types">Supported template types<a class="headerlink" href="#octoprint.plugin.types.TemplatePlugin--supported-template-types" title="Permanent link">#</a></h4>
 <p>Currently OctoPrint supports several types out of the box which are described below.</p>
 <figure>
-<p><a class="glightbox" href="/images/reference/octoprint/plugin/types/template-plugin-types-main.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Template injection types in the main part of the interface" src="/images/reference/octoprint/plugin/types/template-plugin-types-main.png" /></a>
+<p><a class="glightbox" href="/docs/images/reference/octoprint/plugin/types/template-plugin-types-main.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Template injection types in the main part of the interface" src="/docs/images/reference/octoprint/plugin/types/template-plugin-types-main.png" /></a>
   </p>
 <figcaption>Template injection types in the main part of the interface</figcaption>
 </figure>
 <figure>
-<p><a class="glightbox" href="/images/reference/octoprint/plugin/types/template-plugin-types-settings.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Template injection types in the settings" src="/images/reference/octoprint/plugin/types/template-plugin-types-settings.png" /></a>
+<p><a class="glightbox" href="/docs/images/reference/octoprint/plugin/types/template-plugin-types-settings.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Template injection types in the settings" src="/docs/images/reference/octoprint/plugin/types/template-plugin-types-settings.png" /></a>
   </p>
 <figcaption>Template injection types in the settings</figcaption>
 </figure>
@@ -9572,10 +9673,10 @@ the configuration supplied through <a class="autorefs autorefs-internal" href="#
 add overlays or dialogs to be called from within the plugin's JavaScript code.</p>
 
 
-
   
 
   <div class="doc doc-children">
+
 
 
 
@@ -9737,6 +9838,8 @@ injection of the default template. You'll have to include it explicitly:</p>
 </code></pre></div>
 </div>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -9751,6 +9854,7 @@ injection of the default template. You'll have to include it explicitly:</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -9767,6 +9871,8 @@ injection of the default template. You'll have to include it explicitly:</p>
       <p>Defines the folder where the plugin stores its templates.</p>
 <p>Override this if your plugin stores its templates at some other place than the <code>templates</code> sub folder in the plugin base directory.</p>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -9782,6 +9888,7 @@ injection of the default template. You'll have to include it explicitly:</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -9796,6 +9903,8 @@ injection of the default template. You'll have to include it explicitly:</p>
   
       <p>Defines additional template variables to include into the template renderer.</p>
 <p>Variable names will be prefixed with <code>plugin_&lt;plugin identifier&gt;_</code>.</p>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -9825,15 +9934,15 @@ injection of the default template. You'll have to include it explicitly:</p>
 
 
 <h2 id="octoprint.plugin.types.UiPlugin" class="doc doc-heading">
-        <code>UiPlugin</code>
+          <code>UiPlugin</code>
 
 
 <a href="#octoprint.plugin.types.UiPlugin" class="headerlink" title="Permanent link">#</a></h2>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><a class="autorefs autorefs-internal" title="octoprint.plugin.types.OctoPrintPlugin" href="#octoprint.plugin.types.OctoPrintPlugin">OctoPrintPlugin</a></code>, <code><a class="autorefs autorefs-internal" title="octoprint.plugin.core.SortablePlugin" href="../core/#octoprint.plugin.core.SortablePlugin">SortablePlugin</a></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="octoprint.plugin.types.OctoPrintPlugin" href="#octoprint.plugin.types.OctoPrintPlugin">OctoPrintPlugin</a></code>, <code><a class="autorefs autorefs-internal" title="octoprint.plugin.core.SortablePlugin" href="../core/#octoprint.plugin.core.SortablePlugin">SortablePlugin</a></code></p>
 
   
       <p>The <code>UiPlugin</code> mixin allows plugins to completely replace the UI served
@@ -9943,10 +10052,10 @@ server startup (basically eager caching instead of lazily waiting for the first 
 <p><em>Added in version <a href="https://github.com/OctoPrint/OctoPrint/releases/tag/1.3.0">1.3.0</a></em></p>
 
 
-
   
 
   <div class="doc doc-children">
+
 
 
 
@@ -9972,6 +10081,8 @@ server startup (basically eager caching instead of lazily waiting for the first 
 <p>By default the same list will be returned that is also used in the stock UI (and injected
 via the parameter <code>default_additional</code>).</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -9983,6 +10094,8 @@ via the parameter <code>default_additional</code>).</p>
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -9999,6 +10112,7 @@ via the parameter <code>default_additional</code>).</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -10012,6 +10126,8 @@ via the parameter <code>default_additional</code>).</p>
   <div class="doc doc-contents ">
   
       <p>Allows to return additional data to use in the cache key.</p>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -10029,6 +10145,7 @@ cache key. Ignored if <code>None</code> is returned.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -10048,6 +10165,8 @@ to use for the fake request used for populating the preemptive cache.</p>
 <a href="http://werkzeug.pocoo.org/docs/0.11/test/#werkzeug.test.EnvironBuilder">Werkzeug EnvironBuilder</a>
 used for creating the fake request.</p>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -10063,6 +10182,7 @@ use for request environment construction.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -10080,6 +10200,8 @@ use for request environment construction.</p>
 <p>By default OctoPrint will track all declared templates, assets and translation files in the
 system. Additional files can be added by a plugin through this callback.</p>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -10096,6 +10218,7 @@ the cache. Ignored if <code>None</code> is returned (default).</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -10110,6 +10233,8 @@ the cache. Ignored if <code>None</code> is returned (default).</p>
   
       <p>Allows to use a custom way to calculate the ETag, instead of the default method (hashing
 OctoPrint's version, tracked file paths and <code>LastModified</code> value).</p>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -10126,6 +10251,7 @@ OctoPrint's version, tracked file paths and <code>LastModified</code> value).</p
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -10141,6 +10267,8 @@ OctoPrint's version, tracked file paths and <code>LastModified</code> value).</p
       <p>Allows to calculate the <code>LastModified</code> value differently than using the most recent modification
 date of all tracked files.</p>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -10155,6 +10283,7 @@ date of all tracked files.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -10173,6 +10302,8 @@ date of all tracked files.</p>
 <p>Only relevant for UiPlugins that actually utilize the stock templates of OctoPrint.</p>
 <p>By default simply returns the provided <code>default_template_filter</code>.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -10184,6 +10315,8 @@ date of all tracked files.</p>
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -10199,6 +10332,7 @@ date of all tracked files.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -10216,6 +10350,8 @@ date of all tracked files.</p>
 <p>If this method returns something, the templates, assets and translation files won't be
 tracked, only the files specified in the returned list.</p>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -10232,6 +10368,7 @@ the cache. Ignored if <code>None</code> is returned (default).</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -10247,6 +10384,8 @@ the cache. Ignored if <code>None</code> is returned (default).</p>
       <p>Allows defining additional data to be persisted in the preemptive cache configuration, on
 top of the request path, base URL and used locale.</p>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -10261,6 +10400,7 @@ top of the request path, base URL and used locale.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -10287,6 +10427,8 @@ login logic.</p>
 <li><code>octoprint.access.permissions.Permissions.SETTINGS_READ</code></li>
 </ul>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -10303,6 +10445,7 @@ May be empty to indicate that no permission checks should be made by OctoPrint.<
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -10321,6 +10464,8 @@ your plugin's UI.</p>
 <p>OctoPrint will call this method when processing a UI request, to determine whether to record the
 access or not. If you return <code>True</code> here, no record will be created.</p>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -10335,6 +10480,7 @@ access or not. If you return <code>True</code> here, no record will be created.<
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -10352,6 +10498,8 @@ access or not. If you return <code>True</code> here, no record will be created.<
 cached on server startup (default) or not.</p>
 <p>Have this return <code>False</code> if you do not want your plugin's UI to ever be preemptively cached.</p>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -10366,6 +10514,7 @@ cached on server startup (default) or not.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -10427,6 +10576,8 @@ for all known template types.</dd>
 <p>On top of that all additional template variables as provided by <a class="autorefs autorefs-internal" href="#octoprint.plugin.types.TemplatePlugin.get_template_vars"><code>TemplatePlugin.get_template_vars</code></a>
 will be contained in the dictionary as well.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -10458,6 +10609,8 @@ would usually be provided to the core UI render function.</p>
       </li>
   </ul>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -10475,6 +10628,7 @@ created with <a class="autorefs autorefs-external" href="https://flask.palletspr
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -10496,6 +10650,8 @@ is what should be served to the user.</p>
 <p>The execution order of calls to this method can be influenced via the sorting context
 <code>UiPlugin.will_handle_ui</code>.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -10507,6 +10663,8 @@ is what should be served to the user.</p>
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -10537,15 +10695,15 @@ is what should be served to the user.</p>
 
 
 <h2 id="octoprint.plugin.types.WebcamProviderPlugin" class="doc doc-heading">
-        <code>WebcamProviderPlugin</code>
+          <code>WebcamProviderPlugin</code>
 
 
 <a href="#octoprint.plugin.types.WebcamProviderPlugin" class="headerlink" title="Permanent link">#</a></h2>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><a class="autorefs autorefs-internal" title="octoprint.plugin.types.OctoPrintPlugin" href="#octoprint.plugin.types.OctoPrintPlugin">OctoPrintPlugin</a></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="octoprint.plugin.types.OctoPrintPlugin" href="#octoprint.plugin.types.OctoPrintPlugin">OctoPrintPlugin</a></code></p>
 
   
       <p>The <code>WebcamProviderPlugin</code> can be used to provide one or more webcams visible on the
@@ -10554,10 +10712,10 @@ frontend and used for snapshots/timelapses.</p>
 <code>testpicture</code> plugin available <a href="https://github.com/OctoPrint/OctoPrint-Testpicture">here</a>.</p>
 
 
-
   
 
   <div class="doc doc-children">
+
 
 
 
@@ -10581,6 +10739,8 @@ frontend and used for snapshots/timelapses.</p>
   
       <p>Used to retrieve a list of available webcams</p>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -10597,6 +10757,7 @@ can be empty if none available.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -10612,6 +10773,8 @@ can be empty if none available.</p>
       <p>Used to take a JPEG snapshot of the webcam. This method may raise an exception,
 you can expect failures to be handled.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -10623,6 +10786,8 @@ you can expect failures to be handled.</p>
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -10652,15 +10817,15 @@ you can expect failures to be handled.</p>
 
 
 <h2 id="octoprint.plugin.types.WizardPlugin" class="doc doc-heading">
-        <code>WizardPlugin</code>
+          <code>WizardPlugin</code>
 
 
 <a href="#octoprint.plugin.types.WizardPlugin" class="headerlink" title="Permanent link">#</a></h2>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><a class="autorefs autorefs-internal" title="octoprint.plugin.types.OctoPrintPlugin" href="#octoprint.plugin.types.OctoPrintPlugin">OctoPrintPlugin</a></code>, <code><a class="autorefs autorefs-internal" title="octoprint.plugin.types.ReloadNeedingPlugin" href="#octoprint.plugin.types.ReloadNeedingPlugin">ReloadNeedingPlugin</a></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="octoprint.plugin.types.OctoPrintPlugin" href="#octoprint.plugin.types.OctoPrintPlugin">OctoPrintPlugin</a></code>, <code><a class="autorefs autorefs-internal" title="octoprint.plugin.types.ReloadNeedingPlugin" href="#octoprint.plugin.types.ReloadNeedingPlugin">ReloadNeedingPlugin</a></code></p>
 
   
       <p>The <code>WizardPlugin</code> mixin allows plugins to report to OctoPrint whether
@@ -10719,10 +10884,10 @@ have OctoPrint reshow the dialog. E.g.</p>
 <p><code>WizardPlugin</code> is a <a class="autorefs autorefs-internal" href="#octoprint.plugin.types.ReloadNeedingPlugin"><code>ReloadNeedingPlugin</code></a>.</p>
 
 
-
   
 
   <div class="doc doc-children">
+
 
 
 
@@ -10749,6 +10914,8 @@ that will then be made available to the view models via the view model callback 
 <p>Use this if your plugin's view model that handles your wizard dialog needs additional
 data to perform its task.</p>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -10764,6 +10931,7 @@ returns here will be made available on the wizard API under the plugin's identif
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -10785,6 +10953,8 @@ wizard in this particular version and not reshow it.</p>
 of changes in the required settings), increasing this value is the
 way to notify OctoPrint of these changes.</p>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -10802,6 +10972,7 @@ so far</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -10838,6 +11009,8 @@ provided information about already seen wizards and their versions or not.</p>
 <a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>   ----+---+---+---+
 </code></pre></div>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -10861,6 +11034,8 @@ version (int or None) that was already seen by the user.</p>
       </li>
   </ul>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -10876,6 +11051,7 @@ or has not yet been seen (in this version), <code>True</code> otherwise</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -10897,6 +11073,8 @@ Still, if OctoPrint already displayed that wizard in the same version
 to the user once it won't be displayed again regardless whether this
 method returns <code>True</code> or not.</p>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -10912,6 +11090,7 @@ method returns <code>True</code> or not.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -10931,6 +11110,8 @@ included in the wizard dialog presented to the user (so the plugin providing
 it was reporting that the wizard was required and the wizard plus version was not
 ignored/had already been seen).</p>
 <p>Use this to do any clean up tasks necessary after wizard completion.</p>
+
+
 
   <p>Parameters:</p>
   <ul>

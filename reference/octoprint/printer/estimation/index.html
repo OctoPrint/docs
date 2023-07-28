@@ -8,6 +8,8 @@
       
       
       
+        <link rel="canonical" href="https://octoprint.github.io/docs/reference/octoprint/printer/estimation/">
+      
       
         <link rel="prev" href="../">
       
@@ -15,7 +17,7 @@
         <link rel="next" href="../profile/">
       
       <link rel="icon" href="../../../../images/tentacle.svg">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
+      <meta name="generator" content="mkdocs-1.5.1, mkdocs-material-9.1.21">
     
     
       
@@ -23,7 +25,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.eebd395e.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ecc896b0.min.css">
@@ -5097,10 +5099,10 @@
 <p>Subclass this and register via the octoprint.printer.estimation.factory hook to provide your own implementation.</p>
 
 
-
   
 
   <div class="doc doc-children">
+
 
 
 
@@ -5160,11 +5162,13 @@ contents and such we need to find something that works "mostly" all of the time 
 resources. Feel free to propose a better solution within the above limitations (and I mean that, this solution
 here makes me unhappy).</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
         <b>progress</b>
-            (<code>float or None</code>)
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a> or None</code>)
         –
         <div class="doc-md-description">
           <p>Current percentage in the printed file</p>
@@ -5172,7 +5176,7 @@ here makes me unhappy).</p>
       </li>
       <li class="field-body">
         <b>printTime</b>
-            (<code>float or None</code>)
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a> or None</code>)
         –
         <div class="doc-md-description">
           <p>Print time elapsed so far</p>
@@ -5180,7 +5184,7 @@ here makes me unhappy).</p>
       </li>
       <li class="field-body">
         <b>cleanedPrintTime</b>
-            (<code>float or None</code>)
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a> or None</code>)
         –
         <div class="doc-md-description">
           <p>Print time elapsed minus the time needed for getting up to temperature
@@ -5189,7 +5193,7 @@ here makes me unhappy).</p>
       </li>
       <li class="field-body">
         <b>statisticalTotalPrintTime</b>
-            (<code>float or None</code>)
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a> or None</code>)
         –
         <div class="doc-md-description">
           <p>Total print time of past prints against same printer profile,
@@ -5198,7 +5202,7 @@ or estimated total print time from GCODE analysis.</p>
       </li>
       <li class="field-body">
         <b>statisticalTotalPrintTimeType</b>
-            (<code>str or None</code>)
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a> or None</code>)
         –
         <div class="doc-md-description">
           <p>Type of statistical print time, either "average" (total time
@@ -5206,6 +5210,8 @@ of former prints) or "analysis"</p>
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>

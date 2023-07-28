@@ -8,6 +8,8 @@
       
       
       
+        <link rel="canonical" href="https://octoprint.github.io/docs/reference/octoprint/util/comm/">
+      
       
         <link rel="prev" href="../">
       
@@ -15,7 +17,7 @@
         <link rel="next" href="../commandline/">
       
       <link rel="icon" href="../../../../images/tentacle.svg">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
+      <meta name="generator" content="mkdocs-1.5.1, mkdocs-material-9.1.21">
     
     
       
@@ -23,7 +25,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.eebd395e.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ecc896b0.min.css">
@@ -5605,7 +5607,7 @@
 
 
 <h2 id="octoprint.util.comm.regex_e_positions" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">regex_e_positions</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;E(?P&lt;id&gt;</span><span class="se">\\</span><span class="s1">d+):</span><span class="se">\\</span><span class="s1">s*(?P&lt;value&gt;</span><span class="si">{</span><span class="n">regex_float_pattern</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">regex_e_positions</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;E(?P&lt;id&gt;\d+):\s*(?P&lt;value&gt;</span><span class="si">{</span><span class="n">regex_float_pattern</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span></code>
   
   <span class="doc doc-labels">
       <small class="doc doc-label doc-label-module-attribute"><code>module-attribute</code></small>
@@ -5964,10 +5966,10 @@
 
 
 
-
   
 
   <div class="doc doc-children">
+
 
 
 
@@ -5994,6 +5996,8 @@
 gcode script. If <code>is_error</code> is False and <code>wait</code> is True, will wait
 until all messages in the send queue (including the <code>beforePrinterDisconnected</code>
 gcode script) have been sent to the printer.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -6048,10 +6052,10 @@ Allows to reset the current file position to 0 and to calculate the current prog
 value between 0 and 1.</p>
 
 
-
   
 
   <div class="doc doc-children">
+
 
 
 
@@ -6079,6 +6083,7 @@ value between 0 and 1.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6098,6 +6103,7 @@ if file size is None or &lt; 1.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6115,6 +6121,7 @@ if file size is None or &lt; 1.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -6153,18 +6160,18 @@ if file size is None or &lt; 1.</p>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><a class="autorefs autorefs-internal" title="octoprint.util.comm.PrintingFileInformation" href="#octoprint.util.comm.PrintingFileInformation">PrintingFileInformation</a></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="octoprint.util.comm.PrintingFileInformation" href="#octoprint.util.comm.PrintingFileInformation">PrintingFileInformation</a></code></p>
 
   
       <p>Encapsulates information regarding an ongoing direct print. Takes care of the needed file handle and ensures
 that the file is closed in case of an error.</p>
 
 
-
   
 
   <div class="doc doc-children">
+
 
 
 
@@ -6192,6 +6199,7 @@ that the file is closed in case of an error.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6209,6 +6217,7 @@ that the file is closed in case of an error.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -6247,12 +6256,11 @@ that the file is closed in case of an error.</p>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><a class="autorefs autorefs-internal" title="octoprint.util.comm.PrintingFileInformation" href="#octoprint.util.comm.PrintingFileInformation">PrintingFileInformation</a></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="octoprint.util.comm.PrintingFileInformation" href="#octoprint.util.comm.PrintingFileInformation">PrintingFileInformation</a></code></p>
 
   
       <p>Encapsulates information regarding an ongoing print from SD.</p>
-
 
 
   
@@ -6280,21 +6288,20 @@ that the file is closed in case of an error.</p>
 
 
 <h2 id="octoprint.util.comm.SpecialStreamingGcodeFileInformation" class="doc doc-heading">
-        <code>SpecialStreamingGcodeFileInformation</code>
+          <code>SpecialStreamingGcodeFileInformation</code>
 
 
 <a href="#octoprint.util.comm.SpecialStreamingGcodeFileInformation" class="headerlink" title="Permanent link">#</a></h2>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><span title="octoprint.util.comm.StreamingGcodeFileInformation">StreamingGcodeFileInformation</span></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code><span title="octoprint.util.comm.StreamingGcodeFileInformation">StreamingGcodeFileInformation</span></code></p>
 
   
       <p>For streaming files to the printer that aren't GCODE.</p>
 <p>Difference to regular StreamingGcodeFileInformation: no checksum requirement, only rudimentary line processing
 (stripping of whitespace from the end and ignoring of empty lines)</p>
-
 
 
   
@@ -6316,6 +6323,7 @@ that the file is closed in case of an error.</p>
   </div>
 
 </div>
+
 
 
 <div class="doc doc-object doc-function">
@@ -6346,6 +6354,8 @@ like Tn, so always qualified with a tool number.</p>
 <li>return</li>
 </ul>
 </details>
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -6367,6 +6377,8 @@ to canonicalize</p>
       </li>
   </ul>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -6380,6 +6392,7 @@ to canonicalize</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -6395,6 +6408,8 @@ to canonicalize</p>
   
       <p>Tries to parse the provided <code>cmd</code> and extract the GCODE command identifier from it (e.g. "G0" for "G0 X10.0").</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -6406,6 +6421,8 @@ to canonicalize</p>
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -6420,6 +6437,7 @@ to canonicalize</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -6442,6 +6460,8 @@ to canonicalize</p>
 Cap:TOGGLE_LIGHTS:0
 </code></pre></div>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -6453,6 +6473,8 @@ Cap:TOGGLE_LIGHTS:0
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -6468,6 +6490,7 @@ could not be parsed</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -6488,6 +6511,8 @@ values.</p>
 unit tests for valid and invalid examples. There sadly is no existing specification
 of the key format, but this is the format extracted from real life logs.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -6499,6 +6524,8 @@ of the key format, but this is the format extracted from real life logs.</p>
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -6514,6 +6541,7 @@ of the key format, but this is the format extracted from real life logs.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6528,6 +6556,8 @@ of the key format, but this is the format extracted from real life logs.</p>
   
       <p>Parses the provided M114 response line and returns the parsed coordinates.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -6539,6 +6569,8 @@ of the key format, but this is the format extracted from real life logs.</p>
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -6554,6 +6586,7 @@ of the key format, but this is the format extracted from real life logs.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6568,6 +6601,8 @@ of the key format, but this is the format extracted from real life logs.</p>
   
       <p>Parses the provided resend line and returns requested line number.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -6579,6 +6614,8 @@ of the key format, but this is the format extracted from real life logs.</p>
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -6593,6 +6630,7 @@ of the key format, but this is the format extracted from real life logs.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -6610,6 +6648,8 @@ of the key format, but this is the format extracted from real life logs.</p>
 <p>The result will be a dictionary mapping from the extruder or bed key to
 a tuple with current and target temperature. The result will be canonicalized
 with :func:<code>canonicalize_temperatures</code> before returning.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -6631,6 +6671,8 @@ with :func:<code>canonicalize_temperatures</code> before returning.</p>
       </li>
   </ul>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -6645,6 +6687,7 @@ key to (actual, target) tuples, with key either matching <code>Tn</code> for <co
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 

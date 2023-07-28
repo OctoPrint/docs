@@ -8,6 +8,8 @@
       
       
       
+        <link rel="canonical" href="https://octoprint.github.io/docs/reference/octoprint/util/commandline/">
+      
       
         <link rel="prev" href="../comm/">
       
@@ -15,7 +17,7 @@
         <link rel="next" href="../connectivity/">
       
       <link rel="icon" href="../../../../images/tentacle.svg">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
+      <meta name="generator" content="mkdocs-1.5.1, mkdocs-material-9.1.21">
     
     
       
@@ -23,7 +25,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.eebd395e.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ecc896b0.min.css">
@@ -5208,7 +5210,6 @@ and stderr via configurable callback functions.</p>
        print("Command finished successfully")</p>
 
 
-
   
 
   <div class="doc doc-children">
@@ -5284,6 +5285,7 @@ and stderr via configurable callback functions.</p>
 
 
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -5298,11 +5300,13 @@ and stderr via configurable callback functions.</p>
   
       <p>Calls a command</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
         <b>command</b>
-            (<code>list, tuple or str</code>)
+            (<code>(<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a> or <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>)</code>)
         –
         <div class="doc-md-description">
           <p>command to call</p>
@@ -5318,6 +5322,8 @@ and stderr via configurable callback functions.</p>
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -5334,6 +5340,7 @@ and stderr via configurable callback functions.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -5348,11 +5355,13 @@ and stderr via configurable callback functions.</p>
   
       <p>Calls a command and raises an error if it doesn't return with return code 0</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
         <b>command</b>
-            (<code>list, tuple or str</code>)
+            (<code>(<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a> or <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>)</code>)
         –
         <div class="doc-md-description">
           <p>command to call</p>
@@ -5368,6 +5377,8 @@ and stderr via configurable callback functions.</p>
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -5403,11 +5414,13 @@ and stderr via configurable callback functions.</p>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/exceptions.html#Exception">Exception</a></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/exceptions.html#Exception">Exception</a></code></p>
 
   
       <p>Raised by <img alt="🇵🇾" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/1f1f5-1f1fe.svg" title=":py:" />func:<code>~octoprint.util.commandline.CommandLineCaller.checked_call</code> on non zero return codes</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -5438,7 +5451,6 @@ and stderr via configurable callback functions.</p>
   </ul>
 
 
-
   
 
   <div class="doc doc-children">
@@ -5460,6 +5472,7 @@ and stderr via configurable callback functions.</p>
 </div>
 
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -5478,17 +5491,21 @@ and stderr via configurable callback functions.</p>
 should no longer be used and considered to be deprecated and to be removed in
 a future version of OctoPrint. A warning will be logged.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
         <b>line</b>
-            (<code>str or bytes</code>)
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a> or <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#bytes">bytes</a></code>)
         –
         <div class="doc-md-description">
           <p>the line to process</p>
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>

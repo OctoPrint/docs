@@ -8,6 +8,8 @@
       
       
       
+        <link rel="canonical" href="https://octoprint.github.io/docs/reference/octoprint/plugin/">
+      
       
         <link rel="prev" href="../logging/handlers/">
       
@@ -15,7 +17,7 @@
         <link rel="next" href="core/">
       
       <link rel="icon" href="../../../images/tentacle.svg">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
+      <meta name="generator" content="mkdocs-1.5.1, mkdocs-material-9.1.21">
     
     
       
@@ -23,7 +25,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.eebd395e.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.ecc896b0.min.css">
@@ -5279,6 +5281,8 @@ registered plugin types.</p>
 <p>All getter and setter methods will ensure that plugin settings are stored in their correct location within the
 settings structure by modifying the supplied paths accordingly.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -5324,7 +5328,6 @@ be called with the value of the setting and should return the processed value.</
         </div>
       </li>
   </ul>
-
 
 
   
@@ -5444,6 +5447,7 @@ be called with the value of the setting and should return the processed value.</
 
 
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -5458,6 +5462,8 @@ be called with the value of the setting and should return the processed value.</
   
       <p>Adds an overlay for th plugin to the settings.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -5469,6 +5475,8 @@ be called with the value of the setting and should return the processed value.</
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -5484,6 +5492,7 @@ be called with the value of the setting and should return the processed value.</
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -5503,6 +5512,7 @@ be called with the value of the setting and should return the processed value.</
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -5518,11 +5528,13 @@ be called with the value of the setting and should return the processed value.</
       <p>Retrieves a raw value from the settings for <code>path</code>, optionally merging the raw value with the default settings
 if <code>merged</code> is set to True.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
         <b>path</b>
-            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a></code>)
+            (<code>(<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a>)</code>)
         –
         <div class="doc-md-description">
           <p>The path for which to retrieve the value.</p>
@@ -5547,6 +5559,8 @@ default).</p>
       </li>
   </ul>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -5562,6 +5576,7 @@ default).</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -5575,6 +5590,8 @@ default).</p>
   <div class="doc doc-contents ">
   
       <p>Returns all data stored for this plugin.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -5616,6 +5633,7 @@ default).</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -5630,17 +5648,21 @@ default).</p>
   
       <p>Like <code>get</code> but tries to convert the retrieved value to <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a>.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
         <b>path</b>
-            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a></code>)
+            (<code>(<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a>)</code>)
         –
         <div class="doc-md-description">
           <p>The path for which to retrieve the value.</p>
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -5656,6 +5678,7 @@ default).</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -5673,11 +5696,13 @@ default).</p>
 value is less than it, it will be returned instead of the value. Likewise for <code>max</code> - it will be returned if
 the value is greater than it.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
         <b>path</b>
-            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a></code>)
+            (<code>(<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a>)</code>)
         –
         <div class="doc-md-description">
           <p>The path for which to retrieve the value.</p>
@@ -5701,6 +5726,8 @@ the value is greater than it.</p>
       </li>
   </ul>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -5715,6 +5742,7 @@ the value is greater than it.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -5732,11 +5760,13 @@ the value is greater than it.</p>
 value is less than it, it will be returned instead of the value. Likewise for <code>max</code> - it will be returned if
 the value is greater than it.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
         <b>path</b>
-            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a></code>)
+            (<code>(<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a>)</code>)
         –
         <div class="doc-md-description">
           <p>The path for which to retrieve the value.</p>
@@ -5760,6 +5790,8 @@ the value is greater than it.</p>
       </li>
   </ul>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -5774,6 +5806,7 @@ the value is greater than it.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -5794,6 +5827,8 @@ at the same location.</p>
 <p>Plugins may use this for specific logging tasks. For example, a <a class="autorefs autorefs-internal" href="types/#octoprint.plugin.types.SlicerPlugin">octoprint.plugin.types.SlicerPlugin</a> might
 want to create a log file for logging the output of the slicing engine itself if some debug flag is set.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -5806,6 +5841,8 @@ will be <code>plugin_&lt;plugin identifier&gt;_&lt;postfix&gt;.log</code>, if no
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -5821,6 +5858,7 @@ will be <code>plugin_&lt;plugin identifier&gt;_&lt;postfix&gt;.log</code>, if no
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -5842,6 +5880,7 @@ parameters.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -5860,6 +5899,7 @@ parameters.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -5881,6 +5921,7 @@ parameters.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -5900,6 +5941,7 @@ parameters.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -5921,6 +5963,7 @@ parameters.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -5940,6 +5983,7 @@ parameters.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -5958,6 +6002,7 @@ parameters.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -5979,6 +6024,7 @@ parameters.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -5998,6 +6044,7 @@ parameters.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -6019,6 +6066,7 @@ parameters.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6039,6 +6087,7 @@ parameters.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6053,17 +6102,21 @@ parameters.</p>
   
       <p>Checks whether a value for <code>path</code> is present in the settings.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
         <b>path</b>
-            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a></code>)
+            (<code>(<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a>)</code>)
         –
         <div class="doc-md-description">
           <p>The path for which to check the value.</p>
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -6080,6 +6133,7 @@ parameters.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6094,11 +6148,13 @@ parameters.</p>
   
       <p>Removes the value for <code>path</code> from the settings.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
         <b>path</b>
-            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a></code>)
+            (<code>(<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a>)</code>)
         –
         <div class="doc-md-description">
           <p>The path for which to remove the value.</p>
@@ -6109,6 +6165,7 @@ parameters.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -6123,6 +6180,8 @@ parameters.</p>
   <div class="doc doc-contents ">
   
       <p>Removes an overlay from the settings by <code>key</code>.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -6140,6 +6199,7 @@ parameters.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6154,11 +6214,13 @@ parameters.</p>
   
       <p>Sets the raw value on the settings for <code>path</code>.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
         <b>path</b>
-            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a></code>)
+            (<code>(<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a>)</code>)
         –
         <div class="doc-md-description">
           <p>The path for which to set the value.</p>
@@ -6187,6 +6249,7 @@ the value didn't change.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6201,11 +6264,13 @@ the value didn't change.</p>
   
       <p>Like <code>set</code> but ensures the value is an <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a> through attempted conversion before setting it.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
         <b>path</b>
-            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a></code>)
+            (<code>(<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a>)</code>)
         –
         <div class="doc-md-description">
           <p>The path for which to set the value.</p>
@@ -6224,6 +6289,7 @@ the value didn't change.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -6242,11 +6308,13 @@ the value didn't change.</p>
 to <code>min</code> and less than or equal to <code>max</code>. If that is not the case, the limit value (<code>min</code> if less than
 that, <code>max</code> if greater than that) will be set instead.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
         <b>path</b>
-            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a></code>)
+            (<code>(<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a>)</code>)
         –
         <div class="doc-md-description">
           <p>The path for which to set the value.</p>
@@ -6281,6 +6349,7 @@ that, <code>max</code> if greater than that) will be set instead.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -6299,11 +6368,13 @@ that, <code>max</code> if greater than that) will be set instead.</p>
 to <code>min</code> and less than or equal to <code>max</code>. If that is not the case, the limit value (<code>min</code> if less than
 that, <code>max</code> if greater than that) will be set instead.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
         <b>path</b>
-            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a></code>)
+            (<code>(<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a>)</code>)
         –
         <div class="doc-md-description">
           <p>The path for which to set the value.</p>
@@ -6346,6 +6417,7 @@ that, <code>max</code> if greater than that) will be set instead.</p>
   </div>
 
 </div>
+
 
 
 <div class="doc doc-object doc-function">
@@ -6378,6 +6450,8 @@ and/or failure of each call which can be used to return individual results to th
 <a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    <span class="n">error_callback</span><span class="o">=</span><span class="n">my_error_callback</span>
 <a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="p">)</span>
 </code></pre></div>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -6456,6 +6530,7 @@ identifier, <code>plugin</code> the plugin implementation instance itself and <c
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6471,6 +6546,8 @@ identifier, <code>plugin</code> the plugin implementation instance itself and <c
       <p>Factory method for initially constructing and consecutively retrieving the <a class="autorefs autorefs-internal" href="core/#octoprint.plugin.core.PluginManager">PluginManager</a>
 singleton.</p>
 <p>Will set the logging prefix to <code>octoprint.plugins.</code>.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -6589,6 +6666,8 @@ incompatible. This is for development purposes only and should not be used in pr
       </li>
   </ul>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -6600,6 +6679,8 @@ management tasks.</p>
       </div>
       </li>
   </ul>
+
+
 
   <p>Raises:</p>
   <ul>
@@ -6617,6 +6698,7 @@ the plugin manager was not yet initialized.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6630,6 +6712,8 @@ the plugin manager was not yet initialized.</p>
   <div class="doc doc-contents ">
   
       <p>Factory method for creating a <code>PluginSettings</code> instance.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -6675,6 +6759,8 @@ the plugin manager was not yet initialized.</p>
       </li>
   </ul>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -6691,6 +6777,7 @@ settings</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6705,6 +6792,8 @@ settings</p>
   
       <p>Factory method for creating a <code>PluginSettings</code> instance for a given <code>SettingsPlugin</code> instance.</p>
 <p>Will return <code>None</code> if the provided <code>instance</code> is not a <a class="autorefs autorefs-internal" href="types/#octoprint.plugin.types.SettingsPlugin">SettingsPlugin</a> instance.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -6733,6 +6822,8 @@ settings</p>
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>

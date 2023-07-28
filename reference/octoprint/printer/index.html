@@ -8,6 +8,8 @@
       
       
       
+        <link rel="canonical" href="https://octoprint.github.io/docs/reference/octoprint/printer/">
+      
       
         <link rel="prev" href="../plugins/virtual_printer/virtual/">
       
@@ -15,7 +17,7 @@
         <link rel="next" href="estimation/">
       
       <link rel="icon" href="../../../images/tentacle.svg">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
+      <meta name="generator" content="mkdocs-1.5.1, mkdocs-material-9.1.21">
     
     
       
@@ -23,7 +25,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.eebd395e.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.ecc896b0.min.css">
@@ -5418,7 +5420,7 @@ abstracted version of the actual printer communication.</p>
 
 
 <h2 id="octoprint.printer.PrinterCallback" class="doc doc-heading">
-        <code>PrinterCallback</code>
+          <code>PrinterCallback</code>
 
 
 <a href="#octoprint.printer.PrinterCallback" class="headerlink" title="Permanent link">#</a></h2>
@@ -5428,10 +5430,10 @@ abstracted version of the actual printer communication.</p>
 
 
 
-
   
 
   <div class="doc doc-children">
+
 
 
 
@@ -5455,6 +5457,8 @@ abstracted version of the actual printer communication.</p>
   
       <p>Called when the :class:<code>PrinterInterface</code> receives a new communication log entry from the communication layer.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -5471,6 +5475,7 @@ abstracted version of the actual printer communication.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -5484,6 +5489,8 @@ abstracted version of the actual printer communication.</p>
   <div class="doc doc-contents ">
   
       <p>Called when the :class:<code>PrinterInterface</code> receives a new message from the communication layer.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -5500,6 +5507,7 @@ abstracted version of the actual printer communication.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -5527,6 +5535,8 @@ chamber:
     target: &lt;target temperature of the chamber, in degC&gt;
 </code></pre></div>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -5543,6 +5553,7 @@ chamber:
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -5556,6 +5567,8 @@ chamber:
   <div class="doc doc-contents ">
   
       <p>Called when the :class:<code>PrinterInterface</code> received a registered message, e.g. from a feedback command.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -5580,6 +5593,7 @@ chamber:
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -5627,6 +5641,8 @@ currentZ: &lt;current position of the z axis, in mm&gt;
 offsets: &lt;current configured temperature offsets, keys are &quot;bed&quot; or &quot;tool[0-9]+&quot;, values the offset in degC&gt;
 </code></pre></div>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -5642,6 +5658,7 @@ offsets: &lt;current configured temperature offsets, keys are &quot;bed&quot; or
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -5672,6 +5689,8 @@ logs: &lt;list of current communication log lines&gt;
 messages: &lt;list of current messages from the firmware&gt;
 </code></pre></div>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -5701,7 +5720,7 @@ messages: &lt;list of current messages from the firmware&gt;
 
 
 <h2 id="octoprint.printer.PrinterInterface" class="doc doc-heading">
-        <code>PrinterInterface</code>
+          <code>PrinterInterface</code>
 
 
 <a href="#octoprint.printer.PrinterInterface" class="headerlink" title="Permanent link">#</a></h2>
@@ -5712,7 +5731,6 @@ messages: &lt;list of current messages from the firmware&gt;
   
       <p>The :class:<code>PrinterInterface</code> represents the developer interface to the :class:<code>~octoprint.printer.standard.Printer</code>
 instance.</p>
-
 
 
   
@@ -5793,6 +5811,7 @@ instance.</p>
 
 
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -5816,6 +5835,8 @@ when it is not being printed is fine though.</p>
    to depend on this particular method in this interface, be advised that it might vanish in future
    versions!</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -5836,6 +5857,8 @@ when it is not being printed is fine though.</p>
       </li>
   </ul>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -5850,6 +5873,7 @@ when it is not being printed is fine though.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -5863,6 +5887,8 @@ when it is not being printed is fine though.</p>
   <div class="doc doc-contents ">
   
       <p>Cancels the current print job.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -5880,6 +5906,7 @@ when it is not being printed is fine though.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -5893,6 +5920,8 @@ when it is not being printed is fine though.</p>
   <div class="doc doc-contents ">
   
       <p>Switch the currently active <code>tool</code> (for which extrude commands will apply).</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -5918,6 +5947,7 @@ when it is not being printed is fine though.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -5932,11 +5962,13 @@ when it is not being printed is fine though.</p>
   
       <p>Sends the provided <code>commands</code> to the printer.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
         <b>commands</b>
-            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></code>)
+            (<code>(<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a>)</code>)
         –
         <div class="doc-md-description">
           <p>The commands to send. Might be a single command provided just as a string or a list
@@ -5965,6 +5997,7 @@ of multiple commands to send in order.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -5980,6 +6013,8 @@ of multiple commands to send in order.</p>
       <p>Connects to the printer, using the specified serial <code>port</code>, <code>baudrate</code> and printer <code>profile</code>. If a
 connection is already established, that connection will be closed prior to connecting anew with the provided
 parameters.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -6014,6 +6049,7 @@ will be retrieved from the :class:<code>PrinterProfileManager</code>.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6032,6 +6068,7 @@ will be retrieved from the :class:<code>PrinterProfileManager</code>.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6046,11 +6083,13 @@ will be retrieved from the :class:<code>PrinterProfileManager</code>.</p>
   
       <p>Extrude <code>amount</code> millimeters of material from the tool.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
         <b>amount</b>
-            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a></code>)
+            (<code>(<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a>)</code>)
         –
         <div class="doc-md-description">
           <p>The amount of material to extrude in mm</p>
@@ -6058,7 +6097,7 @@ will be retrieved from the :class:<code>PrinterProfileManager</code>.</p>
       </li>
       <li class="field-body">
         <b>speed</b>
-            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a>, None</code>)
+            (<code>(<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a>, None)</code>)
         –
         <div class="doc-md-description">
           <p>Speed at which to extrude (F parameter). If set to <code>None</code> (or left out)</p>
@@ -6077,6 +6116,7 @@ will be retrieved from the :class:<code>PrinterProfileManager</code>.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -6098,6 +6138,7 @@ things going again.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6112,11 +6153,13 @@ things going again.</p>
   
       <p>Sets the <code>factor</code> for the printer's feed rate.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
         <b>factor</b>
-            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a></code>)
+            (<code>(<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a>)</code>)
         –
         <div class="doc-md-description">
           <p>The factor for the feed rate to send to the firmware. Percentage expressed as either an
@@ -6137,6 +6180,7 @@ int between 0 and 100 or a float between 0 and 1.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6151,11 +6195,13 @@ int between 0 and 100 or a float between 0 and 1.</p>
   
       <p>Sets the <code>factor</code> for the printer's flow rate.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
         <b>factor</b>
-            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a></code>)
+            (<code>(<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a>)</code>)
         –
         <div class="doc-md-description">
           <p>The factor for the flow rate to send to the firmware. Percentage expressed as either an
@@ -6175,6 +6221,7 @@ int between 0 and 100 or a float between 0 and 1.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -6201,6 +6248,8 @@ baudratePreference: &lt;configured default baudrate&gt;
 autoconnect: &lt;whether autoconnect upon server startup is enabled or not&gt;
 </code></pre></div>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -6216,6 +6265,7 @@ autoconnect: &lt;whether autoconnect upon server startup is enabled or not&gt;
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6228,6 +6278,8 @@ autoconnect: &lt;whether autoconnect upon server startup is enabled or not&gt;
 
   <div class="doc doc-contents ">
   
+
+
 
   <p>Returns:</p>
   <ul>
@@ -6244,6 +6296,7 @@ If the printer is currently not connected, the tuple will be <code>("Closed", No
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6256,6 +6309,8 @@ If the printer is currently not connected, the tuple will be <code>("Closed", No
 
   <div class="doc doc-contents ">
   
+
+
 
   <p>Returns:</p>
   <ul>
@@ -6271,6 +6326,7 @@ If the printer is currently not connected, the tuple will be <code>("Closed", No
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6283,6 +6339,8 @@ If the printer is currently not connected, the tuple will be <code>("Closed", No
 
   <div class="doc doc-contents ">
   
+
+
 
   <p>Returns:</p>
   <ul>
@@ -6298,6 +6356,7 @@ If the printer is currently not connected, the tuple will be <code>("Closed", No
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6310,6 +6369,8 @@ If the printer is currently not connected, the tuple will be <code>("Closed", No
 
   <div class="doc doc-contents ">
   
+
+
 
   <p>Returns:</p>
   <ul>
@@ -6324,6 +6385,7 @@ If the printer is currently not connected, the tuple will be <code>("Closed", No
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -6358,6 +6420,8 @@ If the printer is currently not connected, the tuple will be <code>("Closed", No
 <li>NONE</li>
 </ul>
 </details>
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -6372,6 +6436,7 @@ If the printer is currently not connected, the tuple will be <code>("Closed", No
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6384,6 +6449,8 @@ If the printer is currently not connected, the tuple will be <code>("Closed", No
 
   <div class="doc doc-contents ">
   
+
+
 
   <p>Returns:</p>
   <ul>
@@ -6399,6 +6466,7 @@ If the printer is currently not connected, the tuple will be <code>("Closed", No
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6411,6 +6479,8 @@ If the printer is currently not connected, the tuple will be <code>("Closed", No
 
   <div class="doc doc-contents ">
   
+
+
 
   <p>Returns:</p>
   <ul>
@@ -6425,6 +6495,7 @@ If the printer is currently not connected, the tuple will be <code>("Closed", No
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -6442,6 +6513,8 @@ If the printer is currently not connected, the tuple will be <code>("Closed", No
 <p>Note that this doesn't have to necessarily be a :class:<code>serial.Serial</code> instance, it might also be something
 different, so take care to do instance checks before attempting to access any properties or methods.</p>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -6455,6 +6528,7 @@ different, so take care to do instance checks before attempting to access any pr
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -6470,11 +6544,13 @@ different, so take care to do instance checks before attempting to access any pr
   
       <p>Homes the specified printer <code>axes</code>.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
         <b>axes</b>
-            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></code>)
+            (<code>(<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a>)</code>)
         –
         <div class="doc-md-description">
           <p>The axis or axes to home, each of which must converted to lower case must match one of
@@ -6495,6 +6571,7 @@ different, so take care to do instance checks before attempting to access any pr
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6507,6 +6584,8 @@ different, so take care to do instance checks before attempting to access any pr
 
   <div class="doc doc-contents ">
   
+
+
 
   <p>Returns:</p>
   <ul>
@@ -6522,6 +6601,7 @@ different, so take care to do instance checks before attempting to access any pr
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6534,6 +6614,8 @@ different, so take care to do instance checks before attempting to access any pr
 
   <div class="doc doc-contents ">
   
+
+
 
   <p>Returns:</p>
   <ul>
@@ -6548,6 +6630,7 @@ different, so take care to do instance checks before attempting to access any pr
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -6570,6 +6653,8 @@ file for printing.</p>
    to depend on this particular method in this interface, be advised that it might vanish in future
    versions!</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -6590,6 +6675,8 @@ file for printing.</p>
       </li>
   </ul>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -6604,6 +6691,7 @@ file for printing.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6616,6 +6704,8 @@ file for printing.</p>
 
   <div class="doc doc-contents ">
   
+
+
 
   <p>Returns:</p>
   <ul>
@@ -6631,6 +6721,7 @@ file for printing.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6643,6 +6734,8 @@ file for printing.</p>
 
   <div class="doc doc-contents ">
   
+
+
 
   <p>Returns:</p>
   <ul>
@@ -6658,6 +6751,7 @@ file for printing.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6670,6 +6764,8 @@ file for printing.</p>
 
   <div class="doc doc-contents ">
   
+
+
 
   <p>Returns:</p>
   <ul>
@@ -6685,6 +6781,7 @@ file for printing.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6697,6 +6794,8 @@ file for printing.</p>
 
   <div class="doc doc-contents ">
   
+
+
 
   <p>Returns:</p>
   <ul>
@@ -6712,6 +6811,7 @@ file for printing.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6724,6 +6824,8 @@ file for printing.</p>
 
   <div class="doc doc-contents ">
   
+
+
 
   <p>Returns:</p>
   <ul>
@@ -6739,6 +6841,7 @@ file for printing.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6751,6 +6854,8 @@ file for printing.</p>
 
   <div class="doc doc-contents ">
   
+
+
 
   <p>Returns:</p>
   <ul>
@@ -6765,6 +6870,7 @@ file for printing.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -6793,6 +6899,8 @@ taking a snapshot from the webcam, then continuing). If you abuse this, you WILL
 don't want to block on acquire, be sure to set <code>blocking</code> to <code>False</code> and catch the <code>RuntimeException</code> thrown
 if the lock can't be acquired.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -6809,6 +6917,7 @@ if the lock can't be acquired.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6822,6 +6931,8 @@ if the lock can't be acquired.</p>
   <div class="doc doc-contents ">
   
       <p>Jogs the specified printer <code>axis</code> by the specified <code>amount</code> in mm.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -6844,7 +6955,7 @@ coordinates</p>
       </li>
       <li class="field-body">
         <b>speed</b>
-            (<code>int, bool or None</code>)
+            (<code>(<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a> or None)</code>)
         –
         <div class="doc-md-description">
           <p>Speed at which to jog (F parameter). If set to <code>False</code> no speed will be set
@@ -6866,6 +6977,7 @@ profile will be used.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6879,6 +6991,8 @@ profile will be used.</p>
   <div class="doc doc-contents ">
   
       <p>Logs the provided lines to the printer log and serial.log</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -6895,6 +7009,7 @@ profile will be used.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6908,6 +7023,8 @@ profile will be used.</p>
   <div class="doc doc-contents ">
   
       <p>Pauses the current print job if it is currently running, does nothing otherwise.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -6925,6 +7042,7 @@ profile will be used.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6938,6 +7056,8 @@ profile will be used.</p>
   <div class="doc doc-contents ">
   
       <p>Registers a :class:<code>PrinterCallback</code> with the instance.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -6955,6 +7075,7 @@ profile will be used.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6968,6 +7089,8 @@ profile will be used.</p>
   <div class="doc doc-contents ">
   
       <p>Resumes the current print job if it is currently paused, does nothing otherwise.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -6985,6 +7108,7 @@ profile will be used.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -7001,6 +7125,8 @@ profile will be used.</p>
 <p>The script will be run through the template engine, the rendering context can be extended by providing a
 <code>context</code> with additional template variables to use.</p>
 <p>If the script is unknown, an :class:<code>UnknownScriptException</code> will be raised.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -7030,6 +7156,8 @@ profile will be used.</p>
       </li>
   </ul>
 
+
+
   <p>Raises:</p>
   <ul>
       <li class="field-body">
@@ -7045,6 +7173,7 @@ profile will be used.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -7059,6 +7188,8 @@ profile will be used.</p>
   
       <p>Selects the specified <code>path</code> for printing, specifying if the file is to be found on the <code>sd</code> or not.
 Optionally can also directly start the print after selecting the file.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -7098,6 +7229,8 @@ after the file is selected.</p>
       </li>
   </ul>
 
+
+
   <p>Raises:</p>
   <ul>
       <li class="field-body">
@@ -7121,6 +7254,7 @@ doesn't exist</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -7134,6 +7268,8 @@ doesn't exist</p>
   <div class="doc doc-contents ">
   
       <p>Sends the initial printer update to :class:<code>PrinterCallback</code>.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -7150,6 +7286,7 @@ doesn't exist</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -7180,6 +7317,8 @@ be stuck forever.</p>
 <p>Just like :func:<code>~octoprint.printer.PrinterInterface.job_on_hold</code> this should be used sparingly and only for
 very specific situations. If you abuse this, you WILL cause print quality issues!</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -7200,6 +7339,8 @@ very specific situations. If you abuse this, you WILL cause print quality issues
       </li>
   </ul>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -7214,6 +7355,7 @@ very specific situations. If you abuse this, you WILL cause print quality issues
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -7227,6 +7369,8 @@ very specific situations. If you abuse this, you WILL cause print quality issues
   <div class="doc doc-contents ">
   
       <p>Sets the target temperature on the specified <code>heater</code> to the given <code>value</code> in celsius.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -7244,7 +7388,7 @@ addressing components that are disabled or unconfigured in the printer profile w
       </li>
       <li class="field-body">
         <b>value</b>
-            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a></code>)
+            (<code>(<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a>)</code>)
         –
         <div class="doc-md-description">
           <p>The temperature in celsius to set the target temperature to.</p>
@@ -7264,6 +7408,7 @@ addressing components that are disabled or unconfigured in the printer profile w
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -7277,6 +7422,8 @@ addressing components that are disabled or unconfigured in the printer profile w
   <div class="doc doc-contents ">
   
       <p>Sets the temperature <code>offsets</code> to apply to target temperatures read from a GCODE file while printing.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -7304,6 +7451,7 @@ parameter to :func:<code>set_temperature</code>, so "bed" for the offset for the
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -7317,6 +7465,8 @@ parameter to :func:<code>set_temperature</code>, so "bed" for the offset for the
   <div class="doc doc-contents ">
   
       <p>Starts printing the currently selected file. If no file is currently selected, does nothing.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -7333,6 +7483,7 @@ parameter to :func:<code>set_temperature</code>, so "bed" for the offset for the
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -7348,6 +7499,8 @@ parameter to :func:<code>set_temperature</code>, so "bed" for the offset for the
   
       <p>Pauses the current print job if it is currently running or resumes it if it is currently paused.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -7364,6 +7517,7 @@ parameter to :func:<code>set_temperature</code>, so "bed" for the offset for the
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -7377,6 +7531,8 @@ parameter to :func:<code>set_temperature</code>, so "bed" for the offset for the
   <div class="doc doc-contents ">
   
       <p>Unregisters a :class:<code>PrinterCallback</code> from the instance.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -7393,6 +7549,7 @@ parameter to :func:<code>set_temperature</code>, so "bed" for the offset for the
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 

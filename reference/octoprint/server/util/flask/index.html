@@ -8,6 +8,8 @@
       
       
       
+        <link rel="canonical" href="https://octoprint.github.io/docs/reference/octoprint/server/util/flask/">
+      
       
         <link rel="prev" href="../csrf/">
       
@@ -15,7 +17,7 @@
         <link rel="next" href="../sockjs/">
       
       <link rel="icon" href="../../../../../images/tentacle.svg">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
+      <meta name="generator" content="mkdocs-1.5.1, mkdocs-material-9.1.21">
     
     
       
@@ -23,7 +25,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.eebd395e.min.css">
       
         
         <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.ecc896b0.min.css">
@@ -5261,13 +5263,12 @@
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><span title="cachelib.BaseCache">BaseCache</span></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code><span title="cachelib.BaseCache">BaseCache</span></code></p>
 
   
       <p>Slightly improved version of :class:<code>SimpleCache</code>.</p>
 <p>Setting <code>default_timeout</code> or <code>timeout</code> to <code>-1</code> will have no timeout be applied at all.</p>
-
 
 
   
@@ -5301,15 +5302,15 @@
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><span title="flask.templating">flask</span>.<span title="flask.templating.Request">Request</span></code></p>
-
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-external" href="https://flask.palletsprojects.com/api/#module-flask">flask</a>.<a class="autorefs autorefs-external" title="flask.Request" href="https://flask.palletsprojects.com/api/#flask.Request">Request</a></code></p>
 
 
 
   
 
   <div class="doc doc-children">
+
 
 
 
@@ -5336,6 +5337,7 @@
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -5364,6 +5366,7 @@
 </div>
 
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -5382,6 +5385,8 @@ to a timezone aware datetime instance in UTC.</p>
 <p>If <code>lastmodified</code> is a datetime instance, it needs to be timezone aware or the
 result will always be <code>False</code>.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -5394,6 +5399,8 @@ result will always be <code>False</code>.</p>
       </li>
   </ul>
 
+
+
   <p>Raises:</p>
   <ul>
       <li class="field-body">
@@ -5404,6 +5411,8 @@ result will always be <code>False</code>.</p>
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -5419,6 +5428,7 @@ result will always be <code>False</code>.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -5439,6 +5449,7 @@ will cause a HTTP 403 status code to be returned by the decorated resource.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -5461,6 +5472,7 @@ one who happens to listen on the same address albeit a different port or script 
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -5482,6 +5494,7 @@ user session if available.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -5497,6 +5510,8 @@ user session if available.</p>
       <p>Helper to generate API error responses in JSON format.</p>
 <p>Turns something like <code>make_api_error("Not Found", 404)</code> into a JSON response
 with body <code>{"error": "Not Found"}</code>.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -5520,6 +5535,7 @@ with body <code>{"error": "Not Found"}</code>.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -5535,6 +5551,8 @@ with body <code>{"error": "Not Found"}</code>.</p>
       <p>Helper to generate basic text responses.</p>
 <p>Response will have the provided message as body, the provided status code, and
 a content type of "text/plain".</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -5558,6 +5576,7 @@ a content type of "text/plain".</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -5579,6 +5598,7 @@ will cause a HTTP 403 status code to be returned by the decorated resource.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -5602,6 +5622,7 @@ session.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -5623,6 +5644,7 @@ session.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 

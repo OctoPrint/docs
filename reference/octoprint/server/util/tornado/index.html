@@ -8,6 +8,8 @@
       
       
       
+        <link rel="canonical" href="https://octoprint.github.io/docs/reference/octoprint/server/util/tornado/">
+      
       
         <link rel="prev" href="../sockjs/">
       
@@ -15,7 +17,7 @@
         <link rel="next" href="../watchdog/">
       
       <link rel="icon" href="../../../../../images/tentacle.svg">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
+      <meta name="generator" content="mkdocs-1.5.1, mkdocs-material-9.1.21">
     
     
       
@@ -23,7 +25,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.eebd395e.min.css">
       
         
         <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.ecc896b0.min.css">
@@ -5419,20 +5421,19 @@
 
 
 <h2 id="octoprint.server.util.tornado.CorsSupportMixin" class="doc doc-heading">
-        <code>CorsSupportMixin</code>
+          <code>CorsSupportMixin</code>
 
 
 <a href="#octoprint.server.util.tornado.CorsSupportMixin" class="headerlink" title="Permanent link">#</a></h2>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><span title="tornado.web">tornado</span>.<span title="tornado.web.web">web</span>.<span title="tornado.web.web.RequestHandler">RequestHandler</span></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code>tornado.<span title="tornado.web">web</span>.<span title="tornado.web.RequestHandler">RequestHandler</span></code></p>
 
   
       <p><code>tornado.web.RequestHandler &lt;http://tornado.readthedocs.org/en/branch4.0/web.html#request-handlers&gt;</code>_ mixin that
 makes sure to set CORS headers similarly to the Flask backed API endpoints.</p>
-
 
 
   
@@ -5466,13 +5467,12 @@ makes sure to set CORS headers similarly to the Flask backed API endpoints.</p>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><span title="tornado.web">tornado</span>.<span title="tornado.web.http1connection">http1connection</span>.<span title="tornado.web.http1connection.HTTP1Connection">HTTP1Connection</span></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code>tornado.<span title="tornado.http1connection">http1connection</span>.<span title="tornado.http1connection.HTTP1Connection">HTTP1Connection</span></code></p>
 
   
       <p>A custom implementation of <code>tornado.http1connection.HTTP1Connection</code> which upon checking the <code>Content-Length</code> of
 the request against the configured maximum utilizes <code>max_body_sizes</code> and <code>default_max_body_size</code> as a fallback.</p>
-
 
 
   
@@ -5506,14 +5506,13 @@ the request against the configured maximum utilizes <code>max_body_sizes</code> 
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><span title="tornado.web">tornado</span>.<span title="tornado.web.http1connection">http1connection</span>.<span title="tornado.web.http1connection.HTTP1ConnectionParameters">HTTP1ConnectionParameters</span></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code>tornado.<span title="tornado.http1connection">http1connection</span>.<span title="tornado.http1connection.HTTP1ConnectionParameters">HTTP1ConnectionParameters</span></code></p>
 
   
       <p>An implementation of <code>tornado.http1connection.HTTP1ConnectionParameters</code> that adds two new parameters
 <code>max_body_sizes</code> and <code>default_max_body_size</code>.</p>
 <p>For a description of these please see the documentation of <code>CustomHTTPServer</code> above.</p>
-
 
 
   
@@ -5541,21 +5540,20 @@ the request against the configured maximum utilizes <code>max_body_sizes</code> 
 
 
 <h2 id="octoprint.server.util.tornado.CustomHTTP1ServerConnection" class="doc doc-heading">
-        <code>CustomHTTP1ServerConnection</code>
+          <code>CustomHTTP1ServerConnection</code>
 
 
 <a href="#octoprint.server.util.tornado.CustomHTTP1ServerConnection" class="headerlink" title="Permanent link">#</a></h2>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><span title="tornado.web">tornado</span>.<span title="tornado.web.http1connection">http1connection</span>.<span title="tornado.web.http1connection.HTTP1ServerConnection">HTTP1ServerConnection</span></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code>tornado.<span title="tornado.http1connection">http1connection</span>.<span title="tornado.http1connection.HTTP1ServerConnection">HTTP1ServerConnection</span></code></p>
 
   
       <p>A custom implementation of <code>tornado.http1connection.HTTP1ServerConnection</code> which utilizes a <code>CustomHTTP1Connection</code>
 instead of a <code>tornado.http1connection.HTTP1Connection</code> in <code>_server_request_loop</code>. The implementation logic is
 otherwise the same as <code>tornado.http1connection.HTTP1ServerConnection</code>.</p>
-
 
 
   
@@ -5589,8 +5587,8 @@ otherwise the same as <code>tornado.http1connection.HTTP1ServerConnection</code>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><span title="tornado.web">tornado</span>.<span title="tornado.web.httpserver">httpserver</span>.<span title="tornado.web.httpserver.HTTPServer">HTTPServer</span></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code>tornado.<span title="tornado.httpserver">httpserver</span>.<span title="tornado.httpserver.HTTPServer">HTTPServer</span></code></p>
 
   
       <p>Custom implementation of <code>tornado.httpserver.HTTPServer</code> that allows defining max body sizes depending on path and
@@ -5603,7 +5601,6 @@ connection by a client.</p>
 <p><code>max_body_sizes</code> is expected to be an iterable containing tuples of the form (method, path regex, maximum body size),
 with method and path regex having to match in order for maximum body size to take affect.</p>
 <p><code>default_max_body_size</code> is the default maximum body size to apply if no specific one from <code>max_body_sizes</code> matches.</p>
-
 
 
   
@@ -5631,19 +5628,21 @@ with method and path regex having to match in order for maximum body size to tak
 
 
 <h2 id="octoprint.server.util.tornado.DeprecatedEndpointHandler" class="doc doc-heading">
-        <code>DeprecatedEndpointHandler</code>
+          <code>DeprecatedEndpointHandler</code>
 
 
 <a href="#octoprint.server.util.tornado.DeprecatedEndpointHandler" class="headerlink" title="Permanent link">#</a></h2>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><a class="autorefs autorefs-internal" title="octoprint.server.util.tornado.CorsSupportMixin" href="#octoprint.server.util.tornado.CorsSupportMixin">CorsSupportMixin</a></code>, <code><span title="tornado.web">tornado</span>.<span title="tornado.web.web">web</span>.<span title="tornado.web.web.RequestHandler">RequestHandler</span></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="octoprint.server.util.tornado.CorsSupportMixin" href="#octoprint.server.util.tornado.CorsSupportMixin">CorsSupportMixin</a></code>, <code>tornado.<span title="tornado.web">web</span>.<span title="tornado.web.RequestHandler">RequestHandler</span></code></p>
 
   
       <p><code>tornado.web.RequestHandler &lt;http://tornado.readthedocs.org/en/branch4.0/web.html#request-handlers&gt;</code>_ that redirects
 to another <code>url</code> and logs a deprecation warning.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -5656,7 +5655,6 @@ to another <code>url</code> and logs a deprecation warning.</p>
         </div>
       </li>
   </ul>
-
 
 
   
@@ -5684,20 +5682,22 @@ to another <code>url</code> and logs a deprecation warning.</p>
 
 
 <h2 id="octoprint.server.util.tornado.LargeResponseHandler" class="doc doc-heading">
-        <code>LargeResponseHandler</code>
+          <code>LargeResponseHandler</code>
 
 
 <a href="#octoprint.server.util.tornado.LargeResponseHandler" class="headerlink" title="Permanent link">#</a></h2>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><span title="octoprint.server.util.tornado.RequestlessExceptionLoggingMixin">RequestlessExceptionLoggingMixin</span></code>, <code><a class="autorefs autorefs-internal" title="octoprint.server.util.tornado.CorsSupportMixin" href="#octoprint.server.util.tornado.CorsSupportMixin">CorsSupportMixin</a></code>, <code><span title="tornado.web">tornado</span>.<span title="tornado.web.web">web</span>.<span title="tornado.web.web.StaticFileHandler">StaticFileHandler</span></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code><span title="octoprint.server.util.tornado.RequestlessExceptionLoggingMixin">RequestlessExceptionLoggingMixin</span></code>, <code><a class="autorefs autorefs-internal" title="octoprint.server.util.tornado.CorsSupportMixin" href="#octoprint.server.util.tornado.CorsSupportMixin">CorsSupportMixin</a></code>, <code>tornado.<span title="tornado.web">web</span>.<span title="tornado.web.StaticFileHandler">StaticFileHandler</span></code></p>
 
   
       <p>Customized <code>tornado.web.StaticFileHandler &lt;http://tornado.readthedocs.org/en/branch4.0/web.html#tornado.web.StaticFileHandler&gt;</code>_
 that allows delivery of the requested resource as attachment and access and request path validation through
 optional callbacks. Note that access validation takes place before path validation.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -5801,7 +5801,6 @@ optional callbacks. Note that access validation takes place before path validati
   </ul>
 
 
-
   
 
   <div class="doc doc-children">
@@ -5832,6 +5831,7 @@ optional callbacks. Note that access validation takes place before path validati
   </div>
 
 </div>
+
 
 
 
@@ -5867,19 +5867,21 @@ that might still change while being transmitted (e.g. log files)</p>
 
 
 <h2 id="octoprint.server.util.tornado.StaticDataHandler" class="doc doc-heading">
-        <code>StaticDataHandler</code>
+          <code>StaticDataHandler</code>
 
 
 <a href="#octoprint.server.util.tornado.StaticDataHandler" class="headerlink" title="Permanent link">#</a></h2>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><span title="octoprint.server.util.tornado.RequestlessExceptionLoggingMixin">RequestlessExceptionLoggingMixin</span></code>, <code><a class="autorefs autorefs-internal" title="octoprint.server.util.tornado.CorsSupportMixin" href="#octoprint.server.util.tornado.CorsSupportMixin">CorsSupportMixin</a></code>, <code><span title="tornado.web">tornado</span>.<span title="tornado.web.web">web</span>.<span title="tornado.web.web.RequestHandler">RequestHandler</span></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code><span title="octoprint.server.util.tornado.RequestlessExceptionLoggingMixin">RequestlessExceptionLoggingMixin</span></code>, <code><a class="autorefs autorefs-internal" title="octoprint.server.util.tornado.CorsSupportMixin" href="#octoprint.server.util.tornado.CorsSupportMixin">CorsSupportMixin</a></code>, <code>tornado.<span title="tornado.web">web</span>.<span title="tornado.web.RequestHandler">RequestHandler</span></code></p>
 
   
       <p><code>tornado.web.RequestHandler &lt;http://tornado.readthedocs.org/en/branch4.0/web.html#request-handlers&gt;</code>_ that returns
 static <code>data</code> of a configured <code>content_type</code>.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -5900,7 +5902,6 @@ static <code>data</code> of a configured <code>content_type</code>.</p>
         </div>
       </li>
   </ul>
-
 
 
   
@@ -5928,15 +5929,15 @@ static <code>data</code> of a configured <code>content_type</code>.</p>
 
 
 <h2 id="octoprint.server.util.tornado.UploadStorageFallbackHandler" class="doc doc-heading">
-        <code>UploadStorageFallbackHandler</code>
+          <code>UploadStorageFallbackHandler</code>
 
 
 <a href="#octoprint.server.util.tornado.UploadStorageFallbackHandler" class="headerlink" title="Permanent link">#</a></h2>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><span title="octoprint.server.util.tornado.RequestlessExceptionLoggingMixin">RequestlessExceptionLoggingMixin</span></code>, <code><a class="autorefs autorefs-internal" title="octoprint.server.util.tornado.CorsSupportMixin" href="#octoprint.server.util.tornado.CorsSupportMixin">CorsSupportMixin</a></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code><span title="octoprint.server.util.tornado.RequestlessExceptionLoggingMixin">RequestlessExceptionLoggingMixin</span></code>, <code><a class="autorefs autorefs-internal" title="octoprint.server.util.tornado.CorsSupportMixin" href="#octoprint.server.util.tornado.CorsSupportMixin">CorsSupportMixin</a></code></p>
 
   
       <p>A <code>RequestHandler</code> similar to <code>tornado.web.FallbackHandler</code> which fetches any files contained in the request bodies
@@ -5996,7 +5997,6 @@ Content-Type: text/plain; charset=utf-8
 where necessary.</p>
 
 
-
   
 
   <div class="doc doc-children">
@@ -6031,6 +6031,7 @@ where necessary.</p>
 
 
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6052,6 +6053,7 @@ internal in-memory buffer.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6069,6 +6071,7 @@ internal in-memory buffer.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -6103,15 +6106,15 @@ body-less request, just calls the <code>fallback</code> with an empty body and f
 
 
 <h2 id="octoprint.server.util.tornado.UrlProxyHandler" class="doc doc-heading">
-        <code>UrlProxyHandler</code>
+          <code>UrlProxyHandler</code>
 
 
 <a href="#octoprint.server.util.tornado.UrlProxyHandler" class="headerlink" title="Permanent link">#</a></h2>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><span title="octoprint.server.util.tornado.RequestlessExceptionLoggingMixin">RequestlessExceptionLoggingMixin</span></code>, <code><a class="autorefs autorefs-internal" title="octoprint.server.util.tornado.CorsSupportMixin" href="#octoprint.server.util.tornado.CorsSupportMixin">CorsSupportMixin</a></code>, <code><span title="tornado.web">tornado</span>.<span title="tornado.web.web">web</span>.<span title="tornado.web.web.RequestHandler">RequestHandler</span></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code><span title="octoprint.server.util.tornado.RequestlessExceptionLoggingMixin">RequestlessExceptionLoggingMixin</span></code>, <code><a class="autorefs autorefs-internal" title="octoprint.server.util.tornado.CorsSupportMixin" href="#octoprint.server.util.tornado.CorsSupportMixin">CorsSupportMixin</a></code>, <code>tornado.<span title="tornado.web">web</span>.<span title="tornado.web.RequestHandler">RequestHandler</span></code></p>
 
   
       <p><code>tornado.web.RequestHandler &lt;http://tornado.readthedocs.org/en/branch4.0/web.html#request-handlers&gt;</code>_ that proxies
@@ -6130,6 +6133,8 @@ for making the request to the configured endpoint and return the body of the cli
   no <code>filename</code> attribute will be set.</li>
 </ul>
 </details>
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -6169,7 +6174,6 @@ for making the request to the configured endpoint and return the body of the cli
         </div>
       </li>
   </ul>
-
 
 
   
@@ -6218,10 +6222,10 @@ generated WSGI environment upon call.</p>
 methods have been adjusted to allow for an optionally supplied <code>body</code> argument which is then used for <code>wsgi.input</code>.</p>
 
 
-
   
 
   <div class="doc doc-children">
+
 
 
 
@@ -6250,6 +6254,7 @@ methods have been adjusted to allow for an optionally supplied <code>body</code>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -6286,6 +6291,7 @@ supplied, <code>request.body</code> will be wrapped into a <code>io.BytesIO</cod
 </div>
 
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6306,6 +6312,7 @@ supplied, <code>request.body</code> will be wrapped into a <code>io.BytesIO</cod
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6324,6 +6331,7 @@ to the websocket protocol, minimizing data bandwidth if clients support the exte
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -6344,6 +6352,7 @@ serialization of globally registered types like frozendict and others.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6362,6 +6371,7 @@ header case-insensitively, as defined in RFC6454, Section 4, item 5.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 

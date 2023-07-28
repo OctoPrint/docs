@@ -8,6 +8,8 @@
       
       
       
+        <link rel="canonical" href="https://octoprint.github.io/docs/reference/octoprint/util/files/">
+      
       
         <link rel="prev" href="../dev/">
       
@@ -15,7 +17,7 @@
         <link rel="next" href="../fixes/">
       
       <link rel="icon" href="../../../../images/tentacle.svg">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
+      <meta name="generator" content="mkdocs-1.5.1, mkdocs-material-9.1.21">
     
     
       
@@ -23,7 +25,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.eebd395e.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ecc896b0.min.css">
@@ -5125,6 +5127,7 @@
 
 
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -5158,6 +5161,8 @@ raise ValueError
 <p>This will basically -- for a given original filename of <code>some_filename</code> and an extension of <code>gco</code> -- iterate
 through names of the format <code>some_f~1.gco</code>, <code>some_f~2.gco</code>, ..., <code>some_~10.gco</code>, <code>some_~11.gco</code>, ...,
 <code>&lt;prefix&gt;~&lt;n&gt;.gco</code> for <code>n</code> less than 10 ^ <code>max_power</code>, returning as soon as one is found that is not colliding.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -5198,6 +5203,8 @@ aborting and raising an exception.</p>
       </li>
   </ul>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -5209,6 +5216,8 @@ aborting and raising an exception.</p>
       </li>
   </ul>
 
+
+
   <p>Raises:</p>
   <ul>
       <li class="field-body">
@@ -5219,6 +5228,8 @@ aborting and raising an exception.</p>
         </div>
       </li>
   </ul>
+
+
 
 <p><strong>Examples:</strong></p>
     <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">find_collision_free_name</span><span class="p">(</span><span class="s2">&quot;test1234&quot;</span><span class="p">,</span> <span class="s2">&quot;gco&quot;</span><span class="p">,</span> <span class="p">[])</span>
@@ -5252,6 +5263,7 @@ aborting and raising an exception.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -5267,6 +5279,8 @@ aborting and raising an exception.</p>
       <p>Converts the provided input filename to a 8.3 DOS compatible filename. If <code>existing_filenames</code> is provided, the
 conversion result will be guaranteed not to collide with any of the filenames provided thus.</p>
 <p>Uses :func:<code>find_collision_free_name</code> internally.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -5315,6 +5329,8 @@ exchanging for <code>extension</code>.</p>
       </li>
   </ul>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -5327,6 +5343,8 @@ a maximum of 3 characters.</p>
       </li>
   </ul>
 
+
+
   <p>Raises:</p>
   <ul>
       <li class="field-body">
@@ -5337,6 +5355,8 @@ a maximum of 3 characters.</p>
         </div>
       </li>
   </ul>
+
+
 
 <p><strong>Examples:</strong></p>
     <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">get_dos_filename</span><span class="p">(</span><span class="s2">&quot;test1234.gco&quot;</span><span class="p">)</span>
@@ -5364,6 +5384,7 @@ a maximum of 3 characters.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -5382,6 +5403,8 @@ Upper 16 bit contain date, lower 16 bit contain time.</p>
 <p>Format derived from FAT filesystem timestamps:
 <a href="https://wiki.osdev.org/FAT">https://wiki.osdev.org/FAT</a></p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -5393,6 +5416,8 @@ Upper 16 bit contain date, lower 16 bit contain time.</p>
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -5407,6 +5432,7 @@ Upper 16 bit contain date, lower 16 bit contain time.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -5430,6 +5456,8 @@ safe chars <code>-_.()[]</code> and all spaces replaced by <code>_</code>. This 
 <p>In all cases, a single leading <code>.</code> will be removed (as it denotes hidden files
 on *nix).</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -5449,6 +5477,8 @@ on *nix).</p>
       </li>
   </ul>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -5463,6 +5493,7 @@ on *nix).</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -5476,6 +5507,8 @@ on *nix).</p>
   <div class="doc doc-contents ">
   
       <p>Silently removes a file. Does not raise an error if the file doesn't exist.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -5492,6 +5525,7 @@ on *nix).</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -5512,6 +5546,8 @@ Upper 16 bit contain date, lower 16 bit contain time.</p>
 <p>Format derived from FAT filesystem timestamps:
 <a href="https://wiki.osdev.org/FAT">https://wiki.osdev.org/FAT</a></p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -5523,6 +5559,8 @@ Upper 16 bit contain date, lower 16 bit contain time.</p>
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>

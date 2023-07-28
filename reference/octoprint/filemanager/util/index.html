@@ -8,6 +8,8 @@
       
       
       
+        <link rel="canonical" href="https://octoprint.github.io/docs/reference/octoprint/filemanager/util/">
+      
       
         <link rel="prev" href="../storage/">
       
@@ -15,7 +17,7 @@
         <link rel="next" href="../../logging/">
       
       <link rel="icon" href="../../../../images/tentacle.svg">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
+      <meta name="generator" content="mkdocs-1.5.1, mkdocs-material-9.1.21">
     
     
       
@@ -23,7 +25,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.eebd395e.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ecc896b0.min.css">
@@ -5231,6 +5233,8 @@
   
       <p>Wrapper for file representations to save to storages.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -5244,10 +5248,10 @@
   </ul>
 
 
-
   
 
   <div class="doc doc-children">
+
 
 
 
@@ -5270,6 +5274,8 @@
   <div class="doc doc-contents ">
   
       <p>Saves the file's content to the given absolute path.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -5295,6 +5301,7 @@
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -5308,6 +5315,8 @@
   <div class="doc doc-contents ">
   
       <p>Returns a Python stream object (subclass of io.IOBase) representing the file's contents.</p>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -5342,13 +5351,15 @@
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><a class="autorefs autorefs-internal" title="octoprint.filemanager.util.AbstractFileWrapper" href="#octoprint.filemanager.util.AbstractFileWrapper">AbstractFileWrapper</a></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="octoprint.filemanager.util.AbstractFileWrapper" href="#octoprint.filemanager.util.AbstractFileWrapper">AbstractFileWrapper</a></code></p>
 
   
       <p>An implementation of :class:<code>.AbstractFileWrapper</code> that wraps an actual file on disk. The <code>save</code> implementations
 will either copy the file to the new path (preserving file attributes) or -- if <code>move</code> is <code>True</code> (the default) --
 move the file.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -5377,7 +5388,6 @@ move the file.</p>
         </div>
       </li>
   </ul>
-
 
 
   
@@ -5411,8 +5421,8 @@ move the file.</p>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/io.html#module-io">io</a>.<a class="autorefs autorefs-external" title="io.RawIOBase" href="https://docs.python.org/3/library/io.html#io.RawIOBase">RawIOBase</a></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/io.html#module-io">io</a>.<a class="autorefs autorefs-external" title="io.RawIOBase" href="https://docs.python.org/3/library/io.html#io.RawIOBase">RawIOBase</a></code></p>
 
   
       <p>While reading from this stream the provided <code>input_stream</code> is read line by line, calling the (overridable) method
@@ -5420,6 +5430,8 @@ move the file.</p>
 <p>Sub classes can thus modify the contents of the <code>input_stream</code> in line, while it is being read. Keep in mind that
 <code>process_line</code> will receive the line as a byte stream - if underlying code needs to operate on unicode you'll need
 to do the decoding yourself.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -5434,10 +5446,10 @@ to do the decoding yourself.</p>
   </ul>
 
 
-
   
 
   <div class="doc doc-children">
+
 
 
 
@@ -5463,6 +5475,8 @@ to do the decoding yourself.</p>
 <p>By returning <code>None</code> the line will not be returned from the read stream, effectively being stripped from the
 wrapper <code>input_stream</code>.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -5474,6 +5488,8 @@ wrapper <code>input_stream</code>.</p>
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -5509,12 +5525,14 @@ stripped from the processed stream.</p>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/io.html#module-io">io</a>.<a class="autorefs autorefs-external" title="io.RawIOBase" href="https://docs.python.org/3/library/io.html#io.RawIOBase">RawIOBase</a></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/io.html#module-io">io</a>.<a class="autorefs autorefs-external" title="io.RawIOBase" href="https://docs.python.org/3/library/io.html#io.RawIOBase">RawIOBase</a></code></p>
 
   
       <p>A stream implementation which when read reads from multiple streams, one after the other, basically concatenating
 their contents in the order they are provided to the constructor.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -5526,7 +5544,6 @@ their contents in the order they are provided to the constructor.</p>
         </div>
       </li>
   </ul>
-
 
 
   
@@ -5560,11 +5577,13 @@ their contents in the order they are provided to the constructor.</p>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><a class="autorefs autorefs-internal" title="octoprint.filemanager.util.AbstractFileWrapper" href="#octoprint.filemanager.util.AbstractFileWrapper">AbstractFileWrapper</a></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="octoprint.filemanager.util.AbstractFileWrapper" href="#octoprint.filemanager.util.AbstractFileWrapper">AbstractFileWrapper</a></code></p>
 
   
       <p>A wrapper allowing processing of one or more consecutive streams.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -5578,10 +5597,10 @@ their contents in the order they are provided to the constructor.</p>
   </ul>
 
 
-
   
 
   <div class="doc doc-children">
+
 
 
 
@@ -5609,6 +5628,7 @@ provided.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 

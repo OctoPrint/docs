@@ -8,6 +8,8 @@
       
       
       
+        <link rel="canonical" href="https://octoprint.github.io/docs/reference/octoprint/slicing/">
+      
       
         <link rel="prev" href="../settings/">
       
@@ -15,7 +17,7 @@
         <link rel="next" href="exceptions/">
       
       <link rel="icon" href="../../../images/tentacle.svg">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
+      <meta name="generator" content="mkdocs-1.5.1, mkdocs-material-9.1.21">
     
     
       
@@ -23,7 +25,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.eebd395e.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.ecc896b0.min.css">
@@ -5168,6 +5170,8 @@
   
       <p>The :class:<code>SlicingManager</code> is responsible for managing available slicers and slicing profiles.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -5180,7 +5184,7 @@
       </li>
       <li class="field-body">
         <b>printer_profile_manager</b>
-            (<code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.printer">printer</span>.<span title="octoprint.util.printer.profile">profile</span>.<span title="octoprint.util.printer.profile.PrinterProfileManager">PrinterProfileManager</span></code>)
+            (<code>~<a class="autorefs autorefs-internal" href="../#octoprint">octoprint</a>.<a class="autorefs autorefs-internal" title="octoprint.printer" href="../printer/#octoprint.printer">printer</a>.<a class="autorefs autorefs-internal" title="octoprint.printer.profile" href="../printer/profile/#octoprint.printer.profile">profile</a>.<a class="autorefs autorefs-internal" title="octoprint.printer.profile.PrinterProfileManager" href="../printer/profile/#octoprint.printer.profile.PrinterProfileManager">PrinterProfileManager</a></code>)
         –
         <div class="doc-md-description">
           <p>:class:<code>~octoprint.printer.profile.PrinterProfileManager</code>
@@ -5188,7 +5192,6 @@ instance to use for accessing available printer profiles, most importantly the c
         </div>
       </li>
   </ul>
-
 
 
   
@@ -5217,6 +5220,8 @@ instance to use for accessing available printer profiles, most importantly the c
 
   <div class="doc doc-contents ">
   
+
+
 
   <p>Returns:</p>
   <ul>
@@ -5249,6 +5254,8 @@ instance to use for accessing available printer profiles, most importantly the c
   
       <p>Retrieves the default slicer.</p>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -5280,6 +5287,8 @@ system.</p>
   <div class="doc doc-contents ">
   
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -5310,6 +5319,8 @@ system.</p>
   <div class="doc doc-contents ">
   
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -5322,6 +5333,7 @@ system.</p>
   </div>
 
 </div>
+
 
 
 
@@ -5340,6 +5352,8 @@ system.</p>
       <p>Retrieves all profiles for slicer <code>slicer</code>.</p>
 <p>If <code>require_configured</code> is set to True (default is False), only will return the profiles if the <code>slicer</code>
 is already configured, otherwise a :class:<code>SlicerNotConfigured</code> exception will be raised.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -5363,6 +5377,8 @@ exception will be raised.</p>
       </li>
   </ul>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -5373,17 +5389,19 @@ exception will be raised.</p>
       </li>
   </ul>
 
+
+
   <p>Raises:</p>
   <ul>
       <li class="field-body">
-            <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.UnknownSlicer">UnknownSlicer</span></code>
+            <code>~<a class="autorefs autorefs-internal" href="../#octoprint">octoprint</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing" href="#octoprint.slicing">slicing</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing.exceptions" href="exceptions/#octoprint.slicing.exceptions">exceptions</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing.exceptions.UnknownSlicer" href="exceptions/#octoprint.slicing.exceptions.UnknownSlicer">UnknownSlicer</a></code>
           –
         <div class="doc-md-description">
           <p>The slicer <code>slicer</code> is unknown.</p>
         </div>
       </li>
       <li class="field-body">
-            <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.SlicerNotConfigured">SlicerNotConfigured</span></code>
+            <code>~<a class="autorefs autorefs-internal" href="../#octoprint">octoprint</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing" href="#octoprint.slicing">slicing</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing.exceptions" href="exceptions/#octoprint.slicing.exceptions">exceptions</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing.exceptions.SlicerNotConfigured" href="exceptions/#octoprint.slicing.exceptions.SlicerNotConfigured">SlicerNotConfigured</a></code>
           –
         <div class="doc-md-description">
           <p>The slicer <code>slicer</code> is not configured and <code>require_configured</code> was True.</p>
@@ -5394,6 +5412,7 @@ exception will be raised.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -5408,6 +5427,8 @@ exception will be raised.</p>
   <div class="doc doc-contents ">
   
       <p>Cancels the slicing job on slicer <code>slicer_name</code> from <code>source_path</code> to <code>dest_path</code>.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -5437,10 +5458,12 @@ exception will be raised.</p>
       </li>
   </ul>
 
+
+
   <p>Raises:</p>
   <ul>
       <li class="field-body">
-            <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.UnknownSlicer">UnknownSlicer</span></code>
+            <code>~<a class="autorefs autorefs-internal" href="../#octoprint">octoprint</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing" href="#octoprint.slicing">slicing</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing.exceptions" href="exceptions/#octoprint.slicing.exceptions">exceptions</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing.exceptions.UnknownSlicer" href="exceptions/#octoprint.slicing.exceptions.UnknownSlicer">UnknownSlicer</a></code>
           –
         <div class="doc-md-description">
           <p>The slicer specified via <code>slicer_name</code> is unknown.</p>
@@ -5451,6 +5474,7 @@ exception will be raised.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -5466,6 +5490,8 @@ exception will be raised.</p>
   
       <p>Deletes the profile <code>name</code> for the specified <code>slicer</code>.</p>
 <p>If the profile does not exist, nothing will happen.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -5487,17 +5513,19 @@ exception will be raised.</p>
       </li>
   </ul>
 
+
+
   <p>Raises:</p>
   <ul>
       <li class="field-body">
-            <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.UnknownSlicer">UnknownSlicer</span></code>
+            <code>~<a class="autorefs autorefs-internal" href="../#octoprint">octoprint</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing" href="#octoprint.slicing">slicing</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing.exceptions" href="exceptions/#octoprint.slicing.exceptions">exceptions</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing.exceptions.UnknownSlicer" href="exceptions/#octoprint.slicing.exceptions.UnknownSlicer">UnknownSlicer</a></code>
           –
         <div class="doc-md-description">
           <p>The slicer <code>slicer</code> is unknown.</p>
         </div>
       </li>
       <li class="field-body">
-            <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.CouldNotDeleteProfile">CouldNotDeleteProfile</span></code>
+            <code>~<a class="autorefs autorefs-internal" href="../#octoprint">octoprint</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing" href="#octoprint.slicing">slicing</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing.exceptions" href="exceptions/#octoprint.slicing.exceptions">exceptions</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing.exceptions.CouldNotDeleteProfile" href="exceptions/#octoprint.slicing.exceptions.CouldNotDeleteProfile">CouldNotDeleteProfile</a></code>
           –
         <div class="doc-md-description">
           <p>There was an error while deleting the profile.</p>
@@ -5508,6 +5536,7 @@ exception will be raised.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -5524,6 +5553,8 @@ exception will be raised.</p>
       <p>Retrieves the path to the profile named <code>name</code> for slicer <code>slicer</code>.</p>
 <p>If <code>must_exist</code> is set to True (defaults to False) a :class:<code>UnknownProfile</code> exception will be raised if the
 profile doesn't exist yet.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -5553,6 +5584,8 @@ profile doesn't exist yet.</p>
       </li>
   </ul>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -5563,17 +5596,19 @@ profile doesn't exist yet.</p>
       </li>
   </ul>
 
+
+
   <p>Raises:</p>
   <ul>
       <li class="field-body">
-            <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.UnknownSlicer">UnknownSlicer</span></code>
+            <code>~<a class="autorefs autorefs-internal" href="../#octoprint">octoprint</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing" href="#octoprint.slicing">slicing</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing.exceptions" href="exceptions/#octoprint.slicing.exceptions">exceptions</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing.exceptions.UnknownSlicer" href="exceptions/#octoprint.slicing.exceptions.UnknownSlicer">UnknownSlicer</a></code>
           –
         <div class="doc-md-description">
           <p>The slicer <code>slicer</code> is unknown.</p>
         </div>
       </li>
       <li class="field-body">
-            <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.UnknownProfile">UnknownProfile</span></code>
+            <code>~<a class="autorefs autorefs-internal" href="../#octoprint">octoprint</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing" href="#octoprint.slicing">slicing</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing.exceptions" href="exceptions/#octoprint.slicing.exceptions">exceptions</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing.exceptions.UnknownProfile" href="exceptions/#octoprint.slicing.exceptions.UnknownProfile">UnknownProfile</a></code>
           –
         <div class="doc-md-description">
           <p>The profile named <code>name</code> doesn't exist and <code>must_exist</code> was True.</p>
@@ -5584,6 +5619,7 @@ profile doesn't exist yet.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -5599,6 +5635,8 @@ profile doesn't exist yet.</p>
   
       <p>Retrieves the slicer named <code>slicer</code>. If <code>require_configured</code> is set to True (the default) an exception
 will be raised if the slicer is not yet configured.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -5621,17 +5659,19 @@ the default), or also return an unconfigured slicer (False).</p>
       </li>
   </ul>
 
+
+
   <p>Raises:</p>
   <ul>
       <li class="field-body">
-            <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.UnknownSlicer">UnknownSlicer</span></code>
+            <code>~<a class="autorefs autorefs-internal" href="../#octoprint">octoprint</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing" href="#octoprint.slicing">slicing</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing.exceptions" href="exceptions/#octoprint.slicing.exceptions">exceptions</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing.exceptions.UnknownSlicer" href="exceptions/#octoprint.slicing.exceptions.UnknownSlicer">UnknownSlicer</a></code>
           –
         <div class="doc-md-description">
           <p>The <code>slicer</code> is unknown.</p>
         </div>
       </li>
       <li class="field-body">
-            <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.SlicerNotConfigured">SlicerNotConfigured</span></code>
+            <code>~<a class="autorefs autorefs-internal" href="../#octoprint">octoprint</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing" href="#octoprint.slicing">slicing</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing.exceptions" href="exceptions/#octoprint.slicing.exceptions">exceptions</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing.exceptions.SlicerNotConfigured" href="exceptions/#octoprint.slicing.exceptions.SlicerNotConfigured">SlicerNotConfigured</a></code>
           –
         <div class="doc-md-description">
           <p>The <code>slicer</code> is not yet configured and <code>require_configured</code> was set to True.</p>
@@ -5642,6 +5682,7 @@ the default), or also return an unconfigured slicer (False).</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -5657,6 +5698,8 @@ the default), or also return an unconfigured slicer (False).</p>
   
       <p>Retrieves the path where the profiles for slicer <code>slicer</code> are stored.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -5669,6 +5712,8 @@ the default), or also return an unconfigured slicer (False).</p>
       </li>
   </ul>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -5679,10 +5724,12 @@ the default), or also return an unconfigured slicer (False).</p>
       </li>
   </ul>
 
+
+
   <p>Raises:</p>
   <ul>
       <li class="field-body">
-            <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.UnknownSlicer">UnknownSlicer</span></code>
+            <code>~<a class="autorefs autorefs-internal" href="../#octoprint">octoprint</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing" href="#octoprint.slicing">slicing</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing.exceptions" href="exceptions/#octoprint.slicing.exceptions">exceptions</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing.exceptions.UnknownSlicer" href="exceptions/#octoprint.slicing.exceptions.UnknownSlicer">UnknownSlicer</a></code>
           –
         <div class="doc-md-description">
           <p>The slicer <code>slicer</code> is unknown.</p>
@@ -5693,6 +5740,7 @@ the default), or also return an unconfigured slicer (False).</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -5713,6 +5761,7 @@ the default), or also return an unconfigured slicer (False).</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -5730,6 +5779,8 @@ due to an :class:<code>IOError</code> <code>None</code> will be returned instead
 <p>If <code>require_configured</code> is True (the default) a :class:<code>SlicerNotConfigured</code> exception will be raised
 if the indicated <code>slicer</code> has not yet been configured.</p>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -5740,17 +5791,19 @@ if the indicated <code>slicer</code> has not yet been configured.</p>
       </li>
   </ul>
 
+
+
   <p>Raises:</p>
   <ul>
       <li class="field-body">
-            <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.UnknownSlicer">UnknownSlicer</span></code>
+            <code>~<a class="autorefs autorefs-internal" href="../#octoprint">octoprint</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing" href="#octoprint.slicing">slicing</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing.exceptions" href="exceptions/#octoprint.slicing.exceptions">exceptions</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing.exceptions.UnknownSlicer" href="exceptions/#octoprint.slicing.exceptions.UnknownSlicer">UnknownSlicer</a></code>
           –
         <div class="doc-md-description">
           <p>The slicer specified via <code>slicer</code> is unknown.</p>
         </div>
       </li>
       <li class="field-body">
-            <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.SlicerNotConfigured">SlicerNotConfigured</span></code>
+            <code>~<a class="autorefs autorefs-internal" href="../#octoprint">octoprint</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing" href="#octoprint.slicing">slicing</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing.exceptions" href="exceptions/#octoprint.slicing.exceptions">exceptions</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing.exceptions.SlicerNotConfigured" href="exceptions/#octoprint.slicing.exceptions.SlicerNotConfigured">SlicerNotConfigured</a></code>
           –
         <div class="doc-md-description">
           <p>The slicer specified via <code>slicer</code> has not yet been configured and
@@ -5758,7 +5811,7 @@ if the indicated <code>slicer</code> has not yet been configured.</p>
         </div>
       </li>
       <li class="field-body">
-            <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.UnknownProfile">UnknownProfile</span></code>
+            <code>~<a class="autorefs autorefs-internal" href="../#octoprint">octoprint</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing" href="#octoprint.slicing">slicing</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing.exceptions" href="exceptions/#octoprint.slicing.exceptions">exceptions</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing.exceptions.UnknownProfile" href="exceptions/#octoprint.slicing.exceptions.UnknownProfile">UnknownProfile</a></code>
           –
         <div class="doc-md-description">
           <p>The profile for slicer <code>slicer</code> named <code>name</code> does not exist.</p>
@@ -5769,6 +5822,7 @@ if the indicated <code>slicer</code> has not yet been configured.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -5784,6 +5838,8 @@ if the indicated <code>slicer</code> has not yet been configured.</p>
   
       <p>Retrieves the last modification date of <code>slicer</code>'s profiles.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -5795,6 +5851,8 @@ if the indicated <code>slicer</code> has not yet been configured.</p>
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -5809,6 +5867,7 @@ if the indicated <code>slicer</code> has not yet been configured.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -5828,6 +5887,7 @@ available slicers.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -5851,6 +5911,8 @@ the profile data as the :attr:<code>~SlicingProfile.data</code> attribute.</p>
 <p>.. note::</p>
 <p>If the profile is the first profile to be saved for the slicer, it will automatically be marked as default.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -5871,7 +5933,7 @@ the profile data as the :attr:<code>~SlicingProfile.data</code> attribute.</p>
       </li>
       <li class="field-body">
         <b>profile</b>
-            (<code>SlicingProfile or dict</code>)
+            (<code><a class="autorefs autorefs-internal" title="octoprint.slicing.SlicingProfile" href="#octoprint.slicing.SlicingProfile">SlicingProfile</a> or <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code>)
         –
         <div class="doc-md-description">
           <p>The :class:<code>SlicingProfile</code> or a :class:<code>dict</code> containing the profile
@@ -5913,6 +5975,8 @@ already exists, it will be overwritten. Otherwise an exception will be thrown.</
       </li>
   </ul>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -5922,6 +5986,8 @@ already exists, it will be overwritten. Otherwise an exception will be thrown.</
       </div>
       </li>
   </ul>
+
+
 
   <p>Raises:</p>
   <ul>
@@ -5933,14 +5999,14 @@ already exists, it will be overwritten. Otherwise an exception will be thrown.</
         </div>
       </li>
       <li class="field-body">
-            <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.UnknownSlicer">UnknownSlicer</span></code>
+            <code>~<a class="autorefs autorefs-internal" href="../#octoprint">octoprint</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing" href="#octoprint.slicing">slicing</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing.exceptions" href="exceptions/#octoprint.slicing.exceptions">exceptions</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing.exceptions.UnknownSlicer" href="exceptions/#octoprint.slicing.exceptions.UnknownSlicer">UnknownSlicer</a></code>
           –
         <div class="doc-md-description">
           <p>The slicer <code>slicer</code> is unknown.</p>
         </div>
       </li>
       <li class="field-body">
-            <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.ProfileAlreadyExists">ProfileAlreadyExists</span></code>
+            <code>~<a class="autorefs autorefs-internal" href="../#octoprint">octoprint</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing" href="#octoprint.slicing">slicing</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing.exceptions" href="exceptions/#octoprint.slicing.exceptions">exceptions</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing.exceptions.ProfileAlreadyExists" href="exceptions/#octoprint.slicing.exceptions.ProfileAlreadyExists">ProfileAlreadyExists</a></code>
           –
         <div class="doc-md-description">
           <p>A profile with name <code>name</code> already exists for <code>slicer</code> and <code>allow_overwrite</code> is
@@ -5952,6 +6018,7 @@ False.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -5966,6 +6033,8 @@ False.</p>
   <div class="doc doc-contents ">
   
       <p>Sets the given profile as default profile for the slicer.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -6009,10 +6078,12 @@ UnknownProfile error if true and the profile is unknown.</p>
       </li>
   </ul>
 
+
+
   <p>Raises:</p>
   <ul>
       <li class="field-body">
-            <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.UnknownSlicer">UnknownSlicer</span></code>
+            <code>~<a class="autorefs autorefs-internal" href="../#octoprint">octoprint</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing" href="#octoprint.slicing">slicing</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing.exceptions" href="exceptions/#octoprint.slicing.exceptions">exceptions</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing.exceptions.UnknownSlicer" href="exceptions/#octoprint.slicing.exceptions.UnknownSlicer">UnknownSlicer</a></code>
           –
         <div class="doc-md-description">
           <p>The slicer <code>slicer</code>
@@ -6020,7 +6091,7 @@ is unknown</p>
         </div>
       </li>
       <li class="field-body">
-            <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.SlicerNotConfigured">SlicerNotConfigured</span></code>
+            <code>~<a class="autorefs autorefs-internal" href="../#octoprint">octoprint</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing" href="#octoprint.slicing">slicing</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing.exceptions" href="exceptions/#octoprint.slicing.exceptions">exceptions</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing.exceptions.SlicerNotConfigured" href="exceptions/#octoprint.slicing.exceptions.SlicerNotConfigured">SlicerNotConfigured</a></code>
           –
         <div class="doc-md-description">
           <p>The slicer <code>slicer</code>
@@ -6028,7 +6099,7 @@ has not yet been configured and <code>require_configured</code> was true.</p>
         </div>
       </li>
       <li class="field-body">
-            <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.UnknownProfile">UnknownProfile</span></code>
+            <code>~<a class="autorefs autorefs-internal" href="../#octoprint">octoprint</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing" href="#octoprint.slicing">slicing</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing.exceptions" href="exceptions/#octoprint.slicing.exceptions">exceptions</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing.exceptions.UnknownProfile" href="exceptions/#octoprint.slicing.exceptions.UnknownProfile">UnknownProfile</a></code>
           –
         <div class="doc-md-description">
           <p>The profile <code>name</code>
@@ -6041,6 +6112,7 @@ true.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -6078,6 +6150,8 @@ and 1 plus all additionally specified args and kwargs.</p>
 via the keyword argument <code>printer_profile_id</code>.</p>
 <p>If the <code>source_path</code> is to be a sliced at a different position than the print bed center, this <code>position</code> can
 be supplied as a dictionary defining the <code>x</code> and <code>y</code> coordinate in print bed coordinates of the model's center.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -6123,7 +6197,7 @@ be supplied as a dictionary defining the <code>x</code> and <code>y</code> coord
       </li>
       <li class="field-body">
         <b>callback_args</b>
-            (<code>list or tuple</code>)
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a> or <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a></code>)
         –
         <div class="doc-md-description">
           <p>Arguments of the callback to call after slicing has finished. Defaults to
@@ -6158,7 +6232,7 @@ dictionary.</p>
       </li>
       <li class="field-body">
         <b>on_progress_args</b>
-            (<code>list or tuple</code>)
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a> or <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a></code>)
         –
         <div class="doc-md-description">
           <p>Arguments of the progress callback. Defaults to an empty list.</p>
@@ -6194,17 +6268,19 @@ Example: <code>dict(x=10,y=20)</code>.</p>
       </li>
   </ul>
 
+
+
   <p>Raises:</p>
   <ul>
       <li class="field-body">
-            <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.UnknownSlicer">UnknownSlicer</span></code>
+            <code>~<a class="autorefs autorefs-internal" href="../#octoprint">octoprint</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing" href="#octoprint.slicing">slicing</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing.exceptions" href="exceptions/#octoprint.slicing.exceptions">exceptions</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing.exceptions.UnknownSlicer" href="exceptions/#octoprint.slicing.exceptions.UnknownSlicer">UnknownSlicer</a></code>
           –
         <div class="doc-md-description">
           <p>The slicer specified via <code>slicer_name</code> is unknown.</p>
         </div>
       </li>
       <li class="field-body">
-            <code>~<a class="autorefs autorefs-internal" title="octoprint.util" href="../util/#octoprint.util">octoprint</a>.<span title="octoprint.util.slicing">slicing</span>.<span title="octoprint.util.slicing.exceptions">exceptions</span>.<span title="octoprint.util.slicing.exceptions.SlicerNotConfigured">SlicerNotConfigured</span></code>
+            <code>~<a class="autorefs autorefs-internal" href="../#octoprint">octoprint</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing" href="#octoprint.slicing">slicing</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing.exceptions" href="exceptions/#octoprint.slicing.exceptions">exceptions</a>.<a class="autorefs autorefs-internal" title="octoprint.slicing.exceptions.SlicerNotConfigured" href="exceptions/#octoprint.slicing.exceptions.SlicerNotConfigured">SlicerNotConfigured</a></code>
           –
         <div class="doc-md-description">
           <p>The slice specified via <code>slicer_name</code> is not configured yet.</p>
@@ -6238,6 +6314,8 @@ Example: <code>dict(x=10,y=20)</code>.</p>
 
   
       <p>A wrapper for slicing profiles, both meta data and actual profile data.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -6292,7 +6370,6 @@ Example: <code>dict(x=10,y=20)</code>.</p>
   </ul>
 
 
-
   
 
   <div class="doc doc-children">
@@ -6335,6 +6412,8 @@ optional <code>overrides</code> applied through the supplied <code>save_profile<
    with (temporary) as profile_path:
        my_slicer.do_slice(..., profile_path=profile_path, ...)</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -6364,7 +6443,6 @@ supplied <code>overrides</code>. This will be called according to the method sig
         </div>
       </li>
   </ul>
-
 
 
   

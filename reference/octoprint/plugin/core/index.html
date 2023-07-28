@@ -8,6 +8,8 @@
       
       
       
+        <link rel="canonical" href="https://octoprint.github.io/docs/reference/octoprint/plugin/core/">
+      
       
         <link rel="prev" href="../">
       
@@ -15,7 +17,7 @@
         <link rel="next" href="../types/">
       
       <link rel="icon" href="../../../../images/tentacle.svg">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
+      <meta name="generator" content="mkdocs-1.5.1, mkdocs-material-9.1.21">
     
     
       
@@ -23,7 +25,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.eebd395e.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ecc896b0.min.css">
@@ -7089,14 +7091,13 @@
 
 
 <h2 id="octoprint.plugin.core.ControlProperties" class="doc doc-heading">
-        <code>ControlProperties</code>
+          <code>ControlProperties</code>
 
 
 <a href="#octoprint.plugin.core.ControlProperties" class="headerlink" title="Permanent link">#</a></h2>
 
 
   <div class="doc doc-contents ">
-
 
 
 
@@ -7536,6 +7537,7 @@ Python 2 but not Python 3.</p>
 
 
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -7577,11 +7579,13 @@ Python 2 but not Python 3.</p>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code>pkginfo.<span title="pkginfo.Distribution">Distribution</span></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code>pkginfo.<span title="pkginfo.Distribution">Distribution</span></code></p>
 
   
       <p>A wrapper around <code>pkginfo.Distribution</code> that extracts metadata from an <code>EntryPoint</code> object.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -7594,7 +7598,6 @@ Python 2 but not Python 3.</p>
         </div>
       </li>
   </ul>
-
 
 
   
@@ -7631,7 +7634,6 @@ Python 2 but not Python 3.</p>
 
   
       <p>Origin of a plugin registered via an entry point.</p>
-
 
 
   
@@ -7775,7 +7777,6 @@ Python 2 but not Python 3.</p>
       <p>Origin of a (single file) plugin loaded from a plugin folder.</p>
 
 
-
   
 
   <div class="doc doc-children">
@@ -7852,7 +7853,6 @@ Python 2 but not Python 3.</p>
 
   
       <p>Origin of a (single file) plugin loaded from a plugin folder.</p>
-
 
 
   
@@ -7952,7 +7952,6 @@ Python 2 but not Python 3.</p>
 
   
       <p>The parent class of all plugin implementations.</p>
-
 
 
   
@@ -8073,6 +8072,7 @@ concatenated with the contents of <code>_identifier</code>.</p>
 
 
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -8091,6 +8091,7 @@ concatenated with the contents of <code>_identifier</code>.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -8108,6 +8109,7 @@ concatenated with the contents of <code>_identifier</code>.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -8146,12 +8148,11 @@ concatenated with the contents of <code>_identifier</code>.</p>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><a class="autorefs autorefs-internal" title="octoprint.plugin.core.PluginLifecycleException" href="#octoprint.plugin.core.PluginLifecycleException">PluginLifecycleException</a></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="octoprint.plugin.core.PluginLifecycleException" href="#octoprint.plugin.core.PluginLifecycleException">PluginLifecycleException</a></code></p>
 
   
       <p>Thrown by plugins that cannot be disabled.</p>
-
 
 
   
@@ -8185,12 +8186,11 @@ concatenated with the contents of <code>_identifier</code>.</p>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><a class="autorefs autorefs-internal" title="octoprint.plugin.core.PluginLifecycleException" href="#octoprint.plugin.core.PluginLifecycleException">PluginLifecycleException</a></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="octoprint.plugin.core.PluginLifecycleException" href="#octoprint.plugin.core.PluginLifecycleException">PluginLifecycleException</a></code></p>
 
   
       <p>Thrown by plugins that cannot be enabled.</p>
-
 
 
   
@@ -8224,12 +8224,11 @@ concatenated with the contents of <code>_identifier</code>.</p>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><a class="autorefs autorefs-internal" title="octoprint.plugin.core.PluginLifecycleException" href="#octoprint.plugin.core.PluginLifecycleException">PluginLifecycleException</a></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="octoprint.plugin.core.PluginLifecycleException" href="#octoprint.plugin.core.PluginLifecycleException">PluginLifecycleException</a></code></p>
 
   
       <p>Thrown by plugins that cannot be initialized.</p>
-
 
 
   
@@ -8270,6 +8269,8 @@ concatenated with the contents of <code>_identifier</code>.</p>
 implementation, hooks and helpers.</p>
 <p>It works on Python module objects and extracts the relevant data from those via accessing the
 control properties.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -8348,7 +8349,6 @@ control properties.</p>
   </ul>
 
 
-
   
 
   <div class="doc doc-children">
@@ -8378,6 +8378,8 @@ control properties.</p>
       <p>Author of the plugin.</p>
 <p>Will be taken from the author attribute of the plugin module if available, otherwise from the
 <code>author</code> supplied during construction. May be <code>None</code>.</p>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -8454,6 +8456,8 @@ control properties.</p>
       <p>Method for pre-load check of plugin. Will be taken from the check attribute of the plugin module if available,
 otherwise a lambda always returning True is returned.</p>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -8510,6 +8514,8 @@ otherwise.</p>
 <p>Will be taken from the description attribute of the plugin module if available, otherwise from the
 <code>description</code> supplied during construction. May be <code>None</code>.</p>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -8542,6 +8548,8 @@ otherwise.</p>
   
       <p>Method for disabling the plugin module. Will be taken from the disable attribute of the plugin module if available,
 otherwise a no-operation lambda will be returned.</p>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -8578,6 +8586,8 @@ otherwise a no-operation lambda will be returned.</p>
 <p>Will be taken from the <code>disabling_discouraged</code> attribute of the plugin module if
 available. <code>False</code> if unset or plugin not bundled.</p>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -8610,6 +8620,8 @@ available. <code>False</code> if unset or plugin not bundled.</p>
   
       <p>Method for enabling the plugin module. Will be taken from the enable attribute of the plugin module if available,
 otherwise a no-operation lambda will be returned.</p>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -8686,6 +8698,8 @@ otherwise a no-operation lambda will be returned.</p>
       <p>Helpers provided by the plugin.</p>
 <p>Will be taken from the helpers attribute of the plugin module if available, otherwise an empty dictionary is returned.</p>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -8718,6 +8732,8 @@ otherwise a no-operation lambda will be returned.</p>
   
       <p>Hidden flag.</p>
 <p>Will be taken from the hidden attribute of the plugin module if available, otherwise defaults to <code>False</code>.</p>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -8752,6 +8768,8 @@ otherwise a no-operation lambda will be returned.</p>
       <p>Hooks provided by the plugin.</p>
 <p>Will be taken from the hooks attribute of the plugin module if available, otherwise an empty dictionary is returned.</p>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -8784,6 +8802,8 @@ otherwise a no-operation lambda will be returned.</p>
   
       <p>Implementation provided by the plugin.</p>
 <p>Will be taken from the implementation attribute of the plugin module if available, otherwise <code>None</code> is returned.</p>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -8861,6 +8881,8 @@ otherwise a no-operation lambda will be returned.</p>
 <p>Will be taken from the license attribute of the plugin module if available, otherwise from the
 <code>license</code> supplied during construction. May be <code>None</code>.</p>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -8893,6 +8915,8 @@ otherwise a no-operation lambda will be returned.</p>
   
       <p>Method for loading the plugin module. Will be taken from the load attribute of the plugin module if available,
 otherwise a no-operation lambda will be returned.</p>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -8991,6 +9015,8 @@ otherwise a no-operation lambda will be returned.</p>
 <p>Will be taken from the name attribute of the plugin module if available, otherwise from the
 <code>name</code> supplied during construction with a fallback to <code>key</code>.</p>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -9088,6 +9114,8 @@ or [octoprint.plugin.core.ModuleOrigin] instance. Set during loading, initially 
       <p>Privacy Policy URL of the plugin.</p>
 <p>Will be taken from the privacy policy attribute of the plugin module if available. May be <code>None</code>.</p>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -9119,6 +9147,8 @@ or [octoprint.plugin.core.ModuleOrigin] instance. Set during loading, initially 
   <div class="doc doc-contents ">
   
       <p>Python compatibility string of the plugin module if available, otherwise defaults to <code>&gt;=2.7,&lt;3</code>.</p>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -9152,6 +9182,8 @@ or [octoprint.plugin.core.ModuleOrigin] instance. Set during loading, initially 
   
       <p>Method for unloading the plugin module. Will be taken from the unload attribute of the plugin module if available,
 otherwise a no-operation lambda will be returned.</p>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -9187,6 +9219,8 @@ otherwise a no-operation lambda will be returned.</p>
 <p>Will be taken from the url attribute of the plugin module if available, otherwise from the
 <code>url</code> supplied during construction. May be <code>None</code>.</p>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -9221,6 +9255,8 @@ otherwise a no-operation lambda will be returned.</p>
 <p>Will be taken from the version attribute of the plugin module if available, otherwise from the
 <code>version</code> supplied during construction. May be <code>None</code>.</p>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -9237,6 +9273,7 @@ otherwise a no-operation lambda will be returned.</p>
 
 
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -9250,6 +9287,8 @@ otherwise a no-operation lambda will be returned.</p>
   <div class="doc doc-contents ">
   
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -9261,6 +9300,8 @@ otherwise a no-operation lambda will be returned.</p>
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -9277,6 +9318,7 @@ otherwise a no-operation lambda will be returned.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -9291,6 +9333,8 @@ otherwise a no-operation lambda will be returned.</p>
   
       <p>Returns the plugin's implementation if it matches all of the requested <code>types</code>, <code>None</code> otherwise.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -9302,6 +9346,8 @@ otherwise a no-operation lambda will be returned.</p>
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -9317,6 +9363,7 @@ otherwise a no-operation lambda will be returned.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -9345,6 +9392,8 @@ entry the string to insert when it is not. Example: <code>(" [B]", "")</code></d
 <dd>a format string (to be parsed with <code>str.format</code>), the <code>{location}</code> placeholder will be
 replaced with the plugin's installation folder on disk. Example: <code>" - {location}"</code></dd>
 </dl>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -9397,6 +9446,8 @@ replaced with the plugin's installation folder on disk. Example: <code>" - {loca
       </li>
   </ul>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -9411,6 +9462,7 @@ replaced with the plugin's installation folder on disk. Example: <code>" - {loca
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -9427,6 +9479,8 @@ replaced with the plugin's installation folder on disk. Example: <code>" - {loca
       <p>Validates the plugin for various validation phases.</p>
 <p><code>phase</code> can be one of <code>before_import</code>, <code>before_load</code>, <code>after_load</code>.</p>
 <p>Used by <a class="autorefs autorefs-internal" href="#octoprint.plugin.core.PluginManager">octoprint.plugin.core.PluginManager</a>, should not be used elsewhere.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -9449,6 +9503,8 @@ be considered valid for the given phase.</p>
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -9484,12 +9540,11 @@ be considered valid for the given phase.</p>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/exceptions.html#Exception">Exception</a></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/exceptions.html#Exception">Exception</a></code></p>
 
   
       <p>General plugin lifecycle exception.</p>
-
 
 
   
@@ -9528,7 +9583,6 @@ be considered valid for the given phase.</p>
       <p>The <code>PluginManager</code> is the central component for finding, loading and accessing plugins provided to the
 system.</p>
 <p>It is able to discover plugins both through possible file system locations as well as customizable entry points.</p>
-
 
 
   
@@ -9768,6 +9822,8 @@ system.</p>
   <div class="doc doc-contents ">
   
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -9882,6 +9938,8 @@ system.</p>
   <div class="doc doc-contents ">
   
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -9894,6 +9952,7 @@ system.</p>
   </div>
 
 </div>
+
 
 
 
@@ -9910,6 +9969,8 @@ system.</p>
   <div class="doc doc-contents ">
   
       <p>Disables a plugin.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -9930,6 +9991,8 @@ system.</p>
         </div>
       </li>
   </ul>
+
+
 
   <p>Raises:</p>
   <ul>
@@ -9953,6 +10016,7 @@ system.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -9966,6 +10030,8 @@ system.</p>
   <div class="doc doc-contents ">
   
       <p>Enables a plugin.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -10003,6 +10069,8 @@ system.</p>
       </li>
   </ul>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -10013,6 +10081,8 @@ system.</p>
       </div>
       </li>
   </ul>
+
+
 
   <p>Raises:</p>
   <ul>
@@ -10044,6 +10114,7 @@ of the plugin</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -10057,6 +10128,8 @@ of the plugin</p>
   <div class="doc doc-contents ">
   
       <p>Run the plugin discovery process and return the added plugins.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -10086,6 +10159,8 @@ of the plugin</p>
       </li>
   </ul>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -10101,6 +10176,7 @@ of the plugin</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -10114,6 +10190,8 @@ of the plugin</p>
   <div class="doc doc-contents ">
   
       <p>Get all mixin implementations that implement <em>all</em> of the provided <code>types</code> and match the provided filter <code>f</code>.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -10136,6 +10214,8 @@ passed each implementation as its only argument.</p>
       </li>
   </ul>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -10150,6 +10230,7 @@ passed each implementation as its only argument.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -10166,6 +10247,8 @@ passed each implementation as its only argument.</p>
       <p>Retrieves the named <code>helpers</code> for the plugin with identifier <code>name</code>.</p>
 <p>If the plugin is not available, returns None. Otherwise returns a :class:<code>dict</code> with the requested plugin
 helper names mapped to the method - if a helper could not be resolved, it will be missing from the dict.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -10187,6 +10270,8 @@ helper names mapped to the method - if a helper could not be resolved, it will b
       </li>
   </ul>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -10203,6 +10288,7 @@ registered with the system.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -10217,6 +10303,8 @@ registered with the system.</p>
   
       <p>Retrieves all registered handlers for the specified hook.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -10228,6 +10316,8 @@ registered with the system.</p>
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -10244,6 +10334,7 @@ registered with the system.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -10258,6 +10349,8 @@ registered with the system.</p>
   
       <p>Get all mixin implementations that implement <em>all</em> of the provided <code>types</code>.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -10269,6 +10362,8 @@ registered with the system.</p>
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -10285,6 +10380,7 @@ registered with the system.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -10299,6 +10395,8 @@ registered with the system.</p>
   
       <p>Retrieves the module of the plugin identified by <code>identifier</code>. If the plugin is not registered or disabled and
 <code>required_enabled</code> is <code>True</code> (the default) <code>None</code> will be returned.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -10321,6 +10419,8 @@ disabled.</p>
       </li>
   </ul>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -10336,6 +10436,7 @@ disabled.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -10350,6 +10451,8 @@ disabled.</p>
   
       <p>Retrieves the <a class="autorefs autorefs-internal" href="#octoprint.plugin.core.PluginInfo">octoprint.plugin.core.PluginInfo</a> instance identified by <code>identifier</code>.</p>
 <p>If the plugin is not registered or disabled and <code>required_enabled</code> is <code>True</code> (the default) <code>None</code> will be returned.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -10372,6 +10475,8 @@ disabled.</p>
       </li>
   </ul>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -10386,6 +10491,7 @@ disabled.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -10405,6 +10511,8 @@ disabled.</p>
   
       <p>Tests if the plugin contains any of the provided hooks.</p>
 <p>Uses <a class="autorefs autorefs-internal" href="#octoprint.plugin.core.PluginManager.hook_matches_hooks">octoprint.plugin.core.PluginManager.hook_matches_hooks</a>.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -10426,6 +10534,8 @@ disabled.</p>
       </li>
   </ul>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -10441,6 +10551,7 @@ disabled.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -10460,6 +10571,8 @@ disabled.</p>
   
       <p>Tests if the <code>plugin</code> has an implementation implementing any
 of the provided <code>mixins</code>.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -10481,6 +10594,8 @@ of the provided <code>mixins</code>.</p>
       </li>
   </ul>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -10497,6 +10612,7 @@ provided mixins, <code>False</code> otherwise.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -10511,6 +10627,8 @@ provided mixins, <code>False</code> otherwise.</p>
   
       <p>Checks whether the plugin uses any of the defined obsolete hooks.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -10522,6 +10640,8 @@ provided mixins, <code>False</code> otherwise.</p>
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -10538,6 +10658,7 @@ provided mixins, <code>False</code> otherwise.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -10552,6 +10673,8 @@ provided mixins, <code>False</code> otherwise.</p>
   
       <p>Checks whether the plugin has any hooks that need a restart on changes.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -10563,6 +10686,8 @@ provided mixins, <code>False</code> otherwise.</p>
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -10579,6 +10704,7 @@ provided mixins, <code>False</code> otherwise.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -10593,6 +10719,8 @@ provided mixins, <code>False</code> otherwise.</p>
   
       <p>Checks whether the plugin's implementation needs a restart on changes.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -10604,6 +10732,8 @@ provided mixins, <code>False</code> otherwise.</p>
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -10619,6 +10749,7 @@ provided mixins, <code>False</code> otherwise.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -10641,6 +10772,8 @@ provided mixins, <code>False</code> otherwise.</p>
 <p><code>hooks</code> is expected to be a list containing one or more hook names or
 patterns. That can be either an exact hook name or an [fnmatch.fnmatch] pattern.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -10661,6 +10794,8 @@ patterns. That can be either an exact hook name or an [fnmatch.fnmatch] pattern.
       </li>
   </ul>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -10676,6 +10811,7 @@ patterns. That can be either an exact hook name or an [fnmatch.fnmatch] pattern.
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -10689,6 +10825,8 @@ patterns. That can be either an exact hook name or an [fnmatch.fnmatch] pattern.
   <div class="doc doc-contents ">
   
       <p>Initializes the given implementation.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -10760,6 +10898,7 @@ the plugin's identifier and the implementation as parameters</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -10773,6 +10912,8 @@ the plugin's identifier and the implementation as parameters</p>
   <div class="doc doc-contents ">
   
       <p>Initializes the implementation of the given plugin.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -10832,6 +10973,8 @@ called with the plugin's identifier and implementation as arguments</p>
       </li>
   </ul>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -10847,6 +10990,7 @@ called with the plugin's identifier and implementation as arguments</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -10860,6 +11004,8 @@ called with the plugin's identifier and implementation as arguments</p>
   <div class="doc doc-contents ">
   
       <p>Initializes all plugin implementations.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -10907,6 +11053,7 @@ called with the plugin's identifier and implementation as arguments</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -10921,6 +11068,8 @@ called with the plugin's identifier and implementation as arguments</p>
   
       <p>Checks whether a hook is defined obsolete.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -10932,6 +11081,8 @@ called with the plugin's identifier and implementation as arguments</p>
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -10948,6 +11099,7 @@ called with the plugin's identifier and implementation as arguments</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -10961,6 +11113,8 @@ called with the plugin's identifier and implementation as arguments</p>
   <div class="doc doc-contents ">
   
       <p>Checks whether a plugin has been marked with a certain flag.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -10982,6 +11136,8 @@ called with the plugin's identifier and implementation as arguments</p>
       </li>
   </ul>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -10997,6 +11153,7 @@ called with the plugin's identifier and implementation as arguments</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -11011,6 +11168,8 @@ called with the plugin's identifier and implementation as arguments</p>
   
       <p>Checks whether a hook needs a restart on changes.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -11022,6 +11181,8 @@ called with the plugin's identifier and implementation as arguments</p>
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -11038,6 +11199,7 @@ called with the plugin's identifier and implementation as arguments</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -11052,6 +11214,8 @@ called with the plugin's identifier and implementation as arguments</p>
   
       <p>Checks whether the plugin needs a restart on changes.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -11063,6 +11227,8 @@ called with the plugin's identifier and implementation as arguments</p>
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -11079,6 +11245,7 @@ called with the plugin's identifier and implementation as arguments</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -11092,6 +11259,8 @@ called with the plugin's identifier and implementation as arguments</p>
   <div class="doc doc-contents ">
   
       <p>Loads plugin <code>name</code>, triggering all lifecycle events as needed.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -11129,6 +11298,8 @@ called with the plugin's identifier and implementation as arguments</p>
       </li>
   </ul>
 
+
+
   <p>Raises:</p>
   <ul>
       <li class="field-body">
@@ -11144,6 +11315,7 @@ called with the plugin's identifier and implementation as arguments</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -11157,6 +11329,8 @@ called with the plugin's identifier and implementation as arguments</p>
   <div class="doc doc-contents ">
   
       <p>Logs all plugins to the logger.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -11224,6 +11398,7 @@ second string if it is not</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -11237,6 +11412,8 @@ second string if it is not</p>
   <div class="doc doc-contents ">
   
       <p>Mark plugin <code>name</code> with an arbitrary number of flags.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -11262,6 +11439,7 @@ second string if it is not</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -11280,6 +11458,8 @@ second string if it is not</p>
   
       <p>Returns a set of all mixins of the given <code>klass</code> that match any of the
 provided <code>bases</code>.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -11301,6 +11481,8 @@ provided <code>bases</code>.</p>
       </li>
   </ul>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -11316,6 +11498,7 @@ provided <code>bases</code>.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -11333,6 +11516,8 @@ provided <code>bases</code>.</p>
 <p>The <code>client</code> needs to be a <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#callable">callable</a> accepting two input arguments, <code>plugin</code> (the sending plugin's identifier)
 and <code>data</code> (the message itself), and one optional keyword argument, <code>permissions</code> (an optional list of permissions to test against).</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -11349,6 +11534,7 @@ and <code>data</code> (the message itself), and one optional keyword argument, <
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -11363,6 +11549,8 @@ and <code>data</code> (the message itself), and one optional keyword argument, <
   
       <p>Reloads plugins, detecting newly added ones in the process.</p>
 <p>Logs the currently detected plugins and their status.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -11396,6 +11584,7 @@ and <code>data</code> (the message itself), and one optional keyword argument, <
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -11410,6 +11599,8 @@ and <code>data</code> (the message itself), and one optional keyword argument, <
   
       <p>Sends <code>data</code> in the name of <code>plugin</code> to all currently registered message receivers by invoking them
 with the three arguments.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -11443,6 +11634,7 @@ with the three arguments.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -11457,6 +11649,8 @@ with the three arguments.</p>
   
       <p>Unloads plugin <code>name</code>, triggering all lifecycle events as needed.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -11468,6 +11662,8 @@ with the three arguments.</p>
         </div>
       </li>
   </ul>
+
+
 
   <p>Raises:</p>
   <ul>
@@ -11485,6 +11681,7 @@ the plugin will be ensured to be marked as disabled</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -11498,6 +11695,8 @@ the plugin will be ensured to be marked as disabled</p>
   <div class="doc doc-contents ">
   
       <p>Unregisters a <code>client</code> for receiving plugin messages.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -11534,12 +11733,11 @@ the plugin will be ensured to be marked as disabled</p>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/exceptions.html#Exception">Exception</a></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/exceptions.html#Exception">Exception</a></code></p>
 
   
       <p>Thrown by plugins that need a restart after enabling/disabling them.</p>
-
 
 
   
@@ -11567,19 +11765,18 @@ the plugin will be ensured to be marked as disabled</p>
 
 
 <h2 id="octoprint.plugin.core.RestartNeedingPlugin" class="doc doc-heading">
-        <code>RestartNeedingPlugin</code>
+          <code>RestartNeedingPlugin</code>
 
 
 <a href="#octoprint.plugin.core.RestartNeedingPlugin" class="headerlink" title="Permanent link">#</a></h2>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><a class="autorefs autorefs-internal" title="octoprint.plugin.core.Plugin" href="#octoprint.plugin.core.Plugin">Plugin</a></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="octoprint.plugin.core.Plugin" href="#octoprint.plugin.core.Plugin">Plugin</a></code></p>
 
   
       <p>Mixin for plugin types that need a restart after enabling/disabling them.</p>
-
 
 
   </div>
@@ -11591,24 +11788,24 @@ the plugin will be ensured to be marked as disabled</p>
 
 
 <h2 id="octoprint.plugin.core.SortablePlugin" class="doc doc-heading">
-        <code>SortablePlugin</code>
+          <code>SortablePlugin</code>
 
 
 <a href="#octoprint.plugin.core.SortablePlugin" class="headerlink" title="Permanent link">#</a></h2>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><a class="autorefs autorefs-internal" title="octoprint.plugin.core.Plugin" href="#octoprint.plugin.core.Plugin">Plugin</a></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="octoprint.plugin.core.Plugin" href="#octoprint.plugin.core.Plugin">Plugin</a></code></p>
 
   
       <p>Mixin for plugin types that are sortable.</p>
 
 
-
   
 
   <div class="doc doc-children">
+
 
 
 
@@ -11636,6 +11833,8 @@ the plugin will be ensured to be marked as disabled</p>
 after all implementations which did return a sorting key value that was
 not <code>None</code> sorted by that.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -11648,6 +11847,8 @@ sorting key value.</p>
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -11675,6 +11876,7 @@ doesn't care about calling order.</p>
 </div>
 
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -11690,6 +11892,8 @@ doesn't care about calling order.</p>
       <p>Tests if a package is installed in editable mode.</p>
 <p>Checks if a file <code>&lt;install_dir&gt;/&lt;package&gt;.egg-link</code> exists and if it contains a line that points to
 <code>&lt;location&gt;/&lt;module&gt;</code>.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -11731,6 +11935,7 @@ doesn't care about calling order.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -11745,6 +11950,8 @@ doesn't care about calling order.</p>
   
       <p>Tests if <code>path</code> is a sub path (or identical) to <code>path</code>.</p>
 
+
+
 <p><strong>Examples:</strong></p>
     
       <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">is_sub_path_of</span><span class="p">(</span><span class="s2">&quot;/a/b/c&quot;</span><span class="p">,</span> <span class="s2">&quot;/a/b&quot;</span><span class="p">)</span>
@@ -11758,6 +11965,8 @@ doesn't care about calling order.</p>
 <a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">is_sub_path_of</span><span class="p">(</span><span class="s2">&quot;/a/b&quot;</span><span class="p">,</span> <span class="s2">&quot;/a/b&quot;</span><span class="p">)</span>
 <a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="go">True</span>
 </code></pre></div>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -11782,6 +11991,7 @@ doesn't care about calling order.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -11812,6 +12022,8 @@ error in its Python source, a <code>SyntaxError</code> is raised.</p>
 <p>This is also the list of plugin metadata available even for disabled/unloaded plugins. For all other control
 properties to be available, the plugin must be loaded by OctoPrint.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -11824,6 +12036,8 @@ properties to be available, the plugin must be loaded by OctoPrint.</p>
       </li>
   </ul>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -11834,6 +12048,8 @@ properties to be available, the plugin must be loaded by OctoPrint.</p>
       </div>
       </li>
   </ul>
+
+
 
   <p>Raises:</p>
   <ul>

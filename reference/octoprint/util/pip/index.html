@@ -8,6 +8,8 @@
       
       
       
+        <link rel="canonical" href="https://octoprint.github.io/docs/reference/octoprint/util/pip/">
+      
       
         <link rel="prev" href="../paths/">
       
@@ -15,7 +17,7 @@
         <link rel="next" href="../piptestballoon/setup/">
       
       <link rel="icon" href="../../../../images/tentacle.svg">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
+      <meta name="generator" content="mkdocs-1.5.1, mkdocs-material-9.1.21">
     
     
       
@@ -23,7 +25,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.eebd395e.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ecc896b0.min.css">
@@ -5409,20 +5411,19 @@
 
 
 <h2 id="octoprint.util.pip.LocalPipCaller" class="doc doc-heading">
-        <code>LocalPipCaller</code>
+          <code>LocalPipCaller</code>
 
 
 <a href="#octoprint.util.pip.LocalPipCaller" class="headerlink" title="Permanent link">#</a></h2>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><a class="autorefs autorefs-internal" title="octoprint.util.pip.PipCaller" href="#octoprint.util.pip.PipCaller">PipCaller</a></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="octoprint.util.pip.PipCaller" href="#octoprint.util.pip.PipCaller">PipCaller</a></code></p>
 
   
       <p>The LocalPipCaller always uses the pip instance associated with
 sys.executable.</p>
-
 
 
   
@@ -5456,9 +5457,8 @@ sys.executable.</p>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><a class="autorefs autorefs-internal" title="octoprint.util.commandline.CommandlineCaller" href="../commandline/#octoprint.util.commandline.CommandlineCaller">CommandlineCaller</a></code></p>
-
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="octoprint.util.commandline.CommandlineCaller" href="../commandline/#octoprint.util.commandline.CommandlineCaller">CommandlineCaller</a></code></p>
 
 
 
@@ -5483,6 +5483,7 @@ sys.executable.</p>
 </div>
 
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -5502,6 +5503,8 @@ starting with either "Successfully installed" or "Could not install".
 If neither can be found, an empty string will be returned, which should also
 be considered a failure to install.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -5513,6 +5516,8 @@ be considered a failure to install.</p>
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -5528,6 +5533,7 @@ be considered a failure to install.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -5546,6 +5552,8 @@ or not.</p>
 <p>This is currently determined by an empty result line and any line starting with
 "Requirement already satisfied".</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -5557,6 +5565,8 @@ or not.</p>
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -5571,6 +5581,7 @@ or not.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -5591,6 +5602,8 @@ error after updating that something to a newer (non-egg) version since it will s
 have the egg on its sys.path and expect to read data from it.</p>
 <p>See commit 8ad0aadb52b9ef354cad1b33bd4882ae2fbdb8d6 for more details.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -5602,6 +5615,8 @@ have the egg on its sys.path and expect to read data from it.</p>
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -5616,6 +5631,7 @@ have the egg on its sys.path and expect to read data from it.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -5633,6 +5649,8 @@ have the egg on its sys.path and expect to read data from it.</p>
 <p>This is currently determined by either a syntax error or an explicit "requires a
 different Python" line.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -5644,6 +5662,8 @@ different Python" line.</p>
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>

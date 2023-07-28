@@ -8,6 +8,8 @@
       
       
       
+        <link rel="canonical" href="https://octoprint.github.io/docs/reference/octoprint/util/">
+      
       
         <link rel="prev" href="../users/">
       
@@ -15,7 +17,7 @@
         <link rel="next" href="comm/">
       
       <link rel="icon" href="../../../images/tentacle.svg">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
+      <meta name="generator" content="mkdocs-1.5.1, mkdocs-material-9.1.21">
     
     
       
@@ -23,7 +25,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.eebd395e.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.ecc896b0.min.css">
@@ -5227,6 +5229,8 @@ warning) can be overridden using the optional <code>stacklevel</code> parameter.
 provided, a deprecation warning will also be added to the function's docstring by providing or extending its <code>__doc__</code>
 property.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -5274,6 +5278,8 @@ message, if False (default) it will be replaced with the deprecation message.</p
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -5310,6 +5316,8 @@ the warning) can be overridden using the optional <code>stacklevel</code> parame
 provided, a deprecation warning will also be added to the function's docstring by providing or extending its <code>__doc__</code>
 property.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -5358,6 +5366,8 @@ message, if False (default) it will be replaced with the deprecation message.</p
       </li>
   </ul>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -5391,6 +5401,8 @@ message, if False (default) it will be replaced with the deprecation message.</p
 supplied <code>message</code>. The call stack level used (for adding the source location of the offending call to the
 warning) can be overridden using the optional <code>stacklevel</code> parameter.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -5421,6 +5433,8 @@ happening dynamically from a fixed position to not shadow the real caller (e.g. 
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -5455,6 +5469,8 @@ happening dynamically from a fixed position to not shadow the real caller (e.g. 
 including the supplied <code>message</code>. The call stack level used (for adding the source location of the offending call to
 the warning) can be overridden using the optional <code>stacklevel</code> parameter.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -5486,6 +5502,8 @@ happening dynamically from a fixed position to not shadow the real caller (e.g. 
       </li>
   </ul>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -5511,13 +5529,12 @@ happening dynamically from a fixed position to not shadow the real caller (e.g. 
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><a class="autorefs autorefs-external" title="collections.abc.Set" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Set">Set</a></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-external" title="collections.abc.Set" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Set">Set</a></code></p>
 
   
       <p>Basic case insensitive set</p>
 <p>Any str values will be stored and compared in lower case. Other value types are left as-is.</p>
-
 
 
   
@@ -5551,8 +5568,8 @@ happening dynamically from a fixed position to not shadow the real caller (e.g. 
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/threading.html#module-threading">threading</a>.<a class="autorefs autorefs-external" title="threading.Thread" href="https://docs.python.org/3/library/threading.html#threading.Thread">Thread</a></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/threading.html#module-threading">threading</a>.<a class="autorefs autorefs-external" title="threading.Thread" href="https://docs.python.org/3/library/threading.html#threading.Thread">Thread</a></code></p>
 
   
       <p>This class represents an action that should be run repeatedly in an interval. It is similar to python's
@@ -5589,11 +5606,13 @@ not be exactly the same as the interval specified by the user.</p>
    t.start() # prints "Hello World!" 5 times, printing the first one
              # directly, then waiting 1, 2, 3, 4s in between (adaptive interval)</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
         <b>interval</b>
-            (<code>float or callable</code>)
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a> or <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#callable">callable</a></code>)
         –
         <div class="doc-md-description">
           <p>The interval between each <code>function</code> call, in seconds. Can also be a callable
@@ -5610,7 +5629,7 @@ returning the interval to use, in case the interval is not static.</p>
       </li>
       <li class="field-body">
         <b>args</b>
-            (<code>list or tuple</code>)
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a> or <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a></code>)
         –
         <div class="doc-md-description">
           <p>The arguments for the <code>function</code> call. Defaults to an empty list.</p>
@@ -5679,7 +5698,6 @@ the condition became false.</p>
   </ul>
 
 
-
   
 
   <div class="doc doc-children">
@@ -5711,8 +5729,8 @@ the condition became false.</p>
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/threading.html#module-threading">threading</a>.<a class="autorefs autorefs-external" title="threading.Thread" href="https://docs.python.org/3/library/threading.html#threading.Thread">Thread</a></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/threading.html#module-threading">threading</a>.<a class="autorefs autorefs-external" title="threading.Thread" href="https://docs.python.org/3/library/threading.html#threading.Thread">Thread</a></code></p>
 
   
       <p>This class represents an action that should be run after a specified amount of time. It is similar to python's
@@ -5730,11 +5748,13 @@ between runs) by calling the :func:<code>cancel</code> method. Resetting the cou
    t.reset()
    print("Reset at {}").format(time.time())</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
         <b>interval</b>
-            (<code>float or callable</code>)
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a> or <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#callable">callable</a></code>)
         –
         <div class="doc-md-description">
           <p>The interval before calling <code>function</code>, in seconds. Can also be a callable
@@ -5751,7 +5771,7 @@ returning the interval to use, in case the interval is not static.</p>
       </li>
       <li class="field-body">
         <b>args</b>
-            (<code>list or tuple</code>)
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a> or <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a></code>)
         –
         <div class="doc-md-description">
           <p>The arguments for the <code>function</code> call. Defaults to an empty list.</p>
@@ -5792,7 +5812,6 @@ returning the interval to use, in case the interval is not static.</p>
   </ul>
 
 
-
   
 
   <div class="doc doc-children">
@@ -5814,6 +5833,7 @@ returning the interval to use, in case the interval is not static.</p>
 </div>
 
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -5833,6 +5853,7 @@ returning the interval to use, in case the interval is not static.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -5851,6 +5872,7 @@ returning the interval to use, in case the interval is not static.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -5866,6 +5888,8 @@ returning the interval to use, in case the interval is not static.</p>
       <p>Deserializes data from a file</p>
 <p>In the current implementation this uses json.loads and - if the file is found to be
 compressed - zlib.decompress.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -5887,6 +5911,8 @@ compressed - zlib.decompress.</p>
       </li>
   </ul>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -5900,6 +5926,7 @@ compressed - zlib.decompress.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -5924,6 +5951,8 @@ True
 False
 </code></pre></div>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -5944,6 +5973,8 @@ False
       </li>
   </ul>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -5957,6 +5988,7 @@ False
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -5993,6 +6025,8 @@ Traceback (most recent call last):
 AssertionError
 </code></pre></div>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -6015,6 +6049,8 @@ keep and <code>False</code> for values to strip</p>
       </li>
   </ul>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -6029,6 +6065,7 @@ for which the <code>filter_function</code> returned <code>False</code></p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -6050,6 +6087,8 @@ for which the <code>filter_function</code> returned <code>False</code></p>
     &gt;&gt;&gt; shared = {(k, actual[k]) for k in actual if k in expected and actual[k] == expected[k]}
     &gt;&gt;&gt; len(shared) == len(expected)
     True</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -6079,6 +6118,7 @@ for which the <code>filter_function</code> returned <code>False</code></p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -6126,6 +6166,8 @@ False
 True
 </code></pre></div>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -6162,6 +6204,8 @@ True
       </li>
   </ul>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -6175,6 +6219,7 @@ True
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -6200,6 +6245,8 @@ True
 True
 </code></pre></div>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -6220,6 +6267,8 @@ True
       </li>
   </ul>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -6234,6 +6283,7 @@ as deep merging <code>target</code> on <code>source</code>.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -6258,6 +6308,8 @@ True
 &gt;&gt;&gt; dict_clean(a, b) == expected
 True
 </code></pre></div>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -6287,6 +6339,7 @@ True
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6301,6 +6354,8 @@ True
   
       <p>Filter predicate to test if a line contains non ASCII characters.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -6312,6 +6367,8 @@ True
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -6327,6 +6384,7 @@ True
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6340,6 +6398,8 @@ True
   <div class="doc doc-contents ">
   
       <p>Check if the file has a BOM and if so return it.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -6361,6 +6421,8 @@ True
       </li>
   </ul>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -6374,6 +6436,7 @@ True
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -6389,6 +6452,8 @@ True
   
       <p>Retrieves the class object for a given fully qualified class name.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -6400,6 +6465,8 @@ True
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -6414,6 +6481,7 @@ True
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -6430,6 +6498,8 @@ True
       <p>Retrieves the exception info of the last raised exception and returns it as a string formatted as
 <code>&lt;exception type&gt;: &lt;exception message&gt; @ &lt;source file&gt;:&lt;function name&gt;:&lt;line number&gt;</code>.</p>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -6443,6 +6513,7 @@ True
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -6458,6 +6529,8 @@ True
   
       <p>Formats a datetime instance as "YYYY-mm-dd HH:MM" and returns the resulting string.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -6469,6 +6542,8 @@ True
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -6483,6 +6558,7 @@ True
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -6500,6 +6576,8 @@ True
 K(ilo)B(ytes), M(ega)B(ytes), G(iga)B(ytes) and T(era)B(ytes), with one decimal place.</p>
 <p>Based on <a href="http://stackoverflow.com/a/1094933/2028598">http://stackoverflow.com/a/1094933/2028598</a></p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -6511,6 +6589,8 @@ K(ilo)B(ytes), M(ega)B(ytes), G(iga)B(ytes) and T(era)B(ytes), with one decimal 
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -6526,6 +6606,7 @@ K(ilo)B(ytes), M(ega)B(ytes), G(iga)B(ytes) and T(era)B(ytes), with one decimal 
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6540,6 +6621,8 @@ K(ilo)B(ytes), M(ega)B(ytes), G(iga)B(ytes) and T(era)B(ytes), with one decimal 
   
       <p>Formats a timedelta instance as "HH:MM:ss" and returns the resulting string.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -6551,6 +6634,8 @@ K(ilo)B(ytes), M(ega)B(ytes), G(iga)B(ytes) and T(era)B(ytes), with one decimal 
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -6565,6 +6650,7 @@ K(ilo)B(ytes), M(ega)B(ytes), G(iga)B(ytes) and T(era)B(ytes), with one decimal 
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -6581,6 +6667,8 @@ K(ilo)B(ytes), M(ega)B(ytes), G(iga)B(ytes) and T(era)B(ytes), with one decimal 
       <p>Returns the fully qualified class name for an object.</p>
 <p>Based on <a href="https://stackoverflow.com/a/2020083">https://stackoverflow.com/a/2020083</a></p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -6591,6 +6679,8 @@ K(ilo)B(ytes), M(ega)B(ytes), G(iga)B(ytes) and T(era)B(ytes), with one decimal 
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -6606,6 +6696,7 @@ K(ilo)B(ytes), M(ega)B(ytes), G(iga)B(ytes) and T(era)B(ytes), with one decimal 
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6619,6 +6710,8 @@ K(ilo)B(ytes), M(ega)B(ytes), G(iga)B(ytes) and T(era)B(ytes), with one decimal 
   <div class="doc doc-contents ">
   
       <p>Determines if the provided <code>filename</code> has one of the supplied <code>extensions</code>. The check is done case-insensitive.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -6647,6 +6740,7 @@ K(ilo)B(ytes), M(ega)B(ytes), G(iga)B(ytes) and T(era)B(ytes), with one decimal 
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -6687,6 +6781,7 @@ pp([dict(a=1, b=2), {"a", "c", "b"}, (1, 2), None, 1, True, "foo"])
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6707,6 +6802,8 @@ pp([dict(a=1, b=2), {"a", "c", "b"}, (1, 2), None, 1, True, "foo"])
 supported by json.dumps by default.</p>
 <p>This is not thread-safe, if concurrent access is required, the caller needs to ensure
 that only one thread is writing to the file at any given time.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -6748,6 +6845,7 @@ that only one thread is writing to the file at any given time.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6762,11 +6860,13 @@ that only one thread is writing to the file at any given time.</p>
   
       <p>Make sure <code>s_or_u</code> is a byte string.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
         <b>s_or_u</b>
-            (<code>str or bytes</code>)
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a> or <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#bytes">bytes</a></code>)
         –
         <div class="doc-md-description">
           <p>The value to convert</p>
@@ -6790,6 +6890,8 @@ that only one thread is writing to the file at any given time.</p>
       </li>
   </ul>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -6805,6 +6907,7 @@ that only one thread is writing to the file at any given time.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6819,11 +6922,13 @@ that only one thread is writing to the file at any given time.</p>
   
       <p>Make sure <code>s_or_u</code> is a string (str).</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
         <b>s_or_u</b>
-            (<code>str or bytes</code>)
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a> or <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#bytes">bytes</a></code>)
         –
         <div class="doc-md-description">
           <p>The value to convert</p>
@@ -6846,6 +6951,8 @@ that only one thread is writing to the file at any given time.</p>
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>

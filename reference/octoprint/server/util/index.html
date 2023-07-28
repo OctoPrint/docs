@@ -8,6 +8,8 @@
       
       
       
+        <link rel="canonical" href="https://octoprint.github.io/docs/reference/octoprint/server/util/">
+      
       
         <link rel="prev" href="../api/users/">
       
@@ -15,7 +17,7 @@
         <link rel="next" href="csrf/">
       
       <link rel="icon" href="../../../../images/tentacle.svg">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
+      <meta name="generator" content="mkdocs-1.5.1, mkdocs-material-9.1.21">
     
     
       
@@ -23,7 +25,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.eebd395e.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ecc896b0.min.css">
@@ -5100,6 +5102,7 @@
 
 
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -5117,6 +5120,7 @@
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -5137,6 +5141,7 @@
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -5156,6 +5161,7 @@ relevant requests &amp; methods.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -5174,6 +5180,7 @@ relevant requests &amp; methods.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -5189,6 +5196,8 @@ relevant requests &amp; methods.</p>
       <p>Determines if the current user (either from the session, api key or authorization
 header) has all of the requested permissions.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -5203,6 +5212,7 @@ header) has all of the requested permissions.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -5223,6 +5233,7 @@ header) has all of the requested permissions.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -5241,6 +5252,7 @@ header) has all of the requested permissions.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -5254,6 +5266,8 @@ header) has all of the requested permissions.</p>
   <div class="doc doc-contents ">
   
       <p>Logs the provided <code>user</code> into Flask Login and Principal if not None and active</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -5277,6 +5291,7 @@ header) has all of the requested permissions.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -5296,6 +5311,7 @@ on their responses to any requests that are not sent with method <code>GET</code
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -5318,6 +5334,7 @@ to prevent all client side caching from taking place.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -5336,6 +5353,7 @@ to prevent all client side caching from taking place.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -5350,6 +5368,8 @@ to prevent all client side caching from taking place.</p>
   
       <p>Returns a redirect response to the login view if the permission requirements are
 not met.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -5366,6 +5386,7 @@ not met.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -5379,6 +5400,8 @@ not met.</p>
   <div class="doc doc-contents ">
   
       <p>Requires a login with the given permissions and/or user id.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -5402,6 +5425,7 @@ not met.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -5417,6 +5441,8 @@ not met.</p>
       <p>Validates the given local redirect URL against the given allowed paths.</p>
 <p>An <code>url</code> is valid for a local redirect if it has neither scheme nor netloc defined,
 and its path is one of the given allowed paths.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -5438,6 +5464,8 @@ or prefixed (if allowed path ends with "*") will be considered valid.</p>
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>

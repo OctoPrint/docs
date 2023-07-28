@@ -8,6 +8,8 @@
       
       
       
+        <link rel="canonical" href="https://octoprint.github.io/docs/reference/octoprint/filemanager/storage/">
+      
       
         <link rel="prev" href="../destinations/">
       
@@ -15,7 +17,7 @@
         <link rel="next" href="../util/">
       
       <link rel="icon" href="../../../../images/tentacle.svg">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
+      <meta name="generator" content="mkdocs-1.5.1, mkdocs-material-9.1.21">
     
     
       
@@ -23,7 +25,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.eebd395e.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ecc896b0.min.css">
@@ -5551,18 +5553,19 @@
 
 
   <div class="doc doc-contents ">
-      <p class="doc doc-class-bases">
-        Bases: <code><a class="autorefs autorefs-internal" title="octoprint.filemanager.storage.StorageInterface" href="#octoprint.filemanager.storage.StorageInterface">StorageInterface</a></code></p>
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="octoprint.filemanager.storage.StorageInterface" href="#octoprint.filemanager.storage.StorageInterface">StorageInterface</a></code></p>
 
   
       <p>The <code>LocalFileStorage</code> is a storage implementation which holds all files, folders and metadata on disk.</p>
 <p>Metadata is managed inside <code>.metadata.json</code> files in the respective folders, indexed by the sanitized filenames
 stored within the folder. Metadata access is managed through an LRU cache to minimize access overhead.</p>
 <p>This storage type implements <code>path_on_disk</code>.</p>
-
   
       <p>Initializes a <code>LocalFileStorage</code> instance under the given <code>basefolder</code>, creating the necessary folder
 if necessary and <code>create</code> is set to <code>True</code>.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -5605,6 +5608,7 @@ if necessary and <code>create</code> is set to <code>True</code>.</p>
 
 
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -5631,6 +5635,8 @@ hence be returned at second position. If you only need to convert a folder path,
 include a trailing slash for a string <code>path</code> or an empty last element for a list <code>path</code>.</p>
 </div>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -5642,6 +5648,8 @@ include a trailing slash for a string <code>path</code> or an empty last element
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -5658,6 +5666,7 @@ include a trailing slash for a string <code>path</code> or an empty last element
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -5673,6 +5682,8 @@ include a trailing slash for a string <code>path</code> or an empty last element
       <p>Sanitizes the given <code>name</code> using <code>sanitize_filename</code>.</p>
 <p>Strips any leading <code>.</code>.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -5685,6 +5696,8 @@ include a trailing slash for a string <code>path</code> or an empty last element
       </li>
   </ul>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -5695,6 +5708,8 @@ include a trailing slash for a string <code>path</code> or an empty last element
       </div>
       </li>
   </ul>
+
+
 
   <p>Raises:</p>
   <ul>
@@ -5710,6 +5725,7 @@ include a trailing slash for a string <code>path</code> or an empty last element
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -5728,6 +5744,8 @@ include a trailing slash for a string <code>path</code> or an empty last element
 Resolves all relative path elements (e.g. <code>..</code>) and sanitizes folder names using <code>sanitize_name</code>.
 The final path is the absolute path, including the leading <code>basefolder</code> path.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -5739,6 +5757,8 @@ The final path is the absolute path, including the leading <code>basefolder</cod
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -5768,7 +5788,7 @@ The final path is the absolute path, including the leading <code>basefolder</cod
 
 
 <h2 id="octoprint.filemanager.storage.StorageInterface" class="doc doc-heading">
-        <code>StorageInterface</code>
+          <code>StorageInterface</code>
 
 
 <a href="#octoprint.filemanager.storage.StorageInterface" class="headerlink" title="Permanent link">#</a></h2>
@@ -5778,7 +5798,6 @@ The final path is the absolute path, including the leading <code>basefolder</cod
 
   
       <p>Interface of storage adapters for OctoPrint.</p>
-
 
 
   
@@ -5811,6 +5830,8 @@ The final path is the absolute path, including the leading <code>basefolder</cod
 <p>The yielded elements are expected as storage specific absolute paths to the respective files. Don't forget
 to recurse into folders if your storage adapter supports those.</p>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -5827,6 +5848,7 @@ to recurse into folders if your storage adapter supports those.</p>
 
 
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -5840,6 +5862,8 @@ to recurse into folders if your storage adapter supports those.</p>
   <div class="doc doc-contents ">
   
       <p>Adds the file <code>file_object</code> as <code>path</code></p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -5895,6 +5919,8 @@ and its metadata will just be silently overwritten</p>
       </li>
   </ul>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -5910,6 +5936,7 @@ and its metadata will just be silently overwritten</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -5924,6 +5951,8 @@ and its metadata will just be silently overwritten</p>
   
       <p>Adds a folder as <code>path</code></p>
 <p>The <code>path</code> will be sanitized.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -5953,6 +5982,8 @@ and its metadata will just be silently overwritten</p>
       </li>
   </ul>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -5967,6 +5998,7 @@ and its metadata will just be silently overwritten</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -5997,6 +6029,8 @@ and its metadata will just be silently overwritten</p>
 </ul>
 <p>Note that adding <code>model</code> links to files identifying as models or <code>machinecode</code> links to files identifying
 as machine code will be refused.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -6030,6 +6064,7 @@ as machine code will be refused.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6048,6 +6083,8 @@ implementation must separate those if necessary.</p>
 <p>By default, this calls <a class="autorefs autorefs-internal" href="#octoprint.filemanager.storage.StorageInterface.sanitize">StorageInterface.sanitize</a>, which also takes care
 of stripping any invalid characters.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -6059,6 +6096,8 @@ of stripping any invalid characters.</p>
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -6075,6 +6114,7 @@ of stripping any invalid characters.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6088,6 +6128,8 @@ of stripping any invalid characters.</p>
   <div class="doc doc-contents ">
   
       <p>Copies the file <code>source</code> to <code>destination</code></p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -6109,6 +6151,8 @@ of stripping any invalid characters.</p>
       </li>
   </ul>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -6124,6 +6168,7 @@ of stripping any invalid characters.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6137,6 +6182,8 @@ of stripping any invalid characters.</p>
   <div class="doc doc-contents ">
   
       <p>Copies the folder <code>source</code> to <code>destination</code></p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -6158,6 +6205,8 @@ of stripping any invalid characters.</p>
       </li>
   </ul>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -6173,6 +6222,7 @@ of stripping any invalid characters.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6187,6 +6237,8 @@ of stripping any invalid characters.</p>
   
       <p>Returns whether the file indicated by <code>path</code> exists or not.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -6198,6 +6250,8 @@ of stripping any invalid characters.</p>
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -6214,6 +6268,7 @@ of stripping any invalid characters.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6227,6 +6282,8 @@ of stripping any invalid characters.</p>
   <div class="doc doc-contents ">
   
       <p>Returns whether the file indicated by <code>file</code> is inside <code>path</code> or not.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -6248,6 +6305,8 @@ of stripping any invalid characters.</p>
       </li>
   </ul>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -6263,6 +6322,7 @@ of stripping any invalid characters.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6277,6 +6337,8 @@ of stripping any invalid characters.</p>
   
       <p>Returns whether the folder indicated by <code>path</code> exists or not.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -6288,6 +6350,8 @@ of stripping any invalid characters.</p>
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -6303,6 +6367,7 @@ of stripping any invalid characters.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6316,6 +6381,8 @@ of stripping any invalid characters.</p>
   <div class="doc doc-contents ">
   
       <p>Fetches additional metadata at <code>key</code> from the metadata of <code>path</code>.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -6341,6 +6408,7 @@ of stripping any invalid characters.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6355,6 +6423,8 @@ of stripping any invalid characters.</p>
   
       <p>Retrieves the metadata for the file <code>path</code>.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -6366,6 +6436,8 @@ of stripping any invalid characters.</p>
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -6382,6 +6454,7 @@ of stripping any invalid characters.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6395,6 +6468,8 @@ of stripping any invalid characters.</p>
   <div class="doc doc-contents ">
   
       <p>Returns whether the file at path has been analysed yet</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -6412,6 +6487,7 @@ of stripping any invalid characters.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6426,6 +6502,8 @@ of stripping any invalid characters.</p>
   
       <p>Join path elements together</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -6437,6 +6515,8 @@ of stripping any invalid characters.</p>
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -6453,6 +6533,7 @@ of stripping any invalid characters.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6466,6 +6547,8 @@ of stripping any invalid characters.</p>
   <div class="doc doc-contents ">
   
       <p>Get the last modification date of the specified <code>path</code> or <code>path</code>'s subtree.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -6489,6 +6572,8 @@ the whole <code>path</code>'s subtree (True).</p>
       </li>
   </ul>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -6503,6 +6588,7 @@ the whole <code>path</code>'s subtree (True).</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -6571,6 +6657,8 @@ will contain their metadata here, folder nodes will contain their contained file
 <a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a><span class="p">}</span>
 </code></pre></div>
 </details>
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -6602,6 +6690,8 @@ do one step down into sub folders to be able to populate the <code>children</cod
       </li>
   </ul>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -6617,6 +6707,7 @@ do one step down into sub folders to be able to populate the <code>children</cod
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6630,6 +6721,8 @@ do one step down into sub folders to be able to populate the <code>children</cod
   <div class="doc doc-contents ">
   
       <p>Moves the file <code>source</code> to <code>destination</code></p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -6651,6 +6744,8 @@ do one step down into sub folders to be able to populate the <code>children</cod
       </li>
   </ul>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -6666,6 +6761,7 @@ do one step down into sub folders to be able to populate the <code>children</cod
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6679,6 +6775,8 @@ do one step down into sub folders to be able to populate the <code>children</cod
   <div class="doc doc-contents ">
   
       <p>Moves the folder <code>source</code> to <code>destination</code></p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -6700,6 +6798,8 @@ do one step down into sub folders to be able to populate the <code>children</cod
       </li>
   </ul>
 
+
+
   <p>Returns:</p>
   <ul>
       <li class="field-body">
@@ -6714,6 +6814,7 @@ do one step down into sub folders to be able to populate the <code>children</cod
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -6730,6 +6831,8 @@ do one step down into sub folders to be able to populate the <code>children</cod
       <p>Retrieves the equivalent in the storage adapter for <code>path</code>.</p>
 <p>Opposite of <code>path_on_disk</code>.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -6741,6 +6844,8 @@ do one step down into sub folders to be able to populate the <code>children</cod
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -6756,6 +6861,7 @@ do one step down into sub folders to be able to populate the <code>children</cod
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -6777,6 +6883,8 @@ raise an <a class="autorefs autorefs-external" href="https://docs.python.org/3/l
 </div>
 <p>Opposite of <code>path_in_storage</code>.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -6788,6 +6896,8 @@ raise an <a class="autorefs autorefs-external" href="https://docs.python.org/3/l
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -6804,6 +6914,7 @@ raise an <a class="autorefs autorefs-external" href="https://docs.python.org/3/l
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6817,6 +6928,8 @@ raise an <a class="autorefs autorefs-external" href="https://docs.python.org/3/l
   <div class="doc doc-contents ">
   
       <p>Removes additional metadata under <code>key</code> for <code>name</code> on <code>path</code></p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -6842,6 +6955,7 @@ raise an <a class="autorefs autorefs-external" href="https://docs.python.org/3/l
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6857,6 +6971,8 @@ raise an <a class="autorefs autorefs-external" href="https://docs.python.org/3/l
       <p>Removes the file at <code>path</code></p>
 <p>Will also take care of deleting the corresponding entries
 in the metadata and deleting all links pointing to the file.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -6874,6 +6990,7 @@ in the metadata and deleting all links pointing to the file.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6887,6 +7004,8 @@ in the metadata and deleting all links pointing to the file.</p>
   <div class="doc doc-contents ">
   
       <p>Removes the folder at <code>path</code></p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -6913,6 +7032,7 @@ be raised if the folder is not empty (apart from any metadata files) when it's t
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6926,6 +7046,8 @@ be raised if the folder is not empty (apart from any metadata files) when it's t
   <div class="doc doc-contents ">
   
       <p>Removes the link consisting of <code>rel</code> and <code>data</code> from file <code>path</code>.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -6959,6 +7081,7 @@ be raised if the folder is not empty (apart from any metadata files) when it's t
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -6975,6 +7098,8 @@ be raised if the folder is not empty (apart from any metadata files) when it's t
 <p>The <code>path</code> may consist of both folder and file name, the underlying
 implementation must separate those if necessary and sanitize individually.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -6986,6 +7111,8 @@ implementation must separate those if necessary and sanitize individually.</p>
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -7002,6 +7129,7 @@ implementation must separate those if necessary and sanitize individually.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -7016,6 +7144,8 @@ implementation must separate those if necessary and sanitize individually.</p>
   
       <p>Sanitizes the given file <code>name</code>, stripping it of all invalid characters.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -7027,6 +7157,8 @@ implementation must separate those if necessary and sanitize individually.</p>
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -7043,6 +7175,7 @@ implementation must separate those if necessary and sanitize individually.</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -7057,6 +7190,8 @@ implementation must separate those if necessary and sanitize individually.</p>
   
       <p>Sanitizes the given folder-only <code>path</code>, stripping it of all invalid characters.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -7068,6 +7203,8 @@ implementation must separate those if necessary and sanitize individually.</p>
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>
@@ -7083,6 +7220,7 @@ implementation must separate those if necessary and sanitize individually.</p>
   </div>
 
 </div>
+
 
 <div class="doc doc-object doc-function">
 
@@ -7100,6 +7238,8 @@ implementation must separate those if necessary and sanitize individually.</p>
 <p>If <code>overwrite</code> is set and <code>key</code> already exists in <code>path</code>'s metadata, the current value will be overwritten.</p>
 <p>If <code>merge</code> is set and <code>key</code> already exists and both <code>data</code> and the existing data under <code>key</code> are dictionaries,
 the two dictionaries will be merged recursively.</p>
+
+
 
   <p>Parameters:</p>
   <ul>
@@ -7150,6 +7290,7 @@ they will be merged</p>
 
 </div>
 
+
 <div class="doc doc-object doc-function">
 
 
@@ -7164,6 +7305,8 @@ they will be merged</p>
   
       <p>Split <code>path</code> into base directory and file name.</p>
 
+
+
   <p>Parameters:</p>
   <ul>
       <li class="field-body">
@@ -7175,6 +7318,8 @@ they will be merged</p>
         </div>
       </li>
   </ul>
+
+
 
   <p>Returns:</p>
   <ul>
