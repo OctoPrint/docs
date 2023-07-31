@@ -44,7 +44,7 @@ jobs:
           export OCTOPRINT_SRC="${{ github.workspace }}/OctoPrint/src"
           poetry run mkdocs build
         env:
-          SITE_URL: https://octoprint.github.io/docs/
+          SITE_URL: https://mkdocs.octoprint.org
 
       - name: 🚀 Deploy page
         uses: peaceiris/actions-gh-pages@v3
