@@ -549,13 +549,13 @@ mkdocs = ">=1.0.3"
 
 [[package]]
 name = "mkdocs-site-urls"
-version = "0.1.0"
+version = "0.2.0"
 description = "A MkDocs plugin that adds support for site-relative URLs"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "mkdocs-site-urls-0.1.0.tar.gz", hash = "sha256:020245ac23b7ce65181821bbb3f7d7a46c62d4efa3ff3b1b6472faba903c032c"},
-    {file = "mkdocs_site_urls-0.1.0-py2.py3-none-any.whl", hash = "sha256:94b992f0cba992e7f4c244965e252abc8bcc21e14a88396075d5c72f2ce88277"},
+    {file = "mkdocs-site-urls-0.2.0.tar.gz", hash = "sha256:1a2a1363e55de0bb9818984ae544a6f2f48a851d0112ebe097ad392eeaaf1cec"},
+    {file = "mkdocs_site_urls-0.2.0-py2.py3-none-any.whl", hash = "sha256:675cdf9c3f759620edfb3011cc75226daf106593548c93ee568feb5ffd3cc089"},
 ]
 
 [[package]]
@@ -636,29 +636,29 @@ files = [
 
 [[package]]
 name = "pathspec"
-version = "0.11.1"
+version = "0.11.2"
 description = "Utility library for gitignore style pattern matching of file paths."
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "pathspec-0.11.1-py3-none-any.whl", hash = "sha256:d8af70af76652554bd134c22b3e8a1cc46ed7d91edcdd721ef1a0c51a84a5293"},
-    {file = "pathspec-0.11.1.tar.gz", hash = "sha256:2798de800fa92780e33acca925945e9a19a133b715067cf165b8866c15a31687"},
+    {file = "pathspec-0.11.2-py3-none-any.whl", hash = "sha256:1d6ed233af05e679efb96b1851550ea95bbb64b7c490b0f5aa52996c11e92a20"},
+    {file = "pathspec-0.11.2.tar.gz", hash = "sha256:e0d8d0ac2f12da61956eb2306b69f9469b42f4deb0f3cb6ed47b9cce9996ced3"},
 ]
 
 [[package]]
 name = "platformdirs"
-version = "3.9.1"
+version = "3.10.0"
 description = "A small Python package for determining appropriate platform-specific dirs, e.g. a \"user data dir\"."
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "platformdirs-3.9.1-py3-none-any.whl", hash = "sha256:ad8291ae0ae5072f66c16945166cb11c63394c7a3ad1b1bc9828ca3162da8c2f"},
-    {file = "platformdirs-3.9.1.tar.gz", hash = "sha256:1b42b450ad933e981d56e59f1b97495428c9bd60698baab9f3eb3d00d5822421"},
+    {file = "platformdirs-3.10.0-py3-none-any.whl", hash = "sha256:d7c24979f292f916dc9cbf8648319032f551ea8c49a4c9bf2fb556a02070ec1d"},
+    {file = "platformdirs-3.10.0.tar.gz", hash = "sha256:b45696dab2d7cc691a3226759c0d3b00c47c8b6e293d96f6436f733303f77f6d"},
 ]
 
 [package.extras]
-docs = ["furo (>=2023.5.20)", "proselint (>=0.13)", "sphinx (>=7.0.1)", "sphinx-autodoc-typehints (>=1.23,!=1.23.4)"]
-test = ["appdirs (==1.4.4)", "covdefaults (>=2.3)", "pytest (>=7.3.1)", "pytest-cov (>=4.1)", "pytest-mock (>=3.10)"]
+docs = ["furo (>=2023.7.26)", "proselint (>=0.13)", "sphinx (>=7.1.1)", "sphinx-autodoc-typehints (>=1.24)"]
+test = ["appdirs (==1.4.4)", "covdefaults (>=2.3)", "pytest (>=7.4)", "pytest-cov (>=4.1)", "pytest-mock (>=3.11.1)"]
 
 [[package]]
 name = "pydantic"
@@ -1145,4 +1145,4 @@ bracex = ">=2.1.1"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "78574ce592afed461546006b76595f926e85813b9fc76ff151b68d2e60dff230"
+content-hash = "a4b88ed433c869c1575c72912c0c4bd0da4bebe9ab7b6353f9301f3a04bfd800"
