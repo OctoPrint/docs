@@ -55,7 +55,7 @@ jobs:
       - name: ⬆ Upload pages artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: ./site
+          path: ./docs/site
 
   publish:
     name: Publish
