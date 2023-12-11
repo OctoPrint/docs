@@ -92,6 +92,7 @@ markdown_extensions:
   - toc:
       permalink: "#"
   - "extensions.markdown.version"
+  - "extensions.markdown.pydantic"
 
 nav:
   - Home: index.md
@@ -106,10 +107,10 @@ nav:
       - Plugins: user-guide/features/plugins.md
       - Safe mode: user-guide/features/safe-mode.md
     - Configuration: 
-      - A YAML primer: user-guide/configuration/yaml-primer.md
       - "Main configuration: config.yaml": user-guide/configuration/config-yaml.md
       - "Logging configuration: logging.yaml": user-guide/configuration/logging-yaml.md
       - CLI: user-guide/configuration/cli.md
+      - A YAML primer: user-guide/configuration/yaml-primer.md
   - Plugin Development Guide: 
     - plugin-guide/index.md
     - plugin-guide/tutorial.md
