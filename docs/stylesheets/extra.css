@@ -62,3 +62,16 @@ a.autorefs-external:hover::after {
 .highlight .gp, .highlight .go { /* Generic.Prompt, Generic.Output */
     user-select: none;
 }
+
+/* Banner */
+.banner {
+    background-color: #ffe761;
+    color: #111111;
+    padding: 0.5rem;
+    font-size: 14px;
+    text-align: center;
+    font-weight: 600;
+}
+.banner a {
+    text-decoration: underline;
+}

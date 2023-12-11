@@ -1,10 +1,20 @@
 {% extends "base.html" %}
 
+{% block header %}
+  <!-- custom header -->
+  <div class="banner">
+    You are looking at a work in progress OctoPrint documentation rewrite 
+    that may be incomplete and/or contain errors. The current official documentation 
+    can be found <a href="https://docs.octoprint.org">at docs.octoprint.org</a>.
+  </div>
+
+  <!-- original header -->
+  {% include "partials/header.html" %}
+{% endblock %}
+
 {% block outdated %}
   You're not viewing the latest version.
   <a href="{{ '../' ~ base_url }}"> 
-
-
     <strong>Click here to go to latest.</strong>
   </a>
 {% endblock %}
